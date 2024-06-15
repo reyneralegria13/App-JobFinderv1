@@ -1,6 +1,6 @@
 # **Histórias do usuário**
 
-## História de Usuário 1: Encontrar Vagas de Emprego Disponíveis
+## História de Usuário 1: 
 Como usuário, quero encontrar facilmente vagas de emprego disponíveis na minha
 profissão, para que eu possa garantir que minha família não passe por dificuldades.
 ### Critérios de Aceitação:
@@ -18,7 +18,7 @@ dúvidas em tempo real sobre como usar a plataforma.
 6. Atalhos: Deve haver atalhos visíveis e fáceis de usar para acessar rapidamente a busca
 de vagas, com ícones representativos e bem localizados na interface.
 
-## História de Usuário 2: Verificar Vagas Disponíveis na Região
+## História de Usuário 2:
 Como usuário , quero verificar as vagas disponíveis na minha região, para que eu possa
 encontrar trabalho perto de casa e reduzir o tempo de deslocamento.
 ### Critérios de Aceitação:
@@ -36,7 +36,7 @@ depois.
 comentários e avaliações sobre as empresas, ajudando a tomar uma decisão
 informada.
 
-## História de Usuário 3: Aprimorar Habilidades na Profissão
+## História de Usuário 3:
 Como usuário, quero acessar facilmente tutoriais para aprimorar minhas habilidades na
 minha profissão para que eu possa me tornar mais competente e aumentar minhas chances
 de conseguir bons empregos.
@@ -54,7 +54,7 @@ deve recomendar tutoriais relevantes.
 6. Feedback de Usuários: Cada tutorial deve ter uma seção de comentários e avaliações
 para que João veja o feedback de outros profissionais.
 
-## História de Usuário 4: Atualização com Novas Tecnologias para RH
+## História de Usuário 4: 
 Como usuário, quero me atualizar com novas tecnologias para atrair a melhor qualidade de
 funcionários para a empresa, para que a mesma possa se manter competitiva e não ser
 ultrapassada pela concorrência.
@@ -73,7 +73,7 @@ sobre as tecnologias e práticas recomendadas.
 6. Biblioteca de Vídeos: Uma biblioteca de vídeos com filtros por categoria, duração e data
 de publicação para Luiz selecionar os conteúdos que mais lhe interessam.
 
-## História de Usuário 5: Escolha de Categorias de Funcionários e Experiências
+## História de Usuário 5: 
 Como usuário, quero escolher facilmente as categorias de funcionários e suas experiências,
 para que eu possa recrutar os melhores talentos que atendam às necessidades específicas
 da empresa.
@@ -94,7 +94,7 @@ facilitando o retorno a pesquisas passadas e a reutilização de filtros.
 6. Feedback Visual: Utilizar gráficos e diagramas para mostrar a distribuição de habilidades
 e experiências dos candidatos, ajudando Luiz a tomar decisões informadas rapidamente.
 
-## História de Usuário 6: Acompanhamento de Notícias do Mercado de Empresas
+## História de Usuário 6: 
 Como usuário, quero acompanhar notícias atualizadas sobre o mercado de empresas, para
 que eu possa estar sempre informado e tomar decisões estratégicas baseadas nas
 tendências de mercado.
@@ -125,24 +125,92 @@ uma região específica.
 3. As vagas de emprego devem ser filtradas para mostrar apenas aquelas dentro da
 região especificada por Denise.
 ## História de Usuário 8:
-1. Como técnica em enfermagem, eu quero ver vagas de emprego específicas para minha profissão,Para que eu possa me
+ Como técnica em enfermagem, eu quero ver vagas de emprego específicas para minha profissão,Para que eu possa me
 concentrar nas oportunidades que são relevantes para minha área de atuação.
 ### Critérios de Aceitação:
-2. O usuário  deve poder selecionar a sua profissão de
+1. O usuário  deve poder selecionar a sua profissão de
 interesse.
-3. O aplicativo deve filtrar e exibir apenas vagas de emprego relacionadas à área de
+2. O aplicativo deve filtrar e exibir apenas vagas de emprego relacionadas à área de
 escolhida.
-4. As vagas devem incluir detalhes específicos da posição e requisitos para facilitar a
+3. As vagas devem incluir detalhes específicos da posição e requisitos para facilitar a
 decisão de candidatura.
 ## História de Usuário 9:
-1.Como uma usuária ativa de redes sociais que valoriza a qualidade das imagens, eu
+Como uma usuária ativa de redes sociais que valoriza a qualidade das imagens, eu
 quero que o aplicativo mantenha a qualidade das fotos que envio para o meu
 perfil,para que minha presença no aplicativo seja visualmente atrativa e profissional.
 ### Critérios de Aceitação:
-2. Denise deve poder enviar fotos para seu perfil no aplicativo sem perda significativa
+1. Denise deve poder enviar fotos para seu perfil no aplicativo sem perda significativa
 de qualidade.
-3. As fotos enviadas devem ser exibidas em alta resolução tanto no perfil quanto nas
+2. As fotos enviadas devem ser exibidas em alta resolução tanto no perfil quanto nas
 candidaturas.
-4. O aplicativo deve fornecer feedback sobre a qualidade da imagem após o upload.
+3. O aplicativo deve fornecer feedback sobre a qualidade da imagem após o upload.
+
+## História de Usuário 10:
+ Como Thiago, um técnico em informática recém-formado,eu quero encontrar vagas
+de emprego que aceitem candidatos com pouca ou nenhuma experiência,Para que
+eu possa iniciar minha carreira e ganhar experiência na área.
+### Critérios de Aceitação:
+1. O aplicativo deve permitir a seleção de um filtro para vagas que aceitem candidatos
+com pouca experiência.
+2. As vagas de emprego devem ser filtradas para mostrar apenas aquelas que não
+exigem muita experiência ou que são destinadas a recém-formados.
+## História de Usuário 11:
+Como Thiago, um jovem técnico em informática em busca de conhecimento
+contínuo,eu quero acessar informações detalhadas sobre as vagas de emprego,
+incluindo requisitos e responsabilidades,para que eu possa me preparar
+adequadamente e entender melhor as expectativas da posição.
+### Critérios de Aceitação:
+1. Thiago deve poder clicar em uma vaga de emprego para ver uma descrição
+detalhada.
+2. A descrição da vaga deve incluir informações sobre os requisitos de experiência,
+habilidades necessárias e responsabilidades do cargo.
+3. O aplicativo deve permitir que Thiago salve ou marque vagas de interesse para
+revisão posterior.
+## História de Usuário 12:
+Como Thiago, um técnico em informática que valoriza a comunicação e interação,eu
+quero interagir com outros candidatos e profissionais da área dentro do
+aplicativo,para que eu possa trocar experiências, obter dicas e expandir minha rede
+profissional.
+### Critérios de Aceitação:
+1. Thiago deve poder acessar uma seção de comunidade ou fórum dentro do
+aplicativo.
+2. O aplicativo deve permitir a criação e participação em discussões relacionadas a
+vagas de emprego, entrevistas e desenvolvimento profissional.
+3. Thiago deve receber notificações de respostas às suas postagens e interações
+relevantes
+
+## História de Usuário 13:
+Como um gerente de RH que enfrenta dificuldades na contratação de funcionários
+qualificados, eu quero poder filtrar candidatos com base em qualificações e
+experiências específicas, para que eu possa encontrar os melhores candidatos para
+as vagas da minha empresa.
+### Critérios de Aceitação:
+1. Carlos deve poder acessar uma interface de busca de candidatos.
+2. O aplicativo deve permitir a seleção de filtros como nível de experiência, qualificação
+e habilidades específicas.
+3. Os resultados devem exibir apenas candidatos que atendam aos critérios
+estabelecidos por Carlos.
+## História de Usuário 14:
+ Como um gerente de RH que gosta de aprimorar seus conhecimentos,eu quero
+receber notificações de vídeos e conteúdos relevantes sobre práticas de
+recrutamento e seleção,para que eu possa melhorar continuamente minhas
+habilidades na área de RH.
+### Critérios de Aceitação:
+1. Carlos deve poder configurar suas preferências de notificação para receber
+conteúdos relacionados a RH.
+2. O aplicativo deve enviar notificações sobre novos vídeos, artigos e cursos relevantes
+para suas preferências.
+3. Carlos deve poder acessar e visualizar esses conteúdos diretamente no aplicativo.
+## História de Usuário 15:
+Como um gerente de RH que prefere um processo passo a passo para evitar erros
+nas contratações, eu quero ter um guia passo a passo para a análise e seleção de
+candidatos,para que eu possa seguir um processo estruturado e reduzir a chance de
+erros.
+### Critérios de Aceitação:
+1. Carlos deve ter acesso a um guia passo a passo dentro do aplicativo.
+2. O guia deve cobrir etapas desde a triagem inicial dos candidatos até a entrevista
+final e oferta de emprego.
+2. O aplicativo deve fornecer lembretes e checklist para cada etapa do processo para
+garantir que nenhuma etapa seja esquecida.
 
 Os requisitos do sistema podem ser verificados nesse [link](https://github.com/users/reyneralegria13/projects/1)
