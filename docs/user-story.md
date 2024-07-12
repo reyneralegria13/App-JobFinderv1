@@ -1,29 +1,30 @@
 # **Histórias do usuário**
 
-## História de Usuário 1: 
-
+## História de Usuário 1:
+Como um novo usuário, eu quero realizar um cadastro no aplicativo para que eu possa procurar e me candidatar a vagas de emprego na minha região
 ### Critérios de Aceitação:
-
+1. O usuário deve fazer seu cadastro inicial com email ou número de telefone e uma senha de no máximo 10 caracteres, incluindo uma letra maiuscula, um caractere especial e um número.
+2. Para sua segurança, o usuário deve scanear e enviar algum documento seu (RG, CPF, CNH ou Passaporte) para que não haja problemas de login e melhoria na segurança de sua conta.
 
 ## História de Usuário 2:
 Como usuário do aplicativo,quero ter acesso a um canal de suporte eficiente para solucionar problemas e tirar minhas dúvidas, para que eu possa utilizar o aplicativo de forma tranquila sem qualquer problema.
 ### Critérios de Aceitação:
-O usuário deve ter acesso a um canal de suporte dentro do próprio aplicativo, como
+1. O usuário deve ter acesso a um canal de suporte dentro do próprio aplicativo, como
 chat online, FAQ ou formulário de contato. O canal de suporte deve estar disponível
 24 horas por dia, 7 dias por semana.
-Devo receber uma resposta do suporte dentro de um prazo razoável, como 15
+2. Devo receber uma resposta do suporte dentro de um prazo razoável, como 15
 minutos para chat online e 24 horas para email.
-A equipe de suporte deve ser qualificada e capaz de solucionar meus problemas e
+3. A equipe de suporte deve ser qualificada e capaz de solucionar meus problemas e
 responder às minhas dúvidas de forma eficaz.
-O suporte deve oferecer diferentes opções de resolução de problemas, como
+3. O suporte deve oferecer diferentes opções de resolução de problemas, como
 instruções passo a passo, tutoriais em vídeo ou agendamento de uma chamada com
 um técnico.
-O suporte deve ser capaz de documentar os problemas e soluções para que outros
+4. O suporte deve ser capaz de documentar os problemas e soluções para que outros
 usuários possam se beneficiar das mesmas informações.
-O usuário deve poder avaliar a qualidade do suporte que recebeu, fornecendo
+5. O usuário deve poder avaliar a qualidade do suporte que recebeu, fornecendo
 feedback à equipe.
 ### Regras de Negócio:
-A equipe de suporte deve manter a confidencialidade das informações dos usuários.
+1. A equipe de suporte deve manter a confidencialidade das informações dos usuários.
 
 ## História de Usuário 3: 
 Como empregador, quero acompanhar notícias atualizadas sobre o mercado de empresas, para
