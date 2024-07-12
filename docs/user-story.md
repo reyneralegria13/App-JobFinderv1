@@ -7,24 +7,11 @@ Como um novo usuário, eu quero realizar um cadastro no aplicativo para que eu p
 2. Para sua segurança, o usuário deve scanear e enviar algum documento seu (RG, CPF, CNH ou Passaporte) para que não haja problemas de login e melhoria na segurança de sua conta.
 
 ## História de Usuário 2:
-Como usuário do aplicativo,quero ter acesso a um canal de suporte eficiente para solucionar problemas e tirar minhas dúvidas, para que eu possa utilizar o aplicativo de forma tranquila sem qualquer problema.
+Como uma usuária ativa de redes sociais que valoriza a qualidade das imagens, eu quero que o aplicativo mantenha a qualidade das fotos que envio para o meu perfil, para que minha presença no aplicativo seja visualmente atrativa e profissional.
 ### Critérios de Aceitação:
-1. O usuário deve ter acesso a um canal de suporte dentro do próprio aplicativo, como
-chat online, FAQ ou formulário de contato. O canal de suporte deve estar disponível
-24 horas por dia, 7 dias por semana.
-2. Devo receber uma resposta do suporte dentro de um prazo razoável, como 15
-minutos para chat online e 24 horas para email.
-3. A equipe de suporte deve ser qualificada e capaz de solucionar meus problemas e
-responder às minhas dúvidas de forma eficaz.
-3. O suporte deve oferecer diferentes opções de resolução de problemas, como
-instruções passo a passo, tutoriais em vídeo ou agendamento de uma chamada com
-um técnico.
-4. O suporte deve ser capaz de documentar os problemas e soluções para que outros
-usuários possam se beneficiar das mesmas informações.
-5. O usuário deve poder avaliar a qualidade do suporte que recebeu, fornecendo
-feedback à equipe.
-### Regras de Negócio:
-1. A equipe de suporte deve manter a confidencialidade das informações dos usuários.
+1. O aplicativo deve suportar o upload de fotos nos formatos JPEG, PNG e HEIC. Otamanho máximo permitido para cada foto deve ser de 10 MB. O aplicativo deve manter a resolução original da foto até um limite máximo de 4096x4096 pixels.Caso a foto exceda limite de tamanho ou resolução, o aplicativo deve redimensioná-la automaticamente, utilizando algoritmos de compressão que preservem a qualidade da imagem.
+2. As fotos enviadas devem ser exibidas em alta resolução (pelo menos 1080x1080 pixels) no perfil do usuário e nas candidaturas enviadas. O aplicativo deve utilizar técnicas de carregamento progressivo ou lazy loading para otimizar o tempo de carregamento das imagens em conexões mais lentas.
+3. Após o upload da foto, o aplicativo deve exibir uma mensagem de confirmação indicando se a qualidade da imagem é adequada para o perfil e as candidaturas. Caso a qualidade da imagem seja considerada baixa (ex: resolução muito baixa, imagem borrada), o aplicativo deve exibir um alerta com sugestões para melhorar a qualidade da foto (ex: tirar uma nova foto com melhor iluminação, usar um formato de arquivo diferente). O aplicativo deve exibir um ícone de aviso ao lado da foto caso a qualidade seja considerada baixa.
 
 ## História de Usuário 3: 
 Como empregador, quero acompanhar notícias atualizadas sobre o mercado de empresas, para
@@ -85,11 +72,24 @@ Como técnica em enfermagem, quero ver vagas de emprego específicas para minha 
  site).
 
 ## História de Usuário 6:
-Como uma usuária ativa de redes sociais que valoriza a qualidade das imagens, eu quero que o aplicativo mantenha a qualidade das fotos que envio para o meu perfil, para que minha presença no aplicativo seja visualmente atrativa e profissional.
+Como usuário do aplicativo,quero ter acesso a um canal de suporte eficiente para solucionar problemas e tirar minhas dúvidas, para que eu possa utilizar o aplicativo de forma tranquila sem qualquer problema.
 ### Critérios de Aceitação:
-1. O aplicativo deve suportar o upload de fotos nos formatos JPEG, PNG e HEIC. Otamanho máximo permitido para cada foto deve ser de 10 MB. O aplicativo deve manter a resolução original da foto até um limite máximo de 4096x4096 pixels.Caso a foto exceda limite de tamanho ou resolução, o aplicativo deve redimensioná-la automaticamente, utilizando algoritmos de compressão que preservem a qualidade da imagem.
-2. As fotos enviadas devem ser exibidas em alta resolução (pelo menos 1080x1080 pixels) no perfil do usuário e nas candidaturas enviadas. O aplicativo deve utilizar técnicas de carregamento progressivo ou lazy loading para otimizar o tempo de carregamento das imagens em conexões mais lentas.
-3. Após o upload da foto, o aplicativo deve exibir uma mensagem de confirmação indicando se a qualidade da imagem é adequada para o perfil e as candidaturas. Caso a qualidade da imagem seja considerada baixa (ex: resolução muito baixa, imagem borrada), o aplicativo deve exibir um alerta com sugestões para melhorar a qualidade da foto (ex: tirar uma nova foto com melhor iluminação, usar um formato de arquivo diferente). O aplicativo deve exibir um ícone de aviso ao lado da foto caso a qualidade seja considerada baixa.
+1. O usuário deve ter acesso a um canal de suporte dentro do próprio aplicativo, como
+chat online, FAQ ou formulário de contato. O canal de suporte deve estar disponível
+24 horas por dia, 7 dias por semana.
+2. Devo receber uma resposta do suporte dentro de um prazo razoável, como 15
+minutos para chat online e 24 horas para email.
+3. A equipe de suporte deve ser qualificada e capaz de solucionar meus problemas e
+responder às minhas dúvidas de forma eficaz.
+3. O suporte deve oferecer diferentes opções de resolução de problemas, como
+instruções passo a passo, tutoriais em vídeo ou agendamento de uma chamada com
+um técnico.
+4. O suporte deve ser capaz de documentar os problemas e soluções para que outros
+usuários possam se beneficiar das mesmas informações.
+5. O usuário deve poder avaliar a qualidade do suporte que recebeu, fornecendo
+feedback à equipe.
+### Regras de Negócio:
+1. A equipe de suporte deve manter a confidencialidade das informações dos usuários.
 
 ## História de Usuário 7:
 Como técnico recém-formado, quero encontrar vagas de emprego que aceitem candidatos com pouca ou nenhuma experiência, para que eu possa iniciar minha carreira e ganhar experiência na área.
