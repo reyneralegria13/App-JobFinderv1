@@ -3,16 +3,17 @@
 |-------------|-------------|
 | **Versão:**|1.0 |
 | **Status:** | Elicitação de Requisitos |
-| **Versão:**|1.0 |
 | **Executor Principal:**| Mayro Oliveira Sá |
 | **Coordenador do Projeto:**| Andey Rodrigues|
 
 ## HISTÓRICO DE VERSÕES
 |Versão | Descrição|Autor | Data|
 |-------------|-------------|-------------|-------------|
-|1.0 | Elaboração do Plano de Trabalho|Autor | Data|
-|||||
-|||||
+|1.0 | Elaboração do Plano de Trabalho|Reyner Alegria | 07/06/2024|
+|1.0|Criação do Backlog do Produto|Reyner Alegria|17/06/2024|
+|1.0|Inspeção externa|Anônimo|03/07/2024|
+|1.0|Correção do Backlog do produto|João Paulo|03/07/2024|
+|1.0|Arquitetura do Sistema|Reyner Alegria|03/07/2024|
 
 ## ÍNDICE
 
