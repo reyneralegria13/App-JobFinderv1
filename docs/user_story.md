@@ -106,7 +106,7 @@ Como técnico em busca de conhecimento contínuo, quero acessar informações de
 3. O usuário deve poder salvar ou marcar as vagas de interesse clicando/tocando em umícone de "favorito" (ex: coração, estrela) na página de descrição detalhada da vaga ou na lista de resultados da busca. As vagas salvas/marcadas devem ser armazenadas em uma lista separada, acessível a partir do menu do aplicativo. O usuário deve poder remover uma vaga da lista de salvos/marcados a qualquer momento.
 
 ## História de Usuário 9:
-Como técnico que valoriza a comunicação e interação, querointeragir com outros candidatos e profissionais da área dentro do aplicativo, para que eu possa trocar experiências, obter dicas e expandir minha rede profissional.
+Como técnico que valoriza a comunicação e interação, quero interagir com outros candidatos e profissionais da área dentro do aplicativo, para que eu possa trocar experiências, obter dicas e expandir minha rede profissional.
 ### Critérios de Aceitação:
 1. O usuário deve poder acessar a seção de comunidade/fórum a partir da página inicial ou do menu principal do aplicativo. A seção deve ser claramente identificada com um nome como "Comunidade", "Fórum" ou "Discussões".
 2. O usuário deve poder criar novas discussões em diferentes categorias (ex: "Vagas de Emprego", "Dicas de Entrevista", "Desenvolvimento Profissional").
