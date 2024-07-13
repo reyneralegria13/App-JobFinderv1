@@ -15,52 +15,30 @@
 |1.0|Correção do Backlog do produto|João Paulo|03/07/2024|
 |1.0|Arquitetura do Sistema|Reyner Alegria|03/07/2024|
 
-## ÍNDICE
-
 ### 1.	INTRODUÇÃO
-  O mercado de trabalho está em constante evolução, e a busca por empregos locais pode ser um desafio tanto para candidatos quanto para empregadores. Com o objetivo de facilitar esse processo, o aplicativo JobFinder foi idealizado para conectar candidatos a oportunidades de emprego em suas regiões de forma eficiente e intuitiva.
+ O mercado de trabalho está em constante evolução, e a busca por empregos locais pode ser 
+um desafio tanto para candidatos quanto para empregadores. Com o objetivo de facilitar esse processo, o aplicativo JobFinder foi idealizado para conectar candidatos a oportunidades de emprego em suas regiões de forma eficiente e intuitiva.
+
   Este plano de trabalho detalha as etapas necessárias para o desenvolvimento do JobFinder, incluindo o escopo do projeto, metodologia, fases de desenvolvimento, controle de mudanças, equipe envolvida e entregas esperadas. Através de uma abordagem estruturada e colaborativa, buscamos criar uma ferramenta que não apenas atenda às necessidades dos usuários, mas também se destaque pela sua usabilidade e funcionalidade.
 ### 1.1	Objeto
-O desenvolvimento de um aplicativo móvel chamado JobFinder, que visa facilitar a busca e a oferta de empregos locais. O aplicativo será projetado para conectar candidatos a oportunidades de emprego em suas regiões de forma eficiente e intuitiva, oferecendo funcionalidades como busca de vagas, filtros de pesquisa, notificações de novas vagas, criação e gerenciamento de perfil do usuário, e aplicação direta para vagas. O desenvolvimento do JobFinder seguirá uma abordagem estruturada e colaborativa, garantindo que o produto final atenda às necessidades dos usuários e se destaque pela sua usabilidade e funcionalidade.
+O desenvolvimento de um aplicativo móvel chamado JobFinder, que visa facilitar a busca e 
+a oferta de empregos locais. O aplicativo será projetado para conectar candidatos a oportunidades de emprego em suas regiões de forma eficiente e intuitiva, oferecendo funcionalidades como busca de vagas, filtros de pesquisa, notificações de novas vagas, criação e gerenciamento de perfil do usuário, e aplicação direta para vagas. O desenvolvimento do JobFinder seguirá uma abordagem estruturada e colaborativa, garantindo que o produto final atenda às necessidades dos usuários e se destaque pela sua usabilidade e funcionalidade.
 
 ### 1.2	Motivação, Justificativa e Oportunidade
 #### Motivação:
-A busca por empregos locais pode ser um processo desafiador e demorado tanto para candidatos quanto para empregadores. Muitos candidatos enfrentam dificuldades em encontrar vagas que correspondam às suas habilidades e preferências, enquanto empregadores têm dificuldade em atrair candidatos qualificados para suas vagas. A motivação para o desenvolvimento do JobFinder é criar uma plataforma que simplifique e agilize esse processo, conectando candidatos e empregadores de maneira eficiente e intuitiva.
+A busca por empregos locais pode ser um processo desafiador e demorado tanto para 
+candidatos quanto para empregadores. Muitos candidatos enfrentam dificuldades em encontrar 
+vagas que correspondam às suas habilidades e preferências, enquanto empregadores têm 
+dificuldade em atrair candidatos qualificados para suas vagas. A motivação para o desenvolvimento do JobFinder é criar uma plataforma que simplifique e agilize esse processo, conectando candidatos e empregadores de maneira eficiente e intuitiva. 
 #### Justificativa:
-A justificativa para o desenvolvimento do JobFinder baseia-se na necessidade crescente de ferramentas digitais que facilitem a busca por empregos locais. Com o aumento do uso de dispositivos móveis, um aplicativo dedicado a essa finalidade pode oferecer uma experiência mais acessível e conveniente para os usuários. Além disso, a plataforma pode ajudar a reduzir o tempo e os custos associados ao recrutamento, beneficiando tanto candidatos quanto empregadores.
+A justificativa para o desenvolvimento do JobFinder baseia-se na necessidade crescente de 
+ferramentas digitais que facilitem a busca por empregos locais. Com o aumento do uso de 
+dispositivos móveis, um aplicativo dedicado a essa finalidade pode oferecer uma experiência mais acessível e conveniente para os usuários. Além disso, a plataforma pode ajudar a reduzir o tempo e os custos associados ao recrutamento, beneficiando tanto candidatos quanto empregadores. 
 #### Oportunidade:
-O mercado de trabalho está em constante evolução, e há uma oportunidade significativa para um aplicativo como o JobFinder se destacar. Através da implementação de funcionalidades inovadoras, como filtros de pesquisa avançados, notificações personalizadas e avaliações de empregadores, o JobFinder pode atrair uma base de usuários ampla e diversificada. Além disso, parcerias com empresas locais e agências de recrutamento podem expandir ainda mais o alcance e a eficácia do aplicativo, tornando-o uma ferramenta indispensável no mercado de trabalho local]
+O mercado de trabalho está em constante evolução, e há uma oportunidade significativa 
+para um aplicativo como o JobFinder se destacar. Através da implementação de funcionalidades inovadoras, como filtros de pesquisa avançados, notificações personalizadas e avaliações de empregadores, o JobFinder pode atrair uma base de usuários ampla e diversificada. Além disso, parcerias com empresas locais e agências de recrutamento podem expandir ainda mais o alcance e a eficácia do aplicativo, tornando-o uma ferramenta indispensável no mercado de trabalho local 
 
 #### 1.3	Caracterização do Projeto
-O projeto JobFinder visa desenvolver um aplicativo móvel inovador que facilite a busca e a oferta de empregos locais. O aplicativo será projetado para atender tanto candidatos quanto empregadores, proporcionando uma plataforma eficiente e intuitiva para a conexão entre as partes.
-
-#### Funcionalidades Principais
-* Busca de Vagas: Permitir que os usuários busquem vagas de emprego por localização, categoria e palavra-chave.
-* Filtros de Pesquisa: Oferecer filtros avançados para refinar os resultados da busca, como faixa salarial, tipo de contrato, nível de experiência, entre outros.
-* Notificações: Enviar notificações personalizadas sobre novas vagas que correspondam ao perfil e preferências do usuário.
-* Perfil do Usuário: Permitir que os candidatos criem e gerenciem seus perfis, incluindo informações pessoais, experiências profissionais, habilidades e preferências de emprego.
-* Aplicação Direta: Facilitar a aplicação direta para vagas através do aplicativo, com a possibilidade de anexar currículos e cartas de apresentação.
-* Avaliações e Comentários: Permitir que os usuários avaliem e comentem sobre os empregadores, ajudando outros candidatos a tomar decisões informadas.
-
-#### Público-Alvo
-*	Candidatos a Emprego: Pessoas em busca de oportunidades de emprego locais, desde recém-formados até profissionais experientes.
-*	Empregadores: Empresas e organizações que desejam divulgar vagas de emprego e encontrar candidatos qualificados em suas regiões.
-
-#### Tecnologias Utilizadas
-* Plataformas: Desenvolvimento para iOS e Android.
-*	Linguagens de Programação: Swift (iOS), Kotlin (Android), e JavaScript (para funcionalidades web).
-*	Serviços de Backend: Utilização de serviços em nuvem para armazenamento de dados, autenticação de usuários e envio de notificações push.
-*	APIs: Integração com APIs de geolocalização, serviços de pagamento (para funcionalidades premium), e redes sociais (para login e compartilhamento).
-
-#### Benefícios Esperados
-*	Para Candidatos: Acesso fácil e rápido a oportunidades de emprego locais, com a possibilidade de personalizar a busca e receber notificações de novas vagas.
-*	Para Empregadores: Ferramenta eficaz para divulgar vagas e encontrar candidatos qualificados, com a possibilidade de receber avaliações e feedback dos candidatos.
-
-#### Diferenciais Competitivos
-*	Interface Intuitiva: Design focado na experiência do usuário, garantindo uma navegação simples e eficiente.
-*	Personalização: Funcionalidades que permitem personalizar a busca e as notificações de acordo com as preferências do usuário.
-*	Comunidade: Sistema de avaliações e comentários que cria uma comunidade de usuários engajados e informados.
-
 ### 1.3.1	Classe
 |Classe | Detalhamento |
 |-------------|-------------|
@@ -69,8 +47,7 @@ O projeto JobFinder visa desenvolver um aplicativo móvel inovador que facilite 
 ### 1.3.2	Enquadrabilidade
 | **Enquadrabilidade**| **Detalhamento** |
 |-------------|-------------|
-| **Aplicativo Social**|O JobFinder é um aplicativo social, pois visa conectar candidatos a oportunidades de emprego locais, facilitando a interação entre candidatos e empregadores e promovendo o desenvolvimento econômico e social nas comunidades locais.|
-| **Público-Alvo** | Candidatos a emprego e empregadores locais |
+| **Aplicativo Publico**|O aplicativo segue as regulamentações da (Lei Geral de Proteção de Dados) LGPD garantido os dados dos usuários sejam coletados, armazenados e processados de forma segura.|
 
 ### 1.3.3	Tipo
 |Tipo | Detalhamento |
@@ -92,21 +69,18 @@ O projeto JobFinder abrangerá o desenvolvimento de um aplicativo móvel destina
 *	Aplicação Direta: Funcionalidade que permita aos usuários aplicar diretamente para vagas através do aplicativo, com a possibilidade de anexar currículos e cartas de apresentação.
 *	Avaliações e Comentários: Sistema de avaliações e comentários sobre empregadores, ajudando outros candidatos a tomar decisões informadas.
 
-#### Plataformas:
-*	Desenvolvimento do aplicativo para as plataformas iOS e Android, garantindo uma experiência de usuário consistente em ambos os sistemas operacionais.
-*	Tecnologias Utilizadas:
-*	Utilização de linguagens de programação como Swift (iOS) e Kotlin (Android).
-*	Integração com serviços em nuvem para armazenamento de dados, autenticação de usuários e envio de notificações push.
-*	Integração com APIs de geolocalização para fornecer resultados de busca baseados na localização do usuário.
-Metodologia de Desenvolvimento:
-*	Adoção da metodologia ágil para garantir flexibilidade e adaptação às mudanças durante o desenvolvimento do projeto.
-*	Divisão do projeto em sprints de 2 semanas para entregas incrementais e revisões contínuas.
-Equipe de Projeto:
-*	Envolvimento de uma equipe multidisciplinar composta por gerentes de projeto, desenvolvedores, designers de UI/UX, testadores e analistas de negócios.
-Benefícios Esperados:
-*	Facilitação do processo de busca de emprego para candidatos, proporcionando uma plataforma intuitiva e eficiente.
+#### Metodologia de Desenvolvimento: 
+* Adoção da metodologia ágil para garantir flexibilidade e adaptação às mudanças durante o 
+desenvolvimento do projeto
+* Divisão do projeto em sprints de 2 semanas para entregas incrementais e revisões contínuas.
+  #### Equipe de Projeto: 
+* Envolvimento de uma equipe multidisciplinar composta por gerentes de projeto, desenvolvedores, designers de UI/UX, testadores e analistas de negócios.
+
+#### Benefícios Esperados: 
+* Facilitação do processo de busca de emprego para candidatos, proporcionando uma plataforma intuitiva e eficiente.
 * Auxílio aos empregadores na divulgação de vagas e na atração de candidatos qualificados.
-*	Promoção do desenvolvimento econômico e social nas comunidades locais através da conexão entre candidatos e oportunidades de emprego.
+* Promoção do desenvolvimento econômico e social nas comunidades locais através da conexão entre candidatos e oportunidades de emprego. 
+
 
 ### 2.2.1	Escopo Específico
 #### Funcionalidades Principais
@@ -157,10 +131,7 @@ Benefícios Esperados:
 *	Testes de usabilidade contínuos para identificar e corrigir problemas.
   
 #### Tecnologias Utilizadas:
-*	Plataformas: Desenvolvimento para iOS e Android.
-*	Linguagens de Programação: Swift (iOS), Kotlin (Android), e JavaScript (para funcionalidades web).
-*	Serviços de Backend: Utilização de serviços em nuvem para armazenamento de dados, autenticação de usuários e envio de notificações push.
-*	APIs: Integração com APIs de geolocalização, serviços de pagamento (para funcionalidades premium), e redes sociais (para login e compartilhamento).
+*Plataformas de desenvolvimento: GitHub, Astah, Figma e Draw.io 
 
 #### Segurança e Privacidade:
 *	Implementação de medidas de segurança para proteger os dados dos usuários.
@@ -171,7 +142,7 @@ Benefícios Esperados:
 *	Suporte ao usuário através de canais de atendimento (e-mail, chat, FAQ).
 
 ### 2.2.2	Escopo Negativo
-* escopo negativo define as funcionalidades e características que não serão incluídas no desenvolvimento do aplicativo JobFinder. Isso ajuda a estabelecer limites claros para o projeto e a evitar expectativas não realistas.
+* Escopo negativo define as funcionalidades e características que não serão incluídas no desenvolvimento do aplicativo JobFinder. Isso ajuda a estabelecer limites claros para o projeto e a evitar expectativas não realistas.
 
 #### Funcionalidades Excluídas
 *	Integração com Redes Sociais para Compartilhamento de Vagas:
@@ -196,6 +167,8 @@ Benefícios Esperados:
 * Funcionalidades de análise avançada de dados, como relatórios detalhados de desempenho de candidatos ou empregadores, não serão incluídas na versão inicial.
 Suporte Offline:
 *	O aplicativo não oferecerá suporte para uso offline; será necessário estar conectado à internet para acessar todas as funcionalidades.
+#### Suporte Offline: 
+* O aplicativo não oferecerá suporte para uso offline; será necessário estar conectado à internet para acessar todas as funcionalidades.
 
 #### Características Excluídas
 #### Personalização Extensiva da Interface:
@@ -210,21 +183,7 @@ Suporte Offline:
 #### Suporte a Dispositivos Wearables:
 *	O aplicativo não será compatível com dispositivos wearables, como smartwatches, na versão inicial.]
 
-### 2.3	Ambiente de Desenvolvimento
-### Ferramentas e Tecnologias
-| **Tipo**|**Modelo e Especificações** |
-|-------------|-------------|
-| Ferramentas de Desenvolvimento |  |
-| IDE | Android Studio, Xcode |
-| Linguagens de Programação| Kotlin (Android), Swift (iOS)|
-| Backend | Node.js, Expresss |
-| APIs|Geolocalização, Notificações Push, Autenticação de Usuários |
-| Serviços em Nuvem | Firebase (para autenticação e notificações), AWS S3 (para armazenamento de dados) |
-| Ferramentas de Design | Figma, Adobe XD |
-| Controle de Versão| Git, GitHub|
-| Testes | JUnit (para testes unitários), Espresso (para testes de UI no Android), XCTest (para testes de UI no iOS)|
-
-### 2.4	Características Inovadoras do Projeto
+### 2.3 Características Inovadoras do Projeto
 
 #### Sistema de Recomendação de Vagas:
 *	Utilização de inteligência artificial para recomendar vagas de emprego com base no perfil e nas preferências do usuário, aumentando a relevância das oportunidades apresentadas.
@@ -243,6 +202,7 @@ Suporte Offline:
 
 #### Filtros de Pesquisa Avançados:
 *	Filtros de pesquisa detalhados que permitem aos usuários refinar os resultados por faixa salarial, tipo de contrato, nível de experiência, entre outros critérios.
+  
 #### Geolocalização para Busca de Vagas:
 *	Integração com APIs de geolocalização para fornecer resultados de busca baseados na localização do usuário, facilitando a busca por empregos próximos.
   #### Aplicação Direta e Simplificada:
@@ -251,8 +211,8 @@ Suporte Offline:
 #### Segurança e Privacidade de Dados:
 *	Implementação de medidas robustas de segurança para proteger os dados dos usuários, garantindo conformidade com regulamentos de privacidade como GDPR e LGPD.
 
-### 2.5	Resultados Esperados
-####10.000 Downloads nos Primeiros Três Meses:
+### 2.4	Resultados Esperados
+#### 10.000 Downloads nos Primeiros Três Meses:
 *	Espera-se que o aplicativo JobFinder alcance 10.000 downloads nos primeiros três meses após o lançamento, indicando uma boa aceitação inicial no mercado.
 
 #### Aumento de 30% na Taxa de Contratação Local:
@@ -318,31 +278,34 @@ __Gerente de Projeto:__
 ### 3.2	Equipe de Projeto: Papéis e Responsabilidades dos integrantes
 | Responsabilidade|Profissional |
 |-------------|-------------|
-| Gerente de Projeto |  Mayro Sá|
-| Desenvolvedor Backend| João Paulo|
-| Desenvolvedor Frontend| Luís Augusto|
-| Designer de UX/UI |Reyner Alegria |
-| Tester|Ruben Reis|
+| Scrum Master |  Mayro Sá|
+| Modelador| João Paulo|
+|Analista de Requisitos  | Luís Augusto|
+| Prototipação  |Reyner Alegria |
+| Avaliador de Inspeção |Ruben Reis|
 
 ### 3.3	Fases, Atividades e Cronograma
 
-__Fase I: Especificação – Janeiro/Fevereiro:__
+__Fase I: Especificação – Junho:__
++ Definição do Escopo e Objetivos 
++ Levantamento de Requisitos 
++ Desenho do Modelo de Dados 
 
-__Fase II: Inspeção – Março/Abril:__
+__Fase II: Inspeção – Julho:__
 
-__Fase III: Projeto e Arquitetura – Maio/Junho:__
+__Fase III: Projeto e Arquitetura – Julho:__
 
 __Fase IV: Prototipagem e Refinamento – Julho:__
 
-__Fase V: Prototipagem e Refinamento – Agosto:__
+__Fase V: Prototipagem e Refinamento – Julho:__
 
-__Fase VI: Encerramento – Setembro__
+__Fase VI: Encerramento – Julho__
 
 ### 3.4	Entregas de cada Fase
 | Fase|Mês |Entregável |
 |-------------|-------------|-------------|
-| I.	Especificação  |  |  |
-| II.	Inspeção |  | |
+| I.	Especificação  |  Junho| Personas, User Stories, Critérios de Aceitação e Regras de Negócio  |
+| II.	Inspeção | Julho  | Planilha dos defeitos encontrados e relatório detalhado do processo de inspeção |
 | III.	Projeto e Arquitetura |  |  | 
 | IV.	Prototipagem e Refinamento|  |  | 
 | V.	Encerramento |  |  | 
