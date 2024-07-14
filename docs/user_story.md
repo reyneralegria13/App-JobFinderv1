@@ -6,6 +6,7 @@ Como um novo usuário, eu quero realizar um cadastro no aplicativo para que eu p
 1. O usuário deve fazer seu cadastro inicial com email ou número de telefone e uma senha de no máximo 10 caracteres, incluindo uma letra maiuscula, um caractere especial e um número.
 2. Para sua segurança, o usuário deve scanear e enviar algum documento seu (RG, CPF, CNH ou Passaporte) para que não haja problemas de login e melhoria na segurança de sua conta.
 3. O usuário deve poder adicionar suas experiências profissionais, incluindo seu título de cargo, empresa, data de início e término, sua formação profissional, idiomas caso o mesmo fale outras línguas como inglês, disponibilidade de tempo (integral ou meio período) e uma breve descrição das responsabilidades e realizações na última empresa.
+4. O usuário deve poder selecionar o tipo de conta (candidato ou empregador).
 
 ## História de Usuário 2:
 Como uma usuária ativa de redes sociais que valoriza a qualidade das imagens, eu quero que o aplicativo mantenha a qualidade das fotos que envio para o meu perfil, para que minha presença no aplicativo seja visualmente atrativa e profissional.
