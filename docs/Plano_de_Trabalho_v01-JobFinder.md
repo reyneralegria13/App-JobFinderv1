@@ -280,7 +280,7 @@ __Gerente de Projeto:__
 |-------------|-------------|
 | Scrum Master |  Mayro Sá|
 | Modelador| João Paulo|
-|Analista de Requisitos  | Luís Augusto|
+|Analista de Requisitos  | Luiz Augusto|
 | Prototipação  |Reyner Alegria |
 | Avaliador de Inspeção |Ruben Reis|
 
