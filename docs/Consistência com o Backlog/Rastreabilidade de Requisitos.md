@@ -13,7 +13,7 @@
 1. O aplicativo deve suportar o upload de fotos nos formatos JPEG, PNG e HEIC. Otamanho máximo permitido para cada foto deve ser de 10 MB. O aplicativo deve manter a resolução original da foto até um limite máximo de 4096x4096 pixels.Caso a foto exceda limite de tamanho ou resolução, o aplicativo deve redimensioná-la automaticamente, utilizando algoritmos de compressão que preservem a qualidade da imagem.
 2. As fotos enviadas devem ser exibidas em alta resolução (pelo menos 1080x1080 pixels) no perfil do usuário e nas candidaturas enviadas. O aplicativo deve utilizar técnicas de carregamento progressivo ou lazy loading para otimizar o tempo de carregamento das imagens em conexões mais lentas.
 3. Após o upload da foto, o aplicativo deve exibir uma mensagem de confirmação indicando se a qualidade da imagem é adequada para o perfil e as candidaturas. Caso a qualidade da imagem seja considerada baixa (ex: resolução muito baixa, imagem borrada), o aplicativo deve exibir um alerta com sugestões para melhorar a qualidade da foto (ex: tirar uma nova foto com melhor iluminação, usar um formato de arquivo diferente). O aplicativo deve exibir um ícone de aviso ao lado da foto caso a qualidade seja considerada baixa.
-![4 Perfil candidato](https://github.com/user-attachments/assets/cf0d5ff3-4e87-41a9-8002-a410535ae4f1)
+![pefildes](https://github.com/user-attachments/assets/0fd829c2-4c2b-49ce-ab9f-42a083fafff7)
 
 ## Funcionalidade 3°: Como empregador, quero acompanhar notícias atualizadas sobre o mercado de empresas, para
 que eu possa estar sempre informado e tomar decisões estratégicas baseadas nas
@@ -38,7 +38,7 @@ apresentem visualmente as tendências do mercado e previsões futuras.
 6. Compartilhamento Facilmente: O usuário deve poder compartilhar notícias e vídeos
 relevantes com colegas através de redes sociais (Facebook, Twitter, Instagram) e
 aplicativos de mensagens (WhatsApp, SMS) diretamente pela plataforma.
-![Photo Collage Maker_2024_07_20_01_46_41](https://github.com/user-attachments/assets/79326d09-8f4e-484f-a700-60e85ead97e1)
+
 
 
 
@@ -52,9 +52,9 @@ geolocalização com permissão prévia) ou selecione uma cidade/região especí
 resultados da busca devem exibir apenas as vagas que correspondem à localização
 selecionada pelo usuário.
 3. As vagas de emprego exibidas nos resultados da busca devem ser relevantes para a
-área buscada. Cada vaga deve apresentar as seguintes informações:Título da vaga,Nome
-da empresa, Localização (cidade, estado), Tipo de contrato (CLT, PJ, temporário, etc.),
-Salário (se disponível),Data de publicação da vaga.
+área buscada. Cada vaga deve apresentar as seguintes informações:Título da vaga, a distância entre a empresa e a localização do candidoto e Salário (se disponível).
+
+ ![Buscalocal](https://github.com/user-attachments/assets/00a836c4-9886-4c28-92d4-79bf08734d82)
 
 
 ## Funcionalidade 5°: Como técnica em enfermagem, quero ver vagas de emprego específicas para minha profissão, para que eu possa me concentrar nas oportunidades que são relevantes para minha área de atuação.
@@ -137,3 +137,9 @@ Como gerente de RH que prefere um processo passo a passo para evitar erros nas c
 1.  O usuário deve poder acessar o guia passo a passo a partir da seção de "Gerenciamento de Vagas" ou similar no aplicativo. O guia deve ser facilmente acessível em todas as etapas do processo de contratação como: Triagem inicial de currículos,Testes (técnicos, psicológicos, etc.) e Elaboração da proposta de emprego. Cada etapa vai conter uma descrição detalhada das atividades a serem realizada e exemplos de perguntas para entrevistas e testes
 2. O aplicativo deve fornecer lembretes para cada etapa do processo, com prazos personalizáveis.O usuário deve poder marcar as tarefas como concluídas em um checklist interativo.O checklist deve ser exibido de forma clara e concisa, permitindo ao usuário acompanhar seu progresso no processo de contratação.
 3. O usuário deve poder personalizar o guia de acordo com as necessidades da sua empresa e do cargo em questão. A personalização pode incluir a adição ou remoção de etapas, a modificação dos modelos de documentos e a inclusão de informações específicas da empresa
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://user-images.githubusercontent.com/25423296/163456776-7f95b81a-f1ed-45f7-b7ab-8fa810d529fa.png">
+  <source media="(prefers-color-scheme: light)" srcset="https://user-images.githubusercontent.com/25423296/163456779-a8556205-d0a5-45e2-ac17-42d089e3c3f8.png">
+  <img alt="Shows an illustrated sun in light mode and a moon with stars in dark mode." src="https://user-images.githubusercontent.com/25423296/163456779-a8556205-d0a5-45e2-ac17-42d089e3c3f8.png">
+</picture>
