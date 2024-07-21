@@ -42,35 +42,37 @@ Foram encontrados 29 problemas de usabilidade. O problema 2 (informações repet
 |4 – Catastrófico|1|
 
 ### 2.2.3	 Relação de problemas identificados
-|S	|H|Descrição do problema|
-|-------------|-------------|-------------|
-|3°| H1|	A tela não representa em qual estado o sistema está no momento (opção "Buscar" omitido na parte inferior da tela.|
-|3°|	H1|	A tela não informa claramente se o usuário está logado ou precisa fazer login.|
-|2°|	H1|	O sistemas não especifica onde o usuário se situa no sistema.|
-|2°|	H1|	A tela não mostra onde o usuário se situa no sistema.|
-|2°|	H1|	A tela não mostra onde o usuário se situa no sistema.|
-|2°|	H1|	não há um botão específico para acesso da função de ajuda.|
-|2°|	H1|	não há um botão específico para acesso da função de cadastro.|
-|2°|	H1|	não há especificação de onde exatamente o usuário está no sistema.|
-|3°|	H2|	As opções disponíveis nem sempre representam as experiencias de todos os candidatos.|
-|1°|	H3|	A tela não demonstra uma opção de voltar ou sair.|
-|2°|	H3|	não há botão específico de retorno para os usuários.|
-|2°|	H3|	Há os perfis de possíveis candidatos, mas não um signo especificando a consulta do perfil dele.|
-|3°|	H3|	Caso o usuário possua mais experiência que nas opções, não poderá representar.|
-|1°|	H3|Nas recomendações de perfis do usuário, não há signos para consultar o mesmo.|
-|2°|	H4|Exibição de duas opções para salvar, onde seria desnecessário.|
-|1°|	H4|	Alguns dos signos apresentados diferem das telas anteriores.|
-|2°| H4|	não é apresentado na tela o signo correspondente a esta funcionalidade e nem mesmo em telas anteriores.|
-|3°|	H4|	há duas telas para realizar a função de cadastro, o que pode levar a confusões.|
-|3°|	H4|	Há inserção de um novo signo na tela, que não é apresentado anteriormente.|
-|1°|	H4|	Nesta tela, a seta de retorno muda de aparência.|
-|3°|	H4e H5|A tela apresenta informações repetidas ("Avançado") onde não expressam seu significado e podem causar possíveis erros de interpretação.|
-|4°|	H5|	O usuário pode salvar um perfil incompleto sem aviso.|
-|2°|	H5|	Não há signos dinâmicos ou metalinguísticos representando como devem ser as informações a se adicionar.|
-|2°|	H6|	signos diferentes dos habituais, sem uma descrição clara.|
-|2°|	H7|	Não é denominado um signo para consultar as especificações das vagas.|
-|2°|	H9|	Na tela não se específica como devem ser adicionadas as informações.|
-|3°|	H10|	A tela não proporciona detalhes sobre as vagas oferecidas.|
-|3°|	H10| Não há signos para que se possa recorrer a ajuda ou tirar dúvidas.|
-|3°|	H10|Não há signos para se tirar dúvidas sobre o processo de cadastrar uma empresa.|
+**H** – Heurística não atendida
 
+**S** – Escala de severidade
+|N°	|Descrição do problema|	 H	|S|
+|--|---------------------|--|---|
+|1|A tela não representa em qual estado o sistema está no momento (opção "Buscar" omitido na parte inferior da tela|	H1|	3|
+|2|A tela não informa claramente se o usuário está logado ou precisa fazer login.|	H1|	3|
+|3|O sistemas não especifica onde o usuário se situa no sistema	|H1|	2|
+|4|A tela não mostra onde o usuário se situa no sistema	|H1|	2|
+|5|A tela não mostra onde o usuário se situa no sistema	|H1|	2|
+|6|não há um botão específico para acesso da função de ajuda|	H1|	2|
+|7|não há um botão específico para acesso da função de cadastro	|H1|	2|
+|8|não há especificação de onde exatamente o usuário está no sistema|	H1|	2|
+|9|	As opções disponíveis nem sempre representam as experiencias de todos os candidatos	|H2|	3|
+|10|A tela não demonstra uma opção de voltar ou sair 	|H3|	1|
+|11|não há botão específico de retorno para os usuários 	|H3|	2|
+|12|Há os perfis de possóveis candidatos, mas não um signo especificando a consulta do perfil do mesmo|	H3|	2|
+|13|Caso o usuário possua mais experiência que nas opções, não poderá representar|	H3	|3|
+|14|Nas recomendações de perfis do usuário, não há signos para consultar o mesmo	|H3	|1|
+|15|	Exibição de duas opções para salvar, onde seria desnecessário 	|H4|	2|
+|16 |Alguns dos signos apresentados diferem das telas anterioes	|H4|	1|
+|17|	não é apresentado na tela o signo correspondente a esta funcionalidade e nem mesmo em telas anteriores|	H4	|2|
+|18| há duas telas para realizar a função de cadastro, o que pode levar a confusões	|H4|	3|
+|19|	Há inserção de um novo signo na tela, que não é apresentado anteriormente	|H4	|3|
+|20|	Nesta tela, a seta de retorno muda de aparência 	|H4|	1|
+|21|	A tela apresenta informações repetidas ("Avançado") onde não expressam seu significado e podem causar possíveis erros de interpretação|	H4 e H5|	3|
+|22|	O usuário pode salvar um perfil incompleto sem aviso| 	H5|	4|
+|23| Não há signos dinâmicos ou metalinguísticos representando como devem ser as informações a se adicionar|	H5	|2|
+|24| signos diferentes dos habituais, sem uma descrição clara	|H6	|2|
+|25| Não é denominado um signo para consultar as especificações das vagas	|H7|	2|
+|26| Na tela não se especifica como devem ser adicionadas as informções|	H9|	2|
+|27| A tela não proporciona detalhes sobre as vagas oferecidas|	H10	|3|
+|28|	Não há signos para que se possa recorrer a ajuda ou tirar dúvidas|	H10	|3|
+|29|	Não há signos para se tirar dúvidas sobre o processo de cadastrar uma empresa	|H10|	3|
