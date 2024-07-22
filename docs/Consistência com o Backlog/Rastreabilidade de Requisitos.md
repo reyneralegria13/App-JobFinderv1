@@ -86,7 +86,7 @@ feedback à equipe.
 1. Na página de resultados da busca, deve haver um filtro claramente identificado e acessível (ex: checkbox) para selecionar o nível de experiência desejado. O filtro deve incluir as seguintes opções: "Sem experiência", "Pouca experiência (até 1 ano)" "Nível Júnior (1-3 anos)"
 2. Ao selecionar o filtro "Sem experiência" ou "Pouca experiência", os resultados dabusca devem ser atualizados para exibir apenas as vagas que explicitamente mencionam que aceitam candidatos sem experiência ou recém-formados.Não exigem um número mínimo de anos de experiência na área. São classificadas como "estágio", ou "nível júnior".
 
-![15 Filtro Nivel de Experiencia](https://github.com/user-attachments/assets/dee6bd02-8869-4f44-9869-a69e9b2a1e87)
+![imagem filtro](https://github.com/user-attachments/assets/d30e95c2-8503-4ea6-9dd7-1078982eb3fd)
 
 
 ## Funcionalidade 8: Como técnico em busca de conhecimento contínuo, quero acessar informações detalhadas sobre as vagas de emprego, incluindo requisitos e responsabilidades, para que eu possa me preparar adequadamente e entender melhor as expectativas da posição.
