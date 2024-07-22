@@ -95,7 +95,8 @@ feedback à equipe.
 2. A descrição detalhada da vaga deverá seguir um formato padronizado já padronizado dentro do aplicativo.(Título da vaga,Nome da empresa.Localização: cidade, estado e, se aplicável, endereço completo,Tipo de contrato: CLT, PJ e estágio. Salário:se disponível, com indicação de faixa salarial ou valor exato,Benefícios: vale transporte, vale alimentação, plano de saúde. Descrição das atividades e responsabilidades: em formato de lista ou parágrafos. Requisitos obrigatórios: escolaridade, experiência, certificações. Requisitos desejáveis: conhecimentos em softwares específicos, idiomas, informações adicionais: horário de trabalho, cultura da empresa. Data de publicação da vaga,Informações de contato da empresa: e-mail, telefone, site.)
 3. O usuário deve poder salvar ou marcar as vagas de interesse clicando/tocando em umícone de "favorito" (ex: coração, estrela) na página de descrição detalhada da vaga ou na lista de resultados da busca. As vagas salvas/marcadas devem ser armazenadas em uma lista separada, acessível a partir do menu do aplicativo. O usuário deve poder remover uma vaga da lista de salvos/marcados a qualquer momento.
    
-![destalhe](https://github.com/user-attachments/assets/c805c710-bc90-4608-a0dd-c04971fe2441)
+![8 pow](https://github.com/user-attachments/assets/f55db2e4-4245-4f46-b146-59c3d3b873f9)
+
 
 
 ## Funcionalidade 9: Como técnico que valoriza a comunicação e interação, quero interagir com outros candidatos e profissionais da área dentro do aplicativo, para que eu possa trocar experiências, obter dicas e expandir minha rede profissional.
