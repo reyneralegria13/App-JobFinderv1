@@ -122,10 +122,12 @@ feedback à equipe.
 3. O usuário deve poder acessar os vídeos, artigos e cursos diretamente no aplicativo, clicando no link da notificação ou navegando até a seção de conteúdo relevante. Os vídeos devem ser reproduzidos em alta qualidade (mínimo 720p) e sem interrupções. Os artigos devem ser exibidos em um formato legível e fácil de navegar. Os cursos devem ser estruturados em módulos e lições, com recursos como vídeos, textos, exercícios e avaliações.
 4. Os vídeos, artigos e cursos devem ser produzidos por fontes confiáveis e reconhecidas na área de RH (ex: especialistas, empresas de consultoria, instituições de ensino). O conteúdo deve ser atualizado regularmente para refletir as últimas tendências e práticas do mercado. O aplicativo deve fornecer informações sobre a autoria e a data de publicação de cada conteúdo.
 
+![videó](https://github.com/user-attachments/assets/a37157cf-608b-49ca-b1c8-7ff6f5606281)
 
-
-## Funcionalidade 12: Como gerente de RH que prefere um processo passo a passo para evitar erros nas contratações, quero ter um guia passo a passo para a análise e seleção de candidatos, para que eu possa seguir um processo estruturado e reduzir a chance de erros.
+## Funcionalidade 12: Uma pessa que prefere um processo passo a passo para evitar erros nas contratações, quero ter um guia passo a passo , para que eu possa seguir um processo estruturado e reduzir a chance de erros.
 ### Critérios de Aceitação:
 1.  O usuário deve poder acessar o guia passo a passo a partir da seção de "Gerenciamento de Vagas" ou similar no aplicativo. O guia deve ser facilmente acessível em todas as etapas do processo de contratação como: Triagem inicial de currículos,Testes (técnicos, psicológicos, etc.) e Elaboração da proposta de emprego. Cada etapa vai conter uma descrição detalhada das atividades a serem realizada e exemplos de perguntas para entrevistas e testes
 2. O aplicativo deve fornecer lembretes para cada etapa do processo, com prazos personalizáveis.O usuário deve poder marcar as tarefas como concluídas em um checklist interativo.O checklist deve ser exibido de forma clara e concisa, permitindo ao usuário acompanhar seu progresso no processo de contratação.
 3. O usuário deve poder personalizar o guia de acordo com as necessidades da sua empresa e do cargo em questão. A personalização pode incluir a adição ou remoção de etapas, a modificação dos modelos de documentos e a inclusão de informações específicas da empresa
+
+![tortoria](https://github.com/user-attachments/assets/53752342-4dcb-4b79-89e4-e2b4848390f7)
