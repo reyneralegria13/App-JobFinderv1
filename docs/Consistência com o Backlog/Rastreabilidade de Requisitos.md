@@ -25,7 +25,9 @@
 4. Artigos e Relatórios: Acesso a artigos detalhados e relatórios de mercado, com a opção de baixar para leitura offline em formato PDF, DOC/DOCX ou TXT. Cada artigo e relatório incluirá uma seção com detalhes sobre a sua qualidade, como por exemplo o seu autor, fonte e data de publicação.
 5. Visualização de Tendências: A plataforma deve oferecer gráficos e infográficos que apresentem visualmente as tendências do mercado e previsões futuras.
 6. Compartilhamento Facilmente: O usuário deve poder compartilhar notícias e vídeos relevantes com colegas através de redes sociais (Facebook, Twitter, Instagram) e aplicativos de mensagens (WhatsApp, SMS) diretamente pela plataforma.
-
+## Noticia
+![dola](https://github.com/user-attachments/assets/e08c24ad-1038-46ec-b0c5-217c4623ba60)
+Notificações
 ![vagas espwcifica](https://github.com/user-attachments/assets/e61406ca-abaf-454c-8066-e9686c60d2cc)
 
 ## Funcionalidade 4°: Como técnica em enfermagem em busca de oportunidades, quero encontrar vagas de emprego na minha cidade ou região, para que eu possa me candidatar a empregos locais e não ter que me deslocar para longe.
