@@ -280,9 +280,11 @@ __Gerente de Projeto:__
 |-------------|-------------|
 | Scrum Master |  Mayro Sá|
 | Modelador| João Paulo|
-|Analista de Requisitos  | Luiz Augusto|
+| Analista de Requisitos  | Nicolas Rocha |
 | Prototipação  |Reyner Alegria |
-| Avaliador de Inspeção |Ruben Reis|
+| Avaliador de Inspeção | Felipe William |
+| Avaliador de Inspeção | João Carlos |
+| Programador de Desenvolvimento | Calil Lima|
 
 ### 3.3	Fases, Atividades e Cronograma
 
