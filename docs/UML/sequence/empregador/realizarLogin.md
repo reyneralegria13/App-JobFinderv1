@@ -2,4 +2,4 @@
 
 ## Realizar login
 
-![](../../images/RealizarLogin.png)
+![](../../images/RealizarLogin2.png)
