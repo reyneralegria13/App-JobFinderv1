@@ -1,4 +1,4 @@
-# DIAGRAMA DE SEQUENCIA 1
+# DIAGRAMA DE SEQUENCIA 2
 
 ## Realizar busca
 
