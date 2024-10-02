@@ -1,5 +1,7 @@
 # DIAGRAMA DE COMUNICAÇÃO
 
+Autor: João Paulo
+
 ### Realizar Login
 
 ![](../images/RealizarLogin3.png)
