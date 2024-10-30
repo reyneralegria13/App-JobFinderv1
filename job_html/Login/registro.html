@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="index.js" defer></script>
+    <title>JobFinder - Registro</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: system-ui, -apple-system, sans-serif;
+      }
+
+      body {
+        background-color: #f5f5f5;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .header {
+        width: 100%;
+        padding: 1rem 2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: white;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      .navigation {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+      }
+
+      .back-button,
+      .help-button {
+        background: none;
+        border: none;
+        cursor: pointer;
+        color: #333;
+      }
+
+      .logo {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: #333;
+        text-align: center;
+        flex-grow: 1;
+      }
+
+      .container {
+        max-width: 600px;
+        width: 100%;
+        padding: 2rem;
+        margin-top: 2rem;
+        background-color: white;
+        border-radius: 12px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      h1 {
+        font-size: 1.8rem;
+        color: #333;
+        margin-bottom: 1rem;
+      }
+
+      p {
+        color: #666;
+        line-height: 1.6;
+        margin-bottom: 2rem;
+      }
+
+      .options {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        margin-bottom: 2rem;
+      }
+
+      .option {
+        display: flex;
+        align-items: center;
+        padding: 1.5rem;
+        border: 2px solid #eee;
+        border-radius: 12px;
+        cursor: pointer;
+        transition: all 0.2s ease;
+      }
+
+      .option:hover {
+        border-color: #ffe100;
+        background-color: #fffef2;
+      }
+
+      .option.selected {
+        border-color: #ffe100;
+        background-color: #fffef2;
+      }
+
+      .option input[type="radio"] {
+        width: 20px;
+        height: 20px;
+        margin-right: 1rem;
+        accent-color: #ffe100;
+      }
+
+      .option-content {
+        flex-grow: 1;
+      }
+
+      .option-title {
+        font-weight: 500;
+        color: #333;
+        margin-bottom: 0.25rem;
+      }
+
+      .option-description {
+        color: #666;
+        font-size: 0.9rem;
+      }
+
+      .continue-button {
+        width: 100%;
+        padding: 1rem;
+        background-color: #ffe100;
+        border: none;
+        border-radius: 8px;
+        font-size: 1rem;
+        font-weight: 500;
+        cursor: pointer;
+        transition: background-color 0.2s ease;
+      }
+
+      .continue-button:hover {
+        background-color: #ffd700;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="header">
+      <div class="navigation">
+        <button class="back-button" id="botaovoltar">
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path d="M19 12H5M12 19l-7-7 7-7" />
+          </svg>
+        </button>
+      </div>
+      <div class="logo">JobFinder</div>
+      <button class="help-button">
+        <svg
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+        >
+          <circle cx="12" cy="12" r="10" />
+          <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" />
+          <line x1="12" y1="17" x2="12.01" y2="17" />
+        </svg>
+      </button>
+    </header>
+
+    <main class="container">
+      <h1>Registro</h1>
+      <p>
+        Bem-vindo ao JobFinder! Por favor, escolha se você está procurando um
+        emprego ou se você é um empregador à procura de candidatos. Esta
+        informação nos ajudará a personalizar sua experiência.
+      </p>
+
+      <form>
+        <div class="options">
+          <label class="option selected">
+            <input type="radio" name="user-type" value="candidate" checked />
+            <div class="option-content">
+              <div class="option-title">Candidato</div>
+              <div class="option-description">Estou procurando um emprego</div>
+            </div>
+          </label>
+
+          <label class="option">
+            <input type="radio" name="user-type" value="employer" />
+            <div class="option-content">
+              <div class="option-title">Empregador</div>
+              <div class="option-description">Estou procurando candidatos</div>
+            </div>
+          </label>
+        </div>
+
+        <button type="submit" class="continue-button">Continuar</button>
+      </form>
+    </main>
+
+    <script>
+      document.querySelectorAll(".option").forEach((option) => {
+        option.addEventListener("click", () => {
+          document
+            .querySelectorAll(".option")
+            .forEach((opt) => opt.classList.remove("selected"));
+          option.classList.add("selected");
+
+          document.getElementById("botaovoltar").onclick = function () {
+            window.location.href = "../login.html";
+          };
+        });
+      });
+    </script>
+  </body>
+</html>
