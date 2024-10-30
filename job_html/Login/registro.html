@@ -49,7 +49,7 @@
         informação nos ajudará a personalizar sua experiência.
       </p>
 
-      <form>
+      <form id="register-form">
         <div class="options">
           <label class="option selected">
             <input type="radio" name="user-type" value="candidate" checked />
@@ -67,10 +67,8 @@
             </div>
           </label>
         </div>
-        
-          <button type="submit" class="btn btn-success">Continuar</button>
-    
-        
+
+        <button type="submit" class="continue-button">Continuar</button>
       </form>
     </main>
 
@@ -86,6 +84,18 @@
             window.location.href = "../login.html";
           };
         });
+      });
+
+      document.getElementById("register-form").addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        const userType = document.querySelector('input[name="user-type"]:checked').value;
+
+        if (userType === "candidate") {
+          window.location.href = "/rota-para-candidato";
+        } else if (userType === "employer") {
+          window.location.href = "/rota-para-empregador";
+        }
       });
     </script>
   </body>
