@@ -1,6 +1,12 @@
 const mongoose = require('mongoose')
 
-module.exports = mongoose.model('Empresa', {
+const UserModel = mongoose.Schema({
+    name: String,
+    email: String,
+    empregado: Boolean
+})
+
+const EmpresaModel = mongoose.Schema({
     name: String,
     cnpj: String,
     email: String,
@@ -8,3 +14,8 @@ module.exports = mongoose.model('Empresa', {
     bio: String,
     site: String
 })
+
+module.exports = {
+    User: mongoose.model('User ', UserModel),
+    Empresa: mongoose.model('Empresa', EmpresaModel)
+}
