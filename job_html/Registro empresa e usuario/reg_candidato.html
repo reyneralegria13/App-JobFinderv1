@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <style>
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          sans-serif;
+        background-color: #f5f5f5;
+        margin: 0;
+        padding: 20px;
+        color: #333;
+      }
+
+      .container {
+        max-width: 600px;
+        margin: 0 auto;
+        background: white;
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .form-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 30px;
+      }
+
+      .form-header h1 {
+        font-size: 24px;
+        margin: 0;
+      }
+
+      .form-group {
+        margin-bottom: 20px;
+      }
+
+      .form-section {
+        margin-bottom: 30px;
+      }
+
+      .section-title {
+        font-size: 18px;
+        font-weight: 600;
+        margin-bottom: 15px;
+        color: #222;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: 500;
+      }
+
+      input,
+      select,
+      textarea {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        font-size: 14px;
+        background-color: #f8f8f8;
+      }
+
+      input:focus,
+      select:focus,
+      textarea:focus {
+        outline: none;
+        border-color: #007bff;
+        background-color: #fff;
+      }
+
+      button {
+        background-color: #ffd700;
+        color: #000;
+        padding: 14px 28px;
+        border: none;
+        border-radius: 6px;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        width: 100%;
+        transition: background-color 0.2s;
+      }
+
+      button:hover {
+        background-color: #ffc700;
+      }
+
+      textarea {
+        resize: vertical;
+        min-height: 100px;
+      }
+
+      .section-label {
+        font-size: 16px;
+        font-weight: 600;
+        margin-top: 25px;
+        margin-bottom: 15px;
+        color: #333;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="form-header">
+        <h1>Cadastro de Candidato</h1>
+      </div>
+
+      <form id="candidateForm">
+        <div class="form-group">
+          <label for="nome">Nome</label>
+          <input type="text" id="nome" name="nome" required />
+        </div>
+
+        <div class="form-group">
+          <label for="cpf">CPF</label>
+          <input type="text" id="cpf" name="cpf" required />
+        </div>
+
+        <div class="section-label">Informações Pessoais</div>
+
+        <div class="form-group">
+          <label for="educacao">Educação</label>
+          <select id="educacao" name="educacao" required>
+            <option value="">Selecione</option>
+            <option value="medio">Ensino Médio</option>
+            <option value="superior">Ensino Superior</option>
+            <option value="pos">Pós-Graduação</option>
+            <option value="mestrado">Mestrado</option>
+            <option value="doutorado">Doutorado</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="qualificacoes">Qualificações</label>
+          <input
+            type="text"
+            id="qualificacoes"
+            name="qualificacoes"
+            placeholder="Ex: Certificação PMP"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="cursos">Cursos</label>
+          <input
+            type="text"
+            id="cursos"
+            name="cursos"
+            placeholder="Ex: Curso de Inglês"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required />
+        </div>
+
+        <div class="form-group">
+          <label for="descricao">Descrição</label>
+          <textarea
+            id="descricao"
+            name="descricao"
+            placeholder="Experiência em gestão de projetos, com foco em metodologias ágeis e liderança de equipes multidisciplinares."
+          ></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="telefone">Telefone</label>
+          <input type="tel" id="telefone" name="telefone" />
+        </div>
+
+        <div class="form-group">
+          <label for="habilidades">Habilidades Técnicas</label>
+          <input
+            type="text"
+            id="habilidades"
+            name="habilidades"
+            placeholder="Ex: Python, JavaScript, Excel"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="idiomas">Idiomas</label>
+          <input
+            type="text"
+            id="idiomas"
+            name="idiomas"
+            placeholder="Ex: Inglês - Avançado, Espanhol - Intermediário"
+          />
+        </div>
+
+        <button type="submit">Continuar</button>
+      </form>
+    </div>
+
+    <script>
+      document
+        .getElementById("candidateForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+          // Aqui você pode adicionar a lógica para enviar os dados do formulário
+          alert("Formulário enviado com sucesso!");
+        });
+    </script>
+  </body>
+</html>
