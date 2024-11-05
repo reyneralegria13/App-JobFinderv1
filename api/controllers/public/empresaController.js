@@ -1,7 +1,9 @@
-const express = require('express')
+import express from 'express'
+import { PrismaClient } from '@prisma/client'
 const router = express.Router()
 
-const {Empresa } = require('../models/model');
+const prisma = new PrismaClient()
+const {Empresa } = require('../../models/model');
 
 // listar empresas (get)
 router.get('/', async (req, res) => {
@@ -14,12 +16,21 @@ router.get('/', async (req, res) => {
 });
 
 // criar empresa (post)
-router.post('/registro', async (req, res) => {
+router.post('/empresa/registro', async (req, res) => {
   const empresaData = req.body;
 
   try {
-      const newEmpresa = new Empresa(empresaData);
-      await newEmpresa.save();
+      await prisma.user.create({
+        data: {
+          name: empresaData.name,
+          email: empresaData.data.email,
+          cnpj: empresaData.cnpj,
+          fone: empresaData.fone,
+          bio: empresaData.bio,
+          site: empresaData.site
+          },
+        },
+    )
       res.status(201).json(newEmpresa);
   } catch (error) {
       res.status(500).json({ message: "Erro ao criar a empresa", error });
