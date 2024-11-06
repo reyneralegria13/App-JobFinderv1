@@ -1,0 +1,75 @@
+/* Reset de estilos */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Estilos do corpo da página */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f2f2f2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* Estilos do container */
+.container {
+  background-color: white;
+  padding: 40px;
+  border-radius: 16px; /* Bordas arredondadas */
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  width: 100%;
+}
+
+/* Estilos dos títulos */
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Estilos dos formulários */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+label {
+  font-weight: bold;
+}
+
+input[type="email"] {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px; /* Bordas arredondadas */
+}
+
+button[type="submit"] {
+  background-color: #ffc107; /* Cor de fundo amarela */
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 8px; /* Bordas arredondadas */
+  cursor: pointer;
+}
+
+button[type="submit"]:hover {
+  background-color: #ffa000;
+}
+
+/* Estilos do link de login */
+.login-link {
+  display: block;
+  text-align: center;
+  margin-top: 20px;
+  color: #007bff;
+  text-decoration: none;
+}
+
+.login-link:hover {
+  color: #0056b3;
+}
