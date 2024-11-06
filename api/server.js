@@ -8,7 +8,11 @@ const app = express()
 app.use(express.json())
 
 // rotas
-app.use(express.static(path.join(__dirname, 'job_html')))
+app.use(express.static(path.join(__dirname, '../job_html')))
+
+app.get('/', (req, res) => {
+    res.redirect('/login/login.html')
+})
 
 connectDb()
 .then(data => {
@@ -20,10 +24,13 @@ connectDb()
 })
 .catch(err => console.log('Nao foi possivel conectar ao Banco de Dados:\n', err))
 
+<<<<<<< Updated upstream
 app.get('/', (req, res) => {
     res.redirect('../job_html/Login/login.html')
 })
 
+=======
+>>>>>>> Stashed changes
 // JobFinderDB
 // WiMuOlRTRqOZUQ5o
 //5500/job_html/Login/login.html (rota html)
