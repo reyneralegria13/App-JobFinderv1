@@ -21,7 +21,7 @@ connectDb()
 .catch(err => console.log('Nao foi possivel conectar ao Banco de Dados:\n', err))
 
 app.get('/', (req, res) => {
-    res.redirect('/job_html/Login/login.html')
+    res.redirect('../job_html/Login/login.html')
 })
 
 // JobFinderDB
