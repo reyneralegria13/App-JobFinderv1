@@ -46,15 +46,15 @@ label {
 input[type="email"] {
   padding: 12px;
   border: 1px solid #ccc;
-  border-radius: 8px; /* Bordas arredondadas */
+  border-radius: 8px; 
 }
 
 button[type="submit"] {
-  background-color: #ffc107; /* Cor de fundo amarela */
+  background-color: #ffc107; 
   color: rgb(0, 0, 0);
   padding: 12px;
   border: none;
-  border-radius: 8px; /* Bordas arredondadas */
+  border-radius: 8px; 
   cursor: pointer;
 }
 
@@ -62,7 +62,7 @@ button[type="submit"]:hover {
   background-color: #ffa000;
 }
 
-/* Estilos do link de login */
+
 .login-link {
   display: block;
   text-align: center;

@@ -39,7 +39,7 @@ body {
   padding: 0.5rem;
   border-radius: 4px;
   transition: background-color 0.2s ease;
-  width: 40px; /* Define um tamanho padrão */
+  width: 40px;
   }
 
 .back-button:hover,
@@ -64,7 +64,7 @@ body {
   background-color: white;
   border-radius: 12px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  margin: 0 auto; /* Centraliza a div no centro da página */
+  margin: 0 auto; 
 }
 
 
