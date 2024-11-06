@@ -6,7 +6,7 @@ const prisma = new PrismaClient()
 const {Empresa } = require('../../models/model');
 
 // listar empresas (get)
-router.get('/', async (req, res) => {
+router.get('/empresas', async (req, res) => {
   try {
       const empresas = await Empresa.find();
       res.status(200).json(empresas);
@@ -56,7 +56,7 @@ router.post('/empresa/login', async (req, res) => {
 })
 
 // atualizar empresa (update)
-router.put('/:id', async (req, res) => {
+router.put('/empresa/update/:id', async (req, res) => {
   const { id } = req.params;
   const updates = req.body;
 
@@ -72,14 +72,17 @@ router.put('/:id', async (req, res) => {
 });
 
 // deletar empresa (delete)
-router.delete('/:id', async (req, res) => {
+router.delete('/empresa/delete/:id', async (req, res) => {
   const { id } = req.params;
 
   try {
-      const deletedEmpresa = await Empresa.findByIdAndDelete(id);
-      if (!deletedEmpresa) {
-          return res.status(404).json({ message: "Empresa não encontrada" });
+    const empresa = await prisma.empresa.findUnique({
+      where: { cnpj: empresaData.cnpj}
+    })
+      if(!empresa){
+        return res.status(404).json({ message: "Empresa não encontrada!", error })
       }
+      
       res.status(200).json({ message: "Empresa excluída com sucesso" });
   } catch (error) {
       res.status(500).json({ message: "Erro ao excluir empresa", error });
