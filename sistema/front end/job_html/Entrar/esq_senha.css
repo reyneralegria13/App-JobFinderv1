@@ -30,13 +30,17 @@ h1 {
 
 
 form {
+  margin-top: 10px;
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 5px;
 }
 
 label {
+  margin-top: 5px;
   font-weight: bold;
+  font-size: 14px;
+
 }
 
 input[type="email"] {
@@ -47,7 +51,7 @@ input[type="email"] {
 
 button[type="submit"] {
   background-color: #ffc107; /* Cor de fundo amarela */
-  color: white;
+  color: rgb(0, 0, 0);
   padding: 12px;
   border: none;
   border-radius: 8px; /* Bordas arredondadas */
@@ -63,7 +67,7 @@ button[type="submit"]:hover {
   display: block;
   text-align: center;
   margin-top: 20px;
-  color: #007bff;
+  color: #272727;
   text-decoration: none;
 }
 
