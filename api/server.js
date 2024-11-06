@@ -1,7 +1,5 @@
 import express from 'express'
 
-//import BD
-const connectDb = require('./db')
 //const bookRoutes = require('./controllers/book.controller')
 
 //uso

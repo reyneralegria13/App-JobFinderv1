@@ -17,7 +17,7 @@ router.get('/', async (req, res) => {
 
 // criar empresa (post)
 router.post('/empresa/registro', async (req, res) => {
-  const empresaData = req.body;
+  const empresaData = req.body
 
   try {
       await prisma.user.create({
@@ -31,11 +31,29 @@ router.post('/empresa/registro', async (req, res) => {
           },
         },
     )
-      res.status(201).json(newEmpresa);
+      res.status(201).json(empresaData);
   } catch (error) {
       res.status(500).json({ message: "Erro ao criar a empresa", error });
   }
 });
+
+// login empresa (post)
+router.post('/empresa/login', async (req, res) => {
+  const empresaData = req.body
+  try{
+    const empresa = await prisma.empresa.findUnique({
+      where: { cnpj: empresaData.cnpj}
+    })
+
+    if(!empresa){
+      return res.status(404).json({ message: "Empresa não encontrada!", error })
+    }
+
+    res.status(201).json(empresaData);
+  } catch (error) {
+    res.status(500).json({ message: "Erro ao logar no sistema!", error })
+  }
+})
 
 // atualizar empresa (update)
 router.put('/:id', async (req, res) => {
