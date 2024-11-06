@@ -1,18 +1,17 @@
 const express = require('express') 
 const mongoose = require('mongoose')
 const connectDb = require('./db')
-const path = require('path');
 
 //uso
 const app = express()
 app.use(express.json())
 
-// rotas
+/* 
 app.use(express.static(path.join(__dirname, '../job_html')))
 
 app.get('/', (req, res) => {
     res.redirect('/login/login.html')
-})
+}) */
 
 connectDb()
 .then(data => {
