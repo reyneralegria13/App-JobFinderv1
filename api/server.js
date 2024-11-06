@@ -21,3 +21,6 @@ connectDb()
         console.log('Erro ao ligar o servidor:\n', err))
 })
 .catch(err => console.log('Nao foi possivel conectar ao Banco de Dados:\n', err))
+
+// JobFinderDB
+// WiMuOlRTRqOZUQ5o
