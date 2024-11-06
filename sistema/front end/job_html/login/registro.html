@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styleRegistro.css" />
+    <script src="./registro.js" defer></script>
+    <title>JobFinder - Registro</title>
+    <style>    </style>
+  </head>
+  <body>
+    <header class="header">
+      <div class="navigation">
+        <button class="back-button" id="botaovoltar" onclick="window.location.href = './login.html';">
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path d="M19 12H5M12 19l-7-7 7-7" />
+          </svg>
+        </button>
+        
+      </div>
+      <div class="logo">JobFinder</div>
+      <button class="help-button">
+        <svg
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+        >
+          <circle cx="12" cy="12" r="10" />
+          <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" />
+          <line x1="12" y1="17" x2="12.01" y2="17" />
+        </svg>
+      </button>
+    </header>
+
+    <main class="container">
+      <h1>Registro</h1>
+      <p>
+        Bem-vindo ao JobFinder! Por favor, escolha se você está procurando um
+        emprego ou se você é um empregador à procura de candidatos. Esta
+        informação nos ajudará a personalizar sua experiência.
+      </p>
+
+      <form id="register-form">
+        <div class="options">
+          <label class="option selected">
+            <input type="radio" name="user-type" value="candidate" checked />
+            <div class="option-content">
+              <div class="option-title">Candidato</div>
+              <div class="option-description">Estou procurando um emprego</div>
+            </div>
+          </label>
+
+          <label class="option">
+            <input type="radio" name="user-type" value="employer" />
+            <div class="option-content">
+              <div class="option-title">Empregador</div>
+              <div class="option-description">Estou procurando candidatos</div>
+            </div>
+          </label>
+        </div>
+
+        <button type="submit" class="continue-button">Continuar</button>
+      </form>
+    </main>
+
+    <script>
+      
+    </script>
+  </body>
+</html>
