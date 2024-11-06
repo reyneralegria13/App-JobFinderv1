@@ -50,6 +50,7 @@ input[type="email"] {
 }
 
 button[type="submit"] {
+  margin-top: 10px;
   background-color: #ffc107; 
   color: rgb(0, 0, 0);
   padding: 12px;
