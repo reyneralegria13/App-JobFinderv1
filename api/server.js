@@ -1,4 +1,6 @@
-import express from 'express'
+const express = require('express') 
+const mongoose = require('mongoose')
+const connectDb = require('./db')
 
 //const bookRoutes = require('./controllers/book.controller')
 
