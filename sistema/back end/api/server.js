@@ -1,18 +1,17 @@
 const express = require('express') 
-const mongoose = require('mongoose')
 const connectDb = require('./db')
 
 //uso
 const app = express()
 app.use(express.json())
+app.use(express.urlencoded({extended: false}));
 
-/* 
-app.use(express.static(path.join(__dirname, '../job_html')))
+// rota principal
+app.get("/",  (req, res) => {
+    res.send("Bem vindo ao meu servidor");
+});
 
-app.get('/', (req, res) => {
-    res.redirect('/login/login.html')
-}) */
-
+// conexão com o banco e com o servidor
 connectDb()
 .then(data => {
     console.log(' >> Banco de dados conectado com sucesso:\n')
@@ -22,7 +21,3 @@ connectDb()
         console.log('Erro ao ligar o servidor:\n', err))
 })
 .catch(err => console.log('Nao foi possivel conectar ao Banco de Dados:\n', err))
-
-// JobFinderDB
-// WiMuOlRTRqOZUQ5o
-//5500/job_html/Login/login.html (rota html)
