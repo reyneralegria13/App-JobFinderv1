@@ -15,6 +15,12 @@ const getEmpresa = async (req, res)=> {
     try{
         const { id } = req.params;
         const empresa = await Empresa.findById(id);
+
+        // verifica se a empresa está cadastrada
+        if(!empresa){
+            res.status(404).json({message: "Empresa não encontrada!"})
+        }
+
         res.status(200).json(empresa);
     }catch (error){
         res.status(500).json({message: error.message})
@@ -30,6 +36,7 @@ const createEmpresa = async (req, res) => {
         if(!nome || !cnpj || !email || !fone || !site){
             return response.status(400).json({ error : "Erro: Insira todos os campos obrigatórios!"})
         }
+        // cria um novo documento
         const newEmpresa = await Empresa.create({
             nome: reqbody.nome,
             email: req.body.email,
@@ -40,9 +47,10 @@ const createEmpresa = async (req, res) => {
         })
         res.status(200).send(newEmpresa)
     }catch (error){
+        // erro em caso de duplicata
         if (error.code == 11000){
             return res.status(409).json({ message: "Empresa já cadastrada!" })
-        } 
+        } // erro qualquer
         res.status(500).json({message: error.message})
     }
 }
@@ -53,8 +61,9 @@ const updateEmpresa = async (req, res) => {
         const { id } = req.params;
         const upEmpresa = await Empresa.findByIdAndUpdate(id, req.body);
 
+        // verifica se a empresa está cadastrada
         if(!upEmpresa){
-            res.status(404).json({message: "Empresa não encontrada"})
+            res.status(404).json({message: "Empresa não encontrada!"})
         }
 
         res.status(200).json(upEmpresa);
@@ -69,8 +78,9 @@ const deleteEmpresa = async (req, res) => {
         const { id } = req.params;
         const delEmpresa = await Empresa.findByIdAndDelete(id);
 
+        // verifica se a empresa está cadastrada
         if(!delEmpresa){
-            return res.status(404).json({message: "Empresa não encontrada"});
+            return res.status(404).json({message: "Empresa não encontrada!"});
         }
 
         res.status(200).json({message: "Empresa deletada com sucesso"});

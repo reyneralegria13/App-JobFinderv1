@@ -4,7 +4,7 @@ const EmpresaSchema = mongoose.Schema(
     {
       nome: {
         type: String,
-        require: [true, "Por favor, insira o nome do produto"],
+        require: [true, "Por favor, insira o nome da empresa"],
       },
   
       email: {

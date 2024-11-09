@@ -1,10 +1,12 @@
 const express = require('express')
+const cors = require('cors')
 const connectDb = require('./db')
 
 //uso
 const app = express()
 app.use(express.json())
 app.use(express.urlencoded({extended: false}));
+app.use(cors())
 
 // rota principal
 app.get("/",  (req, res) => {
