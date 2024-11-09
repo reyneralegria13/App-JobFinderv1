@@ -6,7 +6,7 @@ const connectDb = require('./db')
 const app = express()
 app.use(express.json())
 app.use(express.urlencoded({extended: false}));
-app.use(cors())
+app.use(cors('http://localhost:5173/'))
 
 // rota principal
 app.get("/",  (req, res) => {
