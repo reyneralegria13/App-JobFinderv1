@@ -6,22 +6,25 @@ function Home() {
   //const [count, setCount] = useState(0)
 
   return (
-    <>
       <div class="login-container">
         <h1>Bem-vindo ao JobFinder</h1>
+
         <div class="input-field">
           <label for="email">Email</label>
           <input type="email" id="email" placeholder="Endereço de Email" />
         </div>
+
         <div class="input-field">
           <label for="password">Senha</label>
           <input type="password" id="password" placeholder="Senha" />
         </div>
+
         <p class="forgot-password">
           <Link>Esqueci a senha</Link>
         </p>
         
         <button class="login-btn">Login</button>
+
         <div class="social-login">
           <Link class="google-button">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-google" viewBox="0 0 16 16">
@@ -29,12 +32,14 @@ function Home() {
             </svg>
             Login com Google
           </Link>
+
         </div>      
         <p style="text-align: center; font-size: 14px">
-          Não tem uma conta? <a href="../login/registro.html">Cadastre-se</a>
+          Não tem uma conta? 
+          <Link>Cadastre-se</Link>
         </p>
+
     </div>
-    </>
   )
 }
 
