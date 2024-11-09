@@ -4,10 +4,10 @@ const router = express.Router();
 const {getEmpresa, getEmpresas, createEmpresa, updateEmpresa, deleteEmpresa} = require("../contrroller/empresaController");
 
 // rotas para cada controle
-router.get('/empresas', getProducts);
-router.get("/empresa/:id", getProduct);
-router.post("/regEmpresa", createProduct);
-router.put("/upEmpresa/:id", updateProduct);
-router.delete("/delEmpresa/:id", deleteProduct);
+router.get('/empresas', getEmpresas);
+router.get("/empresa/:id", getEmpresa);
+router.post("/regEmpresa", createEmpresa);
+router.put("/upEmpresa/:id", updateEmpresa);
+router.delete("/delEmpresa/:id", deleteEmpresa);
 
 module.exports = router;
