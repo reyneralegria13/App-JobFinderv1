@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import './style.css'
 
-function Home() {
+function Esqueceu() {
   return (
     <div class="container">
     <h1>Esqueceu a Senha</h1>
