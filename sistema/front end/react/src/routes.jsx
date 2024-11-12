@@ -1,7 +1,7 @@
 import React from 'react'
 import { Routes, Route } from 'react-router-dom'
 
-function mainRoutes() {
+function MainRoutes() {
   return (
     <Routes>
         <Route path="/" element={<Home />} />
@@ -13,4 +13,4 @@ function mainRoutes() {
   )
 }
 
-export default mainRoutes
+export default MainRoutes
