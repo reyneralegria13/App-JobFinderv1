@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import './style.css'
+import '../EscolherCargo/style.css'
 
 function EscolherCargo() {
   const [usertype, setuserType] = useState('candidate')
