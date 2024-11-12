@@ -8,7 +8,6 @@ function Home() {
     <div className='body'>
       <header class="header">
       <div class="logo">JobFinder</div>
-        
     </header>
 
     <main class="container">

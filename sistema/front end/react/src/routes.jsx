@@ -1,16 +1,18 @@
-import React from 'react'
-import { Routes, Route } from 'react-router-dom'
+// src/routes/mainRoutes.jsx
+import React from 'react';
+import { Routes, Route } from 'react-router-dom';
+import Home from './pages/Home/index';
+import Login from './pages/Candidato/Login';
+import EscolherCargo from './pages/EscolherCargo/index';
 
-function MainRoutes() {
+const MainRoutes = () => {
   return (
     <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/candidato/login" element={<Login />} />
-        <Route path="/candidato/cadastro" element={<Cadastro />} />
-        <Route path="/empregador/login" element={<LoginEmpregador />} />
-        <Route path="/empregador/cadastro" element={<CadastroEmpregador />} />
+      <Route path="/" element={<Home />} />
+      <Route path="/login" element={<Login />} />
+      <Route path="/escolher-cargo" element={<EscolherCargo />} />
     </Routes>
-  )
-}
+  );
+};
 
-export default MainRoutes
+export default MainRoutes;
