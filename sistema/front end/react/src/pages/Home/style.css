@@ -1,6 +1,6 @@
 
   
-  body {
+  .body {
     background-color: #f5f5f5;
     min-height: 100vh;
     display: flex;
@@ -39,15 +39,6 @@
     font-size: 1.5rem;
     font-weight: bold;
     color: #333;
-  }
-
-  .imagem {
-    width: 357.14px;
-    height: 200.5px;
-    viewBox: 0 0 24 24;
-    fill: none;
-    stroke: currentColor;
-    stroke-width: 2;
   }
   
   .hero-image {

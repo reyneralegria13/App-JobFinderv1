@@ -4,7 +4,7 @@ import './style.css'
 
 function Home() {
     return (
-    <div>
+    <div className='body'>
         <header class="header">
 
             <div class="navigation">

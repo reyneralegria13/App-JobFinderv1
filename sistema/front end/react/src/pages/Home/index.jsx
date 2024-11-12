@@ -34,7 +34,7 @@ function Home() {
       </div>
       <div class="hero-image">
         <img
-          src="http://127.0.0.1:5500/sistema/front%20end/job_html/img/WhatsApp%20Image%202024-10-23%20at%2015.42.26.jpeg"
+          src="./img/img_principal.jpg"
           alt="Pessoas trabalham em um ambiente de escritório moderno"
         />
       </div>
