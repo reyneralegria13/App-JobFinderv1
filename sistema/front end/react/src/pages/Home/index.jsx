@@ -25,8 +25,7 @@ function Home() {
           <a
             href= "../EscolherCargo/index.jsx"
             class="button primary-button"
-            >Cadastre-se</a
-          >
+            >Cadastre-se</a>
           <a 
             href="./Login/index.jsx" 
             class="button secondary-button"
