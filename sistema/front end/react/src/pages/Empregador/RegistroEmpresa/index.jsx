@@ -1,5 +1,5 @@
 import React from 'react';
-import './styleReg.css';
+import './style.css';
 
 function CompanyRegistration() {
   return (
