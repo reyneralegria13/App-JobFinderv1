@@ -6,7 +6,7 @@ import imagem from '../../img/img_principal.jpeg'
 function Home() {
   return (
     
-    <div>
+    <div className='body'>
       <header class="header">
       <div class="logo">JobFinder</div>
         
