@@ -17,7 +17,7 @@ app.get("/",  (req, res) => {
 connectDb()
 .then(data => {
     console.log(' >> Banco de dados conectado com sucesso:\n')
-    app.listen(5000, () => {
+    app.listen(3000, () => {
         console.log('Servidor rodando na porta 5000:\n')
     }).on('error', err =>
         console.log('Erro ao ligar o servidor:\n', err))
