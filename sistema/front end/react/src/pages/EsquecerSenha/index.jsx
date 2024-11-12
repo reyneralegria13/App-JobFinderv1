@@ -2,12 +2,12 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import './style.css'
 
-function Home() {
+function EsquecerSenha() {
   return (
     <div> 
       <header class="header">
       <div class="navigation">
-        <button class="back-button" id="backButton" onclick="window.location.href = '../login/login.html';">
+        <button class="back-button" id="backButton" onClick={() => navigate('/')}>
           <svg
             width="24"
             height="24"
@@ -64,4 +64,4 @@ function Home() {
 
   )
 }
-export default Home
+export default EsquecerSenha

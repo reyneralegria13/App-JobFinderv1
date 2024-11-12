@@ -2,10 +2,9 @@ import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import './style.css'
 
-function Home() {
+function EscolherCargo() {
   const [usertype, setuserType] = useState('candidate')
   const navigate = useNavigate()
-
 
   const onClickSubmit =(e) => {
     e.preventDefault()
@@ -70,4 +69,4 @@ function Home() {
                    
     )
 }
-export default Home
+export default EscolherCargo
