@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import './style.css'
+import imagem from '../../img/img_principal.jpeg'
 
 function Home() {
   return (
@@ -22,19 +23,19 @@ function Home() {
         </p>
         <div class="button-group">
           <a
-            href="./registro.html"
+            href= "../EscolherCargo/index.jsx"
             class="button primary-button"
             >Cadastre-se</a
           >
           <a 
-            href="../Entrar/Entrar.html" 
+            href="./Login/index.jsx" 
             class="button secondary-button"
             >Entrar</a>
         </div>
       </div>
       <div class="hero-image">
         <img
-          src="./img/img_principal.jpg"
+          src= {imagem}
           alt="Pessoas trabalham em um ambiente de escritório moderno"
         />
       </div>
