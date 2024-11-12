@@ -1,12 +1,12 @@
 import React from 'react'
 import { Routes, Route } from 'react-router-dom'
-import Home from './pages/Home'
-import EscolherCargo from './pages/EscolherCargo'
-import Login from './pages/Candidato/Login'
-import Cadastro from './pages/Candidato/Registro'
-import LoginEmpregador from './pages/Empregador/Login'
-import CadastroEmpregador from './pages/Empregador/Registro'
-import EsquecerSenha from './pages/EsquecerSenha'
+import Home from './pages/Home/index.jsx'
+import EscolherCargo from './pages/EscolherCargo/index.jsx'
+import Login from './pages/Candidato/Login/index.jsx'
+import Cadastro from './pages/Candidato/Registro/index.jsx'
+import LoginEmpregador from './pages/Empregador/Login/index.jsx'
+import CadastroEmpregador from './pages/Empregador/Registro/index.jsx'
+import EsquecerSenha from './pages/EsquecerSenha/index.jsx'
 
 const MainRoutes = () => {
   return (
