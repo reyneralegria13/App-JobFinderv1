@@ -1,5 +1,5 @@
 import React from 'react'
-import { Routes, Route, createBrowserRouter } from 'react-router-dom'
+import { Routes, Route } from 'react-router-dom'
 import Home from './pages/Home'
 import EscolherCargo from './pages/EscolherCargo'
 import Login from './pages/Candidato/Login'
@@ -8,7 +8,7 @@ import LoginEmpregador from './pages/Empregador/Login'
 import CadastroEmpregador from './pages/Empregador/Registro'
 import EsquecerSenha from './pages/EsquecerSenha'
 
-function MainRoutes() {
+const MainRoutes = () => {
   return (
     <Routes>
         <Route path='/' element={<Home/>} />
@@ -19,7 +19,7 @@ function MainRoutes() {
         <Route path="/empregador/cadastro" element={<CadastroEmpregador />} />
         <Route path='/esquecerSenha' element={<EsquecerSenha/>} />
     </Routes>
-  )
-}
+  );
+};
 
-export default MainRoutes
+export default MainRoutes;
