@@ -5,7 +5,7 @@ import './style.css'
 function Home() {
   return (
       
-       <div class="login-container">
+      <div class="login-container">
 
       <h1>Bem-vindo ao JobFinder</h1>
       <div class="input-field">
@@ -17,7 +17,7 @@ function Home() {
         <input type="password" id="password" placeholder="Senha" />
       </div>
       <p class="forgot-password">
-        <a href="esq_senha.html">Esqueci a senha</a>
+        <Link to={'/esquecerSenha'}>Esqueci a senha</Link>
       </p>
       
       <button class="login-btn">Login</button>

@@ -1,14 +1,27 @@
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import './style.css'
 
 function Home() {
+  const [usertype, setuserType] = useState('candidate')
+  const navigate = useNavigate()
+
+
+  const onClickSubmit =(e) => {
+    e.preventDefault()
+    if(usertype === 'candidate') {
+     navigate('/candidato/login')
+    } else {
+     navigate('/empregador/login')
+    }
+  }
+
     return (
     <div className='body'>
         <header class="header">
 
             <div class="navigation">
-            <button class="back-button" id="botaovoltar" onclick="window.location.href = './login.html';">
+            <button class="back-button" id="botaovoltar" onClick={'/'}>
           <svg
             width="24"
             height="24"
@@ -23,8 +36,6 @@ function Home() {
             </div>
 
             <div class="logo">JobFinder</div>
-
-            
     </header>
 
     <main class="container">
@@ -54,7 +65,7 @@ function Home() {
           </label>
         </div>
 
-        <button type="submit" class="continue-button">Continuar</button>
+        <button type="submit" class="continue-button" onClick={onClickSubmit}>Continuar</button>
       </form>
     </main>
      </div>       
