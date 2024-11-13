@@ -1,6 +1,7 @@
 const express = require('express')
 const cors = require('cors')
 const connectDb = require('./db')
+const empresaRoutes = require('./routes/empresaRoutes')
 
 //uso
 const app = express()
@@ -12,6 +13,8 @@ app.use(cors('http://localhost:5173/'))
 app.get("/",  (req, res) => {
     res.send("Bem vindo ao meu servidor");
 });
+
+app.use("/", empresaRoutes)
 
 // conexão com o banco e com o servidor
 connectDb()
