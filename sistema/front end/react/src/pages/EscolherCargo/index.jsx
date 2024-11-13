@@ -1,10 +1,6 @@
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-<<<<<<< Updated upstream
-import '../EscolherCargo/style.css'
-=======
-import '../../styles/escolherCargo.css'
->>>>>>> Stashed changes
+import './style.css'
 
 function EscolherCargo() {
   const [usertype, setuserType] = useState('candidate')
