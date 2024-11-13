@@ -2,19 +2,34 @@ const express = require('express')
 const cors = require('cors')
 const connectDb = require('./db')
 const empresaRoutes = require('./routes/empresaRoutes')
+const path = require('path')
+const {engine} = require('express-handlebars')
 
 //uso
 const app = express()
-app.use(express.json())
-app.use(express.urlencoded({extended: false}));
-app.use(cors('http://localhost:5173/'))
+//app.use(bodyParser.urlencoded({extended: false}));
+//app.use(cors('http://localhost:5173/'))
+//app.use(bodyParser.json())
+app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
+
+
+//rotas
+app.use("/", empresaRoutes)
+
+//configuração das views engine
+app.set('views', path.join(__dirname, 'views'))
+app.engine('.hbs', engine({
+    extname: "hbs", //index.hbs
+    layoutDir: path.join(__dirname, 'views/Home'),
+    defaultLayout: 'Home.hbs'
+}))
+app.set('view engine', '.hbs')
 
 // rota principal
 app.get("/",  (req, res) => {
     res.send("Bem vindo ao meu servidor");
 });
-
-app.use("/", empresaRoutes)
 
 // conexão com o banco e com o servidor
 connectDb()
