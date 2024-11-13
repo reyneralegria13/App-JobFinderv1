@@ -36,35 +36,36 @@ function EscolherCargo() {
       </header>
 
       <main class="container">
-        <h1>Registro</h1>
-        <p>
-          Bem-vindo ao JobFinder! Por favor, escolha se você está procurando um
-          emprego ou se você é um empregador à procura de candidatos. Esta
-          informação nos ajudará a personalizar sua experiência.
-        </p>
+      <h1>Registro</h1>
+      <p>
+        Bem-vindo ao JobFinder! Por favor, escolha se você está procurando um
+        emprego ou se você é um empregador à procura de candidatos. Esta
+        informação nos ajudará a personalizar sua experiência.
+      </p>
 
-        <form id="register-form">
-          <div class="options">
-            <label class="option selected">
-              <input type="radio" name="user-type" value="candidate" checked />
-              <div class="option-content">
-                <div class="option-title">Candidato</div>
-                <div class="option-description">Estou procurando um emprego</div>
-              </div>
-            </label>
+      <form id="register-form">
+        <div class="options">
+          <label class="option selected">
+            <input type="radio" name="user-type" value="candidate" checked />
+            <div class="option-content">
+              <div class="option-title">Candidato</div>
+              <div class="option-description">Estou procurando um emprego</div>
+            </div>
+          </label>
 
-            <label class="option">
-              <input type="radio" name="user-type" value="employer" />
-              <div class="option-content">
-                <div class="option-title">Empregador</div>
-                <div class="option-description">Estou procurando candidatos</div>
-              </div>
-            </label>
-          </div>
+          <label class="option">
+            <input type="radio" name="user-type" value="employer" />
+            <div class="option-content">
+              <div class="option-title">Empregador</div>
+              <div class="option-description">Estou procurando candidatos</div>
+            </div>
+          </label>
+        </div>
 
-          <button type="submit" class="continue-button" onClick={onClickSubmit}>Continuar</button>
-        </form>
-      </main>
+        <button type="submit" class="continue-button" onClick={onClickSubmit}>Continuar</button>
+      </form>
+    </main>
+
     </div>     
                    
     )
