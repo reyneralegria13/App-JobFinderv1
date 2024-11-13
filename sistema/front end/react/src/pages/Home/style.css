@@ -11,7 +11,7 @@
   
   .container {
     min-width: 70%;
-    min-height: 70vh;
+    min-height: 70%;
     width: 10%;
     padding: 2rem;
     display: flex;
@@ -44,7 +44,8 @@
   
   .hero-image {
     flex: 1;
-    max-width: 600px;
+    max-width: 70%;
+    min-width: 40%;
     border-radius: 12px;
     overflow: hidden;
   }
