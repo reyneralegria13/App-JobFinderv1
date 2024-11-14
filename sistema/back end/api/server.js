@@ -21,7 +21,7 @@ app.use("/job", empresaRoutes)
 app.set('views', path.join(__dirname, 'views'))
 app.engine('.hbs', engine({
     extname: "hbs", //index.hbs
-    layoutDir: path.join(__dirname, 'views/Home'),
+    layoutDir: path.join(__dirname, 'views/layouts'),
     defaultLayout: 'Home.hbs'
 }))
 app.set('view engine', '.hbs')
