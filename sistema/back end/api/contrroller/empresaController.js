@@ -1,6 +1,6 @@
 const Empresa = require("../models/empresaModel");
 
-// lista todas as empresas cadastradas
+// Função ler (lista todas as empresas cadastradas)
 const getEmpresas = async (req, res) => {
     try{
         const empresas = await Empresa.find({});
@@ -10,7 +10,7 @@ const getEmpresas = async (req, res) => {
     }
 }
 
-// busca apenas uma empresa
+//Função ler (busca apenas uma empresa)
 const getEmpresa = async (req, res)=> {
     try{
         const { id } = req.params;
@@ -27,7 +27,7 @@ const getEmpresa = async (req, res)=> {
     }
 }
 
-// cadastra uma empresa
+//Função criar (cadastra uma empresa)
 const createEmpresa = async (req, res) => {
     try{
         /// guarda os dados contidos no body
@@ -55,7 +55,7 @@ const createEmpresa = async (req, res) => {
     }
 }
 
-// atualiza uma empresa
+// Função Update (atualiza uma empresa)
 const updateEmpresa = async (req, res) => {
     try{
         const { id } = req.params;
@@ -72,7 +72,7 @@ const updateEmpresa = async (req, res) => {
     }
 }
 
-// apaga uma empresa
+// Função deletar (apaga uma empresa)
 const deleteEmpresa = async (req, res) => {
     try{
         const { id } = req.params;
