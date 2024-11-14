@@ -15,7 +15,7 @@ app.use(express.json());
 
 
 //rotas
-app.use("/", empresaRoutes)
+app.use("/job", empresaRoutes)
 
 //configuração das views engine
 app.set('views', path.join(__dirname, 'views'))
