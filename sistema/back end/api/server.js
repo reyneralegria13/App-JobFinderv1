@@ -1,7 +1,7 @@
 const express = require('express')
 const cors = require('cors')
 const connectDb = require('./db')
-const empresaRoutes = require('./routes/empresaRoutes')
+const empresaRoutes = require('./routes/empresaRoutes');
 const path = require('path')
 const {engine} = require('express-handlebars')
 
