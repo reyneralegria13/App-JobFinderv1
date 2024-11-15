@@ -1,17 +1,31 @@
 const express = require("express");
-const Empresa = require("../contrroller/empresaController");
 const router = express.Router();
-const {getEmpresa, getEmpresas, createEmpresa, updateEmpresa, deleteEmpresa} = require("../contrroller/empresaController");
+const { getEmpresa, getEmpresas, createEmpresa, updateEmpresa, deleteEmpresa } = require("../contrroller/empresaController");
 
-// rotas para cada controle
-router.get('/', async (req, res) => {
-    
-    res.render('layouts/Home', {
-      title: 'Fornecedores',
-      style: 'Home.css',
-            
+// rota para a página home
+router.get('/home', (req, res) => {
+    res.render('fun/home', {
+        title: 'home',
+        style: 'home.css' 
     });
+});
+
+router.get('/cargo', (req, res) => {
+  res.render('fun/escolherCargo', {
+    title: 'Escolher Cargo',
+    style: 'escolherCargo.css'
   });
+});
+
+router.get('/cadCandidato', (req, res) => {
+  res.render('fun/reg_candidato', {
+    title: 'Registro de Candidato',
+    style: 'reg_candidato.css'
+  });
+});
+
+
+// outras rotas
 router.get('/empresas', getEmpresas);
 router.get("/empresa/:id", getEmpresa);
 router.post("/regEmpresa", createEmpresa);
