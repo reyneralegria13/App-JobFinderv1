@@ -28,7 +28,7 @@
 
     <div class="container">
       
-      <form id="candidateForm">
+      <form action="/cadCandidato" method="POST">
         <div class="form-group">
           <label for="nome">Nome</label>
           <input type="text" id="nome" name="nome" required />
@@ -55,36 +55,17 @@
 
         <div class="form-group">
           <label for="qualificacoes">Qualificações</label>
-          <input
-            type="text"
-            id="qualificacoes"
-            name="qualificacoes"
-            placeholder="Ex: Certificação PMP"
-          />
+          <input type="text" id="qualificacoes" name="qualificacoes" placeholder="Ex: Certificação PMP" />
         </div>
 
         <div class="form-group">
           <label for="cursos">Cursos</label>
-          <input
-            type="text"
-            id="cursos"
-            name="cursos"
-            placeholder="Ex: Curso de Inglês"
-          />
-        </div>
-
-        <div class="form-group">
-          <label for="email">Email</label>
-          <input type="email" id="email" name="email" required />
+          <input type="text" id="cursos" name="cursos" placeholder="Ex: Curso de Inglês" />
         </div>
 
         <div class="form-group">
           <label for="descricao">Descrição</label>
-          <textarea
-            id="descricao"
-            name="descricao"
-            placeholder="Experiência em gestão de projetos, com foco em metodologias ágeis e liderança de equipes multidisciplinares."
-          ></textarea>
+          <textarea id="descricao" name="descricao" placeholder="Experiência em gestão de projetos, com foco em metodologias ágeis e liderança de equipes multidisciplinares."></textarea>
         </div>
 
         <div class="form-group">
@@ -94,24 +75,26 @@
 
         <div class="form-group">
           <label for="habilidades">Habilidades Técnicas</label>
-          <input
-            type="text"
-            id="habilidades"
-            name="habilidades"
-            placeholder="Ex: Python, JavaScript, Excel"
-          />
+          <input type="text" id="habilidades" name="habilidades" placeholder="Ex: Python, JavaScript, Excel" />
         </div>
 
         <div class="form-group">
           <label for="idiomas">Idiomas</label>
-          <input
-            type="text"
-            id="idiomas"
-            name="idiomas"
-            placeholder="Ex: Inglês - Avançado, Espanhol - Intermediário"
-          />
+          <input type="text" id="idiomas" name="idiomas" placeholder="Ex: Inglês - Avançado, Espanhol - Intermediário" />
+        </div>
+
+        <!-- Colocando o campo de Email e Senha por último -->
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required />
+        </div>
+
+        <div class="form-group">
+          <label for="senha">Senha</label>
+          <input type="password" id="senha" name="senha" required />
         </div>
 
         <button type="submit">Continuar</button>
       </form>
+
     </div>

@@ -17,6 +17,7 @@ app.use(empresaRoutes);
 
 
 app.use(express.static(path.join(__dirname, 'src/assets')));
+app.use('/img', express.static(path.join(__dirname, 'src/img')));
 //rotas
 //app.use("/job", empresaRoutes);
 //console.log("Middleware de rotas '/job' foi carregado.");
