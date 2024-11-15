@@ -2,7 +2,12 @@ const express = require('express')
 const cors = require('cors')
 const connectDb = require('./db')
 const empresaRoutes = require('./src/routes/empresaRoutes');
+//autenticação de senha
+require('dotenv').config()
+const bcrypt = require('bcrypt')
+const jwt = require('jsonwebtoken')
 
+//handlebar
 const path = require('path')
 const {engine} = require('express-handlebars')
 
