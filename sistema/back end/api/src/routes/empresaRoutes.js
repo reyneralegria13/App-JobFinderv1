@@ -8,6 +8,7 @@ router.get('/', async (req, res) => {
     
     res.render('layouts/Home', {
       title: 'Fornecedores',
+      style: 'Home.css',
             
     });
   });

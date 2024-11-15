@@ -1,7 +1,7 @@
 const express = require('express')
 const cors = require('cors')
 const connectDb = require('./db')
-const empresaRoutes = require('./routes/empresaRoutes');
+const empresaRoutes = require('./src/routes/empresaRoutes');
 const path = require('path')
 const {engine} = require('express-handlebars')
 
@@ -10,19 +10,24 @@ const app = express()
 //app.use(bodyParser.urlencoded({extended: false}));
 //app.use(cors('http://localhost:5173/'))
 //app.use(bodyParser.json())
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-
+app.use(express.static(path.join(__dirname, 'src/assets')));
 //rotas
 app.use("/job", empresaRoutes)
 
 //configuração das views engine
-app.set('views', path.join(__dirname, 'views'))
+app.set('views', path.join(__dirname, 'src/views'))
+
 app.engine('.hbs', engine({
     extname: "hbs", //index.hbs
-    layoutDir: path.join(__dirname, 'views/layouts'),
-    defaultLayout: 'Home.hbs'
+    layoutDir: path.join(__dirname, 'src/views/layouts'),
+    defaultLayout: 'Home.hbs',
+    runtimeOptions: {
+        allowProtoPropertiesByDefault: true,
+        allowProtoMethodsByDefault: true,
+    }
 }))
 app.set('view engine', '.hbs')
 
