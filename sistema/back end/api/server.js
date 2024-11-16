@@ -21,7 +21,7 @@ app.use(express.json());
 app.use(empresaRoutes);
 
 
-app.use(express.static(path.join(__dirname, 'src/assets')));
+app.use('/assets', express.static(path.join(__dirname, 'src/assets')));
 app.use('/img', express.static(path.join(__dirname, 'src/img')));
 //rotas
 //app.use("/job", empresaRoutes);

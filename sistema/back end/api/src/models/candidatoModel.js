@@ -32,8 +32,7 @@ const candidatoSchema = mongoose.Schema({
     senha: {
         type: String,
         required: true,
-        minlength: 8,
-        maxlength: 16
+        minlength: 8
     },
     telefone: {
         type: String,

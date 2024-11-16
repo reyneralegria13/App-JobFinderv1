@@ -74,7 +74,7 @@ router.post('/cadCandidato', async (req, res) => {
       nome,
       cpf,
       email,
-      senha,
+      senha: senhaHash,
       telefone,
       educacao,
       qualificacao,
@@ -83,7 +83,7 @@ router.post('/cadCandidato', async (req, res) => {
       habilidadesTecnicas,
       idiomas
     });
-    // leva para o banco de dados
+    //leva para o banco de dados
     await novoCandidato.save();
 
     // ao terminar, volta pra a home
@@ -102,7 +102,7 @@ router.get('/cadEmpresa', (req, res) => {
   });
 });
 
-//rota para validação de cadatro de candidato
+//rota para validação de cadatro de empresa
 router.post('/cadEmpresa', async (req, res) => {
   const { nome, email, cnpj, fone, bio, site } = req.body;
 
@@ -133,46 +133,44 @@ router.get('/login', (req, res) => {
 });
 
 //rota para validação de login
-router.get('/login', async (req, res) => {
-  const {email, senha} = req.body
+// Rota de login
+router.post('/login', async (req, res) => {
+  const { email, senha } = req.body;
 
-  //validação inicial
-  if(!email){
-    return res.status(422).json({mgs:"O email é obrigatório!"})
+  if (!email) {
+    return res.status(422).json({ mgs: "O email é obrigatório!" });
   }
-  if(!senha){
-    return res.status(422).json({mgs:"A senha é obrigatório!"})
-  }
-
-  //ver se o usuário é encontrado no banco
-  const user = await Candidato.findOne({email: email})
-
-  if(!user){
-    return res.status(404).json({mgs:"Usuário não encontrado!"})
+  if (!senha) {
+    return res.status(422).json({ mgs: "A senha é obrigatória!" });
   }
 
-  //conferir senha do usuário
+  // Verifica o usuário no banco
+  const user = await Candidato.findOne({ email: email });
+
+  if (!user) {
+    return res.status(404).json({ mgs: "Usuário não encontrado!" });
+  }
+
+  // Verifica a senha
   const checarSenha = await bcrypt.compare(senha, user.senha);
 
-  if(!checarSenha){
-    return res.status(422).json({mgs:"Senha inválida!"})
+  if (!checarSenha) {
+    return res.status(422).json({ mgs: "Senha inválida!" });
   }
 
-  //chegar o token
-  try{
-    const secret = process.env.SECRET
-
+  try {
+    const secret = process.env.SECRET;
     const token = jwt.sign(
-      {
-        id: user._id,
-      },
+      { id: user._id, nome: user.nome },
       secret,
-    )
+      { expiresIn: "2h" }
+    );
 
-    res.status(200).json({msg:"Autenticação realizada com sucesso", token})
-  } catch (err){
-    console.erro(error)
-    res.status(500).send("Erro ao validar token")
+    // Retorna o token para o cliente
+    res.status(200).json({ msg: "Login realizado com sucesso", token });
+  } catch (err) {
+    console.error(err);
+    res.status(500).send("Erro ao validar token");
   }
 });
 
@@ -200,21 +198,39 @@ router.get("/user/:id", checarToken, async (req, res) => {
 })
 
 //função para validar o token
-function checarToken(res, req, next){
+function checarToken(req, res, next){ 
   const authHeader = req.headers['authorization']
   const token = authHeader && authHeader.split(" ")[1]
-  if(!token){
-    return res.status(401).json({msg: 'Acesso negado!'})
+  if (!token) {
+    return res.status(401).json({ msg: 'Acesso negado!' })
   }
-  try{
-    const secret =process.env.SECRET
-    jwt.verify(token, secret)
-
-    next()
-  } catch(error){
-    res.status(400).json({msg:"token inválido!"})
+  try {
+    const secret = process.env.SECRET
+    const decoded = jwt.verify(token, secret);
+    req.user = decoded;
+    next();
+  } catch (error) {
+    res.status(403).json({ msg: "token inválido!" })
   }
 }
+
+
+//rota após o login com o sistema (para testes)
+// Rota para a página inicial (protegida)
+router.get('/inicial', checarToken, async (req, res) => {
+  try {
+    const user = await Candidato.findById(req.user.id, '-senha'); // Usando o ID do token
+    res.render('fun/inicial', {
+      title: 'Página Inicial',
+      style: 'inicial.css',
+      user: user.nome, // Passando o nome do usuário para a página inicial
+    });
+  } catch (err) {
+    console.error("Erro ao carregar a página inicial:", err);
+    res.status(500).send("Erro ao carregar página inicial");
+  }
+});
+
 
 
 // outras rotas
