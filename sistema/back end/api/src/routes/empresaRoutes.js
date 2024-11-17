@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const { getCadastroEmpresa, getEmpresa, getEmpresas, createEmpresa, updateEmpresa, deleteEmpresa } = require("../controller/empresaController");
-const { getCadastroCandidato, getInicial, getPerfilCandidato, cadastroCandidato, realizarLogin } = require('../controller/candidatoController');
+const { getCadastroCandidato, getInicial, getPerfilCandidato, cadastroCandidato, realizarLogin, setSenha } = require('../controller/candidatoController');
 const { getCargo, getHome, getLogin, getRecuperarSenha } = require('../controller/telasController')
 const checarToken = require('../controller/tokenController')
 
@@ -25,5 +25,6 @@ router.get("/candidato/cadastrar", getCadastroCandidato);
 router.post("/candidato/cadastrar", cadastroCandidato);
 router.post("/candidato/login", realizarLogin);
 router.get("/candidato/inicial", getInicial);
+router.post("/candidato/redefenirSenha/", setSenha); // muda todas as senhas de todos os candidatos de uma vez?
 
 module.exports = router;

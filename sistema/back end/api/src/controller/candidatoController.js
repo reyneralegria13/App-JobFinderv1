@@ -143,10 +143,36 @@ const getInicial = async (req, res) => {
     }
 };
 
+const setSenha = async (req, res) => {
+  try {
+    const candidatos = await Candidato.find({}); // Busca todos os candidatos
+
+    for (const candidato of candidatos) {
+      // Verifica se a senha já está hashada
+      if (!candidato.senha.startsWith('$2b$')) {
+        const salt = await bcrypt.genSalt(12);
+        const senhaHash = await bcrypt.hash(candidato.senha, salt);
+
+        // Atualiza a senha no banco
+        candidato.senha = senhaHash;
+        await candidato.save();
+
+        console.log(`Senha do usuário ${candidato.email} atualizada com sucesso.`);
+      }
+    }
+    
+    console.log('Todas as senhas foram atualizadas.');
+  } catch (error) {
+    console.error('Erro ao atualizar senhas:', error);
+  }
+};
+
+
 module.exports = {
     getCadastroCandidato,
     getPerfilCandidato,
     cadastroCandidato,
     realizarLogin,
     getInicial, 
+    setSenha
 };
