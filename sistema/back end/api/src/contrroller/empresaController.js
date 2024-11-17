@@ -1,5 +1,13 @@
 const Empresa = require("../models/empresaModel");
 
+//rota para a página de cadastro de empresa
+const getCadastroEmpresa = async (req, res) => {
+    res.render('fun/reg_empresa', {
+      title: 'Registro de Empresa',
+      style: 'reg_empresa.css'
+    });
+};
+
 // Função ler (lista todas as empresas cadastradas)
 const getEmpresas = async (req, res) => {
     try{
@@ -91,6 +99,7 @@ const deleteEmpresa = async (req, res) => {
 
 // exporta as funções
 module.exports = {
+    getCadastroEmpresa,
     getEmpresas,
     getEmpresa,
     createEmpresa,
