@@ -161,6 +161,7 @@ const setSenha = async (req, res) => {
       }
     }
     
+    
     console.log('Todas as senhas foram atualizadas.');
   } catch (error) {
     console.error('Erro ao atualizar senhas:', error);
