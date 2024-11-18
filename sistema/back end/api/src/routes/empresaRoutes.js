@@ -23,7 +23,7 @@ router.delete("/empresa/excluir/:id", deleteEmpresa);
 router.get("/candidato/perfil/:id", checarToken, getPerfilCandidato);
 router.get("/candidato/cadastrar", getCadastroCandidato);
 router.post("/candidato/cadastrar", cadastroCandidato);
-router.post("/candidato/login", realizarLogin);
+router.post("/candidato/login", checarToken, realizarLogin);
 router.get("/candidato/inicial", getInicial);
 router.post("/candidato/redefenirSenha/", setSenha); // muda todas as senhas de todos os candidatos de uma vez?
 
