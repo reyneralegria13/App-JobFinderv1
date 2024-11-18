@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { X, Search, ChevronRight } from 'lucide-react';
-import './JobsInterface.css';
+import './style.css';
 
 const JobsInterface = () => {
   const [selectedTags, setSelectedTags] = useState([]);
