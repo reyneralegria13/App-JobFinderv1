@@ -9,6 +9,7 @@ const checarToken = require('../controller/tokenController')
 router.get("/home", getHome);
 router.get("/cargo", getCargo);
 router.get("/login", getLogin);
+router.post("/login", checarToken, realizarLogin);
 router.get("/recuperar_senha", getRecuperarSenha);
 
 // Rotas da empresa
@@ -23,7 +24,7 @@ router.delete("/empresa/excluir/:id", deleteEmpresa);
 router.get("/candidato/perfil/:id", checarToken, getPerfilCandidato);
 router.get("/candidato/cadastrar", getCadastroCandidato);
 router.post("/candidato/cadastrar", cadastroCandidato);
-router.post("/candidato/login", checarToken, realizarLogin);
+//router.post("/candidato/login", checarToken, realizarLogin);
 router.get("/candidato/inicial", getInicial);
 router.post("/candidato/redefenirSenha/", setSenha); // muda todas as senhas de todos os candidatos de uma vez?
 
