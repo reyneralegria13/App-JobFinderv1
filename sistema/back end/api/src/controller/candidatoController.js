@@ -28,11 +28,9 @@ const getPerfilCandidato = async (req, res) => {
 const cadastroCandidato = async (req, res) => {
     const { nome, cpf, email, senha, telefone, educacao, qualificacao, cursos, descricao, habilidadesTecnicas, idiomas } = req.body;
   
-    //Da erro ao tentar usar isso. Tô com preguiça de saber o pq.
-    // ta escrito "nome" em cima, e na verificação tu usa "name" KKKKKKKKKKKKKKKK
-    /*if(!name){
+    if(!nome){
       return res.status(422).json({mgs:"O nome é obrigatório!"})
-    }*/
+    }
     if(!cpf){
       return res.status(422).json({mgs:"O cpf é obrigatório!"})
     }
@@ -160,8 +158,6 @@ const setSenha = async (req, res) => {
         console.log(`Senha do usuário ${candidato.email} atualizada com sucesso.`);
       }
     }
-    
-    
     console.log('Todas as senhas foram atualizadas.');
   } catch (error) {
     console.error('Erro ao atualizar senhas:', error);
