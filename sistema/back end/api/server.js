@@ -6,6 +6,8 @@ const empresaRoutes = require('./src/routes/empresaRoutes');
 require('dotenv').config()
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
+const checarToken = require('./src/controller/tokenController');
+
 
 //handlebar
 const path = require('path')
@@ -19,7 +21,9 @@ const app = express()
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(empresaRoutes);
-
+app.get("/inicial", checarToken, (req, res) => {
+    res.json({ msg: "Acesso autorizado!" });
+});
 
 app.use('/assets', express.static(path.join(__dirname, 'src/assets')));
 app.use('/img', express.static(path.join(__dirname, 'src/img')));

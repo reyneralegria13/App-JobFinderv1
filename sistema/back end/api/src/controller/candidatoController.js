@@ -85,91 +85,34 @@ const cadastroCandidato = async (req, res) => {
     }
 };
 
-// Rota de login
-const realizarLogin = async (req, res) => {
-    const { email, senha } = req.body;
-  
-    if (!email) {
-      return res.status(422).json({ mgs: "O email é obrigatório!" });
-    }
-    if (!senha) {
-      return res.status(422).json({ mgs: "A senha é obrigatória!" });
-    }
-  
-    // Verifica o usuário no banco
-    const user = await Candidato.findOne({ email: email });
-  
-    if (!user) {
-      return res.status(404).json({ mgs: "Usuário não encontrado!" });
-    }
-  
-    // Verifica a senha
-    const checarSenha = await bcrypt.compare(senha, user.senha);
-  
-    if (!checarSenha) {
-      return res.status(422).json({ mgs: "Senha inválida!" });
-    }
-  
-    try {
-      const secret = process.env.SECRET;
-      const token = jwt.sign(
-        { id: user._id, nome: user.nome },
-        secret,
-        { expiresIn: "2h" }
-      );
-  
-      // Retorna o token para o cliente
-      res.status(200).json({ msg: "Login realizado com sucesso", token });
-    } catch (err) {
-      console.error(err);
-      res.status(500).send("Erro ao validar token");
-    }
-};
-
 // Rota para a página inicial (protegida)
 const getInicial = async (req, res) => {
-    try {
-      const user = await Candidato.findById(req.user.id, '-senha'); // Usando o ID do token
-      res.render('fun/inicial', {
-        title: 'Página Inicial',
-        style: 'inicial.css',
-        user: user.nome, // Passando o nome do usuário para a página inicial
-      });
-    } catch (err) {
-      console.error("Erro ao carregar a página inicial:", err);
-      res.status(500).send("Erro ao carregar página inicial");
-    }
-};
-
-const setSenha = async (req, res) => {
   try {
-    const candidatos = await Candidato.find({}); // Busca todos os candidatos
-
-    for (const candidato of candidatos) {
-      // Verifica se a senha já está hashada
-      if (!candidato.senha.startsWith('$2b$')) {
-        const salt = await bcrypt.genSalt(12);
-        const senhaHash = await bcrypt.hash(candidato.senha, salt);
-
-        // Atualiza a senha no banco
-        candidato.senha = senhaHash;
-        await candidato.save();
-
-        console.log(`Senha do usuário ${candidato.email} atualizada com sucesso.`);
+      // Busca o usuário no banco de dados usando o ID do token
+      const user = await Candidato.findById(req.user.id, '-senha'); // Exclui a senha do retorno
+      if (!user) {
+          return res.status(404).json({ msg: 'Usuário não encontrado!' });
       }
-    }
-    console.log('Todas as senhas foram atualizadas.');
-  } catch (error) {
-    console.error('Erro ao atualizar senhas:', error);
+
+      // Renderiza uma página ou retorna dados JSON
+      res.render('fun/inicial', {
+          title: 'Página Inicial',
+          style: 'inicial.css',
+          user: user.nome, // Passa o nome do usuário para a página inicial
+      });
+  } catch (err) {
+      console.error("Erro ao carregar a página inicial:", err);
+      res.status(500).send("Erro ao carregar a página inicial.");
   }
 };
+
+
+
 
 
 module.exports = {
     getCadastroCandidato,
     getPerfilCandidato,
     cadastroCandidato,
-    realizarLogin,
-    getInicial, 
-    setSenha
+    getInicial
 };
