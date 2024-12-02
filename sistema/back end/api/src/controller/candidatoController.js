@@ -3,12 +3,12 @@ const Candidato = require('../models/candidatoModel.js');
 const jwt = require('jsonwebtoken')*/
 
 exports.dashboard = (req, res) => {
-  // Exemplo: Recuperar informações do candidato e passar para o Handlebars
+
   const candidatoId = req.session.user.id;
 
-  // Aqui você buscaria dados do banco, mas para simplificar:
+
   res.render('fun/candidatoDashboard', {
-      user: req.session.user, // Dados da sessão
+      user: req.session.user, 
       message: 'Bem-vindo ao seu painel, Candidato!'
   });
 };
