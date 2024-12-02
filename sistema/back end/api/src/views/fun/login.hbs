@@ -40,6 +40,7 @@
   </form>
 
 
+
    <p class="forgot-password">
       <a href="/recuperar_senha">Esqueci a senha</a>
     </p>
@@ -57,31 +58,27 @@
 </div>
 <script>
   document.getElementById('loginForm').addEventListener('submit', function (event) {
-    event.preventDefault(); // Evita o comportamento padrão de envio do formulário
+    event.preventDefault(); 
 
-    // Obtém os valores do email e senha do formulário
+  
     const email = document.getElementById('email').value;
     const senha = document.getElementById('senha').value;
 
-    // Faz a requisição de login para o back-end
+
     fetch('/login', {
         method: 'POST',
         headers: {
-            'Content-Type': 'application/json', // Define o tipo de conteúdo como JSON
+            'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ email, senha }), // Envia as credenciais como JSON
+        body: JSON.stringify({ email, senha }), 
     })
-        .then(response => response.json()) // Processa a resposta como JSON
-        // Após a resposta do login
+        .then(response => response.json())
         .then(data => {
-            if (data.token) {
-                // Armazena o novo token no localStorage
-                localStorage.setItem('token', data.token);
-
-                // Redireciona para a página inicial
-                window.location.href = '/inicial';
+            if (data.message === 'Login bem-sucedido') {
+                
+                window.location.href = data.redirectUrl;
             } else {
-                alert('Login falhou. Verifique suas credenciais.');
+                alert(data.error || 'Erro ao realizar o login. Tente novamente.');
             }
         })
         .catch(err => {

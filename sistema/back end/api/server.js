@@ -2,11 +2,14 @@ const express = require('express')
 const cors = require('cors')
 const connectDb = require('./db')
 const empresaRoutes = require('./src/routes/empresaRoutes');
+const candidatoRoutes = require('./src/routes/candidatoRoutes');
 //autenticação de senha
 require('dotenv').config()
-const bcrypt = require('bcrypt')
+const session = require('express-session');
+const MongoStore = require('connect-mongo');
+/*const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
-const checarToken = require('./src/controller/tokenController');
+const checarToken = require('./src/controller/tokenController');*/
 
 
 //handlebar
@@ -20,11 +23,24 @@ const app = express()
 //app.use(bodyParser.json())
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(empresaRoutes);
-app.get("/inicial", checarToken, (req, res) => {
-    res.json({ msg: "Acesso autorizado!" });
-});
 
+/*app.get("/inicial", checarToken, (req, res) => {
+    res.json({ msg: "Acesso autorizado!" });
+});*/
+
+app.use(session({
+    secret: process.env.SESSION_SECRET || 'fallback-key',
+    resave: false,
+    saveUninitialized: false,
+    store: MongoStore.create({ mongoUrl: process.env.MONGO_URI }),
+    cookie: {
+        maxAge: 1000 * 60 * 60, 
+        secure: true // Coloque como true se usar HTTPS
+    }
+}));
+
+app.use(empresaRoutes);
+app.use('/candidato', candidatoRoutes);
 app.use('/assets', express.static(path.join(__dirname, 'src/assets')));
 app.use('/img', express.static(path.join(__dirname, 'src/img')));
 //rotas
@@ -45,6 +61,7 @@ app.engine('.hbs', engine({
     }
 }))
 app.set('view engine', '.hbs')
+
 
 // rota principal
 app.get("/",  (req, res) => {

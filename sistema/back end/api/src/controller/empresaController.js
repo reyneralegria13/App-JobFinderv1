@@ -1,5 +1,17 @@
 const Empresa = require("../models/empresaModel");
 
+const dashboard = (req, res) => {
+    
+    const empresaId = req.session.user.id;
+
+    res.render('fun/empresaDashboard', {
+        user: req.session.user, 
+        message: 'Bem-vindo ao seu painel, Empresa!'
+    });
+};
+
+
+
 //rota para a página de cadastro de empresa
 const getCadastroEmpresa = async (req, res) => {
     res.render('fun/reg_empresa', {
@@ -104,5 +116,6 @@ module.exports = {
     getEmpresa,
     createEmpresa,
     updateEmpresa,
-    deleteEmpresa
+    deleteEmpresa,
+    dashboard
 }

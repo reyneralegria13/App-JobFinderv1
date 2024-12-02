@@ -1,6 +1,19 @@
 const Candidato = require('../models/candidatoModel.js');
-const bcrypt = require('bcrypt')
-const jwt = require('jsonwebtoken')
+/*const bcrypt = require('bcrypt')
+const jwt = require('jsonwebtoken')*/
+
+exports.dashboard = (req, res) => {
+  // Exemplo: Recuperar informações do candidato e passar para o Handlebars
+  const candidatoId = req.session.user.id;
+
+  // Aqui você buscaria dados do banco, mas para simplificar:
+  res.render('fun/candidatoDashboard', {
+      user: req.session.user, // Dados da sessão
+      message: 'Bem-vindo ao seu painel, Candidato!'
+  });
+};
+
+
 
 //rota para a página de cadastro de candidato
 const getCadastroCandidato = async (req, res) => {
@@ -105,10 +118,6 @@ const getInicial = async (req, res) => {
       res.status(500).send("Erro ao carregar a página inicial.");
   }
 };
-
-
-
-
 
 module.exports = {
     getCadastroCandidato,
