@@ -2,9 +2,9 @@ const express = require("express");
 const router = express.Router();
 //const empresaController = require("../controller/empresaController");
 const { getCadastroEmpresa, getEmpresa, getEmpresas, createEmpresa, updateEmpresa, deleteEmpresa, dashboard } = require("../controller/empresaController");
-const { getCadastroCandidato, getInicial, getPerfilCandidato, cadastroCandidato} = require('../controller/candidatoController');
-const {realizarLogin, setSenha} =require('../controller/loginController');
-const { getCargo, getHome, getLogin, getRecuperarSenha } = require('../controller/telasController')
+//const { getCadastroCandidato, getInicial, getPerfilCandidato, cadastroCandidato} = require('../controller/candidatoController');
+//const {realizarLogin, setSenha} =require('../controller/loginController');
+//const { getCargo, getHome, getLogin, getRecuperarSenha } = require('../controller/telasController')
 //const checarToken = require('../controller/tokenController')
 //Teste de autenticação de login
 const { isAuthenticated, isEmpresa } = require('../middleware/auth');
@@ -12,7 +12,7 @@ const { isAuthenticated, isEmpresa } = require('../middleware/auth');
 
 
 // Rotas das telas
-router.get("/home", getHome);
+/*router.get("/home", getHome);
 router.get("/cargo", getCargo);
 //router.get("/login", login)
 router.get("/login", getLogin);
@@ -20,7 +20,7 @@ router.get("/login", getLogin);
 router.post("/login", realizarLogin);
 router.get("/recuperar_senha", getRecuperarSenha);
 //testes
-router.get('/inicial', getInicial);
+router.get('/inicial', getInicial);*/
 
 // Rotas da empresa
 router.get('/dashboard', isAuthenticated, isEmpresa, dashboard);

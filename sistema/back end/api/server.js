@@ -1,15 +1,12 @@
 const express = require('express')
-const cors = require('cors')
 const connectDb = require('./db')
 const empresaRoutes = require('./src/routes/empresaRoutes');
 const candidatoRoutes = require('./src/routes/candidatoRoutes');
+const geral =require('./src/routes/geralRoutes')
 //autenticação de senha
 require('dotenv').config()
 const session = require('express-session');
 const MongoStore = require('connect-mongo');
-/*const bcrypt = require('bcrypt')
-const jwt = require('jsonwebtoken')
-const checarToken = require('./src/controller/tokenController');*/
 
 
 //handlebar
@@ -18,15 +15,10 @@ const {engine} = require('express-handlebars')
 
 //uso
 const app = express()
-//app.use(bodyParser.urlencoded({extended: false}));
-//app.use(cors('http://localhost:5173/'))
-//app.use(bodyParser.json())
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-/*app.get("/inicial", checarToken, (req, res) => {
-    res.json({ msg: "Acesso autorizado!" });
-});*/
+
 
 app.use(session({
     secret: process.env.SESSION_SECRET || 'fallback-key',
@@ -39,14 +31,12 @@ app.use(session({
     }
 }));
 
-app.use(empresaRoutes);
-app.use(candidatoRoutes);
+app.use('/empresa', empresaRoutes);
+app.use('/candidato', candidatoRoutes);
+app.use(geral);
+
 app.use('/assets', express.static(path.join(__dirname, 'src/assets')));
 app.use('/img', express.static(path.join(__dirname, 'src/img')));
-//rotas
-//app.use("/job", empresaRoutes);
-//console.log("Middleware de rotas '/job' foi carregado.");
-
 
 //configuração das views engine
 app.set('views', path.join(__dirname, 'src/views'))

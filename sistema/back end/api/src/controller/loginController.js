@@ -9,34 +9,27 @@ exports.realizarLogin = async (req, res) => {
     console.log('Sessão antes do login:', req.session); 
 
     try {
-        // Tenta encontrar o usuário primeiro como Candidato
         let user = await Candidato.findOne({ email });
 
-        // Se não encontrar como Candidato, tenta como Empresa
         if (!user) {
             user = await Empresa.findOne({ email });
         }
-
-        // Se não encontrar o usuário, retorna erro
         if (!user) {
             return res.status(401).json({ error: 'E-mail ou senha inválidos.' });
         }
 
-        // Valida a senha
         const isValidPassword = await bcrypt.compare(senha, user.senha);
         if (!isValidPassword) {
             return res.status(401).json({ error: 'E-mail ou senha inválidos.' });
         }
 
-        // Define o tipo de usuário com base no modelo encontrado
         const userType = user.constructor.modelName.toLowerCase();
-
-        // Cria a sessão e redireciona para a dashboard correta
+        
         req.session.user = { id: user._id, role: userType };
 
         console.log('Sessão após login:', req.session); 
 
-        // Retorna a resposta com a URL da dashboard
+        
         return res.json({
             message: 'Login bem-sucedido',
             redirectUrl: userType === 'candidato' ? '/candidato/dashboard' : '/empresa/dashboard',
@@ -46,10 +39,6 @@ exports.realizarLogin = async (req, res) => {
         res.status(500).json({ error: 'Ocorreu um erro no login. Tente novamente.' });
     }
 };
-
-
-
-
 
 
 
