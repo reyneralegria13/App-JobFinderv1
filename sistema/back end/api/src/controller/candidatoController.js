@@ -1,14 +1,13 @@
 const Candidato = require('../models/candidatoModel.js');
-/*const bcrypt = require('bcrypt')
-const jwt = require('jsonwebtoken')*/
+const bcrypt = require('bcrypt')
+
 
 const dashboard = (req, res) => {
-    // Exemplo: Recuperar informações do candidato e passar para o Handlebars
     const candidatoId = req.session.user.id;
 
-    // Aqui você buscaria dados do banco, mas para simplificar:
+  
     res.render('fun/candidatoDashboard', {
-        user: req.session.user, // Dados da sessão
+        user: req.session.user,
         message: 'Bem-vindo ao seu painel, Candidato!'
     });
 };
@@ -26,8 +25,7 @@ const getCadastroCandidato = async (req, res) => {
 //Rota privada do perfil do usuário para testes de autenticação
 const getPerfilCandidato = async (req, res) => {
     const id = req.params.id
-  
-    //checar se o usuário existe
+
     const user = await Candidato.findById(id, '-senha')
   
     if(!user){
@@ -62,7 +60,7 @@ const cadastroCandidato = async (req, res) => {
         return res.status(422).json({mgs:"As senhas não confere!"})
     }*/
   
-    //Ver se o usuário existe
+    
     const userExiste = await Candidato.findOne({email: email})
   
     if(userExiste){
@@ -87,10 +85,10 @@ const cadastroCandidato = async (req, res) => {
         habilidadesTecnicas,
         idiomas
       });
-      //leva para o banco de dados
+      
       await novoCandidato.save();
   
-      // ao terminar, volta pra a home
+      
       res.redirect('/home');
     } catch (err) {
       console.error(err);
@@ -98,35 +96,9 @@ const cadastroCandidato = async (req, res) => {
     }
 };
 
-// Rota para a página inicial (protegida)
-const getInicial = async (req, res) => {
-  try {
-      // Busca o usuário no banco de dados usando o ID do token
-      const user = await Candidato.findById(req.user.id, '-senha'); // Exclui a senha do retorno
-      if (!user) {
-          return res.status(404).json({ msg: 'Usuário não encontrado!' });
-      }
-
-      // Renderiza uma página ou retorna dados JSON
-      res.render('fun/inicial', {
-          title: 'Página Inicial',
-          style: 'inicial.css',
-          user: user.nome, // Passa o nome do usuário para a página inicial
-      });
-  } catch (err) {
-      console.error("Erro ao carregar a página inicial:", err);
-      res.status(500).send("Erro ao carregar a página inicial.");
-  }
-};
-
-
-
-
-
 module.exports = {
     dashboard,
     getCadastroCandidato,
     getPerfilCandidato,
     cadastroCandidato,
-    getInicial
 };

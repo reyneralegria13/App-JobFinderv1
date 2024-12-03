@@ -25,12 +25,12 @@ router.get('/inicial', getInicial);*/
 // Rotas da empresa
 router.get('/dashboard', isAuthenticated, isEmpresa, dashboard);
 
-router.get("/empresa/cadastrar", getCadastroEmpresa);
-router.get("/empresa/:id", getEmpresa);
+router.get("/cadastrar", getCadastroEmpresa);
+router.get("/:id", getEmpresa);
 router.get("/empresas", getEmpresas);
-router.post("/empresa/cadastrar", createEmpresa);
-router.put("/empresa/editar/:id", updateEmpresa);
-router.delete("/empresa/excluir/:id", deleteEmpresa);
+router.post("/cadastrar", createEmpresa);
+router.put("/editar/:id", updateEmpresa);
+router.delete("/excluir/:id", deleteEmpresa);
 
 /*/ Rotas do candidato
 router.get('/dashboard', isAuthenticated, isCandidato, candidatoController.dashboard);
