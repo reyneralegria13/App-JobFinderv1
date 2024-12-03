@@ -2,15 +2,15 @@ const Candidato = require('../models/candidatoModel.js');
 /*const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')*/
 
-exports.dashboard = (req, res) => {
+const dashboard = (req, res) => {
+    // Exemplo: Recuperar informações do candidato e passar para o Handlebars
+    const candidatoId = req.session.user.id;
 
-  const candidatoId = req.session.user.id;
-
-
-  res.render('fun/candidatoDashboard', {
-      user: req.session.user, 
-      message: 'Bem-vindo ao seu painel, Candidato!'
-  });
+    // Aqui você buscaria dados do banco, mas para simplificar:
+    res.render('fun/candidatoDashboard', {
+        user: req.session.user, // Dados da sessão
+        message: 'Bem-vindo ao seu painel, Candidato!'
+    });
 };
 
 
@@ -119,7 +119,12 @@ const getInicial = async (req, res) => {
   }
 };
 
+
+
+
+
 module.exports = {
+    dashboard,
     getCadastroCandidato,
     getPerfilCandidato,
     cadastroCandidato,

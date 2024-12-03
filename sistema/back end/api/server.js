@@ -40,7 +40,7 @@ app.use(session({
 }));
 
 app.use(empresaRoutes);
-app.use('/candidato', candidatoRoutes);
+app.use(candidatoRoutes);
 app.use('/assets', express.static(path.join(__dirname, 'src/assets')));
 app.use('/img', express.static(path.join(__dirname, 'src/img')));
 //rotas
