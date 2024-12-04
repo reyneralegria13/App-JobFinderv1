@@ -2,10 +2,9 @@ const Candidato = require('../models/candidatoModel.js');
 const bcrypt = require('bcrypt')
 
 
-const dashboard = (req, res) => {
+const dashboardCandidato = (req, res) => {
     const candidatoId = req.session.user.id;
 
-  
     res.render('fun/candidatoDashboard', {
         user: req.session.user,
         message: 'Bem-vindo ao seu painel, Candidato!'
@@ -97,7 +96,7 @@ const cadastroCandidato = async (req, res) => {
 };
 
 module.exports = {
-    dashboard,
+    dashboardCandidato,
     getCadastroCandidato,
     getPerfilCandidato,
     cadastroCandidato,

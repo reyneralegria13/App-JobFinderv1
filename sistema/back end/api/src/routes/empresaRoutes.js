@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 //const empresaController = require("../controller/empresaController");
-const { getCadastroEmpresa, getEmpresa, getEmpresas, createEmpresa, updateEmpresa, deleteEmpresa, dashboard } = require("../controller/empresaController");
+const { getCadastroEmpresa, getEmpresa, getEmpresas, createEmpresa, updateEmpresa, deleteEmpresa, dashboardEmpresa } = require("../controller/empresaController");
 //const { getCadastroCandidato, getInicial, getPerfilCandidato, cadastroCandidato} = require('../controller/candidatoController');
 //const {realizarLogin, setSenha} =require('../controller/loginController');
 //const { getCargo, getHome, getLogin, getRecuperarSenha } = require('../controller/telasController')
@@ -23,7 +23,7 @@ router.get("/recuperar_senha", getRecuperarSenha);
 router.get('/inicial', getInicial);*/
 
 // Rotas da empresa
-router.get('/dashboard', isAuthenticated, isEmpresa, dashboard);
+router.get('/dashboard', isAuthenticated, isEmpresa, dashboardEmpresa);
 
 router.get("/cadastrar", getCadastroEmpresa);
 router.get("/:id", getEmpresa);

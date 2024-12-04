@@ -1,4 +1,5 @@
 exports.isAuthenticated = (req, res, next) => {
+  console.log("req.session em isAuthenticated:" ,req.session)
   if (req.session && req.session.user) {
       return next();
   }

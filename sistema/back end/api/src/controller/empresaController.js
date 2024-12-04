@@ -1,6 +1,6 @@
 const Empresa = require("../models/empresaModel");
 
-const dashboard = (req, res) => {
+const dashboardEmpresa = (req, res) => {
     
     const empresaId = req.session.user.id;
 
@@ -114,5 +114,5 @@ module.exports = {
     createEmpresa,
     updateEmpresa,
     deleteEmpresa,
-    dashboard
+    dashboardEmpresa
 }

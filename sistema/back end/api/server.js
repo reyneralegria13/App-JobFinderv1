@@ -26,8 +26,9 @@ app.use(session({
     saveUninitialized: false,
     store: MongoStore.create({ mongoUrl: process.env.MONGO_URI }),
     cookie: {
-        maxAge: 1000 * 60 * 60, 
-        secure: true // Coloque como true se usar HTTPS
+        maxAge: 1000 * 60 * 60, // 1 hora
+        secure: process.env.NODE_ENV === 'production', // Apenas true em produção
+        httpOnly: true
     }
 }));
 
@@ -63,7 +64,7 @@ connectDb()
 .then(data => {
     console.log(' >> Banco de dados conectado com sucesso:\n')
     app.listen(3000, () => {
-        console.log('Servidor rodando na porta 3000:\n')
+        console.log(' >> Servidor rodando na porta 3000:\n')
     }).on('error', err =>
         console.log('Erro ao ligar o servidor:\n', err))
 })

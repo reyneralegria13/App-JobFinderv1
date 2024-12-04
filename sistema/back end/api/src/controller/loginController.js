@@ -27,9 +27,8 @@ exports.realizarLogin = async (req, res) => {
         
         req.session.user = { id: user._id, role: userType };
 
-        console.log('Sessão após login:', req.session); 
+        console.log('req.session em realizarLogin:', req.session);
 
-        
         return res.json({
             message: 'Login bem-sucedido',
             redirectUrl: userType === 'candidato' ? '/candidato/dashboard' : '/empresa/dashboard',
