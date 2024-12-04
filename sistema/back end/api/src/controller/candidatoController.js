@@ -36,30 +36,11 @@ const getPerfilCandidato = async (req, res) => {
 
 //validação de cadastro de candidato
 const cadastroCandidato = async (req, res) => {
-    const { nome, cpf, email, senha, telefone, educacao, qualificacao, cursos, descricao, habilidadesTecnicas, idiomas } = req.body;
-  
-    if(!nome){
-      return res.status(422).json({mgs:"O nome é obrigatório!"})
-    }
-    if(!cpf){
-      return res.status(422).json({mgs:"O cpf é obrigatório!"})
-    }
-    if(!telefone){
-      return res.status(422).json({mgs:"O telefone é obrigatório!"})
-    }
-    if(!email){
-      return res.status(422).json({mgs:"O email é obrigatório!"})
-    }
-    if(!senha){
-      return res.status(422).json({mgs:"A senha é obrigatório!"})
-    }
-  
     //Caso seja usado o "confirmar senha"
     /*if(senha != confirmarSenha){
         return res.status(422).json({mgs:"As senhas não confere!"})
     }*/
-  
-    
+
     const userExiste = await Candidato.findOne({email: email})
   
     if(userExiste){
@@ -68,7 +49,7 @@ const cadastroCandidato = async (req, res) => {
   
     //proteção de senha 
     const salt = await bcrypt.genSalt(12)
-    const senhaHash = await bcrypt.hash(senha, salt)
+    const senhaHash = await bcrypt.hash(req.body.senha, salt)
   
     try {
       const novoCandidato = new Candidato({
@@ -87,7 +68,7 @@ const cadastroCandidato = async (req, res) => {
       
       await novoCandidato.save();
       res.redirect('/home');
-      
+
     } catch (err) {
       console.error(err);
       res.status(500).send("Erro ao cadastrar o candidato.");

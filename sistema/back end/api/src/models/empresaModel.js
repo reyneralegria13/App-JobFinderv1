@@ -3,16 +3,34 @@ const mongoose = require('mongoose')
 const EmpresaSchema = mongoose.Schema({
   nome: {
     type: String,
-    required: true
-  },
-  email: {
-    type: String,
-    required: true
+    required: true,
+    validate: {
+      validator: function(v) {
+        return /^[a-zA-Zá-ú��-��\s]+$/.test(v);
+      },
+      message: 'Nome inválido'
+    },
   },
   cnpj: {
     type: String,
     required: true,
     unique: true,
+    validate: {
+      validator: function(v) {
+        return /^\d{2}\.\d{3}\.\d{3}\/\d{4}-\d{2}$/.test(v);
+      },
+      message: 'CNPJ inválido'
+    }
+  },
+  email: {
+    type: String,
+    required: true,
+    validate: {
+      validator: function(v) {
+        return /\S+@\S+\.\S+/.test(v);
+      },
+      message: 'Email inválido'
+    }
   },
   senha: {
     type: String,
@@ -22,14 +40,32 @@ const EmpresaSchema = mongoose.Schema({
   fone: {
     type: String,
     required: true,
+    validate: {
+      validator: function(v) {
+        return /^\(\d{2}\) \d{5}-\d{4}$/.test(v);
+      },
+      message: 'Telefone inválido'
+    }
   },
   bio:{
     type: String,
     required: false,
+    validate: {
+      validator: function(v) {
+        return /^[a-zA-Zá-ú��-��\s]+$/.test(v);
+      },
+      message: 'Biografia inválida'
+    }
   },
   site: {
     type: String,
     required: false,
+    validate: {
+      validator: function(v) {
+        return /^(https?:\/\/)?([\da-z.-]+)\/[^\s.]*/.test(v);
+      },
+      message: 'Site inválido'
+    }
   }
 });
 

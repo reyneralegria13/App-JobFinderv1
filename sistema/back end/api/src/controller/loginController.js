@@ -6,8 +6,6 @@ const bcrypt = require('bcrypt');
 
 exports.realizarLogin = async (req, res) => {
     const { email, senha } = req.body;
-    console.log('Sessão antes do login:', req.session); 
-
     try {
         let user = await Candidato.findOne({ email });
 
@@ -26,8 +24,6 @@ exports.realizarLogin = async (req, res) => {
         const userType = user.constructor.modelName.toLowerCase();
         
         req.session.user = { id: user._id, role: userType };
-
-        console.log('req.session em realizarLogin:', req.session);
 
         return res.json({
             message: 'Login bem-sucedido',
