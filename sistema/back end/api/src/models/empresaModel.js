@@ -50,22 +50,10 @@ const EmpresaSchema = mongoose.Schema({
   bio:{
     type: String,
     required: false,
-    validate: {
-      validator: function(v) {
-        return /^[a-zA-Zá-ú��-��\s]+$/.test(v);
-      },
-      message: 'Biografia inválida'
-    }
   },
   site: {
     type: String,
     required: false,
-    validate: {
-      validator: function(v) {
-        return /^(https?:\/\/)?([\da-z.-]+)\/[^\s.]*/.test(v);
-      },
-      message: 'Site inválido'
-    }
   },
   resetToken: {
     type: String
