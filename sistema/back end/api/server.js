@@ -9,10 +9,6 @@ require('dotenv').config()
 const session = require('express-session');
 const MongoStore = require('connect-mongo');
 
-//nodemailer
-const nodemailer = require('nodemailer');
-const crypto = require('crypto');
-
 //handlebar
 const path = require('path')
 const {engine} = require('express-handlebars')
@@ -29,7 +25,7 @@ app.use(session({
     store: MongoStore.create({ mongoUrl: process.env.MONGO_URI }),
     cookie: {
         maxAge: 1000 * 60 * 60, // 1 hora
-        secure: true,
+        secure: process.env.NODE_ENV === 'production', // Apenas true em produção
         httpOnly: true
     }
 }));
