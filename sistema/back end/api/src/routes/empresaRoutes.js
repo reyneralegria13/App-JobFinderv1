@@ -29,7 +29,7 @@ router.get("/cadastrar", getCadastroEmpresa);
 router.get("/:id", getEmpresa);
 router.get("/empresas", getEmpresas);
 router.post("/cadastrar", createEmpresa);
-router.put("/editar/:id", updateEmpresa);
+router.post("/editar/:id", updateEmpresa);
 router.delete("/excluir/:id", deleteEmpresa);
 
 /*/ Rotas do candidato

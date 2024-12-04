@@ -86,9 +86,8 @@ const cadastroCandidato = async (req, res) => {
       });
       
       await novoCandidato.save();
-  
-      
       res.redirect('/home');
+      
     } catch (err) {
       console.error(err);
       res.status(500).send("Erro ao cadastrar o candidato.");

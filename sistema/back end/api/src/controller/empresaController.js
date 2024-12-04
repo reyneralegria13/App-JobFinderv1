@@ -1,4 +1,5 @@
 const Empresa = require("../models/empresaModel");
+const bcrypt = require("bcrypt");
 
 const dashboardEmpresa = (req, res) => {
     
@@ -49,21 +50,30 @@ const getEmpresa = async (req, res)=> {
 const createEmpresa = async (req, res) => {
     try{
         
-        const {nome, email, cnpj, fone, bio, site} = request.body
+        // verifica se há alguma empresa existente
+        const empresa = await Empresa.findOne({ cnpj: req.body.cnpj });
         
-        if(!nome || !cnpj || !email || !fone || !site){
-            return response.status(400).json({ error : "Erro: Insira todos os campos obrigatórios!"})
+        if(empresa){
+            return res.status(409).json({ message: "Empresa já cadastrada!" })
         }
+
+        //proteção de senha 
+        const salt = await bcrypt.genSalt(12)
+        const senhaHash = await bcrypt.hash(req.body.senha, salt)
         
-        const newEmpresa = await Empresa.create({
-            nome: reqbody.nome,
+        const newEmpresa = new Empresa({
+            nome: req.body.nome,
             email: req.body.email,
             cnpj: req.body.cnpj,
+            senha: senhaHash,
             fone: req.body.fone,
             bio: req.body.bio,
             site: req.body.site
         })
-        res.status(200).send(newEmpresa)
+
+        await newEmpresa.save();
+        res.redirect('/home');
+    
     }catch (error){
         
         if (error.code == 11000){

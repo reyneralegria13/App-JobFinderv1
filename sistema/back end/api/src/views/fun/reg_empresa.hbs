@@ -28,11 +28,13 @@
         Você poderá complementar as informações posteriormente.
       </p>
 
-      <form id="companyForm">
+      <form id="companyForm" action="/empresa/cadastrar" method="POST">
         <div class="form-group">
           <label class="form-label">Nome da Empresa*</label>
           <input
             type="text"
+            id="nome"
+            name="nome"
             class="form-input"
             placeholder="Digite o nome da sua empresa"
             required
@@ -43,6 +45,8 @@
           <label class="form-label">CNPJ*</label>
           <input
             type="text"
+            id="cnpj"
+            name="cnpj"
             class="form-input"
             placeholder="XX.XXX.XXX/XXXX-XX"
             required
@@ -54,6 +58,8 @@
           <label class="form-label">Email Corporativo*</label>
           <input
             type="email"
+            id="email"
+            name="email"
             class="form-input"
             placeholder="email@suaempresa.com"
             required
@@ -61,10 +67,17 @@
         </div>
 
         <div class="form-group">
+          <label class="form-label">Senha*</label>
+          <input type="password" id="senha" name="senha" class="form-input" required />
+        </div>
+
+        <div class="form-group">
           <label class="form-label">Telefone Comercial*</label>
           <input
             type="tel"
             class="form-input"
+            id="fone"
+            name="fone"
             placeholder="(XX) XXXXX-XXXX"
             required
           />
@@ -74,6 +87,8 @@
           <label class="form-label">Bio da Empresa</label>
           <textarea
             class="form-input"
+            id="bio"
+            name="bio"
             placeholder="Descreva brevemente sua empresa..."
           ></textarea>
           <span class="form-helper"
@@ -86,18 +101,14 @@
           <input
             type="url"
             class="form-input"
+            id="site"
+            name="site"
             placeholder="https://www.suaempresa.com"
           />
         </div>
 
         <div class="button-group">
-          <button
-            type="button"
-            class="button button-secondary"
-            id="cancelButton"
-          >
-            Cancelar
-          </button>
+          
           <button type="submit" class="button button-primary">Salvar</button>
         </div>
       </form>
