@@ -44,26 +44,26 @@ exports.recuperarSenha = async (req, res) => {
         }
     })
 
-    const { email } = req.body;
     try {
-        const user = await Candidato.findOne({ email }) || await Empresa.findOne({ email });
+        const user = await Candidato.findOne({ email: req.body.email }) || await Empresa.findOne({ email: req.body.email });
 
         if (!user) {
             return res.status(404).json({ error: 'E-mail não encontrado.' });
         }
 
         const token = crypto.randomBytes(20).toString('hex');
-        const tokenExpiration = Date.now() + 3600000
+        const tokenExpiration = Date.now() + 15 * 60 * 1000; // 15 minutos em milissegundos
 
+        // salva as informações
         user.resetToken = token;
         user.resetTokenExpiration = tokenExpiration;
         await user.save();
 
-        const linkReset = `http://${req.headers.host}/resetar-senha/${token}`;
+        const linkReset = `http://${req.headers.host}/redefinir_senha/${token}`;
 
         const mailOptions = {
             from: process.env.APP_EMAIL,
-            to: email,
+            to: req.body.email,
             subject: 'Recuperar senha - App JobFinder',
             html: `
             <h1>Recuperar Senha</h1>
@@ -74,17 +74,44 @@ exports.recuperarSenha = async (req, res) => {
             `
         };
 
-        transporter.sendMail(mailOptions, (error, info) => {
-            if (error) {
-                console.error('Error sending email:', error);
-                return res.status(500).json({ error: 'Falha ao enviar o e-mail de recuperação.' });
-            }
-            console.log('Email sent:', info.response);
-            res.status(200).json({ message: 'Email de recuperação de senha enviado com sucesso.' });
-        });
+        await transporter.sendMail(mailOptions);
 
         res.redirect('/login');
     } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: 'Ocorreu um erro ao recuperar a senha. Tente novamente.' });
+    }
+}
+
+exports.redefinirSenha = async (req, res) => {
+    try {
+        const token = req.params.token;
+
+        const user =
+            (await Candidato.findOne({
+                resetToken: token,
+                resetTokenExpiration: { $gt: Date.now() },
+            })) ||
+            (await Empresa.findOne({
+                resetToken: token,
+                resetTokenExpiration: { $gt: Date.now() },
+            }));
+
+        if(!user){
+            return res.status(404).json({ error: 'Token inválido ou expirado.' });
+        }
+
+        // Atualizar senha
+        const salt = await bcrypt.genSalt(12)
+        user.senha = await bcrypt.hash(req.body.senha, salt);
+        user.resetToken = undefined; // Invalida o token
+        user.resetTokenExpiration = undefined;
+        await user.save();
+
+        res.redirect('/login');
+    } catch (error) {
+        console.error('Erro ao redefinir senha:', error);
+        res.status(500).send(error.message);
     }
 }
 

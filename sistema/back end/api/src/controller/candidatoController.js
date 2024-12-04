@@ -39,7 +39,7 @@ const cadastroCandidato = async (req, res) => {
         return res.status(422).json({mgs:"As senhas não confere!"})
     }*/
 
-    const userExiste = await Candidato.findOne({email: email})
+    const userExiste = await Candidato.findOne({email: req.body.email})
   
     if(userExiste){
       return res.status(422).json({mgs:"Email já utilizado no sistema. Por favor, escolher outro."})
@@ -51,17 +51,17 @@ const cadastroCandidato = async (req, res) => {
   
     try {
       const novoCandidato = new Candidato({
-        nome,
-        cpf,
-        email,
+        nome: req.body.nome,
+        cpf: req.body.cpf,
+        email: req.body.email,
         senha: senhaHash,
-        telefone,
-        educacao,
-        qualificacao,
-        cursos,
-        descricao,
-        habilidadesTecnicas,
-        idiomas
+        telefone: req.body.telefone,
+        educacao: req.body.educacao,
+        qualificacao: req.body.qualificacoes,
+        cursos: req.body.cursos,
+        descricao: req.body.descricao,
+        habilidadesTecnicas: req.body.habilidades,
+        idiomas: req.body.idiomas,
       });
       
       await novoCandidato.save();
