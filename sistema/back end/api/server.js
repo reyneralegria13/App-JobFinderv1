@@ -3,11 +3,15 @@ const connectDb = require('./db')
 const empresaRoutes = require('./src/routes/empresaRoutes');
 const candidatoRoutes = require('./src/routes/candidatoRoutes');
 const geral =require('./src/routes/geralRoutes')
+
 //autenticação de senha
 require('dotenv').config()
 const session = require('express-session');
 const MongoStore = require('connect-mongo');
 
+//nodemailer
+const nodemailer = require('nodemailer');
+const crypto = require('crypto');
 
 //handlebar
 const path = require('path')
@@ -18,8 +22,6 @@ const app = express()
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-
-
 app.use(session({
     secret: process.env.SESSION_SECRET || 'fallback-key',
     resave: false,
@@ -27,7 +29,7 @@ app.use(session({
     store: MongoStore.create({ mongoUrl: process.env.MONGO_URI }),
     cookie: {
         maxAge: 1000 * 60 * 60, // 1 hora
-        secure: process.env.NODE_ENV === 'production', // Apenas true em produção
+        secure: true,
         httpOnly: true
     }
 }));

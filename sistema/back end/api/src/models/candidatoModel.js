@@ -70,6 +70,12 @@ const candidatoSchema = mongoose.Schema({
         type: [String],
         required: false,
         default: []
+    },
+    resetToken: {
+        type: String
+    },
+    resetTokenExpiration: {
+        type: Date
     }
 })
 

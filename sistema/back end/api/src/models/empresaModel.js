@@ -66,6 +66,12 @@ const EmpresaSchema = mongoose.Schema({
       },
       message: 'Site inválido'
     }
+  },
+  resetToken: {
+    type: String
+  },
+  resetTokenExpiration: {
+    type: Date
   }
 });
 

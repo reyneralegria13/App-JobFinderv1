@@ -11,8 +11,6 @@ const dashboardCandidato = (req, res) => {
     });
 };
 
-
-
 //rota para a página de cadastro de candidato
 const getCadastroCandidato = async (req, res) => {
     res.render('fun/reg_candidato', {
