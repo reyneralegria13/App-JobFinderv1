@@ -1,4 +1,5 @@
 const mongoose = require('mongoose')
+const VagasSchema = require('./vagasModel')
 
 const EmpresaSchema = mongoose.Schema({
   nome: {
@@ -60,7 +61,9 @@ const EmpresaSchema = mongoose.Schema({
   },
   resetTokenExpiration: {
     type: Date
-  }
+  },
+  vagas: [{type: mongoose.Schema.Types.ObjectId, ref: 'Vagas'}]
+
 });
 
 module.exports = mongoose.model("Empresa", EmpresaSchema);

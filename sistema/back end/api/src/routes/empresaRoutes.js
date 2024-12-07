@@ -1,7 +1,9 @@
 const express = require("express");
 const router = express.Router();
+const multer = require('multer'); // Para upload de arquivos
+const upload = multer();
 //const empresaController = require("../controller/empresaController");
-const { getCadastroEmpresa, getEmpresa, getEmpresas, createEmpresa, updateEmpresa, deleteEmpresa, dashboardEmpresa } = require("../controller/empresaController");
+const { getCadastroEmpresa, getEmpresa, getEmpresas, createEmpresa, updateEmpresa, deleteEmpresa, dashboardEmpresa, criarVagaParaEmpresa } = require("../controller/empresaController");
 //const { getCadastroCandidato, getInicial, getPerfilCandidato, cadastroCandidato} = require('../controller/candidatoController');
 //const {realizarLogin, setSenha} =require('../controller/loginController');
 //const { getCargo, getHome, getLogin, getRecuperarSenha } = require('../controller/telasController')
@@ -31,6 +33,7 @@ router.get("/empresas", getEmpresas);
 router.post("/cadastrar", createEmpresa);
 router.post("/editar/:id", updateEmpresa);
 router.delete("/excluir/:id", deleteEmpresa);
+router.post('/:empresaId/vagas', upload.single('imagem'), criarVagaParaEmpresa);
 
 /*/ Rotas do candidato
 router.get('/dashboard', isAuthenticated, isCandidato, candidatoController.dashboard);

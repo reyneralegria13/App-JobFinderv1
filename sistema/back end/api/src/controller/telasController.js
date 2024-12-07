@@ -61,11 +61,22 @@ const getRedefinirSenha = async (req, res) => {
     res.status(500).send(err.message);
   }
 };
+const criarVagas = (req, res) => {
+        const { empresaId } = req.params;
+       res.render('fun/criarVagas', {
+          title: 'Criar Vagas', 
+          style: 'criarVagas.css',
+          empresaId,
+      });
+ 
+};
+
 
 module.exports = {
     getHome,
     getCargo,
     getLogin,
     getRecuperarSenha,
-    getRedefinirSenha
+    getRedefinirSenha,
+    criarVagas
 }

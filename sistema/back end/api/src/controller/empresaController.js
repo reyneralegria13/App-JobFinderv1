@@ -1,13 +1,34 @@
 const Empresa = require("../models/empresaModel");
+const Vagas = require('../models/vagasModel');
+const candidato = require("../models/candidatoModel");
 const bcrypt = require("bcrypt");
 
-const dashboardEmpresa = (req, res) => {
+const dashboardEmpresa = async (req, res) => {
     
     const empresaId = req.session.user.id;
 
+    const candidatos = await candidato.find();
+      console.log('Produtos encontrados:', candidatos); // Adicione este log
+  
+      const candidatosComImagens = candidatos.map(candidato => {
+        let imagemBase64 = null;
+        if (candidato.imagem && candidato.imagem.data) {
+          imagemBase64 = `data:${vaga.imagem.contentType};base64,${vaga.imagem.data.toString('base64')}`;
+        }
+  
+        return {
+          ...candidato._doc,
+          imagem: imagemBase64
+        };
+      });
+
+
     res.render('fun/empresaDashboard', {
         user: req.session.user, 
-        message: 'Bem-vindo ao seu painel, Empresa!'
+        message: 'Bem-vindo ao seu painel, Empresa!',
+        style: 'empresaDashboar.css',
+        empresaId,
+        candidatos: candidatosComImagens
     });
 };
 
@@ -116,6 +137,37 @@ const deleteEmpresa = async (req, res) => {
     }
 }
 
+const criarVagaParaEmpresa = async (req, res) => {
+    try {
+        const { empresaId } = req.params; // ID da empresa fornecido na URL
+        const { nome, descrisao } = req.body;
+
+        // Busca a empresa pelo ID
+        const empresa = await Empresa.findById(empresaId);
+        if (!empresa) {
+            return res.status(404).send({ message: 'Empresa não encontrada!' });
+        }
+
+        // Criação da vaga
+        const novaVaga = new Vagas({
+            nome,
+            descrisao,
+            imagem: req.file ? { data: req.file.buffer, contentType: req.file.mimetype } : undefined,
+        });
+
+        // Salva a vaga no banco de dados
+        await novaVaga.save();
+
+        // Adiciona o ID da vaga ao array de vagas da empresa
+        empresa.vagas.push(novaVaga._id);
+        await empresa.save();
+
+        res.redirect('/dashboard',{empresaId});
+        } catch (err) {
+        res.status(500).send({ message: 'Erro ao criar vaga para a empresa: ' + err.message });
+    }
+};
+
 
 module.exports = {
     getCadastroEmpresa,
@@ -124,5 +176,6 @@ module.exports = {
     createEmpresa,
     updateEmpresa,
     deleteEmpresa,
-    dashboardEmpresa
+    dashboardEmpresa,
+    criarVagaParaEmpresa
 }

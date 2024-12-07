@@ -1,13 +1,34 @@
 const Candidato = require('../models/candidatoModel.js');
+const Vaga = require('../models/vagasModel.js');
 const bcrypt = require('bcrypt')
 
 
-const dashboardCandidato = (req, res) => {
+const dashboardCandidato = async (req, res) => {
     const candidatoId = req.session.user.id;
+
+    const vagas = await Vaga.find();
+      console.log('Produtos encontrados:', vagas); // Adicione este log
+  
+      const vagasComImagens = vagas.map(vaga => {
+        let imagemBase64 = null;
+        if (vaga.imagem && vaga.imagem.data) {
+          imagemBase64 = `data:${vaga.imagem.contentType};base64,${vaga.imagem.data.toString('base64')}`;
+        }
+  
+        return {
+          ...vaga._doc,
+          imagem: imagemBase64
+        };
+      });
 
     res.render('fun/candidatoDashboard', {
         user: req.session.user,
-        message: 'Bem-vindo ao seu painel, Candidato!'
+        message: 'Bem-vindo ao seu painel, Candidato!',
+        style: 'candidatoDashboar.css',
+        candidatoId,
+        vagas: vagasComImagens
+
+
     });
 };
 
@@ -62,6 +83,7 @@ const cadastroCandidato = async (req, res) => {
         descricao: req.body.descricao,
         habilidadesTecnicas: req.body.habilidades,
         idiomas: req.body.idiomas,
+        imagem: req.file ? { data: req.file.buffer, contentType: req.file.mimetype } : undefined,
       });
       
       await novoCandidato.save();

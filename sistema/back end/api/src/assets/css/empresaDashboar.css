@@ -1,0 +1,122 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+  }
+  
+  body {
+    background-color: #f9f9f9;
+    color: #333;
+  }
+  
+  /* Cabeçalho */
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background-color: #fff;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .header h1 {
+    font-size: 24px;
+  }
+  
+  .back-button,
+  .menu-button {
+    font-size: 24px;
+    border: none;
+    background: none;
+    cursor: pointer;
+  }
+  
+  /* Barra de busca */
+  .search-container {
+    margin: 20px auto;
+    width: 90%;
+  }
+  
+  .search-input {
+    width: calc(100% - 30px);
+    padding: 12px;
+    border-radius: 25px;
+    border: none;
+    background-color: #fff;
+    box-shadow: inset 0px 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Categorias */
+  .category-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+  }
+  
+  .tab {
+    padding: 10px;
+    border-radius: 20px;
+    background-color: #fff;
+    border: none;
+  }
+  
+  .tab.active {
+    border-bottom: solid black; /* Indica a aba ativa */
+  }
+  
+  /* Grid de candidatos */
+  .candidates-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+  }
+  
+  .candidate-card {
+    background-color: white;
+    border-radius: 10px;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .candidate-image {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 10px;
+  }
+  
+  .register-button {
+    background-color: #FFE4B5;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+  }
+
+  .bottom-nav {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    padding: 15px;
+    background: white;
+    border-top: 1px solid #eee;
+}
+
+.nav-item {
+    text-align: center;
+    color: #666;
+    text-decoration: none;
+    font-size: 12px;
+}
+
+.nav-item.active {
+    color: #000;
+}
+  

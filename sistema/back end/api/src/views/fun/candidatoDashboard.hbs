@@ -1,2 +1,68 @@
-<h1>{{message}}</h1>
-<p>Aqui você pode ver suas vagas, candidaturas e outras informações relevantes.</p>
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JobFinder</title>
+
+</head>
+<body>
+    <div class="container">
+        <!-- Cabeçalho -->
+        <header class="header">
+            <button class="back-button">←</button>
+            <h1>JobFinder</h1>
+            <button class="menu-button">☰</button>
+        </header>
+
+        <!-- Barra de busca -->
+        <div class="search-container">
+            <span class="search-icon">🔍</span>
+            <input type="text" class="search-input" placeholder="Buscar Vagas">
+        </div>
+
+        <!-- Categorias -->
+        <div class="categories">
+            <button class="category-button">Full Stack</button>
+            <button class="category-button">UX/UI Designer</button>
+            <button class="category-button">Analista de Dados</button>
+            <button class="category-button">Técnico em TI</button>
+            <button class="category-button">Estoquista </button>
+            <button class="category-button">Progamdor Front End </button>
+            <button class="category-button">Progamdor Back End </button>
+            <button class="category-button">Operador de caixa</button>
+            <button class="category-button">Enfermagem</button>
+        </div>
+
+        <!-- Grid de vagas -->
+        <div class="jobs-grid">
+            <ul>
+                {{#if vagas.length}}
+                {{#each vagas}}
+                <li class="job-card">
+                    <!-- Nome da vaga -->
+                    <h2>{{nome}}</h2>
+
+                    <!-- Imagem da vaga -->
+                    {{#if imagem}}
+                    <img src="{{imagem}}" alt="{{nome}}" class="job-image" />
+                    {{/if}}
+
+                    <!-- Descrição -->
+                    <p>{{descrisao}}</p>
+
+                    <!-- Botão de cadastro -->
+                    <button class="register-button">Cadastre-se</button>
+                </li>
+                {{/each}}
+                {{else}}
+                <!-- Caso não existam vagas cadastradas -->
+                <div class="no-data">
+                    <p>Não existem vagas cadastradas.</p>
+                </div>
+                {{/if}}
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

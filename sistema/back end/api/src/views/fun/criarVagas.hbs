@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criar Nova Vaga</title>
+</head>
+<body>
+    <h1>Criar Nova Vaga</h1>
+    <form action="/{{empresaId}}/vagas" method="POST" enctype="multipart/form-data">
+        <div>
+            <label for="nome">Nome da Vaga:</label>
+            <input type="text" id="nome" name="nome" required>
+        </div>
+        <div>
+            <label for="descrisao">Descrição:</label>
+            <textarea id="descrisao" name="descrisao" rows="4" required></textarea>
+        </div>
+        <div>
+            <label for="imagem">Imagem da Vaga:</label>
+            <input type="file" id="imagem" name="imagem" accept="image/*">
+        </div>
+        
+        <button type="submit">Salvar Vaga</button>
+    </form>
+
+    <a href="/vagas">Voltar para a Lista de Vagas</a>
+</body>
+</html>

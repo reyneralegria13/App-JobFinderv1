@@ -1,2 +1,52 @@
-<h1>{{message}}</h1>
-<p>Aqui você pode gerenciar suas vagas, visualizar candidatos e outras informações.</p>
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JobFinder - Candidatos</title>
+</head>
+<body>
+    <!-- Cabeçalho -->
+    <header class="header">
+        <button class="back-button">←</button>
+        <h1>JobFinder</h1>
+        <button class="menu-button">☰</button>
+    </header>
+
+    <!-- Barra de busca -->
+    <div class="search-container">
+        <input type="text" class="search-input" placeholder="Buscar candidatos">
+    </div>
+
+    <!-- Abas de categorias -->
+    <div class="category-tabs">
+        <button class="tab active">Todos</button>
+        <button class="tab">Área de TI</button>
+        <button class="tab">Estoque</button>
+        <button class="tab">Caixa</button>
+        <button class="tab">Vendas</button>
+    </div>
+
+    <!-- Grid de candidatos -->
+    <div class="candidates-grid">
+        {{#each candidatos}}
+        <div class="candidate-card">
+            {{#if imagem}}
+            <img src="{{imagem}}" alt="{{nome}}" class="candidate-image" />
+            {{/if}}
+            <h3 class="candidate-name">{{nome}}</h3>
+            <p class="candidate-qualification">{{qualificacao}}</p>
+            <button class="view-profile-button">Ver Perfil</button>
+        </div>
+        {{/each}}
+    </div>
+
+    <!-- Navegação inferior -->
+    <nav class="bottom-nav">
+        <a href="#" class="nav-item">Início</a>
+        <a href="/{{empresaId}}/vagas/criar" class="nav-item">Add Vagas</a>
+        <a href="#" class="nav-item active">Candidatos</a>
+        <a href="#" class="nav-item">Configurações</a>
+    </nav>
+</body>
+</html>

@@ -1,6 +1,8 @@
 const mongoose = require('mongoose');
 
 const candidatoSchema = mongoose.Schema({
+
+    imagem: { data: Buffer, contentType: String },
     nome: {
         type: String,
         required: true,
