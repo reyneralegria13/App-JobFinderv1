@@ -6,9 +6,9 @@ const { isAuthenticated, isEmpresa } = require('../middleware/auth');
 
 const {realizarLogin, recuperarSenha, redefinirSenha} =require('../controller/loginController');
 const { getCargo, getHome, getLogin, getRecuperarSenha, getRedefinirSenha, criarVagas } = require('../controller/telasController')
-const {  criarVagaParaEmpresa, dashboardEmpresa } = require("../controller/empresaController");
+const {  criarVagaParaEmpresa, dashboardEmpresa, buscacandidatos } = require("../controller/empresaController");
 
-const { verVaga, candidatarse } = require('../controller/candidatoController');
+const { verVaga, candidatarse, buscarvagas } = require('../controller/candidatoController');
 
 
 
@@ -27,6 +27,10 @@ router.post('/redefinir_senha/:token', redefinirSenha);
 //EMPRESA
 router.get('/dashboard', isAuthenticated, isEmpresa, dashboardEmpresa);
 router.get("/:empresaId/vagas/criar", criarVagas);
+router.get('/candidatos/buscar', buscacandidatos);
 router.post('/:empresaId/vagas', upload.single('imagem'), criarVagaParaEmpresa);
+router.get('/vagas/buscar', buscarvagas);
 router.get("/vagas/:id", verVaga);
+
+
 module.exports = router;

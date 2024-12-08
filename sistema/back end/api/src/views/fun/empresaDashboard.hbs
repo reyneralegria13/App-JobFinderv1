@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JobFinder - Candidatos</title>
 </head>
+
 <body>
     <!-- Cabeçalho -->
     <header class="header">
@@ -15,8 +17,13 @@
 
     <!-- Barra de busca -->
     <div class="search-container">
-        <input type="text" class="search-input" placeholder="Buscar candidatos">
+        <form action="/candidatos/buscar" method="GET">
+            <span class="search-icon">🔍</span>
+            <input type="text" name="q" class="search-input" placeholder="Buscar Vagas">
+            <button type="submit" class="search-button">Buscar</button>
+        </form>
     </div>
+
 
     <!-- Abas de categorias -->
     <div class="category-tabs">
@@ -49,4 +56,5 @@
         <a href="#" class="nav-item">Configurações</a>
     </nav>
 </body>
+
 </html>

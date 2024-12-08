@@ -172,6 +172,42 @@ const criarVagaParaEmpresa = async (req, res) => {
 };
 
 
+
+const buscacandidatos = async (req, res) => {
+    try {
+        const { q } = req.query; // Obtém o termo de busca
+
+        // Filtra os candidatos com base na qualificação ou educação
+        const candidatos = await candidato.find({
+            $or: [
+                { qualificacao: { $regex: q, $options: 'i' } }, // Busca no campo "qualificacao"
+                { educacao: { $regex: q, $options: 'i' } }      // Busca no campo "educacao"
+            ]
+        });
+
+        // Converte as imagens para Base64
+        const candidatosComImagens = candidatos.map(candidato => {
+            let imagemBase64 = null;
+            if (candidato.imagem && candidato.imagem.data) {
+                imagemBase64 = `data:${candidato.imagem.contentType};base64,${candidato.imagem.data.toString('base64')}`;
+            }
+
+            return {
+                ...candidato._doc,
+                imagem: imagemBase64,
+            };
+        });
+
+        // Renderiza o template com os resultados
+        res.render('fun/resultCanddidatos', { candidatos: candidatosComImagens, query: q });
+    } catch (err) {
+        console.error(err);
+        res.status(500).send({ message: 'Erro ao buscar candidatos', error: err.message });
+    }
+};
+
+
+
 module.exports = {
     getCadastroEmpresa,
     getEmpresas,
@@ -180,5 +216,6 @@ module.exports = {
     updateEmpresa,
     deleteEmpresa,
     dashboardEmpresa,
-    criarVagaParaEmpresa
+    criarVagaParaEmpresa,
+    buscacandidatos,
 }
