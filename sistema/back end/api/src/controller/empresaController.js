@@ -8,7 +8,7 @@ const dashboardEmpresa = async (req, res) => {
     const empresaId = req.session.user.id;
 
     const candidatos = await candidato.find();
-      console.log('Produtos encontrados:', candidatos); // Adicione este log
+      console.log('Produtos encontrados:', candidatos); 
   
       const candidatosComImagens = candidatos.map(candidato => {
         let imagemBase64 = null;
