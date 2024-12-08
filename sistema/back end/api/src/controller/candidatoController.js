@@ -134,6 +134,39 @@ const verVaga = async (req, res) => {
 };
 
 
+// Rota para buscar vagas
+const buscarvagas = async (req, res) => {
+    try {
+        const { q } = req.query;
+
+        // Filtra as vagas com base no nome ou área
+        const vagas = await Vaga.find({
+            $or: [
+                { nome: { $regex: q, $options: 'i' } },
+                { area: { $regex: q, $options: 'i' } }
+            ]
+        }).populate('empresa');
+
+        // Converte as imagens para Base64
+        const vagasComImagens = vagas.map(vaga => {
+            let imagemBase64 = null;
+            if (vaga.imagem && vaga.imagem.data) {
+                imagemBase64 = `data:${vaga.imagem.contentType};base64,${vaga.imagem.data.toString('base64')}`;
+            }
+
+            return {
+                ...vaga._doc,
+                imagem: imagemBase64,
+            };
+        });
+
+        res.render('can/resultVagas', { vagas: vagasComImagens, query: q });
+    } catch (err) {
+        console.error(err);
+        res.status(500).send({ message: 'Erro ao buscar vagas', error: err.message });
+    }
+};
+
 
 module.exports = {
     dashboardCandidato,
@@ -141,4 +174,5 @@ module.exports = {
     getPerfilCandidato,
     cadastroCandidato,
     verVaga,
+    buscarvagas,
 };

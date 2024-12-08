@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultados da Busca</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Cabeçalho -->
+        <header class="header">
+            <h1>Resultados da Busca</h1>
+            <p>Termo buscado: "{{query}}"</p>
+        </header>
+
+        <!-- Grid de Candidatos -->
+        <div class="candidates-grid">
+            {{#if candidatos.length}}
+            {{#each candidatos}}
+            <div class="candidate-card">
+                <!-- Imagem do candidato -->
+                {{#if imagem}}
+                <img src="{{imagem}}" alt="{{nome}}" class="candidate-image" />
+                {{/if}}
+
+                <!-- Nome do candidato -->
+                <h2>{{nome}}</h2>
+
+                <!-- Qualificação -->
+                <p>{{qualificacao}}</p>
+
+                <!-- Educação -->
+                <p>{{educacao}}</p>
+
+                <!-- Botão para ver perfil -->
+                <button class="view-profile-button">Ver Perfil</button>
+            </div>
+            {{/each}}
+            {{else}}
+            <div class="no-data">
+                <p>Nenhum candidato encontrado para "{{query}}".</p>
+            </div>
+            {{/if}}
+        </div>
+    </div>
+</body>
+</html>
