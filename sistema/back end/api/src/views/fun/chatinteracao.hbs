@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chat</title>
+</head>
+<body>
+  <h1>Chat</h1>
+  <div id="chat-box"></div>
+  <input type="text" id="message-input" placeholder="Digite sua mensagem">
+  <button onclick="sendMessage()">Enviar</button>
+
+  <script>
+    let applicationId; // Defina o ID da inscrição dinamicamente
+
+    async function fetchChat() {
+      const response = await fetch(`/applications/${applicationId}`);
+      const application = await response.json();
+
+      const chatBox = document.getElementById('chat-box');
+      chatBox.innerHTML = '';
+      
+      application.chat.forEach(msg => {
+        const msgElement = document.createElement('p');
+        msgElement.textContent = `${msg.sender}: ${msg.message}`;
+        chatBox.appendChild(msgElement);
+      });
+    }
+
+    async function sendMessage() {
+      const inputElement = document.getElementById('message-input');
+      const messageContent = inputElement.value;
+
+      await fetch(`/applications/${applicationId}/chat`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ sender: 'Candidato', message: messageContent }),
+      });
+
+      inputElement.value = '';
+      fetchChat();
+    }
+
+    fetchChat();
+  </script>
+</body>
+</html>
