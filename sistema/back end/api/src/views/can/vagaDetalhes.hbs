@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalhes da Vaga</title>
+</head>
+<body>
+    <div class="container">
+        <!-- Cabeçalho -->
+        <header class="header">
+            <button class="back-button" onclick="window.history.back()">←</button>
+            <h1>{{nome}}</h1>
+            <button class="menu-button">☰</button>
+        </header>
+
+        <!-- Detalhes da Vaga -->
+        <div class="vaga-detalhes">
+            {{#if imagem}}
+            <img src="{{imagem}}" alt="{{nome}}" class="vaga-imagem" />
+            {{/if}}
+            <h2>Área: {{area}}</h2>
+            <p><strong>Requisitos:</strong> {{requisitos}}</p>
+            <p><strong>Empresa:</strong> {{empresa}}</p>
+        </div>
+
+        <!-- Botão de Cadastro -->
+        <button class="register-button">Cadastre-se</button>
+    </div>
+</body>
+</html>

@@ -7,7 +7,8 @@
 }
 
 body {
-  background-color: #f5f5f5;
+  background-color: #f9f9f9; /* Fundo claro */
+  color: #333; /* Cor padrão do texto */
 }
 
 /* Container principal */
@@ -23,8 +24,8 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 15px;
-  background-color: #fff;
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #fff; /* Fundo branco */
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Sombra leve */
 }
 
 .header h1 {
@@ -42,52 +43,54 @@ body {
 /* Barra de busca */
 .search-container {
   margin-top: 20px;
-  position: relative;
+  position: relative; /* Para posicionar o ícone de busca corretamente */
 }
 
 .search-input {
   width: calc(100% - 30px);
-  padding: 12px 40px; /* Espaço para o ícone */
-  border-radius: 25px;
+  padding: 12px; /* Espaçamento interno */
+  padding-left: 40px; /* Espaço para o ícone */
+  border-radius: 25px; /* Bordas arredondadas */
   border: none;
+  background-color: #fff; /* Fundo branco */
+  box-shadow: inset 0px 2px 4px rgba(0, 0, 0, 0.1); /* Sombra interna leve */
 }
 
 .search-icon {
   position: absolute;
-  left: 15px;
-  top: calc(50% - 10px);
+  left: 15px; /* Posicionamento à esquerda */
+  top: calc(50% - 10px); /* Centralização vertical */
 }
 
 /* Categorias */
 .categories {
   display: flex;
-  gap: 10px;
+  gap: 10px; /* Espaçamento entre botões */
   margin-top: 20px;
 }
 
 .category-button {
-  padding: 8px 16px;
+  padding: 10px;
   border-radius: 20px;
+  background-color: #fff;
   border: none;
-  background-color: #007bff;
-  color: white;
   cursor: pointer;
 }
 
 .category-button:hover {
-  background-color: #0056b3;
+  background-color: #007bff;
+  color: white;
 }
 
-/* Grid de vagas */
-.jobs-grid ul {
-  list-style-type: none; /* Remove os marcadores da lista */
+/* Grid de candidatos */
+.candidates-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px; /* Define o espaço entre os itens */
-  padding: 20px; 
+  gap: 20px;
+  padding: 20px;
 }
 
-.job-card {
+.candidate-card {
   background-color: white;
   border-radius: 10px;
   padding: 15px;
@@ -95,7 +98,7 @@ body {
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.job-image {
+.candidate-image {
   width: 50px;
   height: 50px;
   object-fit: cover;

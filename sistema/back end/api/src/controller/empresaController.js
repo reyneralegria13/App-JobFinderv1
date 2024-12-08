@@ -140,7 +140,7 @@ const deleteEmpresa = async (req, res) => {
 const criarVagaParaEmpresa = async (req, res) => {
     try {
         const { empresaId } = req.params; // ID da empresa fornecido na URL
-        const { nome, descrisao } = req.body;
+        const { nome, area, requisitos } = req.body;
 
         // Busca a empresa pelo ID
         const empresa = await Empresa.findById(empresaId);
@@ -151,8 +151,10 @@ const criarVagaParaEmpresa = async (req, res) => {
         // Criação da vaga
         const novaVaga = new Vagas({
             nome,
-            descrisao,
+            area,
+            requisitos,
             imagem: req.file ? { data: req.file.buffer, contentType: req.file.mimetype } : undefined,
+            empresa: empresa._id
         });
 
         // Salva a vaga no banco de dados
@@ -162,7 +164,8 @@ const criarVagaParaEmpresa = async (req, res) => {
         empresa.vagas.push(novaVaga._id);
         await empresa.save();
 
-        res.redirect('/dashboard',{empresaId});
+        res.redirect('fun/criarVaga', empresaId);
+
         } catch (err) {
         res.status(500).send({ message: 'Erro ao criar vaga para a empresa: ' + err.message });
     }

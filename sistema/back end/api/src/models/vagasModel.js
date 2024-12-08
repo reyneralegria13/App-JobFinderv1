@@ -1,10 +1,11 @@
-const mongoose = require('mongoose')
-const Empresa = require('./empresaModel')
+const mongoose = require('mongoose');
 
 const VagasSchema = new mongoose.Schema({
     nome: String,
-    descrisao: String,
-    imagem: { data: Buffer, contentType: String }
-  });
-  
-  module.exports = mongoose.model('Vagas', VagasSchema);
+    area: String,
+    requisitos: String,
+    imagem: { data: Buffer, contentType: String },
+    empresa: { type: mongoose.Schema.Types.ObjectId, ref: 'Empresa' } // Referência ao modelo Empresa
+});
+
+module.exports = mongoose.model('Vagas', VagasSchema);

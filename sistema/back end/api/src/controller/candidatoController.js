@@ -1,40 +1,41 @@
 const Candidato = require('../models/candidatoModel.js');
 const Vaga = require('../models/vagasModel.js');
+const Empresa = require('../models/empresaModel.js');
 const bcrypt = require('bcrypt')
 
 
 const dashboardCandidato = async (req, res) => {
-    const candidatoId = req.session.user.id;
+  const candidatoId = req.session.user.id;
 
-    const vagas = await Vaga.find();
-      console.log('Produtos encontrados:', vagas); // Adicione este log
-  
-      const vagasComImagens = vagas.map(vaga => {
-        let imagemBase64 = null;
-        if (vaga.imagem && vaga.imagem.data) {
+  // Busca todas as vagas e popula os dados da empresa associada
+  const vagas = await Vaga.find().populate('empresa');
+  console.log('Vagas encontradas:', vagas); // Log para depuração
+
+  // Converte as imagens para base64
+  const vagasComImagens = vagas.map(vaga => {
+      let imagemBase64 = null;
+      if (vaga.imagem && vaga.imagem.data) {
           imagemBase64 = `data:${vaga.imagem.contentType};base64,${vaga.imagem.data.toString('base64')}`;
-        }
-  
-        return {
+      }
+
+      return {
           ...vaga._doc,
-          imagem: imagemBase64
-        };
-      });
+          imagem: imagemBase64,
+      };
+  });
 
-    res.render('fun/candidatoDashboard', {
-        user: req.session.user,
-        message: 'Bem-vindo ao seu painel, Candidato!',
-        style: 'candidatoDashboar.css',
-        candidatoId,
-        vagas: vagasComImagens
-
-
-    });
+  res.render('can/candidatoDashboard', {
+      user: req.session.user,
+      message: 'Bem-vindo ao seu painel, Candidato!',
+      style: 'candidatoDashboard.css',
+      candidatoId,
+      vagas: vagasComImagens,
+  });
 };
 
 //rota para a página de cadastro de candidato
 const getCadastroCandidato = async (req, res) => {
-    res.render('fun/reg_candidato', {
+    res.render('can/reg_candidato', {
       title: 'Registro de Candidato',
       style: 'reg_candidato.css'
     });
@@ -83,7 +84,8 @@ const cadastroCandidato = async (req, res) => {
         descricao: req.body.descricao,
         habilidadesTecnicas: req.body.habilidades,
         idiomas: req.body.idiomas,
-        imagem: req.file ? { data: req.file.buffer, contentType: req.file.mimetype } : undefined,
+        imagem: req.file ?{ data: req.file.buffer, contentType: req.file.mimetype }: undefined
+
       });
       
       await novoCandidato.save();
@@ -95,9 +97,48 @@ const cadastroCandidato = async (req, res) => {
     }
 };
 
+
+// Controlador para buscar uma vaga específica pelo ID
+const verVaga = async (req, res) => {
+    try {
+        // Obtém o ID da vaga a partir dos parâmetros da URL
+        const { id } = req.params;
+        const candidatoId = req.session.user.id;
+
+        // Busca a vaga pelo ID e popula os dados da empresa associada
+        const vaga = await Vaga.findById(id).populate('empresa');
+
+        // Verifica se a vaga foi encontrada
+        if (!vaga) {
+            return res.status(404).send({ message: 'Vaga não encontrada!' });
+        }
+
+        // Converte a imagem em Base64 (se existir)
+        let imagemBase64 = null;
+        if (vaga.imagem && vaga.imagem.data) {
+            imagemBase64 = `data:${vaga.imagem.contentType};base64,${vaga.imagem.data.toString('base64')}`;
+        }
+
+        // Renderiza o template para exibir os detalhes da vaga
+        res.render('can/vagaDetalhes', {
+            nome: vaga.nome,
+            area: vaga.area,
+            requisitos: vaga.requisitos,
+            empresa: vaga.empresa.nome, // Nome da empresa associada
+            imagem: imagemBase64, // Imagem em Base64
+        });
+    } catch (err) {
+        console.error(err);
+        res.status(500).send({ message: 'Erro ao buscar a vaga', error: err.message });
+    }
+};
+
+
+
 module.exports = {
     dashboardCandidato,
     getCadastroCandidato,
     getPerfilCandidato,
     cadastroCandidato,
+    verVaga,
 };

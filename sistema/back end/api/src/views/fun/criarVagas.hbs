@@ -3,18 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Criar Nova Vaga</title>
+    <title>JobFinder - Candidatos</title>
 </head>
 <body>
-    <h1>Criar Nova Vaga</h1>
+    <!-- Cabeçalho -->
+    <header class="header">
+        <button class="back-button">←</button>
+        <h1>JobFinder</h1>
+        <button class="menu-button">☰</button>
+    </header>
+
+    <!-- Barra de busca -->
+    <div class="search-container">
+        <input type="text" class="search-input" placeholder="Buscar candidatos">
+    </div>
+
+    <!-- Abas de categorias -->
+   <h1>Criar Nova Vaga</h1>
     <form action="/{{empresaId}}/vagas" method="POST" enctype="multipart/form-data">
         <div>
             <label for="nome">Nome da Vaga:</label>
             <input type="text" id="nome" name="nome" required>
         </div>
+
+        <div >
+          <label for="area">Área *</label>
+          <select id="area" name="area" required>
+            <option value="">Selecione</option>
+            <option value="Comercial/Vendas"> Comercial/Vendas</option>
+            <option value="Administrativa">Administrativa</option>
+            <option value="Gastronomia">Gastronomia</option>
+            <option value="Logística"> Logística</option>
+            <option value="Construção Civil">Construção Civil</option>
+            <option value="Industrial"> Industrial</option>
+            <option value="Serviços Gerais"> Serviços Gerais</option>
+            <option value="Finanças">Finanças</option>
+            <option value="Saúde"> Saúde</option>
+            <option value="TI - Tecnologia da Informação">TI - Tecnologia da Informação</option>
+          </select>
+        </div>
+
         <div>
-            <label for="descrisao">Descrição:</label>
-            <textarea id="descrisao" name="descrisao" rows="4" required></textarea>
+            <label for="requisitos">Requisitos *:</label>
+            <textarea id="requisitos" name="requisitos" rows="4" required></textarea>
         </div>
         <div>
             <label for="imagem">Imagem da Vaga:</label>
@@ -25,5 +56,13 @@
     </form>
 
     <a href="/vagas">Voltar para a Lista de Vagas</a>
+
+    <!-- Navegação inferior -->
+    <nav class="bottom-nav">
+        <a href="/dashboard" class="nav-item ">Início</a>
+        <a href="/{{empresaId}}/vagas/criar" class="nav-item active">Add Vagas</a>
+        <a href="#" class="nav-item ">Candidatos</a>
+        <a href="#" class="nav-item">Configurações</a>
+    </nav>
 </body>
 </html>
