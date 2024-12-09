@@ -1,6 +1,7 @@
 const Candidato = require('../models/candidatoModel.js');
 const Vaga = require('../models/vagasModel.js');
 const Empresa = require('../models/empresaModel.js');
+const Candidatura = require('../models/candidaturaModel.js');
 const bcrypt = require('bcrypt')
 
 
@@ -121,11 +122,13 @@ const verVaga = async (req, res) => {
 
         // Renderiza o template para exibir os detalhes da vaga
         res.render('can/vagaDetalhes', {
+            _id: vaga._id,
             nome: vaga.nome,
             area: vaga.area,
             requisitos: vaga.requisitos,
             empresa: vaga.empresa.nome, // Nome da empresa associada
-            imagem: imagemBase64, // Imagem em Base64
+            imagem: imagemBase64,
+            candidatoId // Imagem em Base64
         });
     } catch (err) {
         console.error(err);
@@ -167,6 +170,133 @@ const buscarvagas = async (req, res) => {
     }
 };
 
+const candidatarse = async (req, res) => {
+    try {
+        // Log inicial
+        console.log("Iniciando processo de candidatura...");
+
+        // Obtém o ID da vaga a partir dos parâmetros da URL
+        const { id } = req.params;
+        const candidatoId = req.session.user.id
+
+        // Valida se o ID do candidato existe na sessão
+        if (!candidatoId) {
+            console.error("ID do candidato não encontrado na sessão.");
+            return res.status(400).send({ message: 'Usuário não autenticado!' });
+        }
+
+        // Busca a vaga pelo ID e popula os dados da empresa associada
+        const vaga = await Vaga.findById(id).populate('empresa');
+        if (!vaga) {
+            console.error("Vaga não encontrada:", id);
+            return res.status(404).send({ message: 'Vaga não encontrada!' });
+        }
+
+        console.log("Vaga encontrada:", vaga);
+
+        // Busca o candidato pelo ID
+        const candidato = await Candidato.findById(candidatoId);
+        if (!candidato) {
+            console.error("Candidato não encontrado:", candidatoId);
+            return res.status(404).send({ message: 'Candidato não encontrado!' });
+        }
+
+        console.log("Candidato encontrado:", candidato);
+
+        // Verifica se já existe uma candidatura para essa vaga
+        const candidaturaExistente = await Candidatura.findOne({
+            candidato: candidato._id,
+            vaga: vaga._id
+        });
+
+        if (candidaturaExistente) {
+            console.warn("Candidatura já realizada para esta vaga.");
+            return res.status(400).send({ message: 'Você já se candidatou a esta vaga!' });
+        }
+
+        // Cria uma nova candidatura
+        const novaCandidatura = new Candidatura({
+            candidato: candidato._id,
+            vaga: vaga._id,
+            empresa: vaga.empresa._id,
+            status: 'Pendente'
+        });
+
+        // Salva a nova candidatura no banco de dados
+        await novaCandidatura.save();
+        console.log("Nova candidatura salva com sucesso:", novaCandidatura);
+
+        // Converte a imagem em Base64 (se existir)
+        let imagemBase64 = null;
+        if (vaga.imagem && vaga.imagem.data) {
+            imagemBase64 = `data:${vaga.imagem.contentType};base64,${vaga.imagem.data.toString('base64')}`;
+            console.log("Imagem convertida para Base64.");
+        }
+
+        // Renderiza os detalhes da candidatura e da vaga
+        res.render('can/candidaturas', {
+            _id: novaCandidatura._id,
+            vaga,
+            empresa: vaga.empresa.nome, // Nome da empresa associada
+            imagem: imagemBase64, // Imagem em Base64
+            status: novaCandidatura.status,
+            candidato
+        })
+
+    } catch (err) {
+        console.error("Erro ao realizar a candidatura:", err);
+        res.status(500).send({ message: 'Erro ao realizar a candidatura', error: err.message });
+    }
+};
+
+const verCandidatura = async (req, res) => {
+    try {
+        // Obtém o ID da candidatura a partir dos parâmetros da URL
+        const { id } = req.params;
+
+        // Busca a candidatura pelo ID e popula os dados relacionados (vaga e candidato)
+        const candidatura = await Candidatura.findById(id)
+            .populate({
+                path: 'vaga',
+                populate: { path: 'empresa' } // Popula também os detalhes da empresa associada à vaga
+            })
+            .populate('candidato'); // Popula os detalhes do candidato
+
+        // Verifica se a candidatura foi encontrada
+        if (!candidatura) {
+            return res.status(404).send({ message: 'Candidatura não encontrada!' });
+        }
+
+        console.log("Candidatura encontrada:", candidatura);
+
+        // Verifica se os dados necessários estão disponíveis
+        if (!candidatura.vaga || !candidatura.candidato) {
+            return res.status(400).send({ message: 'Dados incompletos na candidatura!' });
+        }
+
+        // Converte a imagem da vaga em Base64 (se existir)
+        let imagemBase64 = null;
+        if (candidatura.vaga.imagem && candidatura.vaga.imagem.data) {
+            imagemBase64 = `data:${candidatura.vaga.imagem.contentType};base64,${candidatura.vaga.imagem.data.toString('base64')}`;
+        }
+
+        // Renderiza o template para exibir os detalhes da candidatura
+        res.render('can/candidaturas', {
+            vagaNome: candidatura.vaga.nome || 'Não informado',
+            vagaArea: candidatura.vaga.area || 'Não informado',
+            vagaRequisitos: candidatura.vaga.requisitos || 'Não informado',
+            empresa: candidatura.vaga.empresa?.nome || 'Não informado', // Nome da empresa associada à vaga
+            candidatoNome: candidatura.candidato.nome || 'Não informado', // Nome do candidato
+            status: candidatura.status || 'Não informado',
+            imagem: imagemBase64, // Imagem da vaga em Base64
+        });
+
+    } catch (err) {
+        console.error("Erro ao buscar a candidatura:", err);
+        res.status(500).send({ message: 'Erro ao buscar a candidatura', error: err.message });
+    }
+};
+
 
 module.exports = {
     dashboardCandidato,
@@ -175,4 +305,6 @@ module.exports = {
     cadastroCandidato,
     verVaga,
     buscarvagas,
+    candidatarse,
+    verCandidatura
 };
