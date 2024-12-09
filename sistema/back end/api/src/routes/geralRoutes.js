@@ -43,12 +43,14 @@ router.post('/redefinir_senha/:token', redefinirSenha);
 
 
 //EMPRESA
+
+/*
 router.get('/dashboard', isAuthenticated, isEmpresa, dashboardEmpresa);
-router.get("/:empresaId/vagas/criar", criarVagas);
+
 router.get('/candidatos/buscar', buscacandidatos);
 router.post('/:empresaId/vagas', upload.single('imagem'), criarVagaParaEmpresa);
 router.get('/vagas/buscar', buscarvagas);
 router.get("/vagas/:id", verVaga);
-
+*/
 
 module.exports = router;

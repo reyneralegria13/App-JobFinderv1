@@ -2,38 +2,20 @@ const express = require("express");
 const router = express.Router();
 const multer = require('multer'); // Para upload de arquivos
 const upload = multer();
-//const empresaController = require("../controller/empresaController");
+const { criarVagas } = require('../controller/telasController')
 const { getCadastroEmpresa, getEmpresa, getEmpresas, createEmpresa, updateEmpresa, deleteEmpresa, dashboardEmpresa, criarVagaParaEmpresa } = require("../controller/empresaController");
-//const { getCadastroCandidato, getInicial, getPerfilCandidato, cadastroCandidato} = require('../controller/candidatoController');
-//const {realizarLogin, setSenha} =require('../controller/loginController');
-//const { getCargo, getHome, getLogin, getRecuperarSenha } = require('../controller/telasController')
-//const checarToken = require('../controller/tokenController')
-//Teste de autenticação de login
 const { isAuthenticated, isEmpresa } = require('../middleware/auth');
-
-
-
-// Rotas das telas
-/*router.get("/home", getHome);
-router.get("/cargo", getCargo);
-//router.get("/login", login)
-router.get("/login", getLogin);
-//router.post("/login", login)
-router.post("/login", realizarLogin);
-router.get("/recuperar_senha", getRecuperarSenha);
-//testes
-router.get('/inicial', getInicial);*/
 
 // Rotas da empresa
 router.get('/dashboard', isAuthenticated, isEmpresa, dashboardEmpresa);
-
 router.get("/cadastrar", getCadastroEmpresa);
 router.get("/:id", getEmpresa);
 router.get("/empresas", getEmpresas);
 router.post("/cadastrar", createEmpresa);
 router.post("/editar/:id", updateEmpresa);
 router.delete("/excluir/:id", deleteEmpresa);
-router.post('/:empresaId/vagas', upload.single('imagem'), criarVagaParaEmpresa);
+router.get("/:empresaId/vagas/criar", criarVagas);
+router.post('/:empresaId/vagas/criar', upload.single('imagem'), criarVagaParaEmpresa);
 
 /*/ Rotas do candidato
 router.get('/dashboard', isAuthenticated, isCandidato, candidatoController.dashboard);

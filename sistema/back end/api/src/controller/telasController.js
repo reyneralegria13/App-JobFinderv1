@@ -62,16 +62,14 @@ const getRedefinirSenha = async (req, res) => {
   }
 };
 const criarVagas = (req, res) => {
-        const { empresaId } = req.params;
-       res.render('fun/criarVagas', {
-          title: 'Criar Vagas', 
-          style: 'criarVagas.css',
-          empresaId,
-      });
+  const { empresaId } = req.params;
+  res.render('fun/criarVagas', {
+    title: 'Criar Vagas', 
+    style: 'criarVagas.css',
+    empresaId,
+});
  
 };
-
-
 module.exports = {
     getHome,
     getCargo,
