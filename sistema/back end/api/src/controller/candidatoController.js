@@ -281,7 +281,7 @@ const verCandidatura = async (req, res) => {
         }
 
         // Renderiza o template para exibir os detalhes da candidatura
-        res.render('can/candidaturas', {
+        res.render('can/candidatura', {
             vagaNome: candidatura.vaga.nome || 'Não informado',
             vagaArea: candidatura.vaga.area || 'Não informado',
             vagaRequisitos: candidatura.vaga.requisitos || 'Não informado',

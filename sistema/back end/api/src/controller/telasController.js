@@ -1,5 +1,6 @@
 const Candidato = require('../models/candidatoModel');
 const Empresa = require('../models/empresaModel');
+const Candidatura = require('../models/candidaturaModel');
 
 // rota para a página home
 const getHome = async (req, res) => {
@@ -67,7 +68,28 @@ const criarVagas = (req, res) => {
     title: 'Criar Vagas', 
     style: 'criarVagas.css',
     empresaId,
-});
+})};
+
+const getCandidaturas = async (req, res) => {
+
+    const empresaId = req.params.empresaId
+
+    console.log(req.params.empresaId)
+
+    const candidaturas = await Candidatura.find({ empresa: empresaId }).populate('candidato');
+
+    if(!candidaturas){
+        return res.status(404).send({ message: 'Candidaturas nao encontradas!' });
+    }
+
+    //verifica qual candidatura pertence a empresa
+
+
+    res.render('fun/candidaturas', {
+      title: 'Lista de Candidatos',
+      style: 'candidaturas.css',
+      candidaturas
+    });
  
 };
 module.exports = {
@@ -76,5 +98,6 @@ module.exports = {
     getLogin,
     getRecuperarSenha,
     getRedefinirSenha,
-    criarVagas
+    criarVagas,
+    getCandidaturas
 }

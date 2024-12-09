@@ -2,6 +2,7 @@ const Empresa = require("../models/empresaModel");
 const Vagas = require('../models/vagasModel');
 const candidato = require("../models/candidatoModel");
 const bcrypt = require("bcrypt");
+const Candidatura = require("../models/candidaturaModel");
 
 const dashboardEmpresa = async (req, res) => {
     
@@ -208,6 +209,25 @@ const buscacandidatos = async (req, res) => {
     }
 };
 
+const updateStatus = async (req, res) => {
+    try {
+      const { applicationId } = req.params;
+      const { status } = req.body;
+  
+      const application = await Candidatura.findById(applicationId);
+      if (!application) {
+        return res.status(404).json({ message: 'Inscrição não encontrada!' });
+      }
+  
+      application.status = status;
+      await application.save();
+      res.redirect({ });
+    } catch (error) {
+      res.status(500).json({ message: 'Erro ao atualizar o status da inscrição.', error });
+    }
+  };
+  
+
 
 
 module.exports = {
@@ -220,4 +240,6 @@ module.exports = {
     dashboardEmpresa,
     criarVagaParaEmpresa,
     buscacandidatos,
+    updateStatus,
+
 }

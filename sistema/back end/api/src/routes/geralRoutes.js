@@ -10,24 +10,7 @@ const {  criarVagaParaEmpresa, dashboardEmpresa, buscacandidatos } = require("..
 
 const { verVaga, candidatarse, buscarvagas } = require('../controller/candidatoController');
 
-const {
-    applyToJob,
-    updateApplicationStatus,
-    sendMessage,
-    getApplicationDetails,
-  } = require('../controller/statusController');
-  
-  // Inscrever-se em uma vaga
-  router.post('/vagas/:vagaId/apply', isAuthenticated, applyToJob);
-  
-  // Atualizar status da inscrição
-  router.put('/applications/:applicationId/status', isAuthenticated, updateApplicationStatus);
-  
-  // Enviar mensagem no chat
-  router.post('/applications/:applicationId/chat', isAuthenticated, sendMessage);
-  
-  // Obter detalhes da inscrição
-  router.get('/applications/:applicationId', isAuthenticated, getApplicationDetails);
+
 
 
 // Rotas das telas
