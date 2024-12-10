@@ -83,7 +83,8 @@ const getVagas = async (req, res) => {
     res.render('fun/vagas', {
         title: "Vagas",
         style: "vagas.css",
-        vagas: empresa.vagas
+        vagas: empresa.vagas,
+        empresaId
     })
 
 
