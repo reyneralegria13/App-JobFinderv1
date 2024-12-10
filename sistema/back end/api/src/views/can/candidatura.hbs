@@ -23,5 +23,9 @@
         <!-- Status -->
         <h2>Status</h2>
         <p>{{status}}</p>
+        <form action="/candidato/{{candidatoId}}/vagas/delete/{{_id}}" method="post">
+            <button type="submit">Cancelar candidatura</button>
+        </form>
+        <button><a href="/candidato/dashboard">Voltar</a></button>
 
     </div>

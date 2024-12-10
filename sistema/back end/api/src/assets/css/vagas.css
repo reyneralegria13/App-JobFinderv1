@@ -1,0 +1,78 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background-color: #f9f9f9;
+  color: #333;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  background-color: #fff;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.header h1 {
+  font-size: 24px;
+}
+
+h1 { 
+  text-align: center;
+  margin-top: 20px;
+  color: #444;
+}
+
+.back-button,
+.menu-button {
+  font-size: 24px;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.jobs-grid {
+  padding: 20px;
+}
+
+.jobs-grid ul {
+  list-style-type: none;
+  display: flex;
+  flex-wrap: wrap; /* Permite que os cartões se ajustem em várias linhas */
+  gap: 20px; /* Espaçamento entre os cartões */
+}
+
+.job-card {
+  background-color: #fff;
+  border: solid 1px #333333 ;
+  border-radius: 8px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  width: calc(33% - 20px); /* Três cartões por linha com espaçamento */
+  transition: transform 0.2s; /* Animação ao passar o mouse */
+}
+
+.job-card:hover {
+  transform: scale(1.05); /* Efeito de zoom ao passar o mouse */
+}
+
+.job-image {
+  max-width: 100%;
+  height: auto; /* Mantém a proporção da imagem */
+  border-radius: 4px; /* Arredonda os cantos da imagem */
+}
+
+.job-area {
+  color: #555; /* Cor mais clara para a descrição */
+}
+
+.no-data {
+  text-align: center;
+  padding: 20px;
+}

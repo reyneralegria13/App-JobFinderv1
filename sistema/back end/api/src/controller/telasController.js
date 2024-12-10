@@ -1,7 +1,7 @@
 const Candidato = require('../models/candidatoModel');
 const Empresa = require('../models/empresaModel');
 const Candidatura = require('../models/candidaturaModel');
-const Vaga = require('../models/vagasModel');
+//const Vaga = require('../models/vagasModel');
 
 // rota para a página home
 const getHome = async (req, res) => {

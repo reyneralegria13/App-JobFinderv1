@@ -10,7 +10,6 @@ const dashboardCandidato = async (req, res) => {
 
   // Busca todas as vagas e popula os dados da empresa associada
   const vagas = await Vaga.find().populate('empresa');
-  console.log('Vagas encontradas:', vagas); // Log para depuração
 
   // Converte as imagens para base64
   const vagasComImagens = vagas.map(vaga => {
@@ -172,9 +171,6 @@ const buscarvagas = async (req, res) => {
 
 const candidatarse = async (req, res) => {
     try {
-        // Log inicial
-        console.log("Iniciando processo de candidatura...");
-
         // Obtém o ID da vaga a partir dos parâmetros da URL
         const { id } = req.params;
         const candidatoId = req.session.user.id
@@ -186,13 +182,12 @@ const candidatarse = async (req, res) => {
         }
 
         // Busca a vaga pelo ID e popula os dados da empresa associada
+        console.log('aqui chama candidatarse')
         const vaga = await Vaga.findById(id).populate('empresa');
         if (!vaga) {
             console.error("Vaga não encontrada:", id);
             return res.status(404).send({ message: 'Vaga não encontrada!' });
         }
-
-        console.log("Vaga encontrada:", vaga);
 
         // Busca o candidato pelo ID
         const candidato = await Candidato.findById(candidatoId);
@@ -200,8 +195,6 @@ const candidatarse = async (req, res) => {
             console.error("Candidato não encontrado:", candidatoId);
             return res.status(404).send({ message: 'Candidato não encontrado!' });
         }
-
-        console.log("Candidato encontrado:", candidato);
 
         // Verifica se já existe uma candidatura para essa vaga
         const candidaturaExistente = await Candidatura.findOne({
@@ -224,7 +217,6 @@ const candidatarse = async (req, res) => {
 
         // Salva a nova candidatura no banco de dados
         await novaCandidatura.save();
-        console.log("Nova candidatura salva com sucesso:", novaCandidatura);
 
         // Converte a imagem em Base64 (se existir)
         let imagemBase64 = null;
@@ -234,13 +226,14 @@ const candidatarse = async (req, res) => {
         }
 
         // Renderiza os detalhes da candidatura e da vaga
-        res.render('can/candidaturas', {
+        res.render('can/candidatura', {
             _id: novaCandidatura._id,
             vaga,
             empresa: vaga.empresa.nome, // Nome da empresa associada
             imagem: imagemBase64, // Imagem em Base64
             status: novaCandidatura.status,
-            candidato
+            candidato,
+            candidatoId: novaCandidatura.candidato
         })
 
     } catch (err) {
@@ -266,8 +259,6 @@ const verCandidatura = async (req, res) => {
         if (!candidatura) {
             return res.status(404).send({ message: 'Candidatura não encontrada!' });
         }
-
-        console.log("Candidatura encontrada:", candidatura);
 
         // Verifica se os dados necessários estão disponíveis
         if (!candidatura.vaga || !candidatura.candidato) {
@@ -297,6 +288,23 @@ const verCandidatura = async (req, res) => {
     }
 };
 
+const cancelarCandidatura = async (req,res) => {
+    try{
+        const candidaturaId = req.params.candidaturaId;
+
+        const candidatura = await Candidatura.findByIdAndDelete(candidaturaId)
+
+        if(!candidatura) {
+            return res.status(400).send({ message: 'Candidatura não encontrada!' });
+        }
+
+        res.redirect('/candidato/dashboard');
+    }catch (error) {
+        console.error('Erro ao cancelar a candidatura:', error);
+        res.status(500).send({ message: 'Erro ao cancelar a candidatura', error: error.message });
+    }
+}
+
 
 module.exports = {
     dashboardCandidato,
@@ -306,5 +314,6 @@ module.exports = {
     verVaga,
     buscarvagas,
     candidatarse,
-    verCandidatura
+    verCandidatura,
+    cancelarCandidatura
 };

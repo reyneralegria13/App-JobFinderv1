@@ -3,7 +3,7 @@ const router = express.Router();
 const multer = require('multer'); // Para upload de arquivos
 const upload = multer();
 const { isAuthenticated, isCandidato } = require('../middleware/auth');
-const { dashboardCandidato, getPerfilCandidato, getCadastroCandidato, cadastroCandidato, verVaga,candidatarse, buscarvagas, verCandidatura } = require('../controller/candidatoController');
+const { dashboardCandidato, getPerfilCandidato, getCadastroCandidato, cadastroCandidato, verVaga,candidatarse, buscarvagas, verCandidatura, cancelarCandidatura } = require('../controller/candidatoController');
 //const {dashboard} = require("../controller/candidatoController");
 
 
@@ -16,8 +16,6 @@ router.get("/vagas/:id", verVaga);
 router.post("/:candidatoId/vagas/:id", candidatarse);
 router.get("/candidaturas", verCandidatura);
 router.get('/vagas/buscar', buscarvagas);
-
-
-
+router.post('/:candidatoId/vagas/delete/:candidaturaId', cancelarCandidatura)
 
 module.exports = router;
