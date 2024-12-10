@@ -76,3 +76,25 @@ h1 {
   text-align: center;
   padding: 20px;
 }
+
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  padding: 15px;
+  background: white;
+  border-top: 1px solid #eee;
+}
+
+.nav-item {
+  text-align: center;
+  color: #666;
+  text-decoration: none;
+  font-size: 12px;
+}
+
+.nav-item.active {
+  color: #000;
+}
