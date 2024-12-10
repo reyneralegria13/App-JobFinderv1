@@ -174,8 +174,6 @@ const criarVagaParaEmpresa = async (req, res) => {
     }
 };
 
-
-
 const buscacandidatos = async (req, res) => {
     try {
         const { q } = req.query; // Obtém o termo de busca
@@ -241,5 +239,4 @@ module.exports = {
     criarVagaParaEmpresa,
     buscacandidatos,
     updateStatus,
-
 }

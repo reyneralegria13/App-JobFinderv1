@@ -1,3 +1,24 @@
-{{#each candidaturas}}
-    <p>{{this.candidato.nome}}</p>
-{{/each}}
+<main>
+        {{#if candidaturas.length}}
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nome do Candidato</th>
+                        <th>Email</th>
+                        <th>Data da Candidatura</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each candidaturas}}
+                        <tr>
+                            <td>{{this.candidato.nome}}</td>
+                            <td>{{this.candidato.email}}</td>
+                           </td> <!-- Supondo que você tenha uma função para formatar a data -->
+                        </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        {{else}}
+            <p>Nenhuma candidatura encontrada.</p>
+        {{/if}}
+    </main>

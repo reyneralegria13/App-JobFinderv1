@@ -1,0 +1,31 @@
+<!-- Grid de vagas -->
+<div class="jobs-grid">
+    <ul>
+        {{#if vagas.length}}
+        {{#each vagas}}
+        <li class="job-card">
+            <!-- Nome da vaga -->
+            <h2>{{this.nome}}</h2>
+
+            <!-- Nome da empresa -->
+            {{#if this.empresa}}
+            <p class="job-company">{{this.empresa.nome}}</p>
+            {{/if}}
+
+            <!-- Imagem da vaga -->
+            {{#if this.imagem}}
+            <img src="{{this.imagem}}" alt="{{this.nome}}" class="job-image" />
+            {{/if}}
+
+            <!-- Descrição -->
+            <p>{{this.area}}</p>
+        </li>
+        {{/each}}
+        {{else}}
+        <!-- Caso não existam vagas cadastradas -->
+        <div class="no-data">
+            <p>Não existem vagas cadastradas.</p>
+        </div>
+        {{/if}}
+    </ul>
+</div>

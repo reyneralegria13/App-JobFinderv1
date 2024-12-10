@@ -1,6 +1,7 @@
 const Candidato = require('../models/candidatoModel');
 const Empresa = require('../models/empresaModel');
 const Candidatura = require('../models/candidaturaModel');
+const Vaga = require('../models/vagasModel');
 
 // rota para a página home
 const getHome = async (req, res) => {
@@ -62,7 +63,7 @@ const getRedefinirSenha = async (req, res) => {
     res.status(500).send(err.message);
   }
 };
-const criarVagas = (req, res) => {
+const getCriarVagas = (req, res) => {
   const { empresaId } = req.params;
   res.render('fun/criarVagas', {
     title: 'Criar Vagas', 
@@ -70,26 +71,43 @@ const criarVagas = (req, res) => {
     empresaId,
 })};
 
-const getCandidaturas = async (req, res) => {
+const getVagas = async (req, res) => {
+  try {
+    const empresaId = req.params.empresaId;
+    const empresa = await Empresa.findById(empresaId).populate('vagas');
 
-    const empresaId = req.params.empresaId
-
-    console.log(req.params.empresaId)
-
-    const candidaturas = await Candidatura.find({ empresa: empresaId }).populate('candidato');
-
-    if(!candidaturas){
-        return res.status(404).send({ message: 'Candidaturas nao encontradas!' });
+    if (!empresa) {
+        return res.status(404).json({ message: 'Empresa não encontrada!' });
     }
 
-    //verifica qual candidatura pertence a empresa
+    res.render('fun/vagas', {
+        title: "Vagas",
+        style: "vagas.css",
+        vagas: empresa.vagas
+    })
 
 
-    res.render('fun/candidaturas', {
-      title: 'Lista de Candidatos',
-      style: 'candidaturas.css',
-      candidaturas
-    });
+} catch (error) {
+    console.error('Erro ao buscar vagas:', error);
+    res.status(500).send(error.message);
+}
+}
+
+const getCandidaturas = async (req, res) => {
+
+  const empresaId = req.params.empresaId
+
+  const candidaturas = await Candidatura.find({ empresa: empresaId }).populate('candidato');
+
+  if(!candidaturas){
+      return res.status(404).send({ message: 'Candidaturas nao encontradas!' });
+  }
+
+  res.render('fun/candidaturas', {
+    title: 'Lista de Candidatos',
+    style: 'candidaturas.css',
+    candidaturas
+  });
  
 };
 module.exports = {
@@ -98,6 +116,7 @@ module.exports = {
     getLogin,
     getRecuperarSenha,
     getRedefinirSenha,
-    criarVagas,
+    getCriarVagas,
+    getVagas,
     getCandidaturas
 }
