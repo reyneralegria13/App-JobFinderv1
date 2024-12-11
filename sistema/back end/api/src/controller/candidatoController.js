@@ -77,6 +77,7 @@ const getPerfilCandidato = async (req, res) => {
 
         res.render('can/getPerfil', {
             user: candidato,
+            id: candidato._id
             //style: 'getPerfil', 
         });
     } catch (error) {
@@ -330,6 +331,7 @@ const cancelarCandidatura = async (req,res) => {
         res.status(500).send({ message: 'Erro ao cancelar a candidatura', error: error.message });
     }
 }
+
 
 const editarPerfilCandidato = async (req, res) => {
     try {
