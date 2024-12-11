@@ -45,11 +45,11 @@
     </main>
     <form>
         {{#if user.nome}}
-        <button class="voltar" onclick="window.location.href='/';">Voltar</button>
-        <button class="editar" onclick="window.location.href='';">Editar</button>
-        {{else if user.cnpj}}
-        <button class="voltar" onclick="window.location.href='/home/empregador';">Voltar</button>
+        <button class="voltar" onclick="window.location.href='/candidato/dashboard';">Voltar</button>
         <button class="editar" onclick="window.location.href='/perfil/{{id}}/editar';">Editar</button>
+        {{else if user.cnpj}}
+        <button class="voltar" onclick="window.location.href='/empresa/dashboard';">Voltar</button>
+        <button class="editar" onclick="window.location.href='';">Editar</button>
         {{/if}}
     </form>
 </body>
