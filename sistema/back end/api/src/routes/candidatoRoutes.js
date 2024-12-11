@@ -4,7 +4,8 @@ const multer = require('multer'); // Para upload de arquivos
 const upload = multer();
 const { isAuthenticated, isCandidato } = require('../middleware/auth');
 const { dashboardCandidato, getPerfilCandidato, getCadastroCandidato, cadastroCandidato, verVaga,candidatarse, buscarvagas, verCandidatura, cancelarCandidatura, editarPerfilCandidato } = require('../controller/candidatoController');
-const {getCandidaturasc} = require('../controller/telasController')
+const {getCandidaturasc, visualizarTelaEdicao} = require('../controller/telasController')
+
 
 
 
@@ -13,7 +14,7 @@ const {getCandidaturasc} = require('../controller/telasController')
 
 // Rotas do candidato
 router.get('/dashboard', isAuthenticated, isCandidato, dashboardCandidato);
-router.get("/perfil/:id", getPerfilCandidato);
+router.get("/perfil/:candidatoId", getPerfilCandidato);
 router.get("/cadastrar", getCadastroCandidato);
 router.post("/cadastrar", upload.single('imagem'), cadastroCandidato);
 router.get('/vagas/buscar', buscarvagas);
@@ -24,7 +25,9 @@ router.post('/:candidatoId/vagas/delete/:candidaturaId', cancelarCandidatura)
 router.get('/:candidatoId/candidaturas', getCandidaturasc)
 
 // Rota para editar perfil
-router.post('/perfil/:id/editar', isAuthenticated, isCandidato, editarPerfilCandidato);
+router.get('/perfil/:candidatoId/editar', visualizarTelaEdicao);
+//router.post('/perfil/:candidatoId/editar', editarPerfilCandidato);
+
 
 
 

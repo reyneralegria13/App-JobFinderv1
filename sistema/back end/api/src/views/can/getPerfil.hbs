@@ -49,7 +49,7 @@
         <button class="editar" onclick="window.location.href='';">Editar</button>
         {{else if user.cnpj}}
         <button class="voltar" onclick="window.location.href='/home/empregador';">Voltar</button>
-        <button class="editar" onclick="window.location.href='';">Editar</button>
+        <button class="editar" onclick="window.location.href='/perfil/{{user._id}}/editar';">Editar</button>
         {{/if}}
     </form>
 </body>

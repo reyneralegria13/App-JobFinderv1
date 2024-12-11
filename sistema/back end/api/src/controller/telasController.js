@@ -127,9 +127,10 @@ const getCandidaturasc = async (req, res) => {
 
   res.render('can/ver_candidaturas', {
     title: 'Lista de Candidatos',
-    style: 'verCandidatura.css',
+    style: 'candidaturas.css',
     candidaturas,
     candidatoId
+    
   });
  
 };
@@ -184,6 +185,28 @@ const getVagaDetalhes = async (req, res) => {
 
 };
 
+const visualizarTelaEdicao = async (req, res) => {
+  try {
+      // Obtém o ID do candidato a partir dos parâmetros da rota
+      const candidatoId = req.params.candidatoId;
+
+      // Busca o candidato no banco de dados pelo ID
+      const candidato = await Candidato.findById(candidatoId);
+
+      // Verifica se o candidato foi encontrado
+      if (!candidato) {
+          return res.status(404).send('Candidato não encontrado');
+      }
+
+      // Renderiza a view de edição, passando os dados do candidato
+      res.render('can/perfilEditar', { user: candidato });
+  } catch (error) {
+      console.error(error);
+      res.status(500).send('Erro ao carregar a tela de edição');
+  }
+};
+
+
 module.exports = {
     getHome,
     getCargo,
@@ -196,4 +219,5 @@ module.exports = {
     getCandidaturas,
     getCandidaturasc,
     Vercandidatos,
+    visualizarTelaEdicao,
 }
