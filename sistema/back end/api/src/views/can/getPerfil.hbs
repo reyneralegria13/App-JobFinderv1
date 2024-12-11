@@ -65,15 +65,15 @@
             <p>Erro: Usuário não encontrado.</p>
             {{/if}}
 
-            <form>
-                {{#if user.nome}}
-                <button class="btn-back"><a href="/candidato/dashboard">Voltar</a></button>
-                <button class="btn-edit"><a href="/candidato/perfil/{{id}}/editar">Editar</a></button>
-                {{else if user.cnpj}}
-                <button class="btn-back" onclick="window.location.href='/empresa/dashboard';">Voltar</button>
-                <button class="btn-edit" onclick="window.location.href='';">Editar</button>
-                {{/if}}
-            </form>
+            
+            {{#if user.nome}}
+            <button class="btn-back" onclick="window.location.href = '/candidato/dashboard/';">Voltar</button>
+            <button class="btn-edit" onclick="window.location.href = '/candidato/perfil/{{id}}/editar';">Editar</button>
+
+            {{else if user.cnpj}}
+            <button class="btn-back" onclick="window.location.href = '/empresa/dashboard/';">Voltar</button>
+            <button class="btn-edit" onclick="window.location.href='';">Editar</button>
+            {{/if}}
     </main>
 </body>
 

@@ -207,6 +207,7 @@ const visualizarTelaEdicao = async (req, res) => {
 
       // Renderiza a view de edição, passando os dados do candidato
       res.render('can/perfilEditar', { 
+        style: 'perfilEditar.css',
         user: candidato,
          });
   } catch (error) {
