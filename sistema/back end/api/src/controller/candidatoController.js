@@ -54,7 +54,7 @@ const getCadastroCandidato = async (req, res) => {
 };
 
 //Rota privada do perfil do usuário para testes de autenticação
-const getPerfilCandidato = async (req, res) => {
+/*const getPerfilCandidato = async (req, res) => {
     const id = req.params.id
 
     const user = await Candidato.findById(id, '-senha')
@@ -64,7 +64,26 @@ const getPerfilCandidato = async (req, res) => {
     }
   
     res.status(200).json({user})
-}
+}*/
+const getPerfilCandidato = async (req, res) => {
+    try {
+        const id = req.params.id;
+        const candidato = await Candidato.findById(id, '-senha');
+
+        if (!candidato) {
+            return res.status(404).send("Candidato não encontrado");
+        }
+
+        res.render('can/getPerfil', {
+            user: candidato,
+            //style: 'getPerfil', 
+        });
+    } catch (error) {
+        console.error(error);
+        res.status(500).send("Erro no servidor");
+    }
+};
+
 
 //validação de cadastro de candidato
 const cadastroCandidato = async (req, res) => {
