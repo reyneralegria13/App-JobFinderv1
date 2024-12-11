@@ -1,3 +1,7 @@
+<html lang="pt-br">
+    <head>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
 
 <body>
     <div class="container">
@@ -25,5 +29,22 @@
             <button type="submit" class="register-button">Candidatar-se</button>   
         </form>
     </div>
+
+    <script>
+    // Verifica se a URL contém o parâmetro "success"
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get('success') === 'true') {
+        Swal.fire({
+            icon: 'success',
+            title: 'Sucesso!',
+            text: 'candidatura realizado com sucesso!',
+            confirmButtonText: 'OK',
+            timer: 3000 // Fecha automaticamente após 3 segundos
+        });
+    }
+
+
+    
+</script>
 </body>
 </html>

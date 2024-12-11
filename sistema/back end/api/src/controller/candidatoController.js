@@ -4,6 +4,7 @@ const Empresa = require('../models/empresaModel.js');
 const Candidatura = require('../models/candidaturaModel.js');
 const bcrypt = require('bcrypt');
 const { isAuthenticated } = require('../middleware/auth.js');
+const Swal = require('sweetalert2')
 
 function toggleMenu() {
     const sideMenu = document.getElementById('side-menu');
@@ -238,15 +239,7 @@ const candidatarse = async (req, res) => {
         }
 
         // Renderiza os detalhes da candidatura e da vaga
-        res.render('can/candidatura', {
-            _id: novaCandidatura._id,
-            vaga,
-            empresa: vaga.empresa.nome, // Nome da empresa associada
-            imagem: imagemBase64, // Imagem em Base64
-            status: novaCandidatura.status,
-            candidato,
-            candidatoId: novaCandidatura.candidato
-        })
+        res.redirect(`/candidato/${candidatoId}/candidaturas?success=true`)
 
     } catch (err) {
         console.error("Erro ao realizar a candidatura:", err);
@@ -303,6 +296,7 @@ const verCandidatura = async (req, res) => {
 const cancelarCandidatura = async (req,res) => {
     try{
         const candidaturaId = req.params.candidaturaId;
+        const candidatoId = req.params.candidatoId;
 
         const candidatura = await Candidatura.findByIdAndDelete(candidaturaId)
 
@@ -310,7 +304,7 @@ const cancelarCandidatura = async (req,res) => {
             return res.status(400).send({ message: 'Candidatura não encontrada!' });
         }
 
-        res.redirect('/candidato/dashboard');
+        res.redirect(`/candidato/${candidatoId}/candidaturas?success=true`);
     }catch (error) {
         console.error('Erro ao cancelar a candidatura:', error);
         res.status(500).send({ message: 'Erro ao cancelar a candidatura', error: error.message });
