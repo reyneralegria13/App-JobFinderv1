@@ -1,122 +1,177 @@
-/* Reset básico */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
-  }
-  
-  body {
-    background-color: #f9f9f9;
-    color: #333;
-  }
-  
-  /* Cabeçalho */
-  .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px;
-    background-color: #fff;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  
-  .header h1 {
-    font-size: 24px;
-  }
-  
-  .back-button,
-  .menu-button {
-    font-size: 24px;
-    border: none;
-    background: none;
-    cursor: pointer;
-  }
-  
-  /* Barra de busca */
-  .search-container {
-    margin: 20px auto;
-    width: 90%;
-  }
-  
-  .search-input {
-    width: calc(100% - 30px);
-    padding: 12px;
-    border-radius: 25px;
-    border: none;
-    background-color: #fff;
-    box-shadow: inset 0px 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  
-  /* Categorias */
-  .category-tabs {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-  }
-  
-  .tab {
-    padding: 10px;
-    border-radius: 20px;
-    background-color: #fff;
-    border: none;
-  }
-  
-  .tab.active {
-    border-bottom: solid black; /* Indica a aba ativa */
-  }
-  
-  /* Grid de candidatos */
-  .candidates-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-    padding: 20px;
-  }
-  
-  .candidate-card {
-    background-color: white;
-    border-radius: 10px;
-    padding: 15px;
-    text-align: center;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-  }
-  
-  .candidate-image {
-    width: 50px;
-    height: 50px;
-    object-fit: cover;
-    border-radius: 50%;
-    margin-bottom: 10px;
-  }
-  
-  .register-button {
-    background-color: #FFE4B5;
-    border: none;
-    padding: 8px 20px;
-    border-radius: 20px;
-    cursor: pointer;
-  }
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f7f7f7;
+}
 
-  .bottom-nav {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    display: flex;
-    justify-content: space-around;
-    padding: 15px;
-    background: white;
-    border-top: 1px solid #eee;
+/* Cabeçalho */
+.header {
+  background-color: #3498db;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.header h1 {
+  font-size: 24px;
+  margin: 0;
+}
+
+.header .menu-button {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* Barra de busca */
+.search-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 15px 20px;
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin-bottom: 15px;
+}
+
+.search-input {
+  flex: 1;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.search-button {
+  padding: 10px 20px;
+  background-color: #3498db;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.search-button:hover {
+  background-color: #2980b9;
+}
+
+/* Abas de categorias */
+.category-tabs {
+  display: flex;
+  gap: 10px;
+  padding: 15px 20px;
+  background-color: #ecf0f1;
+  overflow-x: auto;
+}
+
+.tab {
+  padding: 10px 20px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+.tab.active {
+  background-color: #3498db;
+  color: #fff;
+  border-color: #3498db;
+}
+
+/* Grid de candidatos */
+.candidates-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+.candidate-card {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.candidate-image {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 15px;
+}
+
+.candidate-name {
+  font-size: 18px;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+.candidate-qualification {
+  font-size: 14px;
+  color: #7f8c8d;
+  margin-bottom: 20px;
+}
+
+.view-profile-button {
+  padding: 10px 15px;
+  background-color: #3498db;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.view-profile-button:hover {
+  background-color: #2980b9;
+}
+
+/* Navegação inferior */
+.bottom-nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #fff;
+  padding: 10px 0;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  bottom: 0;
+  z-index: 10;
 }
 
 .nav-item {
-    text-align: center;
-    color: #666;
-    text-decoration: none;
-    font-size: 12px;
+  text-align: center;
+  color: #7f8c8d;
+  text-decoration: none;
+  font-size: 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 5px;
 }
 
 .nav-item.active {
-    color: #000;
+  color: #3498db;
+  font-weight: bold;
 }
-  
+
+.nav-item:hover {
+  color: #2980b9;
+}

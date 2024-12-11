@@ -4,9 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JobFinder</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
+
     <div class="container">
         <!-- Cabeçalho -->
         <header class="header">
@@ -79,8 +82,64 @@
             <a href="/candidato/{{candidatoId}}/candidaturas" class="nav-item">Candidaturas</a>
             <a href="#" class="nav-item">Configurações</a>
         </nav>
+
+    <div class="page-container">
+        <!-- Menu lateral -->
+        <aside class="sidebar">
+            <h1>JobFinder</h1>
+            <ul class="menu">
+                <li><a href="/candidato/candidaturas">Minhas Candidaturas</a></li>
+                <li><a href="/candidato/perfil/{{candidatoId}}">Meu Perfil</a></li>
+                <li><a href="/Home">Sair</a></li>
+            </ul>
+        </aside>
+
+        <!-- Conteúdo principal -->
+        <main class="main-content">
+            <!-- Barra de busca -->
+            <div class="search-container">
+                <form action="/vagas/buscar" method="GET">
+                    <input type="text" name="q" class="search-input" placeholder="Buscar Vagas">
+                    <button type="submit" class="search-button">Buscar</button>
+                </form>
+            </div>
+
+            <!-- Categorias -->
+            <div class="categories">
+                <button class="category-button">Full Stack</button>
+                <button class="category-button">UX/UI Designer</button>
+                <button class="category-button">Analista de Dados</button>
+                <button class="category-button">Técnico em TI</button>
+                <button class="category-button">Estoquista</button>
+                <button class="category-button">Programador Front End</button>
+                <button class="category-button">Programador Back End</button>
+                <button class="category-button">Operador de caixa</button>
+                <button class="category-button">Enfermagem</button>
+            </div>
+
+            <!-- Feed de vagas -->
+            <div class="jobs-feed">
+                <ul>
+                    {{#if vagas.length}}
+                    {{#each vagas}}
+                    <li class="job-card">
+                        <img src="{{imagem}}" alt="{{nome}}" class="job-image" />
+                        <h2>{{nome}}</h2>
+                        <p class="job-company">{{empresa.nome}}</p>
+                        <p>{{area}}</p>
+                        <button class="register-button" onclick="window.location.href = '/candidato/vagas/{{_id}}';">Ver Vaga</button>
+                    </li>
+                    {{/each}}
+                    {{else}}
+                    <div class="no-data">
+                        <p>Não existem vagas cadastradas.</p>
+                    </div>
+                    {{/if}}
+                </ul>
+            </div>
+        </main>
+
     </div>
 
 </body>
-
 </html>

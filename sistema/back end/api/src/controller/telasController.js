@@ -96,22 +96,23 @@ const getVagas = async (req, res) => {
 }
 
 const getCandidaturas = async (req, res) => {
+  try {
+    const candidatoId = req.user._id; // Obtém o ID do candidato autenticado
+    const candidaturas = await Candidatura.find({ candidato: candidatoId })
+        .populate('vaga')
+        .populate('empresa');
 
-  const empresaId = req.params.empresaId
-
-  const candidaturas = await Candidatura.find({ empresa: empresaId }).populate('candidato');
-
-  if(!candidaturas){
-      return res.status(404).send({ message: 'Candidaturas nao encontradas!' });
-  }
-
-  res.render('fun/candidaturas', {
-    title: 'Lista de Candidatos',
-    style: 'candidaturas.css',
-    candidaturas
-  });
- 
+    res.render('fun/candidaturas', {
+        title: 'Minhas Candidaturas',
+        style: 'candidaturas.css',
+        candidaturas,
+    });
+} catch (error) {
+    console.error('Erro ao buscar candidaturas:', error);
+    res.status(500).send('Erro ao carregar candidaturas.');
+}
 };
+
 
 const getCandidaturasc = async (req, res) => {
 
@@ -153,7 +154,37 @@ const Vercandidatos = async (req, res) => {
     
     
   });
+}
  
+
+ 
+const Vaga = require('../models/vagasModel'); // Certifique-se de ter esse model importado
+
+const getVagaDetalhes = async (req, res) => {
+  try {
+    const candidatoId = req.user._id; // Obtém o ID do candidato autenticado
+    const vagaId = req.params.vagaId; // Obtém o ID da vaga da URL
+
+    // Buscar a vaga específica pelo ID
+    const vaga = await Vaga.findById(vagaId).populate('empresa'); // Assumindo que a vaga tem referência à empresa
+
+    if (!vaga) {
+      return res.status(404).json({ message: 'Vaga não encontrada!' });
+    }
+
+    // Renderizar a página com os detalhes da vaga
+    res.render('fun/vagaDetalhes', {
+      title: 'Detalhes da Vaga',
+      style: 'vagaDetalhes.css', // Adapte conforme o seu arquivo de estilo
+      vaga, // Passa os detalhes da vaga para a view
+      candidatoId
+    });
+
+  } catch (error) {
+    console.error('Erro ao buscar detalhes da vaga:', error);
+    res.status(500).send('Erro ao carregar detalhes da vaga.');
+  }
+
 };
 
 module.exports = {
@@ -163,6 +194,7 @@ module.exports = {
     getRecuperarSenha,
     getRedefinirSenha,
     getCriarVagas,
+    getVagaDetalhes,
     getVagas,
     getCandidaturas,
     getCandidaturasc,

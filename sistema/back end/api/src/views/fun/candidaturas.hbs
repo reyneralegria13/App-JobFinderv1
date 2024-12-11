@@ -1,24 +1,20 @@
-<main>
-        {{#if candidaturas.length}}
-            <table>
-                <thead>
-                    <tr>
-                        <th>Nome do Candidato</th>
-                        <th>Email</th>
-                        <th>Data da Candidatura</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {{#each candidaturas}}
-                        <tr>
-                            <td>{{this.candidato.nome}}</td>
-                            <td>{{this.candidato.email}}</td>
-                           </td> <!-- Supondo que você tenha uma função para formatar a data -->
-                        </tr>
-                    {{/each}}
-                </tbody>
-            </table>
-        {{else}}
-            <p>Nenhuma candidatura encontrada.</p>
-        {{/if}}
-    </main>
+<div class="container">
+    <h1>Minhas Candidaturas</h1>
+    
+    {{#if candidaturas.length}}
+        <ul class="candidatura-list">
+            {{#each candidaturas}}
+                <li class="candidatura-item">
+                    <h2>{{vaga.nome}}</h2>
+                    <p><strong>Empresa:</strong> {{empresa.nome}}</p>
+                    <p><strong>Status:</strong> {{status}}</p>
+                    <form action="/candidato/{{../_id}}/vagas/delete/{{_id}}" method="post">
+                        <button type="submit">Cancelar candidatura</button>
+                    </form>
+                </li>
+            {{/each}}
+        </ul>
+    {{else}}
+        <p>Você ainda não se candidatou a nenhuma vaga.</p>
+    {{/if}}
+</div>

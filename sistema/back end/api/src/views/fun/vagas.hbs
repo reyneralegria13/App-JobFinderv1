@@ -1,3 +1,6 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
 <body>
     <!-- Cabeçalho -->
     <header class="header">
@@ -6,15 +9,19 @@
         <button class="menu-button">☰</button>
     </header>
 
+    <!-- Título -->
+    <div class="page-title">
+        <h1>Vagas Disponíveis</h1>
+    </div>
+
     <!-- Grid de vagas -->
-    <h1>Vagas</h1>
     <div class="jobs-grid">
         <ul>
             {{#if vagas.length}}
             {{#each vagas}}
             <li class="job-card" onclick="window.location.href = '/empresa/can/{{_id}}';">
                 <!-- Nome da vaga -->
-                <h2>{{this.nome}}</h2>
+                <h2 class="job-title">{{this.nome}}</h2>
 
                 <!-- Nome da empresa -->
                 {{#if this.empresa}}
@@ -27,7 +34,10 @@
                 {{/if}}
 
                 <!-- Descrição -->
-                <p>{{this.area}}</p>
+                <p class="job-area">{{this.area}}</p>
+                
+                <!-- Link para mais detalhes -->
+                <a href="/empresa/{{empresaId}}/vagas/{{this.id}}" class="view-job-button">Ver detalhes</a>
             </li>
             {{/each}}
             {{else}}
@@ -41,9 +51,10 @@
 
     <!-- Navegação inferior -->
     <nav class="bottom-nav">
-        <a href="/empresa/dashboard" class="nav-item ">Início</a>
+        <a href="/empresa/dashboard" class="nav-item">Início</a>
         <a href="/empresa/{{empresaId}}/vagas" class="nav-item active">Vagas</a>
         <a href="/empresa/{{empresaId}}/vagas/criar" class="nav-item">Add Vagas</a>
         <a href="#" class="nav-item">Configurações</a>
     </nav>
 </body>
+</html>

@@ -1,199 +1,148 @@
 /* Estilo geral */
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f9f9f9;
-    color: #333;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f9f9f9;
+  color: #333;
 }
 
-h1 {
-    text-align: center;
-    margin-top: 20px;
-    color: #444;
+/* Cabeçalho */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  background-color: #3498db;
+  color: #fff;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-/* Estilo do formulário */
-form {
-    max-width: 500px;
-    margin: 20px auto;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+.header h1 {
+  font-size: 24px;
+  margin: 0;
+}
+
+.header .back-button,
+.header .menu-button {
+  font-size: 24px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: #fff;
+}
+
+/* Barra de busca */
+.search-container {
+  margin: 20px auto;
+  width: 90%;
+  display: flex;
+  justify-content: center;
+}
+
+.search-input {
+  width: 80%;
+  padding: 12px;
+  border-radius: 25px;
+  border: none;
+  background-color: #fff;
+  box-shadow: inset 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Formulário */
+.form-container {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 30px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
 form div {
-    margin-bottom: 15px;
+  margin-bottom: 20px;
 }
 
 label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+  color: #333;
 }
 
 input[type="text"],
 textarea,
-input[type="file"] {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 14px;
+input[type="file"],
+select {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 16px;
+  color: #333;
 }
 
 textarea {
-    resize: vertical; /* Permite redimensionar verticalmente */
+  resize: vertical;
 }
 
+input[type="file"] {
+  padding: 5px;
+}
+
+/* Botão de submit */
 button {
-    width: 100%;
-    padding: 10px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    font-size: 16px;
-    cursor: pointer;
+  width: 100%;
+  padding: 12px;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
 }
 
 button:hover {
-    background-color: #0056b3; /* Cor mais escura ao passar o mouse */
+  background-color: #2980b9;
 }
 
 /* Link para voltar */
 a {
-    display: block;
-    text-align: center;
-    margin-top: 15px;
-    color: #007bff;
-    text-decoration: none;
+  display: block;
+  text-align: center;
+  margin-top: 20px;
+  color: #3498db;
+  text-decoration: none;
 }
 
 a:hover {
-    text-decoration: underline; /* Sublinhar ao passar o mouse */
+  text-decoration: underline;
 }
 
-/* Reset básico */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
-  }
-  
-  body {
-    background-color: #f9f9f9;
-    color: #333;
-  }
-  
-  /* Cabeçalho */
-  .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px;
-    background-color: #fff;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  
-  .header h1 {
-    font-size: 24px;
-  }
-  
-  .back-button,
-  .menu-button {
-    font-size: 24px;
-    border: none;
-    background: none;
-    cursor: pointer;
-  }
-  
-  /* Barra de busca */
-  .search-container {
-    margin: 20px auto;
-    width: 90%;
-  }
-  
-  .search-input {
-    width: calc(100% - 30px);
-    padding: 12px;
-    border-radius: 25px;
-    border: none;
-    background-color: #fff;
-    box-shadow: inset 0px 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  
-  /* Categorias */
-  .category-tabs {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-  }
-  
-  .tab {
-    padding: 10px;
-    border-radius: 20px;
-    background-color: #fff;
-    border: none;
-  }
-  
-  .tab.active {
-    border-bottom: solid black; /* Indica a aba ativa */
-  }
-  
-  /* Grid de candidatos */
-  .candidates-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-    padding: 20px;
-  }
-  
-  .candidate-card {
-    background-color: white;
-    border-radius: 10px;
-    padding: 15px;
-    text-align: center;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-  }
-  
-  .candidate-image {
-    width: 50px;
-    height: 50px;
-    object-fit: cover;
-    border-radius: 50%;
-    margin-bottom: 10px;
-  }
-  
-  .register-button {
-    background-color: #FFE4B5;
-    border: none;
-    padding: 8px 20px;
-    border-radius: 20px;
-    cursor: pointer;
-  }
-
-  .bottom-nav {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    display: flex;
-    justify-content: space-around;
-    padding: 15px;
-    background: white;
-    border-top: 1px solid #eee;
+/* Navegação inferior */
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  padding: 15px;
+  background: white;
+  border-top: 1px solid #eee;
 }
 
 .nav-item {
-    text-align: center;
-    color: #666;
-    text-decoration: none;
-    font-size: 12px;
+  text-align: center;
+  color: #666;
+  text-decoration: none;
+  font-size: 14px;
 }
 
 .nav-item.active {
-    color: #000;
+  color: #3498db;
+  font-weight: bold;
 }
-  
+
+.nav-item:hover {
+  color: #2980b9;
+}
