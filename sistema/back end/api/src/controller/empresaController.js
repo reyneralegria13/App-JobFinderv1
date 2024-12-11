@@ -3,6 +3,8 @@ const Vagas = require('../models/vagasModel');
 const candidato = require("../models/candidatoModel");
 const bcrypt = require("bcrypt");
 const Candidatura = require("../models/candidaturaModel");
+const Swal = require('sweetalert2');
+
 
 const dashboardEmpresa = async (req, res) => {
     
@@ -140,7 +142,7 @@ const deleteEmpresa = async (req, res) => {
 
 const criarVagaParaEmpresa = async (req, res) => {
     try {
-        const { empresaId } = req.params; // ID da empresa fornecido na URL
+        const { empresaId } = req.params;
         const { nome, area, requisitos } = req.body;
 
         // Busca a empresa pelo ID
@@ -165,14 +167,14 @@ const criarVagaParaEmpresa = async (req, res) => {
         empresa.vagas.push(novaVaga._id);
         await empresa.save();
 
-        //res.redirect('/empresa/dasboard', empresaId);
-
-        res.redirect('/empresa/dashboard');
-
-        } catch (err) {
+        // Redireciona com uma mensagem de sucesso
+        res.redirect(`/empresa/${empresaId}/vagas/criar?success=true`);
+    } catch (err) {
+        console.error(err);
         res.status(500).send({ message: 'Erro ao criar vaga para a empresa: ' + err.message });
     }
 };
+
 
 const buscacandidatos = async (req, res) => {
     try {
