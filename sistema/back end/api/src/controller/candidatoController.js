@@ -68,7 +68,7 @@ const getCadastroCandidato = async (req, res) => {
 }*/
 const getPerfilCandidato = async (req, res) => {
     try {
-        const id = req.params.id;
+        const id = req.params.candidatoId;
         const candidato = await Candidato.findById(id, '-senha');
 
         if (!candidato) {
