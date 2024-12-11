@@ -10,10 +10,11 @@
     <div class="container">
         <!-- Cabeçalho -->
         <header class="header">
-        <button class="back-button"><a href="/login">←</a></button>
+            <button class="back-button"><a href="/login">←</a></button>
             <h1>JobFinder</h1>
             <button class="menu-button">☰</button>
         </header>
+
 
         <!-- Barra de busca -->
         <div class="search-container">
@@ -60,7 +61,8 @@
                     <p>{{area}}</p>
 
                     <!-- Botão de cadastro -->
-                    <button class="register-button" onclick="window.location.href = '/candidato/vagas/{{_id}}';">Ver Vaga</button>
+                    <button class="register-button" onclick="window.location.href = '/candidato/vagas/{{_id}}';">Ver
+                        Vaga</button>
                 </li>
                 {{/each}}
                 {{else}}
@@ -71,7 +73,14 @@
                 {{/if}}
             </ul>
         </div>
+
+        <nav class="bottom-nav">
+            <a href="/candidato/dashboard" class="nav-item active">Início</a>
+            <a href="/candidato/{{candidatoId}}/candidaturas" class="nav-item">Vagas</a>
+            <a href="#" class="nav-item">Configurações</a>
+        </nav>
     </div>
+
 </body>
 
 </html>

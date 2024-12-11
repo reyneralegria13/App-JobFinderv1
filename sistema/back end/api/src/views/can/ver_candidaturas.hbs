@@ -1,0 +1,38 @@
+<div class="container">
+    <h1>Detalhes da Candidatura</h1>
+    
+        {{#each candidaturas}}
+            <li class="job-card">
+                <!-- Nome da vaga -->
+                <h2>{{vaga.nome}}</h2>
+
+                <!-- Nome da empresa -->
+                {{#if empresa}}
+                <p class="job-company">{{empresa.nome}}</p>
+                {{/if}}
+
+                <!-- Imagem da vaga -->
+                {{#if vaga.imagem}}
+                <img src="data:{{vaga.imagem.contentType}};base64,{{vaga.imagem.data}}" alt="{{vaga.nome}}" class="job-image" />
+                {{/if}}
+
+                <!-- Descrição -->
+                <p>{{vaga.area}}</p>
+
+                <h2>Status</h2>
+    <p>{{status}}</p>
+
+                <!-- Botão de cadastro -->
+                <form action="/candidato/{{candidato._id}}/vagas/delete/{{_id}}" method="post">
+        <button type="submit">Cancelar candidatura</button>
+    </form>
+            </li>
+        {{/each}}
+
+        <nav class="bottom-nav">
+            <a href="/candidato/dashboard" class="nav-item ">Início</a>
+            <a href="/candidato/{{candidatoId}}/candidaturas" class="nav-item active">Vagas</a>
+            <a href="#" class="nav-item">Configurações</a>
+        </nav>
+        
+</div>

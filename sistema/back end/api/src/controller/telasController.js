@@ -1,6 +1,7 @@
 const Candidato = require('../models/candidatoModel');
 const Empresa = require('../models/empresaModel');
 const Candidatura = require('../models/candidaturaModel');
+const Vaga = require('../models/vagasModel');
 //const Vaga = require('../models/vagasModel');
 
 // rota para a página home
@@ -111,6 +112,27 @@ const getCandidaturas = async (req, res) => {
   });
  
 };
+
+const getCandidaturasc = async (req, res) => {
+
+  const candidatoId = req.params.candidatoId
+
+  const candidaturas = await Candidatura.find({ candidato: candidatoId }).populate('candidato').populate('vaga').populate('empresa');
+ 
+
+  if(!candidaturas){
+      return res.status(404).send({ message: 'Candidaturas nao encontradas!' });
+  }
+
+  res.render('can/ver_candidaturas', {
+    title: 'Lista de Candidatos',
+    style: 'candidaturas.css',
+    candidaturas,
+    candidatoId
+    
+  });
+ 
+};
 module.exports = {
     getHome,
     getCargo,
@@ -119,5 +141,6 @@ module.exports = {
     getRedefinirSenha,
     getCriarVagas,
     getVagas,
-    getCandidaturas
+    getCandidaturas,
+    getCandidaturasc,
 }
