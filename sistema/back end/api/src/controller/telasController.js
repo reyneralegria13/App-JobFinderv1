@@ -118,6 +118,21 @@ const getCandidaturasc = async (req, res) => {
 
   const candidatoId = req.params.candidatoId
 
+  const vagas = await Vaga.find().populate('empresa');
+  
+    // Converte as imagens para base64
+    const vagasComImagens = vagas.map(vaga => {
+        let imagemBase64 = null;
+        if (vaga.imagem && vaga.imagem.data) {
+            imagemBase64 = `data:${vaga.imagem.contentType};base64,${vaga.imagem.data.toString('base64')}`;
+        }
+  
+        return {
+            ...vaga._doc,
+            imagem: imagemBase64,
+        };
+    });
+
   const candidaturas = await Candidatura.find({ candidato: candidatoId }).populate('candidato').populate('vaga').populate('empresa');
  
 
@@ -127,8 +142,9 @@ const getCandidaturasc = async (req, res) => {
 
   res.render('can/ver_candidaturas', {
     title: 'Lista de Candidatos',
-    style: 'candidaturas.css',
+    style: 'verCandidatura.css',
     candidaturas,
+    vagas: vagasComImagens,
     candidatoId
     
   });
