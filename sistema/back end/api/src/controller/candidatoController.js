@@ -335,7 +335,7 @@ const cancelarCandidatura = async (req,res) => {
 
 const editarPerfilCandidato = async (req, res) => {
     try {
-        const candidatoId = req.params.id;
+        const candidatoId = req.params.candidatoId;
         const { nome, cpf, email, telefone, educacao, qualificacao, cursos, descricao, habilidadesTecnicas, idiomas } = req.body;
 
         // Encontrar o candidato pelo ID
