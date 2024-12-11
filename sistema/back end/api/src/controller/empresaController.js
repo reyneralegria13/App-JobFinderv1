@@ -202,7 +202,10 @@ const buscacandidatos = async (req, res) => {
         });
 
         // Renderiza o template com os resultados
-        res.render('fun/resultCanddidatos', { candidatos: candidatosComImagens, query: q });
+        res.render('fun/resultCanddidatos', { candidatos: candidatosComImagens,
+             query: q,
+             title: 'Lista de Candidatos',
+             style: 'buscacandidato.css' });
     } catch (err) {
         console.error(err);
         res.status(500).send({ message: 'Erro ao buscar candidatos', error: err.message });

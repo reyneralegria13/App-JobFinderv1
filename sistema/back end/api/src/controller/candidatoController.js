@@ -77,8 +77,8 @@ const getPerfilCandidato = async (req, res) => {
 
         res.render('can/getPerfil', {
             user: candidato,
-            id: candidato._id
-            //style: 'getPerfil', 
+            id: candidato._id,
+            style: 'perfilcandidato.css', 
         });
     } catch (error) {
         console.error(error);
