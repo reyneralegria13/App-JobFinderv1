@@ -159,6 +159,7 @@ const verVaga = async (req, res) => {
             requisitos: vaga.requisitos,
             empresa: vaga.empresa.nome, // Nome da empresa associada
             imagem: imagemBase64,
+            style: 'vagasDetalhes.css',
             candidatoId // Imagem em Base64
         });
     } catch (err) {
