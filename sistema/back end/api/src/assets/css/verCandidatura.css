@@ -47,10 +47,14 @@ body {
 }
 
 .search-button {
-  padding: 10px 20px;
   background-color: #fcef02;
-  color: #000000;
+  text-decoration: none;
+  text-align: center;
+  transition: background-color 0.3s, box-shadow 0.2s;
+  color: rgb(0, 0, 0);
   border: none;
+  padding: 10px 20px;
+  margin: 5px;
   border-radius: 5px;
   cursor: pointer;
   font-size: 16px;
@@ -104,8 +108,9 @@ h1 {
 
 /* Botões superiores */
 .btn-back {
-  background-color: #fcef02;
-  color: rgb(0, 0, 0);
+  background-color: #dbd534;
+  text-align: center;
+  transition: background-color 0.3s, box-shadow 0.2s;
   border: none;
   padding: 10px 20px;
   margin: 5px;
@@ -114,15 +119,12 @@ h1 {
 }
 
 .btn-back a {
+  color: rgb(0, 0, 0);
   text-decoration: none;
 }
 
-.btn-add {
-  background-color: #0056b3; /* Azul mais escuro */
-}
-
 .btn-back:hover, .btn-add:hover {
-  opacity: 0.9;
+  background-color: #0056b3;
 }
 
 /* Grid de cards */
