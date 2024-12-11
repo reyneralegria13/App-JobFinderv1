@@ -1,5 +1,5 @@
 # DIAGRAMA DE IMPLANTAÇÃO
 
-Autor: Calil Lima
+Autor: Reyner Alegria
 
-![](../images/diagrama_implantação.png)
+![](../images/image.png)
