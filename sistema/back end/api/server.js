@@ -3,6 +3,12 @@ const connectDb = require('./db')
 const empresaRoutes = require('./src/routes/empresaRoutes');
 const candidatoRoutes = require('./src/routes/candidatoRoutes');
 const geral =require('./src/routes/geralRoutes')
+const hbs = require('handlebars'); // Ou handlebars, dependendo da sua configuração
+
+// Registra o helper ifCond
+hbs.registerHelper('ifCond', function (v1, v2, options) {
+    return v1 === v2 ? options.fn(this) : options.inverse(this);
+});
 
 //autenticação de senha
 require('dotenv').config()

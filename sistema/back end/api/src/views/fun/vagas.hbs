@@ -12,7 +12,7 @@
         <ul>
             {{#if vagas.length}}
             {{#each vagas}}
-            <li class="job-card">
+            <li class="job-card" onclick="window.location.href = '/empresa/can/{{_id}}';">
                 <!-- Nome da vaga -->
                 <h2>{{this.nome}}</h2>
 

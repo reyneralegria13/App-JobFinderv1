@@ -133,6 +133,29 @@ const getCandidaturasc = async (req, res) => {
   });
  
 };
+
+
+const Vercandidatos = async (req, res) => {
+
+  const { id } = req.params;
+
+  const candidaturas = await Candidatura.find({ vaga: id }).populate('candidato').populate('vaga').populate('empresa');
+ 
+
+  if(!candidaturas){
+      return res.status(404).send({ message: 'Candidaturas nao encontradas!' });
+  }
+
+  res.render('fun/candidatos_vagas', {
+    title: 'Lista de Candidatos',
+    style: 'candidaturas.css',
+    candidaturas,
+    
+    
+  });
+ 
+};
+
 module.exports = {
     getHome,
     getCargo,
@@ -143,4 +166,5 @@ module.exports = {
     getVagas,
     getCandidaturas,
     getCandidaturasc,
+    Vercandidatos,
 }

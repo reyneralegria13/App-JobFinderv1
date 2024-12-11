@@ -207,23 +207,42 @@ const buscacandidatos = async (req, res) => {
     }
 };
 
-const updateStatus = async (req, res) => {
+const updateStatus = c= async (req, res) => {
     try {
-      const { applicationId } = req.params;
-      const { status } = req.body;
-  
-      const application = await Candidatura.findById(applicationId);
-      if (!application) {
-        return res.status(404).json({ message: 'Inscrição não encontrada!' });
-      }
-  
-      application.status = status;
-      await application.save();
-      res.redirect({ });
+        const empresaId = req.params.empresaId;
+        const { id } = req.params; // ID da candidatura a ser atualizada
+        const { status } = req.body; // Novo status enviado pelo formulário ou requisição
+
+        // Verifica se o status é válido
+        if (!['Pendente', 'Aceito', 'Rejeitado'].includes(status)) {
+            return res.status(400).send({ message: 'Status inválido!' });
+        }
+
+        // Atualiza o status da candidatura
+        const candidaturaAtualizada = await Candidatura.findByIdAndUpdate(
+            id,
+            { status },
+            { new: true } // Retorna o documento atualizado
+        );
+
+        if (!candidaturaAtualizada) {
+            return res.status(404).send({ message: 'Candidatura não encontrada!' });
+        }
+
+        res.render('fun/vagas', {
+            title: "Vagas",
+            style: "vagas.css",
+            vagas: empresa.vagas,
+            empresaId
+        })
     } catch (error) {
-      res.status(500).json({ message: 'Erro ao atualizar o status da inscrição.', error });
+        console.error('Erro ao atualizar o status da candidatura:', error);
+        res.status(500).send({ message: 'Erro ao atualizar o status da candidatura', error: error.message });
     }
-  };
+};
+
+
+
   
 module.exports = {
     getCadastroEmpresa,
