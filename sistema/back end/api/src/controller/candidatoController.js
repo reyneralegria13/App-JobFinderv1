@@ -182,7 +182,10 @@ const buscarvagas = async (req, res) => {
             };
         });
 
-        res.render('can/resultVagas', { vagas: vagasComImagens, query: q });
+        res.render('can/resultVagas', { vagas: vagasComImagens, query: q,
+            title: 'Lista de Vagas',
+            style: 'buscaVagas.css'
+        });
     } catch (err) {
         console.error(err);
         res.status(500).send({ message: 'Erro ao buscar vagas', error: err.message });
