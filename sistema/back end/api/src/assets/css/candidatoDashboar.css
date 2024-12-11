@@ -50,10 +50,14 @@ body {
 }
 
 .search-button {
-  padding: 10px 20px;
   background-color: #fcef02;
-  color: #000000;
+  text-decoration: none;
+  text-align: center;
+  transition: background-color 0.3s, box-shadow 0.2s;
+  color: rgb(0, 0, 0);
   border: none;
+  padding: 10px 20px;
+  margin: 5px;
   border-radius: 5px;
   cursor: pointer;
   font-size: 16px;
@@ -101,8 +105,6 @@ body {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-
-
 .categories {
   margin-bottom: 20px;
   display: flex;
@@ -123,7 +125,6 @@ body {
   background-color: #bdc3c7;
 }
 
-
 .job-card {
   background-color: white; /* Fundo branco para contraste */
   color: black; /* Texto preto no card */
@@ -142,7 +143,6 @@ body {
 .job-card p {
   font-size: 1rem;
 }
-
 
 .card-grid {
   display: flex;
@@ -172,16 +172,19 @@ body {
 }
 
 .register-button {
-  padding: 10px 15px;
-  background-color: #3498db;
-  color: #fff;
+  background-color: #dbd534;
+  text-decoration: none;
+  text-align: center;
+  transition: background-color 0.3s, box-shadow 0.2s;
+  color: rgb(0, 0, 0);
   border: none;
+  padding: 10px 20px;
+  margin: 5px;
   border-radius: 5px;
   cursor: pointer;
-  font-size: 16px;
-  margin-top: auto;
 }
 
 .register-button:hover {
+  
   background-color: #2980b9;
 }
