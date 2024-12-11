@@ -1,0 +1,118 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Cabeçalho */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #1a73e8;
+    color: white;
+    border-radius: 8px;
+}
+
+.header h1 {
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-left: 20px;
+}
+
+.header .back-button a {
+    text-decoration: none;
+    color: white;
+    font-size: 1.2rem;
+}
+
+.header .menu-button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+}
+
+/* Detalhes da vaga */
+.vaga-detalhes {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #fafafa;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.vaga-detalhes h2 {
+    font-size: 1.5rem;
+    color: #1a73e8;
+    margin-bottom: 15px;
+}
+
+.vaga-detalhes p {
+    font-size: 1rem;
+    margin-bottom: 10px;
+}
+
+.vaga-imagem {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+/* Estilos para o botão de cadastro */
+.register-button {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    background-color: #1a73e8;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+}
+
+.register-button:hover {
+    background-color: #1558b0;
+}
+
+/* Responsividade para telas menores */
+@media (max-width: 768px) {
+    .container {
+        margin: 10px;
+        padding: 15px;
+    }
+
+    .header h1 {
+        font-size: 1.4rem;
+    }
+
+    .vaga-detalhes h2 {
+        font-size: 1.3rem;
+    }
+
+    .register-button {
+        font-size: 1rem;
+        padding: 10px;
+    }
+}

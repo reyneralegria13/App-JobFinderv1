@@ -2,8 +2,20 @@ const Candidato = require('../models/candidatoModel.js');
 const Vaga = require('../models/vagasModel.js');
 const Empresa = require('../models/empresaModel.js');
 const Candidatura = require('../models/candidaturaModel.js');
-const bcrypt = require('bcrypt')
+const bcrypt = require('bcrypt');
+const { isAuthenticated } = require('../middleware/auth.js');
 
+function toggleMenu() {
+    const sideMenu = document.getElementById('side-menu');
+    if (sideMenu.classList.contains('hidden')) {
+      sideMenu.classList.remove('hidden');
+      sideMenu.classList.add('visible');
+    } else {
+      sideMenu.classList.remove('visible');
+      sideMenu.classList.add('hidden');
+    }
+  }
+  
 
 const dashboardCandidato = async (req, res) => {
   const candidatoId = req.session.user.id;
@@ -305,6 +317,43 @@ const cancelarCandidatura = async (req,res) => {
     }
 }
 
+const editarPerfilCandidato = async (req, res) => {
+    try {
+        const candidatoId = req.params.id;
+        const { nome, cpf, email, telefone, educacao, qualificacao, cursos, descricao, habilidadesTecnicas, idiomas } = req.body;
+
+        // Encontrar o candidato pelo ID
+        const candidato = await Candidato.findById(candidatoId);
+
+        if (!candidato) {
+            return res.status(404).send({ message: 'Candidato não encontrado!' });
+        }
+
+        // Atualizar os dados do candidato
+        candidato.nome = nome || candidato.nome;
+        candidato.cpf = cpf || candidato.cpf;
+        candidato.email = email || candidato.email;
+        candidato.telefone = telefone || candidato.telefone;
+        candidato.educacao = educacao || candidato.educacao;
+        candidato.qualificacao = qualificacao || candidato.qualificacao;
+        candidato.cursos = cursos || candidato.cursos;
+        candidato.descricao = descricao || candidato.descricao;
+        candidato.habilidadesTecnicas = habilidadesTecnicas || candidato.habilidadesTecnicas;
+        candidato.idiomas = idiomas || candidato.idiomas;
+
+        // Salvar as alterações no banco de dados
+        await candidato.save();
+
+        res.redirect(`/candidato/perfil/${candidatoId}`);
+    } catch (error) {
+        console.error("Erro ao editar o perfil:", error);
+        res.status(500).send({ message: 'Erro ao editar o perfil', error: error.message });
+    }
+};
+
+
+
+
 
 module.exports = {
     dashboardCandidato,
@@ -315,5 +364,7 @@ module.exports = {
     buscarvagas,
     candidatarse,
     verCandidatura,
-    cancelarCandidatura
+    cancelarCandidatura,
+    editarPerfilCandidato,
+    isAuthenticated
 };

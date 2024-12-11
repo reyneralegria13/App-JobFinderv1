@@ -17,15 +17,22 @@
         {{/if}}
 
         <!-- Detalhes do Candidato -->
-        <h2>Candidato</h2>
-        <p><strong>Nome:</strong> {{candidato.nome}}</p>
-
-        <!-- Status -->
-        <h2>Status</h2>
-        <p>{{status}}</p>
-        <form action="/candidato/{{candidatoId}}/vagas/delete/{{_id}}" method="post">
-            <button type="submit">Cancelar candidatura</button>
-        </form>
+      {{#if candidaturas.length}}
+        <ul class="candidatura-list">
+            {{#each candidaturas}}
+                <li class="candidatura-item">
+                    <h2>{{vaga.nome}}</h2>
+                    <p><strong>Empresa:</strong> {{empresa.nome}}</p>
+                    <p><strong>Status:</strong> {{status}}</p>
+                    <form action="/candidato/{{../_id}}/vagas/delete/{{_id}}" method="post">
+                        <button type="submit">Cancelar candidatura</button>
+                    </form>
+                </li>
+            {{/each}}
+        </ul>
+    {{else}}
+        <p>Você ainda não se candidatou a nenhuma vaga.</p>
+    {{/if}}
         <button><a href="/candidato/dashboard">Voltar</a></button>
 
     </div>

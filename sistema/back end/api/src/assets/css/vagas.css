@@ -1,82 +1,120 @@
-* {
+/* Estilo geral */
+body {
+  font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-  font-family: Arial, sans-serif;
-}
-
-body {
   background-color: #f9f9f9;
   color: #333;
 }
 
+/* Cabeçalho */
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 15px;
-  background-color: #fff;
+  background-color: #3498db;
+  color: #fff;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .header h1 {
   font-size: 24px;
+  margin: 0;
 }
 
-h1 { 
-  text-align: center;
-  margin-top: 20px;
-  color: #444;
-}
-
-.back-button,
-.menu-button {
+.header .back-button,
+.header .menu-button {
   font-size: 24px;
   border: none;
   background: none;
   cursor: pointer;
+  color: #fff;
 }
 
+/* Título da página */
+.page-title {
+  padding: 20px;
+  background-color: #fff;
+  text-align: center;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+}
+
+.page-title h1 {
+  margin: 0;
+  font-size: 28px;
+}
+
+/* Grid de Vagas */
 .jobs-grid {
+  max-width: 900px;
+  margin: 20px auto;
   padding: 20px;
 }
 
 .jobs-grid ul {
   list-style-type: none;
-  display: flex;
-  flex-wrap: wrap; /* Permite que os cartões se ajustem em várias linhas */
-  gap: 20px; /* Espaçamento entre os cartões */
+  padding: 0;
 }
 
 .job-card {
   background-color: #fff;
-  border: solid 1px #333333 ;
   border-radius: 8px;
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-  padding: 15px;
-  width: calc(33% - 20px); /* Três cartões por linha com espaçamento */
-  transition: transform 0.2s; /* Animação ao passar o mouse */
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.job-card:hover {
-  transform: scale(1.05); /* Efeito de zoom ao passar o mouse */
+.job-title {
+  font-size: 20px;
+  font-weight: bold;
+  color: #3498db;
+  margin-bottom: 10px;
+}
+
+.job-company {
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 10px;
 }
 
 .job-image {
-  max-width: 100%;
-  height: auto; /* Mantém a proporção da imagem */
-  border-radius: 4px; /* Arredonda os cantos da imagem */
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 15px;
 }
 
 .job-area {
-  color: #555; /* Cor mais clara para a descrição */
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 20px;
 }
 
+/* Botão para ver detalhes */
+.view-job-button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #3498db;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.view-job-button:hover {
+  background-color: #2980b9;
+}
+
+/* Caso não existam vagas cadastradas */
 .no-data {
   text-align: center;
-  padding: 20px;
+  font-size: 16px;
+  color: #555;
 }
 
+/* Navegação inferior */
 .bottom-nav {
   position: fixed;
   bottom: 0;
@@ -92,9 +130,14 @@ h1 {
   text-align: center;
   color: #666;
   text-decoration: none;
-  font-size: 12px;
+  font-size: 14px;
 }
 
 .nav-item.active {
-  color: #000;
+  color: #3498db;
+  font-weight: bold;
+}
+
+.nav-item:hover {
+  color: #2980b9;
 }

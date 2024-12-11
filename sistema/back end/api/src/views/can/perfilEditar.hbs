@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<body>
+    <div class="page-container">
+        <!-- Menu lateral -->
+        <aside class="sidebar">
+            <h1>JobFinder</h1>
+            <ul class="menu">
+                <li><a href="/candidato/candidaturas">Minhas Candidaturas</a></li>
+                <li><a href="/candidato/perfil/{{candidatoId}}">Meu Perfil</a></li>
+                <li><a href="/logout">Sair</a></li>
+            </ul>
+        </aside>
+
+        <!-- Conteúdo principal -->
+        <main class="main-content">
+            <h1>Editar Perfil</h1>
+
+            <form action="/candidato/perfil/{{candidatoId}}/editar" method="POST" enctype="multipart/form-data">
+                <!-- Foto de perfil -->
+                <div class="form-group">
+                    <label for="imagem">Imagem de Perfil:</label>
+                    <input type="file" id="imagem" name="imagem">
+                    {{#if user.imagem}}
+                    <img src="{{user.imagem}}" alt="Imagem de perfil" class="profile-image">
+                    {{/if}}
+                </div>
+
+                <!-- Informações pessoais -->
+                <div class="form-group">
+                    <label for="nome">Nome:</label>
+                    <input type="text" id="nome" name="nome" value="{{user.nome}}" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="cpf">CPF:</label>
+                    <input type="text" id="cpf" name="cpf" value="{{user.cpf}}" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" value="{{user.email}}" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="telefone">Telefone:</label>
+                    <input type="text" id="telefone" name="telefone" value="{{user.telefone}}" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="educacao">Educação:</label>
+                    <input type="text" id="educacao" name="educacao" value="{{user.educacao}}" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="qualificacao">Qualificação:</label>
+                    <input type="text" id="qualificacao" name="qualificacao" value="{{user.qualificacao}}">
+                </div>
+
+                <div class="form-group">
+                    <label for="cursos">Cursos:</label>
+                    <input type="text" id="cursos" name="cursos" value="{{user.cursos.join(', ')}}">
+                </div>
+
+                <div class="form-group">
+                    <label for="descricao">Descrição:</label>
+                    <textarea id="descricao" name="descricao">{{user.descricao}}</textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="habilidades">Habilidades Técnicas:</label>
+                    <input type="text" id="habilidades" name="habilidades" value="{{user.habilidadesTecnicas.join(', ')}}">
+                </div>
+
+                <div class="form-group">
+                    <label for="idiomas">Idiomas:</label>
+                    <input type="text" id="idiomas" name="idiomas" value="{{user.idiomas.join(', ')}}">
+                </div>
+
+                <!-- Botão para enviar -->
+                <button type="submit" class="submit-button">Salvar alterações</button>
+            </form>
+        </main>
+    </div>
+</body>
+</html>
