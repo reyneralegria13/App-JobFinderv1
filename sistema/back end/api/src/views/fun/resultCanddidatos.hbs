@@ -1,13 +1,29 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 
+
 <body>
+        <!-- Cabeçalho -->
+    <header class="header">
+        <button class="back-button"><a href="/empresa/dashboard">←</a></button>
+        <h1>JobFinder</h1>
+        <button class="menu-button">☰</button>
+    </header>
+
+    <!-- Barra de busca -->
+    <div class="search-container">
+        <form action="/empresa/candidatos/buscar" method="GET">
+            <span class="search-icon">🔍</span>
+            <input type="text" name="q" class="search-input" placeholder="Buscar Vagas">
+            <button type="submit" class="search-button">Buscar</button>
+        </form>
+    </div>
     <div class="container">
         <!-- Cabeçalho -->
-        <header class="header">
-            <h1>Resultados da Busca</h1>
+        <div class="capiroto">
+            <h1>Resultados da Busca:</h1>
             <p>Termo buscado: "{{query}}"</p>
-        </header>
+        </div>
 
         <!-- Grid de Candidatos -->
         <div class="candidates-grid">
