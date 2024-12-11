@@ -123,24 +123,34 @@ body {
   background-color: #bdc3c7;
 }
 
-.jobs-feed {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 20px;
-  margin-top: 20px;
-}
 
 .job-card {
-  background-color: #fff;
-  border: 1px solid #ccc;
-  border-radius: 10px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  padding: 20px;
-  text-align: center;
+  background-color: white; /* Fundo branco para contraste */
+  color: black; /* Texto preto no card */
+  width: 200px; /* Largura fixa para os cards */
+  border-radius: 10px; /* Bordas arredondadas */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para destaque */
+  padding: 15px;
+}
+
+/* Título do card */
+.job-card h2 {
+  font-size: 1.2rem;
+}
+
+/* Preço do produto */
+.job-card p {
+  font-size: 1rem;
+}
+
+
+.card-grid {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  transition: transform 0.2s; box-shadow: 0.2s;
+  flex-wrap: wrap; /* Permite quebra de linha se necessário */
+  justify-content: center; /* Centraliza os cards */
+  gap: 20px; /* Espaçamento entre os cards */
+  list-style-type: none; /* Remove marcadores de lista */
+  padding: 0;
 }
 
 .job-card:hover {

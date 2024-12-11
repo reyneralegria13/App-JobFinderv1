@@ -137,8 +137,14 @@ body {
 
 /* Detalhes da vaga */
 .vaga-detalhes {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centraliza horizontalmente */
+    justify-content: center; /* Centraliza verticalmente */
+    text-align: center; /* Centraliza o texto */
     margin-top: 20px;
     padding: 20px;
+    align-items: center;
     background-color: #fafafa;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -146,6 +152,7 @@ body {
 
 .vaga-detalhes h2 {
     font-size: 1.5rem;
+    align-content: center;
     color: #1a73e8;
     margin-bottom: 15px;
 }
