@@ -64,8 +64,8 @@ const getPerfilCandidato = async (req, res) => {
         res.render('can/getPerfil', {
             style: "getPerfilCand.css",
             user: candidato,
-            id: candidato._id
-             
+            id: candidato._id,
+            style: 'perfilcandidato.css', 
         });
     } catch (error) {
         console.error(error);
