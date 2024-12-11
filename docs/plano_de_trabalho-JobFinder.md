@@ -308,9 +308,9 @@ __Fase VI: Encerramento – Julho__
 |-------------|-------------|-------------|
 | I.	Especificação  |  Junho| Personas, User Stories, Critérios de Aceitação e Regras de Negócio  |
 | II.	Inspeção | Julho  | Planilha dos defeitos encontrados e relatório detalhado do processo de inspeção |
-| III.	Projeto e Arquitetura |  |  | 
-| IV.	Prototipagem e Refinamento|  |  | 
-| V.	Encerramento |  |  | 
+| III.	Projeto e Arquitetura | Outubro | Foi produzido os diagramas de componentes e implantação | 
+| IV.	Prototipagem e Refinamento| Novembro | Foi realizado a prototiáção pelo figma e preparação para o BackEnd | 
+| V.	Encerramento | Dezembro | Conclusão do website JobFinder. | 
 
 ### 3.5	Controle de Mudanças
 O monitoramento e controle do escopo do projeto serão realizados a partir das seguintes diretrizes:
