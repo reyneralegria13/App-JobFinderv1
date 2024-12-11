@@ -8,7 +8,7 @@
             <h1>JobFinder</h1>
             <ul class="menu">
                 <li><a href="/candidato/candidaturas">Minhas Candidaturas</a></li>
-                <li><a href="/candidato/perfil/{{candidatoId}}">Meu Perfil</a></li>
+                <li><a href="/candidato/perfil/{{user._id}}">Meu Perfil</a></li>
                 <li><a href="/logout">Sair</a></li>
             </ul>
         </aside>
@@ -17,7 +17,7 @@
         <main class="main-content">
             <h1>Editar Perfil</h1>
 
-            <form action="/candidato/perfil/{{candidatoId}}/editar" method="POST" enctype="multipart/form-data">
+            <form action="/candidato/perfil/{{user._id}}/editar" method="POST" enctype="multipart/form-data">
                 <!-- Foto de perfil -->
                 <div class="form-group">
                     <label for="imagem">Imagem de Perfil:</label>
@@ -58,25 +58,16 @@
                     <input type="text" id="qualificacao" name="qualificacao" value="{{user.qualificacao}}">
                 </div>
 
-                <div class="form-group">
-                    <label for="cursos">Cursos:</label>
-                    <input type="text" id="cursos" name="cursos" value="{{user.cursos.join(', ')}}">
-                </div>
+                
 
                 <div class="form-group">
                     <label for="descricao">Descrição:</label>
                     <textarea id="descricao" name="descricao">{{user.descricao}}</textarea>
                 </div>
 
-                <div class="form-group">
-                    <label for="habilidades">Habilidades Técnicas:</label>
-                    <input type="text" id="habilidades" name="habilidades" value="{{user.habilidadesTecnicas.join(', ')}}">
-                </div>
+                
 
-                <div class="form-group">
-                    <label for="idiomas">Idiomas:</label>
-                    <input type="text" id="idiomas" name="idiomas" value="{{user.idiomas.join(', ')}}">
-                </div>
+               
 
                 <!-- Botão para enviar -->
                 <button type="submit" class="submit-button">Salvar alterações</button>

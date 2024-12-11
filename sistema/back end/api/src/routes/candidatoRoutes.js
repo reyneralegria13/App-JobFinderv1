@@ -26,7 +26,7 @@ router.get('/:candidatoId/candidaturas', getCandidaturasc)
 
 // Rota para editar perfil
 router.get('/perfil/:candidatoId/editar', visualizarTelaEdicao);
-//router.post('/perfil/:candidatoId/editar', editarPerfilCandidato);
+router.post('/perfil/:candidatoId/editar', editarPerfilCandidato);
 
 
 
