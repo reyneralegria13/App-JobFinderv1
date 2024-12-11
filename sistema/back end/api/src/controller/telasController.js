@@ -127,10 +127,9 @@ const getCandidaturasc = async (req, res) => {
 
   res.render('can/ver_candidaturas', {
     title: 'Lista de Candidatos',
-    style: 'candidaturas.css',
+    style: 'verCandidatura.css',
     candidaturas,
     candidatoId
-    
   });
  
 };

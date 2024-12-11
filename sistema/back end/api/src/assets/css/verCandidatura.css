@@ -1,7 +1,10 @@
-
-.svg{
-  padding: 10;
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #ffffff;
 }
+
 .page-container {
   display: flex;
   flex-direction: column;
@@ -84,123 +87,120 @@
 .navbar-menu li a:hover {
   background-color: #c0c0c0;
 }
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
 
-body {
-  font-family: Arial, sans-serif;
-  background-color: #f4f4f4;
-  color: #333;
-}
-
+/* Container principal */
 .container {
-  max-width: 500px;
+  max-width: 900px;
   margin: 20px auto;
   padding: 20px;
-  background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
 }
 
-/* Cabeçalho */
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+/* Título */
+h1 {
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+
+/* Botões superiores */
+.btn-back {
+  background-color: #fcef02;
+  color: rgb(0, 0, 0);
+  border: none;
   padding: 10px 20px;
-  background-color: #1a73e8;
-  color: white;
-  border-radius: 8px;
-}
-
-.header h1 {
-  font-size: 1.8rem;
-  font-weight: bold;
-  margin-left: 20px;
-}
-
-.header .back-button a {
-  text-decoration: none;
-  color: white;
-  font-size: 1.2rem;
-}
-
-.header .menu-button {
-  background: none;
-  border: none;
-  color: white;
-  font-size: 1.5rem;
-}
-
-/* Detalhes da vaga */
-.vaga-detalhes {
-  margin-top: 20px;
-  padding: 20px;
-  background-color: #fafafa;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.vaga-detalhes h2 {
-  font-size: 1.5rem;
-  color: #1a73e8;
-  margin-bottom: 15px;
-}
-
-.vaga-detalhes p {
-  font-size: 1rem;
-  margin-bottom: 10px;
-}
-
-.vaga-imagem {
-  width: 120px; /* Define uma largura fixa */
-  height: 120px; /* Define uma altura fixa */
-  border-radius: 50%; /* Torna a imagem arredondada */
-  object-fit: cover; /* Garante que a imagem seja ajustada sem distorção */
-  margin-bottom: 15px;
-  border: 2px solid #1a73e8; /* Opcional: adiciona uma borda colorida */
-}
-
-
-/* Estilos para o botão de cadastro */
-.register-button {
-  display: block;
-  width: 100%;
-  padding: 12px;
-  background-color: #1a73e8;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  font-size: 1.2rem;
+  margin: 5px;
+  border-radius: 5px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
-  margin-top: 20px;
 }
 
-.register-button:hover {
-  background-color: #1558b0;
+.btn-back a {
+  text-decoration: none;
 }
 
-/* Responsividade para telas menores */
-@media (max-width: 50px) {
-  .container {
-      margin: 10px;
-      padding: 15px;
-  }
+.btn-add {
+  background-color: #0056b3; /* Azul mais escuro */
+}
 
-  .header h1 {
-      font-size: 1.4rem;
-  }
+.btn-back:hover, .btn-add:hover {
+  opacity: 0.9;
+}
 
-  .vaga-detalhes h2 {
-      font-size: 1.3rem;
-  }
+/* Grid de cards */
+.card-grid {
+  display: flex;
+  flex-wrap: wrap; /* Permite quebra de linha se necessário */
+  justify-content: center; /* Centraliza os cards */
+  gap: 20px; /* Espaçamento entre os cards */
+  list-style-type: none; /* Remove marcadores de lista */
+  padding: 0;
+}
 
-  .register-button {
-      font-size: 1rem;
-      padding: 10px;
-  }
+/* Card individual */
+.card {
+  background-color: white; /* Fundo branco para contraste */
+  color: black; /* Texto preto no card */
+  width: 200px; /* Largura fixa para os cards */
+  border-radius: 10px; /* Bordas arredondadas */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para destaque */
+  padding: 15px;
+}
+
+/* Título do card */
+.card h2 {
+  font-size: 1.2rem;
+}
+
+/* Preço do produto */
+.card p {
+  font-size: 1rem;
+}
+
+/* Imagem do produto */
+.product-image {
+  width: 100%;
+  height: auto; /* Mantém a proporção da imagem */
+  border-radius: 50%; /* Torna a imagem circular */
+}
+
+/* Botões dentro dos cards */
+.actions {
+  display: flex;
+  justify-content: space-between; /* Espaça os botões igualmente */
+}
+
+.btn-edit, .btn-delete {
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.btn-edit {
+  background-color: #28a745; /* Verde para editar */
+  color: white;
+}
+
+.btn-delete {
+  background-color: #dc3545; /* Vermelho para excluir */
+  color: white;
+}
+
+.btn-edit:hover, .btn-delete:hover {
+  opacity: 0.9; /* Efeito hover nos botões */
+}
+
+/* Estilo para a navegação inferior */
+.bottom-nav {
+  display: flex;
+  justify-content: space-around;
+  padding: 10px;
+  background-color: #333;
+}
+
+.bottom-nav .nav-item {
+  color: white;
+  text-decoration: none;
+}
+
+.bottom-nav .nav-item.active {
+  font-weight: bold;
 }
