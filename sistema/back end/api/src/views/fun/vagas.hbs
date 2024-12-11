@@ -19,7 +19,7 @@
         <ul>
             {{#if vagas.length}}
             {{#each vagas}}
-            <li class="job-card" onclick="window.location.href = '/empresa/can/{{_id}}';">
+            <li class="job-card">
                 <!-- Nome da vaga -->
                 <h2 class="job-title">{{this.nome}}</h2>
 
@@ -37,7 +37,7 @@
                 <p class="job-area">{{this.area}}</p>
                 
                 <!-- Link para mais detalhes -->
-                <a href="/empresa/{{empresaId}}/vagas/{{this.id}}" class="view-job-button">Ver detalhes</a>
+                <a href="/empresa/can/{{_id}}" class="view-job-button">Ver detalhes</a>
             </li>
             {{/each}}
             {{else}}

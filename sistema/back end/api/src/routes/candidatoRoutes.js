@@ -3,7 +3,8 @@ const router = express.Router();
 const multer = require('multer'); // Para upload de arquivos
 const upload = multer();
 const { isAuthenticated, isCandidato } = require('../middleware/auth');
-const { dashboardCandidato, getPerfilCandidato, getCadastroCandidato, cadastroCandidato, verVaga,candidatarse, buscarvagas, verCandidatura, cancelarCandidatura, editarPerfilCandidato,  getCandidaturasc } = require('../controller/candidatoController');
+const { dashboardCandidato, getPerfilCandidato, getCadastroCandidato, cadastroCandidato, verVaga,candidatarse, buscarvagas, verCandidatura, cancelarCandidatura, editarPerfilCandidato } = require('../controller/candidatoController');
+const {getCandidaturasc} = require('../controller/telasController')
 
 
 

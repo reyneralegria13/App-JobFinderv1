@@ -158,8 +158,6 @@ const Vercandidatos = async (req, res) => {
  
 
  
-const Vaga = require('../models/vagasModel'); // Certifique-se de ter esse model importado
-
 const getVagaDetalhes = async (req, res) => {
   try {
     const candidatoId = req.user._id; // Obtém o ID do candidato autenticado

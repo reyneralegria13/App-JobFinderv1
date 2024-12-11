@@ -229,12 +229,7 @@ const updateStatus = c= async (req, res) => {
             return res.status(404).send({ message: 'Candidatura não encontrada!' });
         }
 
-        res.render('fun/vagas', {
-            title: "Vagas",
-            style: "vagas.css",
-            vagas: empresa.vagas,
-            empresaId
-        })
+        res.redirect('/empresa/dashboard');
     } catch (error) {
         console.error('Erro ao atualizar o status da candidatura:', error);
         res.status(500).send({ message: 'Erro ao atualizar o status da candidatura', error: error.message });
