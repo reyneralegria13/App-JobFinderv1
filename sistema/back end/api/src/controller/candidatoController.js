@@ -15,9 +15,7 @@ function toggleMenu() {
       sideMenu.classList.remove('visible');
       sideMenu.classList.add('hidden');
     }
-  }
-  
-
+}
 const dashboardCandidato = async (req, res) => {
   const candidatoId = req.session.user.id;
 
@@ -54,18 +52,6 @@ const getCadastroCandidato = async (req, res) => {
     });
 };
 
-//Rota privada do perfil do usuário para testes de autenticação
-/*const getPerfilCandidato = async (req, res) => {
-    const id = req.params.id
-
-    const user = await Candidato.findById(id, '-senha')
-  
-    if(!user){
-      return res.status(404).send("Usuário não encontrado")
-    }
-  
-    res.status(200).json({user})
-}*/
 const getPerfilCandidato = async (req, res) => {
     try {
         const id = req.params.candidatoId;
@@ -76,9 +62,10 @@ const getPerfilCandidato = async (req, res) => {
         }
 
         res.render('can/getPerfil', {
+            style: "getPerfilCand.css",
             user: candidato,
             id: candidato._id
-            //style: 'getPerfil', 
+             
         });
     } catch (error) {
         console.error(error);
@@ -366,10 +353,6 @@ const editarPerfilCandidato = async (req, res) => {
         res.status(500).send({ message: 'Erro ao editar o perfil', error: error.message });
     }
 };
-
-
-
-
 
 module.exports = {
     dashboardCandidato,
