@@ -87,12 +87,10 @@ const getVagas = async (req, res) => {
         vagas: empresa.vagas,
         empresaId
     })
-
-
-} catch (error) {
-    console.error('Erro ao buscar vagas:', error);
-    res.status(500).send(error.message);
-}
+    } catch (error) {
+        console.error('Erro ao buscar vagas:', error);
+        res.status(500).send(error.message);
+    }
 }
 
 const getCandidaturas = async (req, res) => {
@@ -107,10 +105,10 @@ const getCandidaturas = async (req, res) => {
         style: 'candidaturas.css',
         candidaturas,
     });
-} catch (error) {
-    console.error('Erro ao buscar candidaturas:', error);
-    res.status(500).send('Erro ao carregar candidaturas.');
-}
+    } catch (error) {
+        console.error('Erro ao buscar candidaturas:', error);
+        res.status(500).send('Erro ao carregar candidaturas.');
+    }
 };
 
 
@@ -135,7 +133,6 @@ const getCandidaturasc = async (req, res) => {
 
   const candidaturas = await Candidatura.find({ candidato: candidatoId }).populate('candidato').populate('vaga').populate('empresa');
  
-
   if(!candidaturas){
       return res.status(404).send({ message: 'Candidaturas nao encontradas!' });
   }
@@ -148,9 +145,7 @@ const getCandidaturasc = async (req, res) => {
     candidatoId
     
   });
- 
 };
-
 
 const Vercandidatos = async (req, res) => {
 
@@ -167,13 +162,9 @@ const Vercandidatos = async (req, res) => {
     title: 'Lista de Candidatos',
     style: 'candidaturas.css',
     candidaturas,
-    
-    
   });
 }
- 
 
- 
 const getVagaDetalhes = async (req, res) => {
   try {
     const candidatoId = req.user._id; // Obtém o ID do candidato autenticado
@@ -215,7 +206,9 @@ const visualizarTelaEdicao = async (req, res) => {
       }
 
       // Renderiza a view de edição, passando os dados do candidato
-      res.render('can/perfilEditar', { user: candidato });
+      res.render('can/perfilEditar', { 
+        user: candidato,
+         });
   } catch (error) {
       console.error(error);
       res.status(500).send('Erro ao carregar a tela de edição');
