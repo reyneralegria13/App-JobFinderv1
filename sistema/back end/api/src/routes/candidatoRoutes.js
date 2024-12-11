@@ -16,10 +16,10 @@ router.get('/dashboard', isAuthenticated, isCandidato, dashboardCandidato);
 router.get("/perfil/:id", getPerfilCandidato);
 router.get("/cadastrar", getCadastroCandidato);
 router.post("/cadastrar", upload.single('imagem'), cadastroCandidato);
+router.get('/vagas/buscar', buscarvagas);
 router.get("/vagas/:id", verVaga);
 router.post("/:candidatoId/vagas/:id", candidatarse);
 router.get("/candidaturas", isAuthenticated, isCandidato, verCandidatura);
-router.get('/vagas/buscar', buscarvagas);
 router.post('/:candidatoId/vagas/delete/:candidaturaId', cancelarCandidatura)
 router.get('/:candidatoId/candidaturas', getCandidaturasc)
 

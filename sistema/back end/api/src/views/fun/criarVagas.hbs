@@ -1,5 +1,9 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+    <head>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+
 
 <body>
     <!-- Cabeçalho -->
@@ -63,5 +67,20 @@
         <a href="/empresa/{{empresaId}}/vagas/criar" class="nav-item active">Add Vagas</a>
         <a href="#" class="nav-item">Configurações</a>
     </nav>
+
+    <script>
+    // Verifica se a URL contém o parâmetro "success"
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get('success') === 'true') {
+        Swal.fire({
+            icon: 'success',
+            title: 'Sucesso!',
+            text: 'Vaga criada com sucesso!',
+            confirmButtonText: 'OK',
+            timer: 3000 // Fecha automaticamente após 3 segundos
+        });
+    }
+</script>
+
 </body>
 </html>
