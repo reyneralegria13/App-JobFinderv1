@@ -46,7 +46,7 @@
     <form>
         {{#if user.nome}}
         <button class="voltar"><a href="/candidato/dashboard'">Voltar</a></button>
-        <button class="editar"><a href="/perfil/{{id}}/editar">Ediatr</a></button>
+        <button class="editar"><a href="/candidato/perfil/{{id}}/editar">Ediatr</a></button>
         {{else if user.cnpj}}
         <button class="voltar" onclick="window.location.href='/empresa/dashboard';">Voltar</button>
         <button class="editar" onclick="window.location.href='';">Editar</button>
