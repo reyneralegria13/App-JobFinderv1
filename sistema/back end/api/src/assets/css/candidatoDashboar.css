@@ -127,14 +127,20 @@ body {
 }
 
 .job-card {
-  background-color: white; /* Fundo branco para contraste */
-  color: black; /* Texto preto no card */
-  width: 200px; /* Largura fixa para os cards */
-  border-radius: 10px; /* Bordas arredondadas */
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra para destaque */
-  padding: 20px;
+  background-color: white; 
+  color: black;
+  width: 200px; 
+  border-radius: 10px; 
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); 
+  padding: 15px;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+  display: flex;
+  flex-direction: column; 
+  align-items: center; 
+  justify-content: center;
+  text-align: center; 
 }
+
 
 /* Título do card */
 .job-card h2 {
@@ -165,10 +171,11 @@ body {
   height: 100px;
   border-radius: 50%;
   object-fit: cover;
-  margin-bottom: 15px;
+  margin-bottom: 0px;
 }
 
 .job-company {
+  margin: 0px;
   font-size: 14px;
   color: #7f8c8d;
 }

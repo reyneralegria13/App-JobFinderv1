@@ -128,12 +128,30 @@ body {
     margin-left: 20px;
 }
 
-.header.back-button {
+.header {
   border: none;
   background: none;
 }
 
-.header .back-button a {
+.back-button a {
+  text-decoration: none;  /* Remove o sublinhado */
+  color: inherit;         /* Mantém a cor do texto do botão */
+}
+
+.back-button {
+  color: #f1f1f1;
+  background: none;      
+  border: none;           
+  padding: 0;            
+  font-size: 1.5rem;      
+  cursor: pointer;       
+}
+
+.back-button:hover {
+  opacity: 0.7;           /* Diminui a opacidade quando o botão for sobrevoado */
+}
+
+.header {
   text-decoration: none;
   color: rgb(255, 255, 255);
   background-color: #36506a;
