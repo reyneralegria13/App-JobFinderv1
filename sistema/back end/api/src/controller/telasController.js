@@ -214,7 +214,7 @@ const getVagaDetalhes = async (req, res) => {
 
 };
 
-const visualizarTelaEdicao = async (req, res) => {
+const visualizarTelaEdicaoCand = async (req, res) => {
   try {
       // Obtém o ID do candidato a partir dos parâmetros da rota
       const candidatoId = req.params.candidatoId;
@@ -239,6 +239,31 @@ const visualizarTelaEdicao = async (req, res) => {
   }
 };
 
+const visualizarTelaEdicaoEmpre = async (req, res) => {
+  try {
+      // Obtém o ID do candidato a partir dos parâmetros da rota
+      const empresaId = req.params.empresaId;
+
+      // Busca o candidato no banco de dados pelo ID
+      const empresa = await Empresa.findById(empresaId);
+
+      // Verifica se o candidato foi encontrado
+      if (!empresa) {
+          return res.status(404).send('Empresa não encontrada');
+      }
+
+      // Renderiza a view de edição, passando os dados do candidato
+      res.render('fun/perfilEditar', {
+        title: 'Edição de Perfil',  // Título da página
+        style: 'editarPerfilEmpresa.css',
+        user: empresa,
+         });
+  } catch (error) {
+      console.error(error);
+      res.status(500).send('Erro ao carregar a tela de edição');
+  }
+};
+
 
 module.exports = {
     getHome,
@@ -252,5 +277,6 @@ module.exports = {
     getCandidaturas,
     getCandidaturasc,
     Vercandidatos,
-    visualizarTelaEdicao,
+    visualizarTelaEdicaoCand,
+    visualizarTelaEdicaoEmpre
 }

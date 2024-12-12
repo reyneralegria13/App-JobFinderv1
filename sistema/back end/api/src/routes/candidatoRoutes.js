@@ -4,13 +4,7 @@ const multer = require('multer'); // Para upload de arquivos
 const upload = multer();
 const { isAuthenticated, isCandidato } = require('../middleware/auth');
 const { dashboardCandidato, getPerfilCandidato, getCadastroCandidato, cadastroCandidato, verVaga,candidatarse, buscarvagas, verCandidatura, cancelarCandidatura, editarPerfilCandidato } = require('../controller/candidatoController');
-const {getCandidaturasc, visualizarTelaEdicao} = require('../controller/telasController')
-
-
-
-
-//const {dashboard} = require("../controller/candidatoController");
-
+const {getCandidaturasc, visualizarTelaEdicaoCand} = require('../controller/telasController')
 
 // Rotas do candidato
 router.get('/dashboard', isAuthenticated, isCandidato, dashboardCandidato);
@@ -25,7 +19,7 @@ router.post('/:candidatoId/vagas/delete/:candidaturaId', cancelarCandidatura)
 router.get('/:candidatoId/candidaturas', getCandidaturasc)
 
 // Rota para editar perfil
-router.get('/perfil/:candidatoId/editar', visualizarTelaEdicao);
+router.get('/perfil/:candidatoId/editar', visualizarTelaEdicaoCand);
 router.post('/perfil/:candidatoId/editar', upload.single('imagem'),editarPerfilCandidato);
 
 module.exports = router;

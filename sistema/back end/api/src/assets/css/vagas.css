@@ -106,6 +106,12 @@ body {
   margin: 0; /* Removemos o margin-bottom para evitar acúmulo com gap */
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
   box-sizing: border-box; /* Inclui padding e borda dentro do cálculo de largura */
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.job-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2)
 }
 
 .job-title {

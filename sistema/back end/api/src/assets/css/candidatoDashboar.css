@@ -8,6 +8,7 @@ body {
 .svg{
   padding: 10;
 }
+
 .page-container {
   display: flex;
   flex-direction: column;
@@ -130,8 +131,9 @@ body {
   color: black; /* Texto preto no card */
   width: 200px; /* Largura fixa para os cards */
   border-radius: 10px; /* Bordas arredondadas */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para destaque */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra para destaque */
   padding: 20px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 /* Título do card */
@@ -155,7 +157,7 @@ body {
 
 .job-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
 .job-image {

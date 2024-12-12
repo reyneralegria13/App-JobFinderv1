@@ -47,17 +47,23 @@ const getCadastroEmpresa = async (req, res) => {
 //Função ler (busca apenas uma empresa)
 const getEmpresa = async (req, res)=> {
     try{
-        const { id } = req.params;
-        const empresa = await Empresa.findById(id);
+        const { empresaId } = req.params;
+        const empresa = await Empresa.findById(empresaId);
 
         
         if(!empresa){
             res.status(404).json({message: "Empresa não encontrada!"})
         }
 
-        res.status(200).json(empresa);
+        res.render('can/getPerfil',{
+            title: empresa.nome,
+            style: 'getPerfilCand.css',
+            user: empresa,
+            id: empresa._id
+        })
     }catch (error){
-        res.status(500).json({message: error.message})
+        console.error(error);
+        res.status(500).send({ message: 'Erro ao renderizar a página de perfil da empresa: ' + error.message });
     }
 }
 
@@ -101,16 +107,30 @@ const createEmpresa = async (req, res) => {
 // Função Update (atualiza uma empresa)
 const updateEmpresa = async (req, res) => {
     try{
-        const { id } = req.params;
-        const upEmpresa = await Empresa.findByIdAndUpdate(id, req.body);
+        const { nome, cnpj, email, fone, bio, site } = req.body;
+        const { empresaId } = req.params;
+        const empresa = await Empresa.findByIdAndUpdate(empresaId);
 
-        if(!upEmpresa){
+        if(!empresa){
             res.status(404).json({message: "Empresa não encontrada!"})
         }
 
-        res.status(200).json(upEmpresa);
+        // Atualizar os dados da empresa
+        empresa.nome = nome || empresa.nome;
+        empresa.cnpj = cnpj || empresa.cnpj;
+        empresa.email = email || empresa.email;
+        empresa.fone = fone || empresa.fone;
+        empresa.bio = bio || empresa.bio;
+        empresa.site = site || empresa.site;
+
+        // Salvar as alterações no banco de dados
+        await empresa.save();
+
+        res.redirect(`/empresa/${empresa._id}/perfil`)
+
     }catch(error){
-        res.status(500).json({message: error.message});
+        console.error("Erro ao editar o perfil:", error);
+        res.status(500).send({ message: 'Erro ao editar o perfil', error: error.message });
     }
 }
 
