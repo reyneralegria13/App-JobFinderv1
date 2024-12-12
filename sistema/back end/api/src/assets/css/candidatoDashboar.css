@@ -44,12 +44,13 @@ body {
 }
 
 .search-input {
-  padding: 10px 345px;
+  margin-left: 10%;
+  padding: 10px;
   font-size: 16px;
   border: 1px solid #ccc;
   border-radius: 5px;
-  width: 60%;
-  max-width: 500px; 
+  width: 100vh;
+  max-width: 70%; 
 }
 
 .search-button {
@@ -59,7 +60,7 @@ body {
   transition: background-color 0.3s, box-shadow 0.2s;
   color: rgb(0, 0, 0);
   border: none;
-  padding: 10px 20px;
+  padding: 10px;
   margin: 0;
   border-radius: 5px;
   cursor: pointer;
