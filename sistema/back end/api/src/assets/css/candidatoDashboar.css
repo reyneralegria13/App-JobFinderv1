@@ -131,7 +131,7 @@ body {
   width: 200px; /* Largura fixa para os cards */
   border-radius: 10px; /* Bordas arredondadas */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para destaque */
-  padding: 15px;
+  padding: 20px;
 }
 
 /* Título do card */

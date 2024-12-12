@@ -148,6 +148,7 @@ const getCandidaturasc = async (req, res) => {
 };
 
 const Vercandidatos = async (req, res) => {
+  const empresaId = req.params.empresaId;
 
   const { id } = req.params;
 
@@ -160,8 +161,9 @@ const Vercandidatos = async (req, res) => {
 
   res.render('fun/candidatos_vagas', {
     title: 'Lista de Candidatos',
-    style: 'candidaturas.css',
+    style: 'repostacandidato.css',
     candidaturas,
+    empresaId
   });
 }
 
