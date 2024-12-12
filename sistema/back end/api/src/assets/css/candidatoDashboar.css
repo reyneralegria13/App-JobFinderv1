@@ -43,7 +43,7 @@ body {
 }
 
 .search-input {
-  padding: 10px;
+  padding: 10px 345px;
   font-size: 16px;
   border: 1px solid #ccc;
   border-radius: 5px;
@@ -57,7 +57,7 @@ body {
   color: rgb(0, 0, 0);
   border: none;
   padding: 10px 20px;
-  margin: 5px;
+  margin: 0;
   border-radius: 5px;
   cursor: pointer;
   font-size: 16px;
