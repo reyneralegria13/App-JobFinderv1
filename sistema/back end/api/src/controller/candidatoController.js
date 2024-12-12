@@ -324,8 +324,9 @@ const cancelarCandidatura = async (req,res) => {
 
 const editarPerfilCandidato = async (req, res) => {
     try {
+        console.log(req.body)
         const candidatoId = req.params.candidatoId;
-        const { nome, cpf, email, telefone, educacao, qualificacao, cursos, descricao, habilidadesTecnicas, idiomas } = req.body;
+        const { nome, cpf, email, telefone, educacao, qualificacao, cursos, descricao, habilidades, idiomas } = req.body;
 
         // Encontrar o candidato pelo ID
         const candidato = await Candidato.findById(candidatoId);
@@ -343,8 +344,13 @@ const editarPerfilCandidato = async (req, res) => {
         candidato.qualificacao = qualificacao || candidato.qualificacao;
         candidato.cursos = cursos || candidato.cursos;
         candidato.descricao = descricao || candidato.descricao;
-        candidato.habilidadesTecnicas = habilidadesTecnicas || candidato.habilidadesTecnicas;
+        candidato.habilidadesTecnicas = habilidades || candidato.habilidadesTecnicas;
         candidato.idiomas = idiomas || candidato.idiomas;
+
+        // Verificar se uma nova imagem foi enviada
+        if (req.file && req.file.path) {
+            candidato.imagem = req.file.path; // Salva o caminho da imagem no banco de dados
+        }
 
         // Salvar as alterações no banco de dados
         await candidato.save();

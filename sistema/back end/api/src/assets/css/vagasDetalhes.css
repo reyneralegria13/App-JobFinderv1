@@ -1,3 +1,15 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+}
+
 
 .svg{
     padding: 10;
@@ -44,10 +56,14 @@
   }
   
   .search-button {
-    padding: 10px 20px;
     background-color: #fcef02;
-    color: #000000;
+    text-decoration: none;
+    text-align: center;
+    transition: background-color 0.3s, box-shadow 0.2s;
+    color: rgb(0, 0, 0);
     border: none;
+    padding: 10px 20px;
+    margin: 5px;
     border-radius: 5px;
     cursor: pointer;
     font-size: 16px;
@@ -84,17 +100,7 @@
   .navbar-menu li a:hover {
     background-color: #c0c0c0;
   }
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
 
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    color: #333;
-}
 
 .container {
     max-width: 500px;
@@ -111,7 +117,7 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
-    background-color: #1a73e8;
+    background-color: #193152;
     color: white;
     border-radius: 8px;
 }
@@ -122,92 +128,100 @@ body {
     margin-left: 20px;
 }
 
+.header.back-button {
+  border: none;
+  background: none;
+}
+
 .header .back-button a {
-    text-decoration: none;
-    color: white;
-    font-size: 1.2rem;
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+  background-color: #193152;
+  font-size: 1.2rem;
 }
 
 .header .menu-button {
-    background: none;
-    border: none;
-    color: white;
-    font-size: 1.5rem;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
 }
 
 /* Detalhes da vaga */
 .vaga-detalhes {
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Centraliza horizontalmente */
-    justify-content: center; /* Centraliza verticalmente */
-    text-align: center; /* Centraliza o texto */
-    margin-top: 20px;
-    padding: 20px;
-    align-items: center;
-    background-color: #fafafa;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centraliza horizontalmente */
+  justify-content: center; /* Centraliza verticalmente */
+  text-align: center; /* Centraliza o texto */
+  margin-top: 20px;
+  padding: 20px;
+  align-items: center;
+  background-color: #fafafa;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .vaga-detalhes h2 {
-    font-size: 1.5rem;
-    align-content: center;
-    color: #1a73e8;
-    margin-bottom: 15px;
+  font-size: 1.5rem;
+  align-content: center;
+  color: #000000;
+  margin-bottom: 15px;
 }
 
 .vaga-detalhes p {
-    font-size: 1rem;
-    margin-bottom: 10px;
+  font-size: 1rem;
+  margin-bottom: 10px;
 }
 
 .vaga-imagem {
-    width: 120px; /* Define uma largura fixa */
-    height: 120px; /* Define uma altura fixa */
-    border-radius: 50%; /* Torna a imagem arredondada */
-    object-fit: cover; /* Garante que a imagem seja ajustada sem distorção */
-    margin-bottom: 15px;
-    border: 2px solid #1a73e8; /* Opcional: adiciona uma borda colorida */
+  width: 120px; /* Define uma largura fixa */
+  height: 120px; /* Define uma altura fixa */
+  border-radius: 50%; /* Torna a imagem arredondada */
+  object-fit: cover; /* Garante que a imagem seja ajustada sem distorção */
+  margin-bottom: 15px;
+  border: 2px solid #1a73e8; /* Opcional: adiciona uma borda colorida */
 }
 
 
 /* Estilos para o botão de cadastro */
 .register-button {
-    display: block;
-    width: 100%;
-    padding: 12px;
-    background-color: #1a73e8;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    font-size: 1.2rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    margin-top: 20px;
+  display: block;
+  width: 100%;
+  background-color: #dbd534;
+  color: #000000;
+  padding: 10px 20px;
+  margin: 10px 5px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  text-decoration: none;
+  text-align: center;
+  transition: background-color 0.3s, box-shadow 0.2s;
 }
 
 .register-button:hover {
-    background-color: #1558b0;
+  background-color: #1558b0;
 }
 
 /* Responsividade para telas menores */
 @media (max-width: 50px) {
-    .container {
-        margin: 10px;
-        padding: 15px;
-    }
+  .container {
+      margin: 10px;
+      padding: 15px;
+  }
 
-    .header h1 {
-        font-size: 1.4rem;
-    }
+  .header h1 {
+      font-size: 1.4rem;
+  }
 
-    .vaga-detalhes h2 {
-        font-size: 1.3rem;
-    }
+  .vaga-detalhes h2 {
+      font-size: 1.3rem;
+  }
 
-    .register-button {
-        font-size: 1rem;
-        padding: 10px;
-    }
+  .register-button {
+      font-size: 1rem;
+      padding: 10px;
+  }
 }
