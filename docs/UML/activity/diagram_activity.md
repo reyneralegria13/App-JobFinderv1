@@ -19,3 +19,26 @@ Autor: Reyner Alegria
 
 ![](https://github.com/reyneralegria13/App-JobFinderv1/blob/main/docs/UML/images/diagrama%20de%20atividade%20Verificar%20Vagas.png)
 
+## Cadastrar Vagas
+
+Autor: João Carlos
+
+![](../images/atividade/CadstrarVagas.png)
+
+## Alterar Status
+
+Autor: João Carlos
+
+![](../images/atividade/AlterarStatus.png)
+
+## Buscar Vagas
+
+Autor: João Carlos
+
+![](../images/atividade/BuscarVagas.png)
+
+## Realizar Candidatura
+
+Autor: João Carlos
+
+![](../images/atividade/Candidatar.png)
