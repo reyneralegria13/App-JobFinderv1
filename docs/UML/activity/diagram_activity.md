@@ -15,7 +15,7 @@ Autor: Mayro
 
 ## Verificar Vagas
 
-Autor: Nicolas Rocha
+Autor: Reyner Alegria
 
-![](https://raw.githubusercontent.com/reyneralegria13/App-JobFinderv1/main/docs/UML/images/Diagrama%20de%20Atividade%20-%20Verificar%20Vagas.png)
+![](docs/UML/images/diagrama de atividade Verificar Vagas.png)
 
