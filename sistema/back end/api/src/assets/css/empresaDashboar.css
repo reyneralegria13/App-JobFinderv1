@@ -5,6 +5,15 @@ body {
   background-color: #f9f9f9;
   color: #333;
 }
+.main-content {
+  margin-top: 5px;
+  margin-left: 10%;
+  margin-right: 10%;
+  width: 80%;
+  padding: 20px;
+  box-sizing: border-box;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
 
 .svg{
   padding: 10;
@@ -66,9 +75,7 @@ body {
   align-items: center;
   gap: 10px;
   padding: 15px 20px;
-  background-color: #fff;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  margin-bottom: 15px;
+  margin: 0;
 }
 
 .search-input {

@@ -1,7 +1,13 @@
 <body>
     <nav class="navbar">
         <h1>JobFinder</h1>
-
+    <div class="search-container">
+            <form action="/empresa/candidatos/buscar" method="GET">
+                <span class="search-icon"></span>
+                <input type="text" name="q" class="search-input" placeholder="Buscar Candidatos 🔍">
+                <button type="submit" class="search-button">Buscar</button>
+            </form>
+    </div>
         <ul class="navbar-menu">
             <li><a href="/login">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
@@ -16,38 +22,32 @@
     </nav>
 
     <!-- Barra de busca -->
-    <div class="search-container">
-        <form action="/empresa/candidatos/buscar" method="GET">
-            <span class="search-icon">🔍</span>
-            <input type="text" name="q" class="search-input" placeholder="Buscar Candidatos">
-            <button type="submit" class="search-button">Buscar</button>
-        </form>
-    </div>
 
 
+    <main class="main-content">
     <!-- Abas de categorias -->
-    <div class="category-tabs">
-        <button class="tab active">Todos</button>
-        <button class="tab">Área de TI</button>
-        <button class="tab">Estoque</button>
-        <button class="tab">Caixa</button>
-        <button class="tab">Vendas</button>
-    </div>
-
-    <!-- Grid de candidatos -->
-    <div class="candidates-grid">
-        {{#each candidatos}}
-        <div class="candidate-card">
-            {{#if imagem}}
-            <img src="{{imagem}}" alt="{{nome}}" class="candidate-image" />
-            {{/if}}
-            <h3 class="candidate-name">{{nome}}</h3>
-            <p class="candidate-qualification">{{qualificacao}}</p>
-            <button class="view-profile-button">Ver Perfil</button>
+        <div class="category-tabs">
+            <button class="tab active">Todos</button>
+            <button class="tab">Área de TI</button>
+            <button class="tab">Estoque</button>
+            <button class="tab">Caixa</button>
+            <button class="tab">Vendas</button>
         </div>
-        {{/each}}
-    </div>
 
+        <!-- Grid de candidatos -->
+        <div class="candidates-grid">
+            {{#each candidatos}}
+            <div class="candidate-card">
+                {{#if imagem}}
+                <img src="{{imagem}}" alt="{{nome}}" class="candidate-image" />
+                {{/if}}
+                <h3 class="candidate-name">{{nome}}</h3>
+                <p class="candidate-qualification">{{qualificacao}}</p>
+                <button class="view-profile-button">Ver Perfil</button>
+            </div>
+            {{/each}}
+        </div>
+    </main>
     <!-- Navegação inferior -->
     <nav class="bottom-nav">
         <a href="/empresa/dashboard" class="nav-item active">Início</a>
