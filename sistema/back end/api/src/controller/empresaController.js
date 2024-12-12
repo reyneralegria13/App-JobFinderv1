@@ -18,7 +18,7 @@ const dashboardEmpresa = async (req, res) => {
         if (candidato.imagem && candidato.imagem.data) {
           imagemBase64 = `data:${vaga.imagem.contentType};base64,${vaga.imagem.data.toString('base64')}`;
         }
-  
+
         return {
           ...candidato._doc,
           imagem: imagemBase64
@@ -27,6 +27,7 @@ const dashboardEmpresa = async (req, res) => {
 
 
     res.render('fun/empresaDashboard', {
+        title: 'Dashboard',
         user: req.session.user, 
         message: 'Bem-vindo ao seu painel, Empresa!',
         style: 'empresaDashboar.css',
@@ -42,16 +43,6 @@ const getCadastroEmpresa = async (req, res) => {
       style: 'reg_empresa.css'
     });
 };
-
-// Função ler (lista todas as empresas cadastradas)
-const getEmpresas = async (req, res) => {
-    try{
-        const empresas = await Empresa.find({});
-        res.status(200).json(empresas)
-    }catch(error){
-        res.status(500).json({message: "Erro ao buscar empresas!"})
-    }
-}
 
 //Função ler (busca apenas uma empresa)
 const getEmpresa = async (req, res)=> {
@@ -214,7 +205,6 @@ const buscacandidatos = async (req, res) => {
 
 const updateStatus = c= async (req, res) => {
     try {
-        const empresaId = req.params.empresaId;
         const { id } = req.params; // ID da candidatura a ser atualizada
         const { status } = req.body; // Novo status enviado pelo formulário ou requisição
 
@@ -246,7 +236,6 @@ const updateStatus = c= async (req, res) => {
   
 module.exports = {
     getCadastroEmpresa,
-    getEmpresas,
     getEmpresa,
     createEmpresa,
     updateEmpresa,

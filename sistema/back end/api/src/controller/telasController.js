@@ -7,7 +7,7 @@ const Vaga = require('../models/vagasModel');
 // rota para a página home
 const getHome = async (req, res) => {
     res.render('fun/home', {
-        title: 'home',
+        title: 'Home',
         style: 'home.css' 
     });
 };
@@ -85,7 +85,7 @@ const getVagas = async (req, res) => {
         title: "Vagas",
         style: "vagas.css",
         vagas: empresa.vagas,
-        empresaId
+        empresaId 
     })
     } catch (error) {
         console.error('Erro ao buscar vagas:', error);
@@ -101,7 +101,7 @@ const getCandidaturas = async (req, res) => {
         .populate('empresa');
 
     res.render('fun/candidaturas', {
-        title: 'Minhas Candidaturas',
+        title: 'Lista de Candidaturas',
         style: 'candidaturas.css',
         candidaturas,
     });
@@ -138,7 +138,7 @@ const getCandidaturasc = async (req, res) => {
   }
 
   res.render('can/ver_candidaturas', {
-    title: 'Lista de Candidatos',
+    title: 'Lista de Candidaturas',
     style: 'verCandidatura.css',
     candidaturas,
     vagas: vagasComImagens,
@@ -149,7 +149,6 @@ const getCandidaturasc = async (req, res) => {
 
 const Vercandidatos = async (req, res) => {
   const empresaId = req.params.empresaId;
-
   const { id } = req.params;
 
   const candidaturas = await Candidatura.find({ vaga: id }).populate('candidato').populate('vaga').populate('empresa');
@@ -181,7 +180,7 @@ const getVagaDetalhes = async (req, res) => {
 
     // Renderizar a página com os detalhes da vaga
     res.render('fun/vagaDetalhes', {
-      title: 'Detalhes da Vaga',
+      title: vaga.nome,
       style: 'vagaDetalhes.css', // Adapte conforme o seu arquivo de estilo
       vaga, // Passa os detalhes da vaga para a view
       candidatoId
@@ -208,7 +207,8 @@ const visualizarTelaEdicao = async (req, res) => {
       }
 
       // Renderiza a view de edição, passando os dados do candidato
-      res.render('can/perfilEditar', { 
+      res.render('can/perfilEditar', {
+        title: 'Edição de Perfil',  // Título da página
         style: 'perfilEditar.css',
         user: candidato,
          });

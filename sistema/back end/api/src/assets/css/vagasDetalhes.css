@@ -117,7 +117,7 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
-    background-color: #193152;
+    background-color: #36506a;
     color: white;
     border-radius: 8px;
 }
@@ -136,7 +136,7 @@ body {
 .header .back-button a {
   text-decoration: none;
   color: rgb(255, 255, 255);
-  background-color: #193152;
+  background-color: #36506a;
   font-size: 1.2rem;
 }
 

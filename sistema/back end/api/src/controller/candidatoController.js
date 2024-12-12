@@ -36,11 +36,12 @@ const dashboardCandidato = async (req, res) => {
   });
 
   res.render('can/candidatoDashboard', {
-      user: req.session.user,
-      message: 'Bem-vindo ao seu painel, Candidato!',
-      style: 'candidatoDashboar.css',
-      candidatoId,
-      vagas: vagasComImagens,
+    title: 'Dashboard',
+    user: req.session.user,
+    message: 'Bem-vindo ao seu painel, Candidato!',
+    style: 'candidatoDashboar.css',
+    candidatoId,
+    vagas: vagasComImagens,
   });
 };
 
@@ -62,6 +63,7 @@ const getPerfilCandidato = async (req, res) => {
         }
 
         res.render('can/getPerfil', {
+            title: candidato.nome,
             style: "getPerfilCand.css",
             user: candidato,
             id: candidato._id, 
@@ -140,6 +142,7 @@ const verVaga = async (req, res) => {
 
         // Renderiza o template para exibir os detalhes da vaga
         res.render('can/vagaDetalhes', {
+            title: vaga.nome,
             _id: vaga._id,
             nome: vaga.nome,
             area: vaga.area,
@@ -288,6 +291,7 @@ const verCandidatura = async (req, res) => {
 
         // Renderiza o template para exibir os detalhes da candidatura
         res.render('can/candidatura', {
+            title: 'Candidatura',
             vagaNome: candidatura.vaga.nome || 'Não informado',
             vagaArea: candidatura.vaga.area || 'Não informado',
             vagaRequisitos: candidatura.vaga.requisitos || 'Não informado',
@@ -324,7 +328,6 @@ const cancelarCandidatura = async (req,res) => {
 
 const editarPerfilCandidato = async (req, res) => {
     try {
-        console.log(req.body)
         const candidatoId = req.params.candidatoId;
         const { nome, cpf, email, telefone, educacao, qualificacao, cursos, descricao, habilidades, idiomas } = req.body;
 
