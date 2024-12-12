@@ -17,5 +17,5 @@ Autor: Mayro
 
 Autor: Reyner Alegria
 
-![](docs/UML/images/diagrama de atividade Verificar Vagas.png)
+![](https://github.com/reyneralegria13/App-JobFinderv1/blob/main/docs/UML/images/diagrama%20de%20atividade%20Verificar%20Vagas.png)
 
