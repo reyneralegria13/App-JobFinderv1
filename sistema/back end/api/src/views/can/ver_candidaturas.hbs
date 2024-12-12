@@ -34,41 +34,42 @@
             </ul>
         </nav>
 
-        <div class="container">
-            <h1>Detalhes da Candidatura</h1>
-            
-            <ul class="card-grid">
-                {{#each candidaturas}}
-                <li class="card">
-                        <!-- Nome da vaga -->
-                    <h2>{{vaga.nome}}</h2>
+       <div class="container">
+    <h1>Detalhes da Candidatura</h1>
+    
+    <ul class="card-grid">
+        {{#each candidaturas}}
+        <li class="card">
+            <!-- Nome da vaga -->
+            <h2>{{vaga.nome}}</h2>
 
-                    <!-- Nome da empresa -->
-                    {{#if empresa}}
-                    <p>{{empresa.nome}}</p>
-                    {{/if}}
+            <!-- Nome da empresa -->
+            {{#if empresa}}
+            <p>{{empresa.nome}}</p>
+            {{/if}}
+        
+            <!-- Imagem da vaga -->
+            {{#if vaga.imagem}}
+            <img src="{{vaga.imagem}}" alt="{{vaga.nome}}" class="job-image" />
+            {{/if}}
 
-                <!-- Imagem da vaga -->
-                {{#if vaga.imagem}}
-                <img class="product-image" src="data:{{vaga.imagem.contentType}};base64,{{vaga.imagem.data}}" alt="{{vaga.nome}}" class="job-image" />
-                {{/if}}
+            <!-- Descrição -->
+            <p>{{vaga.area}}</p>
 
-                    <!-- Descrição -->
-                    <p>{{vaga.area}}</p>
+            <h2>Status</h2>
+            <p>{{status}}</p>
 
-                    <h2>Status</h2>
-                    <p>{{status}}</p>
+            <!-- Botão de cadastro -->
+            <form action="/candidato/{{candidato._id}}/vagas/delete/{{_id}}" method="post">
+                <button class="btn-back" type="submit">Cancelar candidatura</button>
+            </form>
+        </li>
+        {{/each}}
+    </ul>
 
-                    <!-- Botão de cadastro -->
-                    <form action="/candidato/{{candidato._id}}/vagas/delete/{{_id}}" method="post">
-                        <button class="btn-back" type="submit">Cancelar candidatura</button>
-                    </form>
-                </li>
-                {{/each}}
-            </ul>
+    <button class="btn-back"><a href="/candidato/dashboard">Voltar</a></button>
+</div>
 
-            <button class="btn-back"><a href="/candidato/dashboard">Voltar</a></button>
-        </div>
     </div>
 </body>
 

@@ -74,24 +74,38 @@ const getCriarVagas = (req, res) => {
 
 const getVagas = async (req, res) => {
   try {
-    const empresaId = req.params.empresaId;
-    const empresa = await Empresa.findById(empresaId).populate('vagas');
+      const empresaId = req.params.empresaId;
+      const empresa = await Empresa.findById(empresaId).populate('vagas');
 
-    if (!empresa) {
-        return res.status(404).json({ message: 'Empresa não encontrada!' });
-    }
+      if (!empresa) {
+          return res.status(404).json({ message: 'Empresa não encontrada!' });
+      }
 
-    res.render('fun/vagas', {
-        title: "Vagas",
-        style: "vagas.css",
-        vagas: empresa.vagas,
-        empresaId 
-    })
-    } catch (error) {
-        console.error('Erro ao buscar vagas:', error);
-        res.status(500).send(error.message);
-    }
-}
+      // Converte as imagens para Base64
+      const vagasComImagens = empresa.vagas.map(vaga => {
+          let imagemBase64 = null;
+          if (vaga.imagem && vaga.imagem.data) {
+              imagemBase64 = `data:${vaga.imagem.contentType};base64,${vaga.imagem.data.toString('base64')}`;
+          }
+
+          return {
+              ...vaga._doc,
+              imagem: imagemBase64,
+          };
+      });
+
+      res.render('fun/vagas', {
+          title: "Vagas",
+          style: "vagas.css",
+          vagas: vagasComImagens,
+          empresaId 
+      });
+  } catch (error) {
+      console.error('Erro ao buscar vagas:', error);
+      res.status(500).send(error.message);
+  }
+};
+
 
 const getCandidaturas = async (req, res) => {
   try {
@@ -113,39 +127,46 @@ const getCandidaturas = async (req, res) => {
 
 
 const getCandidaturasc = async (req, res) => {
+  try {
+      const candidatoId = req.params.candidatoId;
 
-  const candidatoId = req.params.candidatoId
+      const candidaturas = await Candidatura.find({ candidato: candidatoId })
+          .populate('candidato')
+          .populate('vaga')
+          .populate('empresa');
 
-  const vagas = await Vaga.find().populate('empresa');
-  
-    // Converte as imagens para base64
-    const vagasComImagens = vagas.map(vaga => {
-        let imagemBase64 = null;
-        if (vaga.imagem && vaga.imagem.data) {
-            imagemBase64 = `data:${vaga.imagem.contentType};base64,${vaga.imagem.data.toString('base64')}`;
-        }
-  
-        return {
-            ...vaga._doc,
-            imagem: imagemBase64,
-        };
-    });
+      if (!candidaturas || candidaturas.length === 0) {
+          return res.status(404).send({ message: 'Candidaturas não encontradas!' });
+      }
 
-  const candidaturas = await Candidatura.find({ candidato: candidatoId }).populate('candidato').populate('vaga').populate('empresa');
- 
-  if(!candidaturas){
-      return res.status(404).send({ message: 'Candidaturas nao encontradas!' });
+      // Converte as imagens para Base64
+      const candidaturasComImagens = candidaturas.map(candidatura => {
+          let imagemBase64 = null;
+          if (candidatura.vaga.imagem && candidatura.vaga.imagem.data) {
+              imagemBase64 = `data:${candidatura.vaga.imagem.contentType};base64,${candidatura.vaga.imagem.data.toString('base64')}`;
+          }
+
+          return {
+              ...candidatura._doc,
+              vaga: {
+                  ...candidatura.vaga._doc,
+                  imagem: imagemBase64
+              }
+          };
+      });
+
+      res.render('can/ver_candidaturas', {
+          title: 'Lista de Candidaturas',
+          style: 'verCandidatura.css',
+          candidaturas: candidaturasComImagens,
+          candidatoId
+      });
+  } catch (error) {
+      console.error('Erro ao buscar candidaturas:', error);
+      res.status(500).send(error.message);
   }
-
-  res.render('can/ver_candidaturas', {
-    title: 'Lista de Candidaturas',
-    style: 'verCandidatura.css',
-    candidaturas,
-    vagas: vagasComImagens,
-    candidatoId
-    
-  });
 };
+
 
 const Vercandidatos = async (req, res) => {
   const empresaId = req.params.empresaId;
