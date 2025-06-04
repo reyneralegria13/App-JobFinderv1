@@ -24,7 +24,8 @@ const app = express()
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-app.use(session({
+try {
+    app.use(session({
     secret: process.env.SESSION_SECRET || 'fallback-key',
     resave: false,
     saveUninitialized: false,
@@ -33,8 +34,11 @@ app.use(session({
         maxAge: 1000 * 60 * 60, // 1 hora
         secure: process.env.NODE_ENV === 'production', // Apenas true em produção
         httpOnly: true
-    }
-}));
+    }}));
+} catch (erro) {
+    console.error(erro);
+    res.status(500).json({ message: 'Erro ao configurar a seessão do usuário!', error: erro.messgae });
+}
 
 app.use('/empresa', empresaRoutes);
 app.use('/candidato', candidatoRoutes);
@@ -56,12 +60,6 @@ app.engine('.hbs', engine({
     }
 }))
 app.set('view engine', '.hbs')
-
-
-// rota principal
-app.get("/",  (req, res) => {
-    res.send("Bem vindo ao meu servidor");
-});
 
 // conexão com o banco e com o servidor
 connectDb()

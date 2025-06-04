@@ -29,22 +29,22 @@ exports.realizarLogin = async (req, res) => {
             message: 'Login bem-sucedido',
             redirectUrl: userType === 'candidato' ? '/candidato/dashboard' : '/empresa/dashboard',
         });
-    } catch (err) {
-        console.error(err);
-        res.status(500).json({ error: 'Ocorreu um erro no login. Tente novamente.' });
+    } catch (erro) {
+        console.error(erro);
+        res.status(500).json({ message: 'Erro ao realizar o login. Tente novamente!', error: erro.messgae });
     }
 };
 
 exports.recuperarSenha = async (req, res) => {
-    const transporter = nodemailer.createTransport({
-        service: 'Gmail',
-        auth: {
-            user: process.env.APP_EMAIL,
-            pass: process.env.APP_PASS
-        }
-    })
-
     try {
+        const transporter = nodemailer.createTransport({
+            service: 'Gmail',
+            auth: {
+                user: process.env.APP_EMAIL,
+                pass: process.env.APP_PASS
+            }
+        })
+
         const user = await Candidato.findOne({ email: req.body.email }) || await Empresa.findOne({ email: req.body.email });
 
         if (!user) {
@@ -69,7 +69,7 @@ exports.recuperarSenha = async (req, res) => {
             <h1>Recuperar Senha</h1>
             <p>Para recuperar sua senha, acesse o link abaixo:</p>
             <a href="${linkReset}">${linkReset}</a>
-            <p>Este link expira em 1 hora.</p>
+            <p>Este link expira em 15 minutos.</p>
             <p>Se você não solicitou isso, ignore este e-mail.</p>
             `
         };
@@ -77,9 +77,9 @@ exports.recuperarSenha = async (req, res) => {
         await transporter.sendMail(mailOptions);
 
         res.redirect('/login');
-    } catch (error) {
-        console.error(error);
-        res.status(500).json({ error: 'Ocorreu um erro ao recuperar a senha. Tente novamente.' });
+    } catch (erro) {
+        console.error(erro);
+        res.status(500).json({ message: 'Erro ao recuperar a senha. Tente novamente!', error: erro.messgae });
     }
 }
 
@@ -109,12 +109,11 @@ exports.redefinirSenha = async (req, res) => {
         await user.save();
 
         res.redirect('/login');
-    } catch (error) {
-        console.error('Erro ao redefinir senha:', error);
-        res.status(500).send(error.message);
+    } catch (erro) {
+        console.error(erro);
+        res.status(500).json({ message: 'Erro ao redefenir a senha. Tente novamente!', error: erro.messgae });
     }
 }
-
 
 /*
 // Atualizar senhas (se necessário)
