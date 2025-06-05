@@ -198,7 +198,7 @@ const deleteEmpresa = async (req, res) => {
     }
 }
 
-const criarVagaParaEmpresa = async (req, res) => {
+const criarVaga = async (req, res) => {
     try {
         const {
             empresaId
@@ -247,7 +247,7 @@ const criarVagaParaEmpresa = async (req, res) => {
     }
 };
 
-const buscacandidatos = async (req, res) => {
+const buscarCandidatos = async (req, res) => {
     try {
         const {
             q
@@ -347,7 +347,7 @@ module.exports = {
     updateEmpresa,
     deleteEmpresa,
     dashboardEmpresa,
-    criarVagaParaEmpresa,
-    buscacandidatos,
+    criarVaga,
+    buscarCandidatos,
     updateStatus,
 }
