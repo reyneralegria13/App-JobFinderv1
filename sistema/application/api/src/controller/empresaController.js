@@ -5,43 +5,51 @@ const bcrypt = require("bcrypt");
 const Candidatura = require("../models/candidaturaModel");
 const Swal = require('sweetalert2');
 
-
 const dashboardEmpresa = async (req, res) => {
+    try {
+        const empresaId = req.session.user.id;
+
+        const candidatos = await candidato.find();
+        console.log('Produtos encontrados:', candidatos); 
     
-    const empresaId = req.session.user.id;
+        const candidatosComImagens = candidatos.map(candidato => {
+            let imagemBase64 = null;
+            if (candidato.imagem && candidato.imagem.data) {
+            imagemBase64 = `data:${vaga.imagem.contentType};base64,${vaga.imagem.data.toString('base64')}`;
+            }
 
-    const candidatos = await candidato.find();
-      console.log('Produtos encontrados:', candidatos); 
-  
-      const candidatosComImagens = candidatos.map(candidato => {
-        let imagemBase64 = null;
-        if (candidato.imagem && candidato.imagem.data) {
-          imagemBase64 = `data:${vaga.imagem.contentType};base64,${vaga.imagem.data.toString('base64')}`;
-        }
-
-        return {
-          ...candidato._doc,
-          imagem: imagemBase64
-        };
-      });
+            return {
+            ...candidato._doc,
+            imagem: imagemBase64
+            };
+        });
 
 
-    res.render('fun/empresaDashboard', {
-        title: 'Dashboard',
-        user: req.session.user, 
-        message: 'Bem-vindo ao seu painel, Empresa!',
-        style: 'empresaDashboar.css',
-        empresaId,
-        candidatos: candidatosComImagens
-    });
+        res.render('fun/empresaDashboard', {
+            title: 'Dashboard',
+            user: req.session.user, 
+            message: 'Bem-vindo ao seu painel, Empresa!',
+            style: 'empresaDashboar.css',
+            empresaId,
+            candidatos: candidatosComImagens
+        });
+    } catch (erro) {
+        console.error(erro);
+        res.status(500).send({message: "Erro ao renderizar a página dashboard da empresa!", error: erro.message});
+    }
 };
 
 //rota para a página de cadastro de empresa
 const getCadastroEmpresa = async (req, res) => {
-    res.render('fun/reg_empresa', {
-      title: 'Registro de Empresa',
-      style: 'reg_empresa.css'
-    });
+    try {
+        res.render('fun/reg_empresa', {
+        title: 'Registro de Empresa',
+        style: 'reg_empresa.css'
+        });
+    } catch (erro) {
+        console.error(erro);
+        res.status(500).send({message: "Erro ao renderizar a página de cadastro da empresa!", error: erro.message});
+    }
 };
 
 //Função ler (busca apenas uma empresa)
@@ -50,7 +58,6 @@ const getEmpresa = async (req, res)=> {
         const { empresaId } = req.params;
         const empresa = await Empresa.findById(empresaId);
 
-        
         if(!empresa){
             res.status(404).json({message: "Empresa não encontrada!"})
         }
@@ -61,12 +68,11 @@ const getEmpresa = async (req, res)=> {
             user: empresa,
             id: empresa._id
         })
-    }catch (error){
-        console.error(error);
-        res.status(500).send({ message: 'Erro ao renderizar a página de perfil da empresa: ' + error.message });
+    }catch (erro){
+        console.error(erro);
+        res.status(500).send({ message: 'Erro ao renderizar a página de perfil da empresa!', error: erro.message });
     }
 }
-
 
 const createEmpresa = async (req, res) => {
     try{
@@ -95,12 +101,9 @@ const createEmpresa = async (req, res) => {
         await newEmpresa.save();
         res.redirect('/home');
     
-    }catch (error){
-        
-        if (error.code == 11000){
-            return res.status(409).json({ message: "Empresa já cadastrada!" })
-        } 
-        res.status(500).json({message: error.message})
+    }catch (erro) {
+        console.error(erro);
+        res.status(500).send({message: "Erro ao cadastrar a empresa!", error: erro.message});
     }
 }
 
@@ -128,9 +131,9 @@ const updateEmpresa = async (req, res) => {
 
         res.redirect(`/empresa/${empresa._id}/perfil`)
 
-    }catch(error){
-        console.error("Erro ao editar o perfil:", error);
-        res.status(500).send({ message: 'Erro ao editar o perfil', error: error.message });
+    }catch(erro){
+        console.error(erro);
+        res.status(500).send({ message: 'Erro ao editar o perfil da empresa!', error: erro.message });
     }
 }
 
@@ -146,8 +149,9 @@ const deleteEmpresa = async (req, res) => {
         }
 
         res.status(200).json({message: "Empresa deletada com sucesso"});
-    }catch(error){
-        res.status(500).json({message: error.message});
+    }catch(erro){
+        console.error(erro);
+        res.status(500).send({ message: 'Erro ao deletar a empresa!', error: erro.message });
     }
 }
 
@@ -180,12 +184,11 @@ const criarVagaParaEmpresa = async (req, res) => {
 
         // Redireciona com uma mensagem de sucesso
         res.redirect(`/empresa/${empresaId}/vagas/criar?success=true`);
-    } catch (err) {
-        console.error(err);
-        res.status(500).send({ message: 'Erro ao criar vaga para a empresa: ' + err.message });
+    } catch (erro) {
+        console.error(erro);
+        res.status(500).send({ message: 'Erro ao criar vaga para a empresa!', error: erro.message });
     }
 };
-
 
 const buscacandidatos = async (req, res) => {
     try {
@@ -217,13 +220,13 @@ const buscacandidatos = async (req, res) => {
              query: q,
              title: 'Lista de Candidatos',
              style: 'buscacandidato.css' });
-    } catch (err) {
-        console.error(err);
-        res.status(500).send({ message: 'Erro ao buscar candidatos', error: err.message });
+    } catch (erro) {
+        console.error(erro);
+        res.status(500).send({ message: 'Erro ao buscar os candidatos da vaga!', error: erro.message });
     }
 };
 
-const updateStatus = c= async (req, res) => {
+const updateStatus = async (req, res) => {
     try {
         const { id } = req.params; // ID da candidatura a ser atualizada
         const { status } = req.body; // Novo status enviado pelo formulário ou requisição
@@ -245,15 +248,12 @@ const updateStatus = c= async (req, res) => {
         }
 
         res.redirect('/empresa/dashboard');
-    } catch (error) {
-        console.error('Erro ao atualizar o status da candidatura:', error);
-        res.status(500).send({ message: 'Erro ao atualizar o status da candidatura', error: error.message });
+    } catch (erro) {
+        console.error(erro);
+        res.status(500).send({ message: 'Erro ao atualizar o status da candidatura da vaga!', error: erro.message });
     }
 };
 
-
-
-  
 module.exports = {
     getCadastroEmpresa,
     getEmpresa,

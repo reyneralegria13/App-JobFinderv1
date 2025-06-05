@@ -3,8 +3,14 @@
 const logoutBtn = document.getElementById("logout");
 
 if (logoutBtn) {
-  logoutBtn.addEventListener("click", () => {
-    localStorage.removeItem("token"); // Remove o token
-    window.location.href = "/login"; // Redireciona para a tela de login
-  });
+    try {
+        logoutBtn.addEventListener("click", () => {
+        localStorage.removeItem("token"); // Remove o token
+        window.location.href = "/login"; // Redireciona para a tela de login
+    });
+    } catch (erro) {
+        console.error(erro);
+        res.status(500).json({ message: 'Erro ao realizar o logout!', error: erro.messgae });
+    }
+  
 }
