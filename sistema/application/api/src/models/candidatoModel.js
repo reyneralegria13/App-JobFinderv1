@@ -2,19 +2,22 @@ const mongoose = require('mongoose');
 
 const candidatoSchema = mongoose.Schema({
 
-    imagem:{ data: Buffer, contentType: String },
+    imagem: {
+        data: Buffer,
+        contentType: String
+    },
     nome: {
         type: String,
         required: true,
         minlength: 3,
         maxlength: 50
     },
-    cpf:{
+    cpf: {
         type: String,
         required: true,
         unique: true,
         validate: {
-            validator: function(v) {
+            validator: function (v) {
                 return /^\d{3}\.\d{3}\.\d{3}-\d{2}$/.test(v);
             },
             message: 'CPF inválido'
@@ -25,7 +28,7 @@ const candidatoSchema = mongoose.Schema({
         required: true,
         unique: true,
         validate: {
-            validator: function(v) {
+            validator: function (v) {
                 return /^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/.test(v);
             },
             message: 'Email inválido'
@@ -40,7 +43,7 @@ const candidatoSchema = mongoose.Schema({
         type: String,
         required: true,
         validate: {
-            validator: function(v) {
+            validator: function (v) {
                 return /^\(\d{2}\) \d{5}-\d{4}$/.test(v);
             },
             message: 'O número de telefone deve seguir o formato (XX) XXXXX-XXXX'
@@ -63,7 +66,7 @@ const candidatoSchema = mongoose.Schema({
         type: [String],
         required: false,
     },
-    habilidadesTecnicas:{
+    habilidadesTecnicas: {
         type: [String],
         required: false,
         default: []

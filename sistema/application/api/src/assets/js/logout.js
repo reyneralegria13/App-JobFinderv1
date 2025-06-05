@@ -3,6 +3,7 @@
 const logoutBtn = document.getElementById("logout");
 
 if (logoutBtn) {
+<<<<<<< HEAD
     try {
         logoutBtn.addEventListener("click", () => {
         localStorage.removeItem("token"); // Remove o token
@@ -14,3 +15,10 @@ if (logoutBtn) {
     }
   
 }
+=======
+  logoutBtn.addEventListener("click", () => {
+    localStorage.removeItem("token"); // Remove o token
+    window.location.href = "/login"; // Redireciona para a tela de login
+  });
+}
+>>>>>>> f4030cb (♻️ refactor: ajuste de identação com 4 espaços #77)
