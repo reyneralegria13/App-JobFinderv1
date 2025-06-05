@@ -5,25 +5,39 @@ const nodemailer = require('nodemailer');
 const crypto = require('crypto');
 
 exports.realizarLogin = async (req, res) => {
-    const { email, senha } = req.body;
+    const {
+        email,
+        senha
+    } = req.body;
     try {
-        let user = await Candidato.findOne({ email });
+        let user = await Candidato.findOne({
+            email
+        });
 
         if (!user) {
-            user = await Empresa.findOne({ email });
+            user = await Empresa.findOne({
+                email
+            });
         }
         if (!user) {
-            return res.status(401).json({ error: 'E-mail ou senha inválidos.' });
+            return res.status(401).json({
+                error: 'E-mail ou senha inválidos.'
+            });
         }
 
         const isValidPassword = await bcrypt.compare(senha, user.senha);
         if (!isValidPassword) {
-            return res.status(401).json({ error: 'E-mail ou senha inválidos.' });
+            return res.status(401).json({
+                error: 'E-mail ou senha inválidos.'
+            });
         }
 
         const userType = user.constructor.modelName.toLowerCase();
-        
-        req.session.user = { id: user._id, role: userType };
+
+        req.session.user = {
+            id: user._id,
+            role: userType
+        };
 
         return res.json({
             message: 'Login bem-sucedido',
@@ -31,7 +45,10 @@ exports.realizarLogin = async (req, res) => {
         });
     } catch (erro) {
         console.error(erro);
-        res.status(500).json({ message: 'Erro ao realizar o login. Tente novamente!', error: erro.messgae });
+        res.status(500).json({
+            message: 'Erro ao realizar o login. Tente novamente!',
+            error: erro.messgae
+        });
     }
 };
 
@@ -45,10 +62,16 @@ exports.recuperarSenha = async (req, res) => {
             }
         })
 
-        const user = await Candidato.findOne({ email: req.body.email }) || await Empresa.findOne({ email: req.body.email });
+        const user = await Candidato.findOne({
+            email: req.body.email
+        }) || await Empresa.findOne({
+            email: req.body.email
+        });
 
         if (!user) {
-            return res.status(404).json({ error: 'E-mail não encontrado.' });
+            return res.status(404).json({
+                error: 'E-mail não encontrado.'
+            });
         }
 
         const token = crypto.randomBytes(20).toString('hex');
@@ -79,7 +102,10 @@ exports.recuperarSenha = async (req, res) => {
         res.redirect('/login');
     } catch (erro) {
         console.error(erro);
-        res.status(500).json({ message: 'Erro ao recuperar a senha. Tente novamente!', error: erro.messgae });
+        res.status(500).json({
+            message: 'Erro ao recuperar a senha. Tente novamente!',
+            error: erro.messgae
+        });
     }
 }
 
@@ -90,15 +116,21 @@ exports.redefinirSenha = async (req, res) => {
         const user =
             (await Candidato.findOne({
                 resetToken: token,
-                resetTokenExpiration: { $gt: Date.now() },
+                resetTokenExpiration: {
+                    $gt: Date.now()
+                },
             })) ||
             (await Empresa.findOne({
                 resetToken: token,
-                resetTokenExpiration: { $gt: Date.now() },
+                resetTokenExpiration: {
+                    $gt: Date.now()
+                },
             }));
 
-        if(!user){
-            return res.status(404).json({ error: 'Token inválido ou expirado.' });
+        if (!user) {
+            return res.status(404).json({
+                error: 'Token inválido ou expirado.'
+            });
         }
 
         // Atualizar senha
@@ -111,7 +143,10 @@ exports.redefinirSenha = async (req, res) => {
         res.redirect('/login');
     } catch (erro) {
         console.error(erro);
-        res.status(500).json({ message: 'Erro ao redefenir a senha. Tente novamente!', error: erro.messgae });
+        res.status(500).json({
+            message: 'Erro ao redefenir a senha. Tente novamente!',
+            error: erro.messgae
+        });
     }
 }
 

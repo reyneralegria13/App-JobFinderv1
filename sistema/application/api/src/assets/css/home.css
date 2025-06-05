@@ -3,34 +3,34 @@
     padding: 0;
     box-sizing: border-box;
     font-family: system-ui, -apple-system, sans-serif;
-  }
-  
-  body {
+}
+
+body {
     background-color: #f5f5f5;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     padding-top: 2rem;
-  }
-  
-  .container {
+}
+
+.container {
     max-width: 1200px;
     width: 100%;
     padding: 2rem;
     display: flex;
     gap: 4rem;
     align-items: center;
-  }
-  
-  .content {
+}
+
+.content {
     flex: 1;
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
-  }
-  
-  .header {
+}
+
+.header {
     width: 100%;
     padding: 1rem 2rem;
     display: flex;
@@ -38,46 +38,46 @@
     align-items: center;
     background-color: white;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  
-  .logo {
+}
+
+.logo {
     font-size: 1.5rem;
     font-weight: bold;
     color: #333;
-  }
-  
-  .hero-image {
+}
+
+.hero-image {
     flex: 1;
     max-width: 600px;
     border-radius: 12px;
     overflow: hidden;
-  }
-  
-  .hero-image img {
+}
+
+.hero-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-  }
-  
-  h1 {
+}
+
+h1 {
     font-size: 2.5rem;
     color: #333;
     margin-bottom: 1rem;
-  }
-  
-  p {
+}
+
+p {
     font-size: 1.1rem;
     color: #666;
     line-height: 1.6;
     margin-bottom: 2rem;
-  }
-  
-  .button-group {
+}
+
+.button-group {
     display: flex;
     gap: 1rem;
-  }
-  
-  .button {
+}
+
+.button {
     padding: 1rem 2rem;
     border-radius: 8px;
     font-size: 1rem;
@@ -85,27 +85,26 @@
     cursor: pointer;
     text-decoration: none;
     text-align: center;
-  }
-  
-  .primary-button {
+}
+
+.primary-button {
     background-color: #ffe100;
     color: #333;
     border: none;
     width: 200px;
-  }
-  
-  .secondary-button {
+}
+
+.secondary-button {
     background-color: transparent;
     color: #333;
     border: 1px solid #ccc;
     width: 200px;
-  }
-  
-  .primary-button:hover {
+}
+
+.primary-button:hover {
     background-color: #ffd700;
-  }
-  
-  .secondary-button:hover {
+}
+
+.secondary-button:hover {
     background-color: #f5f5f5;
-  }
-  
+}

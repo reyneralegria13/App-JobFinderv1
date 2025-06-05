@@ -7,11 +7,11 @@ if (!token) {
 }
 
 fetch('/inicial', {
-    method: 'GET',
-    headers: {
-        'Authorization': `Bearer ${token}`, // Envia o token no formato Bearer <token>
-    },
-})
+        method: 'GET',
+        headers: {
+            'Authorization': `Bearer ${token}`, // Envia o token no formato Bearer <token>
+        },
+    })
     .then(response => {
         if (!response.ok) {
             throw new Error('Acesso negado'); // Lida com erros da API

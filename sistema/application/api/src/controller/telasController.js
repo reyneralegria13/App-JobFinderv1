@@ -8,12 +8,15 @@ const Vaga = require('../models/vagasModel');
 const getHome = async (req, res) => {
     try {
         res.render('fun/home', {
-        title: 'Home',
-        style: 'home.css' 
-    });
+            title: 'Home',
+            style: 'home.css'
+        });
     } catch (erro) {
         console.error(erro);
-        res.status(500).json({ message: 'Erro ao renderizar a página incial!', error: erro.messgae });
+        res.status(500).json({
+            message: 'Erro ao renderizar a página incial!',
+            error: erro.messgae
+        });
     }
 }
 
@@ -26,7 +29,10 @@ const getCargo = async (req, res) => {
         });
     } catch (erro) {
         console.error(erro);
-        res.status(500).json({ message: 'Erro ao renderizar a página de cargos!', error: erro.messgae });
+        res.status(500).json({
+            message: 'Erro ao renderizar a página de cargos!',
+            error: erro.messgae
+        });
     }
 };
 
@@ -39,7 +45,10 @@ const getLogin = async (req, res) => {
         });
     } catch (erro) {
         console.error(erro);
-        res.status(500).json({ message: 'Erro ao renderizar a página de login!', error: erro.messgae });
+        res.status(500).json({
+            message: 'Erro ao renderizar a página de login!',
+            error: erro.messgae
+        });
     }
 };
 
@@ -51,7 +60,10 @@ const getRecuperarSenha = async (req, res) => {
         });
     } catch (erro) {
         console.error(erro);
-        res.status(500).json({ message: 'Erro ao renderizar a página Recuperar Senha!', error: erro.messgae });
+        res.status(500).json({
+            message: 'Erro ao renderizar a página Recuperar Senha!',
+            error: erro.messgae
+        });
     }
 };
 
@@ -61,41 +73,56 @@ const getRedefinirSenha = async (req, res) => {
         const token = req.params.token;
 
         // Verificar se o token é válido
-        const user = 
-        await Candidato.findOne({
-            resetToken: token,
-            resetTokenExpiration: { $gt: Date.now() },
-        }) || 
-        await Empresa.findOne({
-            resetToken: token,
-            resetTokenExpiration: { $gt: Date.now() },
-        });
+        const user =
+            await Candidato.findOne({
+                resetToken: token,
+                resetTokenExpiration: {
+                    $gt: Date.now()
+                },
+            }) ||
+            await Empresa.findOne({
+                resetToken: token,
+                resetTokenExpiration: {
+                    $gt: Date.now()
+                },
+            });
 
         if (!user) {
-        return res.status(400).json({ error: 'Token inválido ou expirado.' });
+            return res.status(400).json({
+                error: 'Token inválido ou expirado.'
+            });
         }
 
         res.render("fun/redefinirSenha", {
-        title: "Redefinir Senha",
-        style: "redefinirSenha.css",
-        token });
+            title: "Redefinir Senha",
+            style: "redefinirSenha.css",
+            token
+        });
     } catch (erro) {
         console.error(erro);
-        res.status(500).json({ message: 'Erro ao renderizar a página Redefenir Senha!', error: erro.messgae });
+        res.status(500).json({
+            message: 'Erro ao renderizar a página Redefenir Senha!',
+            error: erro.messgae
+        });
     }
 };
 
 const getCriarVagas = (req, res) => {
     try {
-        const { empresaId } = req.params;
+        const {
+            empresaId
+        } = req.params;
         res.render('fun/criarVagas', {
-            title: 'Criar Vagas', 
+            title: 'Criar Vagas',
             style: 'criarVagas.css',
             empresaId,
         })
     } catch (erro) {
         console.error(erro);
-        res.status(500).json({ message: 'Erro ao renderizar a página Criar Vagas!', error: erro.messgae });
+        res.status(500).json({
+            message: 'Erro ao renderizar a página Criar Vagas!',
+            error: erro.messgae
+        });
     }
 };
 
@@ -105,7 +132,9 @@ const getVagas = async (req, res) => {
         const empresa = await Empresa.findById(empresaId).populate('vagas');
 
         if (!empresa) {
-            return res.status(404).json({ message: 'Empresa não encontrada!' });
+            return res.status(404).json({
+                message: 'Empresa não encontrada!'
+            });
         }
 
         // Converte as imagens para Base64
@@ -125,18 +154,23 @@ const getVagas = async (req, res) => {
             title: "Vagas",
             style: "vagas.css",
             vagas: vagasComImagens,
-            empresaId 
+            empresaId
         });
     } catch (erro) {
         console.error(erro);
-        res.status(500).json({ message: 'Erro ao renderizar a página Vagas!', error: erro.messgae });
+        res.status(500).json({
+            message: 'Erro ao renderizar a página Vagas!',
+            error: erro.messgae
+        });
     }
 };
 
 const getCandidaturas = async (req, res) => {
     try {
         const candidatoId = req.user._id; // Obtém o ID do candidato autenticado
-        const candidaturas = await Candidatura.find({ candidato: candidatoId })
+        const candidaturas = await Candidatura.find({
+                candidato: candidatoId
+            })
             .populate('vaga')
             .populate('empresa');
 
@@ -144,10 +178,13 @@ const getCandidaturas = async (req, res) => {
             title: 'Lista de Candidaturas',
             style: 'candidaturas.css',
             candidaturas,
-    });
+        });
     } catch (erro) {
         console.error(erro);
-        res.status(500).json({ message: 'Erro ao renderizar a página Candidaturas!', error: erro.messgae });
+        res.status(500).json({
+            message: 'Erro ao renderizar a página Candidaturas!',
+            error: erro.messgae
+        });
     }
 };
 
@@ -156,13 +193,17 @@ const getCandidaturasc = async (req, res) => {
     try {
         const candidatoId = req.params.candidatoId;
 
-        const candidaturas = await Candidatura.find({ candidato: candidatoId })
+        const candidaturas = await Candidatura.find({
+                candidato: candidatoId
+            })
             .populate('candidato')
             .populate('vaga')
             .populate('empresa');
 
         if (!candidaturas || candidaturas.length === 0) {
-            return res.status(404).send({ message: 'Candidaturas não encontradas!' });
+            return res.status(404).send({
+                message: 'Candidaturas não encontradas!'
+            });
         }
 
         // Converte as imagens para Base64
@@ -189,19 +230,28 @@ const getCandidaturasc = async (req, res) => {
         });
     } catch (erro) {
         console.error(erro);
-        res.status(500).json({ message: 'Erro ao renderizar a página Lista de Candidaturas!', error: erro.messgae });
+        res.status(500).json({
+            message: 'Erro ao renderizar a página Lista de Candidaturas!',
+            error: erro.messgae
+        });
     }
 };
 
 const Vercandidatos = async (req, res) => {
     try {
         const empresaId = req.params.empresaId;
-        const { id } = req.params;
+        const {
+            id
+        } = req.params;
 
-        const candidaturas = await Candidatura.find({ vaga: id }).populate('candidato').populate('vaga').populate('empresa');
-        
-        if(!candidaturas){
-            return res.status(404).send({ message: 'Candidaturas nao encontradas!' });
+        const candidaturas = await Candidatura.find({
+            vaga: id
+        }).populate('candidato').populate('vaga').populate('empresa');
+
+        if (!candidaturas) {
+            return res.status(404).send({
+                message: 'Candidaturas nao encontradas!'
+            });
         }
 
         res.render('fun/candidatos_vagas', {
@@ -212,9 +262,12 @@ const Vercandidatos = async (req, res) => {
         });
     } catch (erro) {
         console.error(erro);
-        res.status(500).json({ message: 'Erro ao renderizar a página Lista de Candidatos!', error: erro.messgae });
+        res.status(500).json({
+            message: 'Erro ao renderizar a página Lista de Candidatos!',
+            error: erro.messgae
+        });
     }
-    
+
 }
 
 const getVagaDetalhes = async (req, res) => {
@@ -226,7 +279,9 @@ const getVagaDetalhes = async (req, res) => {
         const vaga = await Vaga.findById(vagaId).populate('empresa'); // Assumindo que a vaga tem referência à empresa
 
         if (!vaga) {
-            return res.status(404).json({ message: 'Vaga não encontrada!' });
+            return res.status(404).json({
+                message: 'Vaga não encontrada!'
+            });
         }
 
         // Renderizar a página com os detalhes da vaga
@@ -238,7 +293,10 @@ const getVagaDetalhes = async (req, res) => {
         });
     } catch (erro) {
         console.error(erro);
-        res.status(500).json({ message: 'Erro ao renderizar a página da vaga!', error: erro.messgae });
+        res.status(500).json({
+            message: 'Erro ao renderizar a página da vaga!',
+            error: erro.messgae
+        });
     }
 };
 
@@ -257,13 +315,16 @@ const visualizarTelaEdicaoCand = async (req, res) => {
 
         // Renderiza a view de edição, passando os dados do candidato
         res.render('can/perfilEditar', {
-            title: 'Edição de Perfil',  // Título da página
+            title: 'Edição de Perfil', // Título da página
             style: 'perfilEditar.css',
             user: candidato,
         });
     } catch (erro) {
         console.error(erro);
-        res.status(500).json({ message: 'Erro ao renderizar a página de edição do perfil do candidato!', error: erro.messgae });
+        res.status(500).json({
+            message: 'Erro ao renderizar a página de edição do perfil do candidato!',
+            error: erro.messgae
+        });
     }
 };
 
@@ -282,13 +343,16 @@ const visualizarTelaEdicaoEmpre = async (req, res) => {
 
         // Renderiza a view de edição, passando os dados do candidato
         res.render('fun/perfilEditar', {
-            title: 'Edição de Perfil',  // Título da página
+            title: 'Edição de Perfil', // Título da página
             style: 'editarPerfilEmpresa.css',
             user: empresa,
         });
     } catch (erro) {
         console.error(erro);
-        res.status(500).json({ message: 'Erro ao renderizar a página de edição do perfil da empresa!', error: erro.messgae });
+        res.status(500).json({
+            message: 'Erro ao renderizar a página de edição do perfil da empresa!',
+            error: erro.messgae
+        });
     }
 };
 
