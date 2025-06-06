@@ -4,6 +4,7 @@ const bcrypt = require('bcrypt');
 const nodemailer = require('nodemailer');
 const crypto = require('crypto');
 
+// Realiza login e inicia sessão do usuário
 exports.realizarLogin = async (req, res) => {
     const {
         email,
@@ -52,6 +53,7 @@ exports.realizarLogin = async (req, res) => {
     }
 };
 
+// Envia o email de recuperação de senha
 exports.recuperarSenha = async (req, res) => {
     try {
         const transporter = nodemailer.createTransport({
@@ -75,9 +77,8 @@ exports.recuperarSenha = async (req, res) => {
         }
 
         const token = crypto.randomBytes(20).toString('hex');
-        const tokenExpiration = Date.now() + 15 * 60 * 1000; // 15 minutos em milissegundos
+        const tokenExpiration = Date.now() + 15 * 60 * 1000;
 
-        // salva as informações
         user.resetToken = token;
         user.resetTokenExpiration = tokenExpiration;
         await user.save();
@@ -109,6 +110,7 @@ exports.recuperarSenha = async (req, res) => {
     }
 }
 
+// Altera a senha atual
 exports.redefinirSenha = async (req, res) => {
     try {
         const token = req.params.token;
@@ -133,10 +135,9 @@ exports.redefinirSenha = async (req, res) => {
             });
         }
 
-        // Atualizar senha
         const salt = await bcrypt.genSalt(12)
         user.senha = await bcrypt.hash(req.body.senha, salt);
-        user.resetToken = undefined; // Invalida o token
+        user.resetToken = undefined;
         user.resetTokenExpiration = undefined;
         await user.save();
 

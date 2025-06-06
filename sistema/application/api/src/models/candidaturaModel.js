@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 
+// Definição do modelo de uma Candidatura
 const relacaoSchema = new mongoose.Schema({
     candidato: {
         type: mongoose.Schema.Types.ObjectId,

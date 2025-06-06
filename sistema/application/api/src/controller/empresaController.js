@@ -5,6 +5,7 @@ const bcrypt = require("bcrypt");
 const Candidatura = require("../models/candidaturaModel");
 const Swal = require('sweetalert2');
 
+// Renderiza a página de dashboard
 const dashboardEmpresa = async (req, res) => {
     try {
         const empresaId = req.session.user.id;
@@ -42,7 +43,7 @@ const dashboardEmpresa = async (req, res) => {
     }
 };
 
-//rota para a página de cadastro de empresa
+// Renderiza a página de cadastro de perfil
 const getCadastroEmpresa = async (req, res) => {
     try {
         res.render('fun/reg_empresa', {
@@ -58,7 +59,7 @@ const getCadastroEmpresa = async (req, res) => {
     }
 };
 
-//Função ler (busca apenas uma empresa)
+// Renderiza a página do perfil
 const getEmpresa = async (req, res) => {
     try {
         const {
@@ -87,21 +88,20 @@ const getEmpresa = async (req, res) => {
     }
 }
 
+// Salva uma nova Empresa no banco de dados
 const createEmpresa = async (req, res) => {
     try {
-
-        // verifica se há alguma empresa existente
         const empresa = await Empresa.findOne({
             cnpj: req.body.cnpj
         });
-
+        
+        // verifica se há alguma empresa existente
         if (empresa) {
             return res.status(409).json({
                 message: "Empresa já cadastrada!"
             })
         }
-
-        //proteção de senha 
+ 
         const salt = await bcrypt.genSalt(12)
         const senhaHash = await bcrypt.hash(req.body.senha, salt)
 
@@ -127,7 +127,7 @@ const createEmpresa = async (req, res) => {
     }
 }
 
-// Função Update (atualiza uma empresa)
+// Atualiza o perfil
 const updateEmpresa = async (req, res) => {
     try {
         const {
@@ -149,7 +149,6 @@ const updateEmpresa = async (req, res) => {
             })
         }
 
-        // Atualizar os dados da empresa
         empresa.nome = nome || empresa.nome;
         empresa.cnpj = cnpj || empresa.cnpj;
         empresa.email = email || empresa.email;
@@ -157,7 +156,6 @@ const updateEmpresa = async (req, res) => {
         empresa.bio = bio || empresa.bio;
         empresa.site = site || empresa.site;
 
-        // Salvar as alterações no banco de dados
         await empresa.save();
 
         res.redirect(`/empresa/${empresa._id}/perfil`)
@@ -171,7 +169,7 @@ const updateEmpresa = async (req, res) => {
     }
 }
 
-// Função deletar (apaga uma empresa)
+// Deleta o perfil
 const deleteEmpresa = async (req, res) => {
     try {
         const {
@@ -198,6 +196,7 @@ const deleteEmpresa = async (req, res) => {
     }
 }
 
+// Salva uma nova Vaga mo banco de dados
 const criarVaga = async (req, res) => {
     try {
         const {
@@ -209,7 +208,7 @@ const criarVaga = async (req, res) => {
             requisitos
         } = req.body;
 
-        // Busca a empresa pelo ID
+        // Verifica se a empresa existe
         const empresa = await Empresa.findById(empresaId);
         if (!empresa) {
             return res.status(404).send({
@@ -217,7 +216,6 @@ const criarVaga = async (req, res) => {
             });
         }
 
-        // Criação da vaga
         const novaVaga = new Vagas({
             nome,
             area,
@@ -229,14 +227,10 @@ const criarVaga = async (req, res) => {
             empresa: empresa._id
         });
 
-        // Salva a vaga no banco de dados
-        await novaVaga.save();
-
-        // Adiciona o ID da vaga ao array de vagas da empresa
         empresa.vagas.push(novaVaga._id);
+        await novaVaga.save();
         await empresa.save();
 
-        // Redireciona com uma mensagem de sucesso
         res.redirect(`/empresa/${empresaId}/vagas/criar?success=true`);
     } catch (erro) {
         console.error(erro);
@@ -247,26 +241,26 @@ const criarVaga = async (req, res) => {
     }
 };
 
+// Renderiza a página da lista de candidatos
 const buscarCandidatos = async (req, res) => {
     try {
         const {
             q
-        } = req.query; // Obtém o termo de busca
+        } = req.query;
 
-        // Filtra os candidatos com base na qualificação ou educação
         const candidatos = await candidato.find({
             $or: [{
                     qualificacao: {
                         $regex: q,
                         $options: 'i'
                     }
-                }, // Busca no campo "qualificacao"
+                },
                 {
                     educacao: {
                         $regex: q,
                         $options: 'i'
                     }
-                } // Busca no campo "educacao"
+                }
             ]
         });
 
@@ -283,7 +277,6 @@ const buscarCandidatos = async (req, res) => {
             };
         });
 
-        // Renderiza o template com os resultados
         res.render('fun/resultCanddidatos', {
             candidatos: candidatosComImagens,
             query: q,
@@ -299,14 +292,15 @@ const buscarCandidatos = async (req, res) => {
     }
 };
 
+// Atualiza o status de uma candidatura
 const updateStatus = async (req, res) => {
     try {
         const {
             id
-        } = req.params; // ID da candidatura a ser atualizada
+        } = req.params;
         const {
             status
-        } = req.body; // Novo status enviado pelo formulário ou requisição
+        } = req.body;
 
         // Verifica se o status é válido
         if (!['Pendente', 'Aceito', 'Rejeitado'].includes(status)) {
@@ -315,13 +309,12 @@ const updateStatus = async (req, res) => {
             });
         }
 
-        // Atualiza o status da candidatura
         const candidaturaAtualizada = await Candidatura.findByIdAndUpdate(
             id, {
                 status
             }, {
                 new: true
-            } // Retorna o documento atualizado
+            }
         );
 
         if (!candidaturaAtualizada) {

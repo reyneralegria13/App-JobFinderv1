@@ -3,25 +3,24 @@ const connectDb = require('./db')
 const empresaRoutes = require('./src/routes/empresaRoutes');
 const candidatoRoutes = require('./src/routes/candidatoRoutes');
 const geral = require('./src/routes/geralRoutes')
-const hbs = require('handlebars'); // Ou handlebars, dependendo da sua configuração
+const hbs = require('handlebars');
+const path = require('path')
+const {
+    engine
+} = require('express-handlebars')
 
 // Registra o helper ifCond
 hbs.registerHelper('ifCond', function (v1, v2, options) {
     return v1 === v2 ? options.fn(this) : options.inverse(this);
 });
 
-//autenticação de senha
+// Configuração da autenticação de senha
 require('dotenv').config()
 const session = require('express-session');
 const MongoStore = require('connect-mongo');
 
-//handlebar
-const path = require('path')
-const {
-    engine
-} = require('express-handlebars')
 
-//uso
+// Configuração do Express
 const app = express()
 app.use(express.urlencoded({
     extended: true
@@ -50,16 +49,17 @@ try {
     });
 }
 
+// Configuração das rotas
 app.use('/empresa', empresaRoutes);
 app.use('/candidato', candidatoRoutes);
 app.use(geral);
 
+// Caminho de arquivos estáticos
 app.use('/assets', express.static(path.join(__dirname, 'src/assets')));
 app.use('/img', express.static(path.join(__dirname, 'src/img')));
 
-//configuração das views engine
+// Configuração do Handlebars
 app.set('views', path.join(__dirname, 'src/views'))
-
 app.engine('.hbs', engine({
     extname: "hbs", //index.hbs
     layoutDir: path.join(__dirname, 'src/views/layouts'),
@@ -71,7 +71,7 @@ app.engine('.hbs', engine({
 }))
 app.set('view engine', '.hbs')
 
-// conexão com o banco e com o servidor
+// Conexão com o banco e com o servidor
 connectDb()
     .then(data => {
         console.log(' >> Banco de dados conectado com sucesso:\n')

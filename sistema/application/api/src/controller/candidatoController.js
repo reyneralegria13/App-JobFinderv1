@@ -18,11 +18,11 @@ function toggleMenu() {
         sideMenu.classList.add('hidden');
     }
 }
+
+// Renderiza a página de dashboard
 const dashboardCandidato = async (req, res) => {
     try {
         const candidatoId = req.session.user.id;
-
-        // Busca todas as vagas e popula os dados da empresa associada
         const vagas = await Vaga.find().populate('empresa');
 
         // Converte as imagens para base64
@@ -55,7 +55,7 @@ const dashboardCandidato = async (req, res) => {
     }
 };
 
-//rota para a página de cadastro de candidato
+// Renderiza a página de cadastro de perfil
 const getCadastroCandidato = async (req, res) => {
     try {
         res.render('can/reg_candidato', {
@@ -71,6 +71,7 @@ const getCadastroCandidato = async (req, res) => {
     }
 };
 
+// Renderiza a página do perfil
 const getPerfilCandidato = async (req, res) => {
     try {
         const id = req.params.candidatoId;
@@ -95,7 +96,7 @@ const getPerfilCandidato = async (req, res) => {
     }
 };
 
-//validação de cadastro de candidato
+// Salva um novo Candidato no banco de dados
 const cadastrarCandidato = async (req, res) => {
     //Caso seja usado o "confirmar senha"
     /*if(senha != confirmarSenha){
@@ -112,8 +113,7 @@ const cadastrarCandidato = async (req, res) => {
                 mgs: "Email já utilizado no sistema. Por favor, escolher outro."
             })
         }
-
-        //proteção de senha 
+ 
         const salt = await bcrypt.genSalt(12)
         const senhaHash = await bcrypt.hash(req.body.senha, salt)
         const novoCandidato = new Candidato({
@@ -146,16 +146,13 @@ const cadastrarCandidato = async (req, res) => {
     }
 };
 
-// Controlador para buscar uma vaga específica pelo ID
+// Renderiza a página de detalhes de uma vaga
 const verVaga = async (req, res) => {
     try {
-        // Obtém o ID da vaga a partir dos parâmetros da URL
         const {
             id
         } = req.params;
         const candidatoId = req.session.user.id;
-
-        // Busca a vaga pelo ID e popula os dados da empresa associada
         const vaga = await Vaga.findById(id).populate('empresa');
 
         // Verifica se a vaga foi encontrada
@@ -171,17 +168,16 @@ const verVaga = async (req, res) => {
             imagemBase64 = `data:${vaga.imagem.contentType};base64,${vaga.imagem.data.toString('base64')}`;
         }
 
-        // Renderiza o template para exibir os detalhes da vaga
         res.render('can/vagaDetalhes', {
             title: vaga.nome,
             _id: vaga._id,
             nome: vaga.nome,
             area: vaga.area,
             requisitos: vaga.requisitos,
-            empresa: vaga.empresa.nome, // Nome da empresa associada
+            empresa: vaga.empresa.nome,
             imagem: imagemBase64,
             style: 'vagasDetalhes.css',
-            candidatoId // Imagem em Base64
+            candidatoId
         });
     } catch (erro) {
         console.error(erro);
@@ -192,14 +188,13 @@ const verVaga = async (req, res) => {
     }
 };
 
-// Rota para buscar vagas
+// Renderiza a página da lista de vagas existentes
 const buscarVagas = async (req, res) => {
     try {
         const {
             q
         } = req.query;
 
-        // Filtra as vagas com base no nome ou área
         const vagas = await Vaga.find({
             $or: [{
                     nome: {
@@ -244,9 +239,9 @@ const buscarVagas = async (req, res) => {
     }
 };
 
+// Realiza uma candidatura a vaga escolhida
 const candidatarAVaga = async (req, res) => {
     try {
-        // Obtém o ID da vaga a partir dos parâmetros da URL
         const {
             id
         } = req.params;
@@ -280,14 +275,12 @@ const candidatarAVaga = async (req, res) => {
             candidato: candidato._id,
             vaga: vaga._id
         });
-
         if (candidaturaExistente) {
             return res.status(400).send({
                 message: 'Você já se candidatou a esta vaga!'
             });
         }
 
-        // Cria uma nova candidatura
         const novaCandidatura = new Candidatura({
             candidato: candidato._id,
             vaga: vaga._id,
@@ -295,7 +288,6 @@ const candidatarAVaga = async (req, res) => {
             status: 'Pendente'
         });
 
-        // Salva a nova candidatura no banco de dados
         await novaCandidatura.save();
 
         // Converte a imagem em Base64 (se existir)
@@ -305,7 +297,6 @@ const candidatarAVaga = async (req, res) => {
             console.log("Imagem convertida para Base64.");
         }
 
-        // Renderiza os detalhes da candidatura e da vaga
         res.redirect(`/candidato/${candidatoId}/candidaturas?success=true`)
 
     } catch (erro) {
@@ -317,22 +308,21 @@ const candidatarAVaga = async (req, res) => {
     }
 };
 
+// Renderiza a página de detalhes de uma candidatura
 const verCandidatura = async (req, res) => {
     try {
-        // Obtém o ID da candidatura a partir dos parâmetros da URL
         const {
             id
         } = req.params;
 
-        // Busca a candidatura pelo ID e popula os dados relacionados (vaga e candidato)
         const candidatura = await Candidatura.findById(id)
             .populate({
                 path: 'vaga',
                 populate: {
                     path: 'empresa'
-                } // Popula também os detalhes da empresa associada à vaga
+                }
             })
-            .populate('candidato'); // Popula os detalhes do candidato
+            .populate('candidato');
 
         // Verifica se a candidatura foi encontrada
         if (!candidatura) {
@@ -354,16 +344,15 @@ const verCandidatura = async (req, res) => {
             imagemBase64 = `data:${candidatura.vaga.imagem.contentType};base64,${candidatura.vaga.imagem.data.toString('base64')}`;
         }
 
-        // Renderiza o template para exibir os detalhes da candidatura
         res.render('can/candidatura', {
             title: 'Candidatura',
             vagaNome: candidatura.vaga.nome || 'Não informado',
             vagaArea: candidatura.vaga.area || 'Não informado',
             vagaRequisitos: candidatura.vaga.requisitos || 'Não informado',
-            empresa: candidatura.vaga.empresa?.nome || 'Não informado', // Nome da empresa associada à vaga
-            candidatoNome: candidatura.candidato.nome || 'Não informado', // Nome do candidato
+            empresa: candidatura.vaga.empresa?.nome || 'Não informado',
+            candidatoNome: candidatura.candidato.nome || 'Não informado',
             status: candidatura.status || 'Não informado',
-            imagem: imagemBase64, // Imagem da vaga em Base64
+            imagem: imagemBase64,
         });
 
     } catch (erro) {
@@ -375,11 +364,11 @@ const verCandidatura = async (req, res) => {
     }
 };
 
+// Deleta uma candidatura
 const cancelarCandidatura = async (req, res) => {
     try {
         const candidaturaId = req.params.candidaturaId;
         const candidatoId = req.params.candidatoId;
-
         const candidatura = await Candidatura.findByIdAndDelete(candidaturaId)
 
         if (!candidatura) {
@@ -398,6 +387,7 @@ const cancelarCandidatura = async (req, res) => {
     }
 };
 
+// Atualiza o perfil
 const updatePerfil = async (req, res) => {
     try {
         const candidatoId = req.params.candidatoId;
@@ -413,8 +403,6 @@ const updatePerfil = async (req, res) => {
             habilidades,
             idiomas
         } = req.body;
-
-        // Encontrar o candidato pelo ID
         const candidato = await Candidato.findById(candidatoId);
 
         if (!candidato) {
@@ -423,7 +411,6 @@ const updatePerfil = async (req, res) => {
             });
         }
 
-        // Atualizar os dados do candidato
         candidato.nome = nome || candidato.nome;
         candidato.cpf = cpf || candidato.cpf;
         candidato.email = email || candidato.email;
@@ -437,10 +424,9 @@ const updatePerfil = async (req, res) => {
 
         // Verificar se uma nova imagem foi enviada
         if (req.file && req.file.path) {
-            candidato.imagem = req.file.path; // Salva o caminho da imagem no banco de dados
+            candidato.imagem = req.file.path;
         }
 
-        // Salvar as alterações no banco de dados
         await candidato.save();
 
         res.redirect(`/candidato/perfil/${candidatoId}`);

@@ -1,6 +1,7 @@
 const mongoose = require('mongoose')
 const VagasSchema = require('./vagasModel')
 
+// Definição do modelo de Empresa
 const EmpresaSchema = mongoose.Schema({
     nome: {
         type: String,
