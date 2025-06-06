@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 
+// Definição do modelo de uma Vaga
 const VagasSchema = new mongoose.Schema({
     nome: String,
     area: String,
@@ -11,7 +12,7 @@ const VagasSchema = new mongoose.Schema({
     empresa: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Empresa'
-    } // Referência ao modelo Empresa
+    }
 });
 
 module.exports = mongoose.model('Vagas', VagasSchema);

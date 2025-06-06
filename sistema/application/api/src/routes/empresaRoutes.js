@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const multer = require('multer'); // Para upload de arquivos
+const multer = require('multer');
 const upload = multer();
 const { getVagas, getCriarVagas, getCandidaturas, visualizarCandidatos, visualizarTelaEdicaoEmpre} = require('../controller/telasController')
 const { getCadastroEmpresa, getEmpresa, createEmpresa, updateEmpresa, deleteEmpresa, dashboardEmpresa, criarVaga, updateStatus, buscarCandidatos } = require("../controller/empresaController");

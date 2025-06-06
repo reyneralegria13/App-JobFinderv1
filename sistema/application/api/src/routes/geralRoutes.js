@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const multer = require('multer'); // Para upload de arquivos
+const multer = require('multer');
 const upload = multer();
 const { isAuthenticated, isEmpresa } = require('../middleware/auth');
 
@@ -10,10 +10,7 @@ const {  criarVagaParaEmpresa, dashboardEmpresa, buscacandidatos } = require("..
 
 const { verVaga, candidatarse, buscarvagas } = require('../controller/candidatoController');
 
-
-
-
-// Rotas das telas
+// Rotas de renderização das páginas
 router.get("/home", getHome);
 router.get("/cargo", getCargo);
 router.get("/login", getLogin);

@@ -4,6 +4,7 @@ const bcrypt = require('bcrypt');
 const nodemailer = require('nodemailer');
 const crypto = require('crypto');
 
+// Realiza login e inicia sessão do usuário
 exports.realizarLogin = async (req, res) => {
     const {
         email,
@@ -14,17 +15,14 @@ exports.realizarLogin = async (req, res) => {
             email
         });
 
-        if (!user) {
-            user = await Empresa.findOne({
-                email
-            });
-        }
+        // Verifica se o candidato existe
         if (!user) {
             return res.status(401).json({
                 error: 'E-mail ou senha inválidos.'
             });
         }
 
+        // Verifica se as senhas estão certas
         const isValidPassword = await bcrypt.compare(senha, user.senha);
         if (!isValidPassword) {
             return res.status(401).json({
@@ -52,6 +50,7 @@ exports.realizarLogin = async (req, res) => {
     }
 };
 
+// Envia o email de recuperação de senha
 exports.recuperarSenha = async (req, res) => {
     try {
         const transporter = nodemailer.createTransport({
@@ -68,6 +67,7 @@ exports.recuperarSenha = async (req, res) => {
             email: req.body.email
         });
 
+        // Verifica se o usuário existe
         if (!user) {
             return res.status(404).json({
                 error: 'E-mail não encontrado.'
@@ -75,9 +75,8 @@ exports.recuperarSenha = async (req, res) => {
         }
 
         const token = crypto.randomBytes(20).toString('hex');
-        const tokenExpiration = Date.now() + 15 * 60 * 1000; // 15 minutos em milissegundos
+        const tokenExpiration = Date.now() + 15 * 60 * 1000;
 
-        // salva as informações
         user.resetToken = token;
         user.resetTokenExpiration = tokenExpiration;
         await user.save();
@@ -109,6 +108,7 @@ exports.recuperarSenha = async (req, res) => {
     }
 }
 
+// Altera a senha atual
 exports.redefinirSenha = async (req, res) => {
     try {
         const token = req.params.token;
@@ -127,16 +127,16 @@ exports.redefinirSenha = async (req, res) => {
                 },
             }));
 
+        // Verifica se o usuário existe
         if (!user) {
             return res.status(404).json({
                 error: 'Token inválido ou expirado.'
             });
         }
 
-        // Atualizar senha
         const salt = await bcrypt.genSalt(12)
         user.senha = await bcrypt.hash(req.body.senha, salt);
-        user.resetToken = undefined; // Invalida o token
+        user.resetToken = undefined;
         user.resetTokenExpiration = undefined;
         await user.save();
 

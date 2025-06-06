@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 
+// Definição do modelo de Candidato
 const candidatoSchema = mongoose.Schema({
 
     imagem: {

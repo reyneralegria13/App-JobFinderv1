@@ -4,7 +4,7 @@ const Candidatura = require('../models/candidaturaModel');
 const Vaga = require('../models/vagasModel');
 //const Vaga = require('../models/vagasModel');
 
-// rota para a página home
+// Renderiza a página Home
 const getHome = async (req, res) => {
     try {
         res.render('fun/home', {
@@ -20,7 +20,7 @@ const getHome = async (req, res) => {
     }
 }
 
-//rota para a página para escolher cargo
+// Renderiza a página da escolha de cargo
 const getCargo = async (req, res) => {
     try {
         res.render('fun/escolherCargo', {
@@ -36,7 +36,7 @@ const getCargo = async (req, res) => {
     }
 };
 
-//rota para a pagina de login
+// Renderiza a página Login
 const getLogin = async (req, res) => {
     try {
         res.render('fun/login', {
@@ -52,6 +52,7 @@ const getLogin = async (req, res) => {
     }
 };
 
+// Renderiza a página de Recuperar Senha
 const getRecuperarSenha = async (req, res) => {
     try {
         res.render('fun/esqueciSenha', {
@@ -67,12 +68,11 @@ const getRecuperarSenha = async (req, res) => {
     }
 };
 
-// GET: Exibir página de redefinição
+// Renderiza a página de Redefinição de Senha
 const getRedefinirSenha = async (req, res) => {
     try {
         const token = req.params.token;
 
-        // Verificar se o token é válido
         const user =
             await Candidato.findOne({
                 resetToken: token,
@@ -87,6 +87,7 @@ const getRedefinirSenha = async (req, res) => {
                 },
             });
 
+        // Verifica se o usuário existe
         if (!user) {
             return res.status(400).json({
                 error: 'Token inválido ou expirado.'
@@ -107,6 +108,7 @@ const getRedefinirSenha = async (req, res) => {
     }
 };
 
+// Renderiza a página de Criação de Vagas
 const getCriarVagas = (req, res) => {
     try {
         const {
@@ -126,11 +128,13 @@ const getCriarVagas = (req, res) => {
     }
 };
 
+// Renderiza a página de Vagas
 const getVagas = async (req, res) => {
     try {
         const empresaId = req.params.empresaId;
         const empresa = await Empresa.findById(empresaId).populate('vagas');
 
+        // Verifica se a empresa existe
         if (!empresa) {
             return res.status(404).json({
                 message: 'Empresa não encontrada!'
@@ -165,6 +169,7 @@ const getVagas = async (req, res) => {
     }
 };
 
+// Renderiza a página de Candidaturas
 const getCandidaturas = async (req, res) => {
     try {
         const candidatoId = req.user._id; // Obtém o ID do candidato autenticado
@@ -188,7 +193,7 @@ const getCandidaturas = async (req, res) => {
     }
 };
 
-// renderiza a página das candidaturas de uma vaga
+// Renderiza a página de Candidatura
 const visualizarCandidaturas = async (req, res) => {
     try {
         const candidatoId = req.params.candidatoId;
@@ -200,6 +205,7 @@ const visualizarCandidaturas = async (req, res) => {
             .populate('vaga')
             .populate('empresa');
 
+        // Verifica se há candidaturas para a vaga
         if (!candidaturas || candidaturas.length === 0) {
             return res.status(404).send({
                 message: 'Candidaturas não encontradas!'
@@ -237,6 +243,7 @@ const visualizarCandidaturas = async (req, res) => {
     }
 };
 
+// Renderiza a página de Candidatos
 const visualizarCandidatos = async (req, res) => {
     try {
         const empresaId = req.params.empresaId;
@@ -248,6 +255,7 @@ const visualizarCandidatos = async (req, res) => {
             vaga: id
         }).populate('candidato').populate('vaga').populate('empresa');
 
+        // Verifica se há candidaturas para a vaga
         if (!candidaturas) {
             return res.status(404).send({
                 message: 'Candidaturas nao encontradas!'
@@ -270,25 +278,25 @@ const visualizarCandidatos = async (req, res) => {
 
 }
 
+// Renderiza a página de detalhes de uma vaga
 const getVagaDetalhes = async (req, res) => {
     try {
-        const candidatoId = req.user._id; // Obtém o ID do candidato autenticado
-        const vagaId = req.params.vagaId; // Obtém o ID da vaga da URL
+        const candidatoId = req.user._id;
+        const vagaId = req.params.vagaId;
 
-        // Buscar a vaga específica pelo ID
-        const vaga = await Vaga.findById(vagaId).populate('empresa'); // Assumindo que a vaga tem referência à empresa
+        const vaga = await Vaga.findById(vagaId).populate('empresa');
 
+        // Verifica se a vaga existe
         if (!vaga) {
             return res.status(404).json({
                 message: 'Vaga não encontrada!'
             });
         }
 
-        // Renderizar a página com os detalhes da vaga
         res.render('fun/vagaDetalhes', {
             title: vaga.nome,
-            style: 'vagaDetalhes.css', // Adapte conforme o seu arquivo de estilo
-            vaga, // Passa os detalhes da vaga para a view
+            style: 'vagaDetalhes.css',
+            vaga,
             candidatoId
         });
     } catch (erro) {
@@ -300,22 +308,19 @@ const getVagaDetalhes = async (req, res) => {
     }
 };
 
+// Renderiza a página de Edição de Perfil do Candidato
 const visualizarTelaEdicaoCand = async (req, res) => {
     try {
-        // Obtém o ID do candidato a partir dos parâmetros da rota
         const candidatoId = req.params.candidatoId;
-
-        // Busca o candidato no banco de dados pelo ID
         const candidato = await Candidato.findById(candidatoId);
 
-        // Verifica se o candidato foi encontrado
+        // Verifica se o candidato existe
         if (!candidato) {
             return res.status(404).send('Candidato não encontrado');
         }
 
-        // Renderiza a view de edição, passando os dados do candidato
         res.render('can/perfilEditar', {
-            title: 'Edição de Perfil', // Título da página
+            title: 'Edição de Perfil',
             style: 'perfilEditar.css',
             user: candidato,
         });
@@ -328,22 +333,19 @@ const visualizarTelaEdicaoCand = async (req, res) => {
     }
 };
 
+// Renderiza a página de Edição de Perfil da Empresa
 const visualizarTelaEdicaoEmpre = async (req, res) => {
     try {
-        // Obtém o ID do candidato a partir dos parâmetros da rota
         const empresaId = req.params.empresaId;
-
-        // Busca o candidato no banco de dados pelo ID
         const empresa = await Empresa.findById(empresaId);
 
-        // Verifica se o candidato foi encontrado
+        // Verifica se o candidato existe
         if (!empresa) {
             return res.status(404).send('Empresa não encontrada');
         }
 
-        // Renderiza a view de edição, passando os dados do candidato
         res.render('fun/perfilEditar', {
-            title: 'Edição de Perfil', // Título da página
+            title: 'Edição de Perfil',
             style: 'editarPerfilEmpresa.css',
             user: empresa,
         });
