@@ -189,7 +189,7 @@ const getCandidaturas = async (req, res) => {
 };
 
 // renderiza a página das candidaturas de uma vaga
-const getCandidaturasc = async (req, res) => {
+const visualizarCandidaturas = async (req, res) => {
     try {
         const candidatoId = req.params.candidatoId;
 
@@ -237,7 +237,7 @@ const getCandidaturasc = async (req, res) => {
     }
 };
 
-const Vercandidatos = async (req, res) => {
+const visualizarCandidatos = async (req, res) => {
     try {
         const empresaId = req.params.empresaId;
         const {
@@ -366,8 +366,8 @@ module.exports = {
     getVagaDetalhes,
     getVagas,
     getCandidaturas,
-    getCandidaturasc,
-    Vercandidatos,
+    visualizarCandidaturas,
+    visualizarCandidatos,
     visualizarTelaEdicaoCand,
     visualizarTelaEdicaoEmpre
 }

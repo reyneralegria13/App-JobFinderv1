@@ -96,7 +96,7 @@ const getPerfilCandidato = async (req, res) => {
 };
 
 //validação de cadastro de candidato
-const cadastroCandidato = async (req, res) => {
+const cadastrarCandidato = async (req, res) => {
     //Caso seja usado o "confirmar senha"
     /*if(senha != confirmarSenha){
         return res.status(422).json({mgs:"As senhas não confere!"})
@@ -193,7 +193,7 @@ const verVaga = async (req, res) => {
 };
 
 // Rota para buscar vagas
-const buscarvagas = async (req, res) => {
+const buscarVagas = async (req, res) => {
     try {
         const {
             q
@@ -244,7 +244,7 @@ const buscarvagas = async (req, res) => {
     }
 };
 
-const candidatarse = async (req, res) => {
+const candidatarAVaga = async (req, res) => {
     try {
         // Obtém o ID da vaga a partir dos parâmetros da URL
         const {
@@ -398,7 +398,7 @@ const cancelarCandidatura = async (req, res) => {
     }
 };
 
-const editarPerfilCandidato = async (req, res) => {
+const updatePerfil = async (req, res) => {
     try {
         const candidatoId = req.params.candidatoId;
         const {
@@ -457,12 +457,12 @@ module.exports = {
     dashboardCandidato,
     getCadastroCandidato,
     getPerfilCandidato,
-    cadastroCandidato,
+    cadastrarCandidato,
     verVaga,
-    buscarvagas,
-    candidatarse,
+    buscarVagas,
+    candidatarAVaga,
     verCandidatura,
     cancelarCandidatura,
-    editarPerfilCandidato,
+    updatePerfil,
     isAuthenticated
 };
