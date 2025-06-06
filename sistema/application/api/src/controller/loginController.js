@@ -15,17 +15,14 @@ exports.realizarLogin = async (req, res) => {
             email
         });
 
-        if (!user) {
-            user = await Empresa.findOne({
-                email
-            });
-        }
+        // Verifica se o candidato existe
         if (!user) {
             return res.status(401).json({
                 error: 'E-mail ou senha inválidos.'
             });
         }
 
+        // Verifica se as senhas estão certas
         const isValidPassword = await bcrypt.compare(senha, user.senha);
         if (!isValidPassword) {
             return res.status(401).json({
@@ -70,6 +67,7 @@ exports.recuperarSenha = async (req, res) => {
             email: req.body.email
         });
 
+        // Verifica se o usuário existe
         if (!user) {
             return res.status(404).json({
                 error: 'E-mail não encontrado.'
@@ -129,6 +127,7 @@ exports.redefinirSenha = async (req, res) => {
                 },
             }));
 
+        // Verifica se o usuário existe
         if (!user) {
             return res.status(404).json({
                 error: 'Token inválido ou expirado.'

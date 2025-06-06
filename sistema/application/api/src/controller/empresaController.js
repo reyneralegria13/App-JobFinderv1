@@ -13,6 +13,7 @@ const dashboardEmpresa = async (req, res) => {
         const candidatos = await candidato.find();
         console.log('Produtos encontrados:', candidatos);
 
+        // Converte a imagem em Base64
         const candidatosComImagens = candidatos.map(candidato => {
             let imagemBase64 = null;
             if (candidato.imagem && candidato.imagem.data) {
@@ -67,6 +68,7 @@ const getEmpresa = async (req, res) => {
         } = req.params;
         const empresa = await Empresa.findById(empresaId);
 
+        // Verifica se a empresa existe
         if (!empresa) {
             res.status(404).json({
                 message: "Empresa não encontrada!"
@@ -95,7 +97,7 @@ const createEmpresa = async (req, res) => {
             cnpj: req.body.cnpj
         });
         
-        // verifica se há alguma empresa existente
+        // Verifica se há alguma empresa existente
         if (empresa) {
             return res.status(409).json({
                 message: "Empresa já cadastrada!"
@@ -143,6 +145,7 @@ const updateEmpresa = async (req, res) => {
         } = req.params;
         const empresa = await Empresa.findByIdAndUpdate(empresaId);
 
+        // Verifica se a empresa existe
         if (!empresa) {
             res.status(404).json({
                 message: "Empresa não encontrada!"
@@ -177,7 +180,7 @@ const deleteEmpresa = async (req, res) => {
         } = req.params;
         const delEmpresa = await Empresa.findByIdAndDelete(id);
 
-
+        // Verifica se a empresa existe
         if (!delEmpresa) {
             return res.status(404).json({
                 message: "Empresa não encontrada!"
@@ -317,6 +320,7 @@ const updateStatus = async (req, res) => {
             }
         );
 
+        // Verifica se a candidatura existe
         if (!candidaturaAtualizada) {
             return res.status(404).send({
                 message: 'Candidatura não encontrada!'

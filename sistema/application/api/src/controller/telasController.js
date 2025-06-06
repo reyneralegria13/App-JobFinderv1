@@ -87,6 +87,7 @@ const getRedefinirSenha = async (req, res) => {
                 },
             });
 
+        // Verifica se o usuário existe
         if (!user) {
             return res.status(400).json({
                 error: 'Token inválido ou expirado.'
@@ -133,6 +134,7 @@ const getVagas = async (req, res) => {
         const empresaId = req.params.empresaId;
         const empresa = await Empresa.findById(empresaId).populate('vagas');
 
+        // Verifica se a empresa existe
         if (!empresa) {
             return res.status(404).json({
                 message: 'Empresa não encontrada!'
@@ -203,6 +205,7 @@ const visualizarCandidaturas = async (req, res) => {
             .populate('vaga')
             .populate('empresa');
 
+        // Verifica se há candidaturas para a vaga
         if (!candidaturas || candidaturas.length === 0) {
             return res.status(404).send({
                 message: 'Candidaturas não encontradas!'
@@ -252,6 +255,7 @@ const visualizarCandidatos = async (req, res) => {
             vaga: id
         }).populate('candidato').populate('vaga').populate('empresa');
 
+        // Verifica se há candidaturas para a vaga
         if (!candidaturas) {
             return res.status(404).send({
                 message: 'Candidaturas nao encontradas!'
@@ -282,6 +286,7 @@ const getVagaDetalhes = async (req, res) => {
 
         const vaga = await Vaga.findById(vagaId).populate('empresa');
 
+        // Verifica se a vaga existe
         if (!vaga) {
             return res.status(404).json({
                 message: 'Vaga não encontrada!'
@@ -309,7 +314,7 @@ const visualizarTelaEdicaoCand = async (req, res) => {
         const candidatoId = req.params.candidatoId;
         const candidato = await Candidato.findById(candidatoId);
 
-        // Verifica se o candidato foi encontrado
+        // Verifica se o candidato existe
         if (!candidato) {
             return res.status(404).send('Candidato não encontrado');
         }
@@ -334,7 +339,7 @@ const visualizarTelaEdicaoEmpre = async (req, res) => {
         const empresaId = req.params.empresaId;
         const empresa = await Empresa.findById(empresaId);
 
-        // Verifica se o candidato foi encontrado
+        // Verifica se o candidato existe
         if (!empresa) {
             return res.status(404).send('Empresa não encontrada');
         }

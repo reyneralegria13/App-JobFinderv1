@@ -77,6 +77,7 @@ const getPerfilCandidato = async (req, res) => {
         const id = req.params.candidatoId;
         const candidato = await Candidato.findById(id, '-senha');
 
+        // Verifica se o candidato existe
         if (!candidato) {
             return res.status(404).send("Candidato não encontrado");
         }
@@ -108,6 +109,7 @@ const cadastrarCandidato = async (req, res) => {
             email: req.body.email
         })
 
+        // Verifica se o candidato existe 
         if (userExiste) {
             return res.status(422).json({
                 mgs: "Email já utilizado no sistema. Por favor, escolher outro."

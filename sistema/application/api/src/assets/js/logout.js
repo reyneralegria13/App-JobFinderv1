@@ -1,13 +1,12 @@
-//para usar quando tiver um botão para encerrar/sair da sessão/conta
-
 const logoutBtn = document.getElementById("logout");
 
+// Verifica se o botão de logout existe
 if (logoutBtn) {
-<<<<<<< HEAD
     try {
+      // Remove o token de sessão
         logoutBtn.addEventListener("click", () => {
-        localStorage.removeItem("token"); // Remove o token
-        window.location.href = "/login"; // Redireciona para a tela de login
+        localStorage.removeItem("token");
+        window.location.href = "/login";
     });
     } catch (erro) {
         console.error(erro);
@@ -15,10 +14,3 @@ if (logoutBtn) {
     }
   
 }
-=======
-  logoutBtn.addEventListener("click", () => {
-    localStorage.removeItem("token"); // Remove o token
-    window.location.href = "/login"; // Redireciona para a tela de login
-  });
-}
->>>>>>> f4030cb (♻️ refactor: ajuste de identação com 4 espaços #77)

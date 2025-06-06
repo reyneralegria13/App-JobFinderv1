@@ -47,6 +47,7 @@ exports.isEmpresa = (req, res, next) => {
     }
 };
 
+// Verifica se a sessão do usuário é de Candidato
 exports.isCandidato = (req, res, next) => {
     try {
         if (req.session.user && req.session.user.role === 'candidato') {
@@ -62,6 +63,7 @@ exports.isCandidato = (req, res, next) => {
     }
 };
 
+// Verifica se a sessão do usuário é de Empresa
 exports.isEmpresa = (req, res, next) => {
     try {
         if (req.session.user && req.session.user.role === 'empresa') {
