@@ -38,9 +38,20 @@ para um aplicativo como o JobFinder se destacar. Através da implementação de 
 ### 1.2 Objetivos do Projeto
 Para solidificar o JobFinder como a principal ferramenta de recrutamento em Itacoatiara e garantir que o investimento de tempo e recursos se traduza em valor real para a comunidade, foram estabelecidos objetivos claros e mensuráveis que guiarão o desenvolvimento e medirão o sucesso do projeto.
 
-O foco inicial, nos primeiros quatro meses após o lançamento oficial, será a construção de uma base de usuários robusta, visando alcançar a marca de 500 candidatos com perfis detalhados e qualificados. Simultaneamente, a meta para a adoção por parte do mercado empregador é consolidar a adesão de 30 empresas locais ativas na plataforma até o final do primeiro semestre de 2027, estabelecendo assim um ecossistema sólido e de confiança. Uma vez firmada essa base, o sucesso contínuo da plataforma será medido pelo seu engajamento, com o desafio de gerar um volume sustentável de, no mínimo, 200 candidaturas a vagas por mês a partir do terceiro mês de operação. Este engajamento será suportado pela publicação de uma média constante de 10 novas oportunidades de emprego semanalmente.
+O foco inicial, nos primeiros quatro meses após o lançamento oficial, será a construção de uma base de usuários robusta, visando alcançar a marca de 200 candidatos com perfis detalhados e qualificados. Simultaneamente, a meta para a adoção por parte do mercado empregador é consolidar a adesão de 20 empresas locais ativas na plataforma até o final do primeiro semestre de 2027, estabelecendo assim um ecossistema sólido e de confiança. Uma vez firmada essa base, o sucesso contínuo da plataforma será medido pelo seu engajamento, com o desafio de gerar um volume sustentável de, no mínimo, 50 candidaturas a vagas por mês a partir do terceiro mês de operação. Este engajamento será suportado pela publicação de uma média constante de 05 novas oportunidades de emprego semanalmente.
 
 Paralelamente a essas metas de crescimento, a qualidade da experiência do usuário é um pilar fundamental e inegociável. Portanto, o projeto se compromete a otimizar a usabilidade da plataforma para que o tempo médio de publicação de uma vaga por um novo empregador seja consistentemente inferior a cinco minutos. A satisfação geral dos usuários, tanto candidatos quanto empregadores, será monitorada de perto através de pesquisas trimestrais, com o objetivo de manter uma avaliação média superior a 4.0, em uma escala de 1 a 5, garantindo que o JobFinder não apenas funcione, mas encante seus usuários.
+
+#### 1.2.1 Quadro dos Objetivos
+
+| Categoria                 | Objetivo                            | Métrica / Indicador-Chave (KPI)           | Prazo / Período de Aferição          |
+| ------------------------- | ----------------------------------- | ----------------------------------------- | ------------------------------------ |
+| **Adoção da Plataforma** | Adesão de Empresas Locais           | 20 empresas ativas publicando vagas       | Até o final do 1º semestre de 2027   |
+| **Adoção da Plataforma** | Base de Candidatos Qualificados     | 200 candidatos com perfil > 80% completo  | Nos primeiros 4 meses após o lançamento |
+| **Engajamento e Utilização** | Volume de Candidaturas            | Mínimo de 50 candidaturas por mês        | A partir do 3º mês de operação       |
+| **Engajamento e Utilização** | Fluxo de Novas Vagas                | Média de 05 novas vagas por semana        | Após o 1º trimestre de lançamento    |
+| **Qualidade e Satisfação** | Usabilidade na Publicação de Vaga   | Tempo médio < 5 minutos                   | Medição contínua                     |
+| **Qualidade e Satisfação** | Satisfação Geral do Usuário         | Nota média > 4.0 (em escala de 1 a 5)     | Pesquisas trimestrais                |
 
 
 #### 1.3	Caracterização do Projeto
