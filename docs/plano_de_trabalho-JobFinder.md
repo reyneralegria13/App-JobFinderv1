@@ -6,15 +6,6 @@
 | **Executor Principal:**| Mayro Oliveira Sá |
 | **Coordenador do Projeto:**| Andey Rodrigues|
 
-## HISTÓRICO DE VERSÕES
-|Versão | Descrição|Autor | Data|
-|-------------|-------------|-------------|-------------|
-|1.0 | Elaboração do Plano de Trabalho|Reyner Alegria | 07/06/2024|
-|1.0|Criação do Backlog do Produto|Reyner Alegria|17/06/2024|
-|1.0|Inspeção externa|Anônimo|03/07/2024|
-|1.0|Correção do Backlog do produto|João Paulo|03/07/2024|
-|1.0|Arquitetura do Sistema|Reyner Alegria|03/07/2024|
-
 ### 1.	INTRODUÇÃO
  O mercado de trabalho está em constante evolução, e a busca por empregos locais pode ser um desafio tanto para candidatos quanto para empregadores. Com o objetivo de facilitar esse processo, o sistema JobFinder foi idealizado para conectar candidatos a oportunidades de emprego em suas regiões de forma eficiente e intuitiva.
 
