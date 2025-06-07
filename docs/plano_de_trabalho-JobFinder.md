@@ -27,30 +27,28 @@ candidatos quanto para empregadores. Muitos candidatos enfrentam dificuldades em
 vagas que correspondam às suas habilidades e preferências, enquanto empregadores têm 
 dificuldade em atrair candidatos qualificados para suas vagas. A motivação para o desenvolvimento do JobFinder é criar uma plataforma que simplifique e agilize esse processo, conectando candidatos e empregadores de maneira eficiente e intuitiva. 
 #### Justificativa:
-A justificativa para o desenvolvimento do JobFinder baseia-se na necessidade crescente de ferramentas digitais que facilitem a busca por empregos locais. Com o aumento do uso de dispositivos móveis, um aplicativo dedicado a essa finalidade pode oferecer uma experiência mais acessível e conveniente para os usuários. Além disso, a plataforma pode ajudar a reduzir o tempo e os custos associados ao recrutamento, beneficiando tanto candidatos quanto empregadores. 
+A justificativa para o desenvolvimento do JobFinder baseia-se na necessidade crescente de ferramentas digitais que facilitem a busca por empregos locais. Com o aumento do uso de tecnologias digitais, um sistema web dedicado a essa finalidade pode oferecer uma experiência mais acessível e conveniente para os usuários. Além disso, a plataforma pode ajudar a reduzir o tempo e os custos associados ao recrutamento, beneficiando tanto candidatos quanto empregadores. 
 #### Oportunidade:
-O mercado de trabalho está em constante evolução, e há uma oportunidade significativa 
-para um aplicativo como o JobFinder se destacar. Através da implementação de funcionalidades inovadoras, como filtros de pesquisa avançados, notificações personalizadas e avaliações de empregadores, o JobFinder pode atrair uma base de usuários ampla e diversificada. Além disso, parcerias com empresas locais e agências de recrutamento podem expandir ainda mais o alcance e a eficácia do aplicativo, tornando-o uma ferramenta indispensável no mercado de trabalho local 
+O mercado de trabalho está em constante evolução, e há uma oportunidade significativa para um sistema como o JobFinder se destacar. Através da implementação de funcionalidades inovadoras, como filtros de pesquisa avançados, o JobFinder pode atrair uma base de usuários ampla e diversificada. Além disso, parcerias com empresas locais e agências de recrutamento podem expandir ainda mais o alcance e a eficácia do site, tornando-o uma ferramenta indispensável no mercado de trabalho local 
 
-#### 1.3	Caracterização do Projeto
-### 1.3.1	Classe
-|Classe | Detalhamento |
+### 1.3.1 Classe
+| Classe | Detalhamento |
 |-------------|-------------|
-| Aplicativo Móvel|Aplicativo desenvolvido para plataformas iOS e Android, com funcionalidades de pedido, pagamento e rastreamento de entregas em tempo real.|
+| **Plataforma Web** | Sistema desenvolvido como aplicação web responsiva, com funcionalidades de cadastro, busca e gerenciamento de vagas de emprego, acessível via navegadores modernos. |
 
-### 1.3.2	Enquadrabilidade
-| **Enquadrabilidade**| **Detalhamento** |
+### 1.3.2 Enquadrabilidade
+| **Enquadrabilidade** | **Detalhamento** |
 |-------------|-------------|
-| **Aplicativo Publico**|O aplicativo segue as regulamentações da (Lei Geral de Proteção de Dados) LGPD garantido os dados dos usuários sejam coletados, armazenados e processados de forma segura.|
+| **Sistema Público** | A plataforma segue as regulamentações da LGPD (Lei Geral de Proteção de Dados), garantindo que os dados dos usuários sejam coletados, armazenados e processados de forma segura e em conformidade. |
 
-### 1.3.3	Tipo
-|Tipo | Detalhamento |
+### 1.3.3 Tipo
+| Tipo | Detalhamento |
 |-------------|-------------|
-| Desenvolvimento de Software |Criação de um aplicativo com backend em nuvem, interface de usuário responsiva, integrações com APIs de geolocalização e notificações push, e funcionalidades de busca e aplicação para vagas de emprego.|
+| **Desenvolvimento Web** | Criação de uma plataforma web com: <br>- Backend em nuvem <br>- Interface responsiva <br>- Integração com APIs de geolocalização <br>- Sistema de notificações por e-mail <br>- Funcionalidades completas de busca e candidatura para vagas |
 
 ### 2.	INFORMAÇÕES GERAIS
 ### 2.1	Objetivo Geral
-O objetivo principal do projeto JobFinder é desenvolver um aplicativo móvel que facilite a busca e a oferta de empregos locais. O JobFinder visa conectar candidatos a oportunidades de emprego em suas regiões de forma eficiente e intuitiva, proporcionando uma plataforma que permita a busca de vagas, aplicação direta, notificações personalizadas e avaliações de empregadores. O aplicativo busca simplificar o processo de recrutamento e seleção, beneficiando tanto candidatos quanto empregadores, e promovendo o desenvolvimento econômico e social nas comunidades locais
+O objetivo principal do projeto JobFinder é desenvolver uma plataforma web que facilite a busca e a oferta de empregos locais. O JobFinder visa conectar candidatos a oportunidades de emprego em suas regiões de forma eficiente e intuitiva, proporcionando uma plataforma que permita a busca de vagas, aplicação direta, notificações personalizadas e avaliações de empregadores. A plataforma busca simplificar o processo de recrutamento e seleção, beneficiando tanto candidatos quanto empregadores, e promovendo o desenvolvimento econômico e social nas comunidades locais
 
 ### 2.2 Objetivos Específicos
 Para solidificar o JobFinder como a principal ferramenta de recrutamento em Itacoatiara e garantir que o investimento de tempo e recursos se traduza em valor real para a comunidade, foram estabelecidos objetivos claros e mensuráveis que guiarão o desenvolvimento e medirão o sucesso do projeto.
@@ -79,7 +77,7 @@ O projeto JobFinder abrangerá o desenvolvimento de um site web destinado a faci
 *	Busca de Vagas: Implementação de um sistema de busca que permita aos usuários encontrar vagas de emprego por localização, categoria e palavra-chave.
 *	Filtros de Pesquisa: Desenvolvimento de filtros avançados para refinar os resultados da busca, como faixa salarial, tipo de contrato, nível de experiência, entre outros.
 *	Perfil do Usuário: Criação de perfis de usuário onde candidatos podem adicionar informações pessoais, experiências profissionais, habilidades e preferências de emprego.
-*	Aplicação Direta: Funcionalidade que permita aos usuários aplicar diretamente para vagas através do aplicativo, com a possibilidade de anexar currículos e cartas de apresentação.
+*	Aplicação Direta: Funcionalidade que permita aos usuários aplicar diretamente para vagas através da plataforma, com a possibilidade de anexar currículos e cartas de apresentação.
 
 
 #### Metodologia de Desenvolvimento: 
@@ -139,31 +137,31 @@ O projeto JobFinder abrangerá o desenvolvimento de um site web destinado a faci
 *	Suporte ao usuário através de canais de atendimento (e-mail, chat, FAQ).
 
 ### 2.2.2	Escopo Negativo
-* Escopo negativo define as funcionalidades e características que não serão incluídas no desenvolvimento do aplicativo JobFinder. Isso ajuda a estabelecer limites claros para o projeto e a evitar expectativas não realistas.
+* Escopo negativo define as funcionalidades e características que não serão incluídas no desenvolvimento da plataforma JobFinder. Isso ajuda a estabelecer limites claros para o projeto e a evitar expectativas não realistas.
 
 #### Funcionalidades Excluídas
 *	Integração com Redes Sociais para Compartilhamento de Vagas:
-*	O aplicativo não permitirá o compartilhamento de vagas diretamente em redes sociais como Facebook, Twitter ou LinkedIn.
+*	A plataforma web não permitirá o compartilhamento de vagas diretamente em redes sociais como Facebook, Twitter ou LinkedIn.
 
 #### Funcionalidades de Mensagens Instantâneas:
-*	Não haverá um sistema de mensagens instantâneas integrado para comunicação direta entre candidatos e empregadores dentro do aplicativo.
+*	Não haverá um sistema de mensagens instantâneas integrado para comunicação direta entre candidatos e empregadores dentro da plataforma.
 
 #### Suporte a Múltiplos Idiomas:
-*	O aplicativo será desenvolvido inicialmente apenas em um idioma (por exemplo, português), sem suporte para múltiplos idiomas na versão inicial.
+*	A plataforma será desenvolvida inicialmente apenas em um idioma (português), sem suporte para múltiplos idiomas na versão inicial.
 
 #### Funcionalidades de Vídeo Entrevistas:
-*	O aplicativo não incluirá funcionalidades para realizar entrevistas por vídeo diretamente na plataforma.
+*	A plataforma não incluirá funcionalidades para realizar entrevistas por vídeo diretamente na plataforma.
 
 #### Integração com Plataformas de Pagamento:
 *	Não haverá integração com gateways de pagamento para funcionalidades premium ou anúncios pagos na versão inicial.
 
 #### Funcionalidades de Rede Social:
-*	O aplicativo não funcionará como uma rede social, portanto, não haverá funcionalidades como criação de grupos, postagens de status ou compartilhamento de conteúdo entre usuários.
+*	A plataforma não funcionará como uma rede social, portanto, não haverá funcionalidades como criação de grupos, postagens de status ou compartilhamento de conteúdo entre usuários.
 
 #### Análise Avançada de Dados:
 * Funcionalidades de análise avançada de dados, como relatórios detalhados de desempenho de candidatos ou empregadores, não serão incluídas na versão inicial.
 Suporte Offline:
-*	O aplicativo não oferecerá suporte para uso offline; será necessário estar conectado à internet para acessar todas as funcionalidades.
+*	A plataforma não oferecerá suporte para uso offline; será necessário estar conectado à internet para acessar todas as funcionalidades.
 
 
 #### Características Excluídas
@@ -171,13 +169,10 @@ Suporte Offline:
 *	Não haverá opções para personalização extensiva da interface do usuário, como temas ou esquemas de cores personalizados.
 
 #### Integração com Ferramentas de RH:
-*	O aplicativo não será integrado com ferramentas de gestão de recursos humanos (RH) ou sistemas de rastreamento de candidatos (ATS).
+*A plataforma não será integrado com ferramentas de gestão de recursos humanos (RH) ou sistemas de rastreamento de candidatos (ATS).
 
 #### Funcionalidades de Gamificação:
-*	Não serão incluídas funcionalidades de gamificação, como pontos, medalhas ou recompensas por atividades no aplicativo.
-
-#### Suporte a Dispositivos Wearables:
-*	O aplicativo não será compatível com dispositivos wearables, como smartwatches, na versão inicial.
+*	Não serão incluídas funcionalidades de gamificação, como pontos, medalhas ou recompensas por atividades na plataforma.
 
 ### 2.3 Características Inovadoras do Projeto
 
@@ -258,8 +253,8 @@ __Gerente de Projeto:__
 *	Ajuda a equipe a melhorar continuamente e a alcançar um desempenho elevado.
 
 #### Equipe de Desenvolvimento:
-*	Composta por desenvolvedores especializados em iOS e Android.
-*	Responsáveis por codificar o aplicativo, implementar as funcionalidades definidas e integrar APIs e serviços externos.
+*	Composta por desenvolvedores especializados em desenvolvimento web.
+*	Responsáveis por codificar a plataforma web, implementar as funcionalidades definidas e integrar APIs e serviços externos.
 *	Equipe auto-organizada e multifuncional que trabalha em conjunto para completar as tarefas do sprint.
 
 #### Equipe de Design:
@@ -268,18 +263,18 @@ __Gerente de Projeto:__
 
 #### Equipe de Testes:
 *	Composta por testadores de software.
-*	Responsáveis por realizar testes unitários, de integração e de sistema, identificar bugs e garantir a qualidade do aplicativo.
+*	Responsáveis por realizar testes unitários, de integração e de sistema, identificar bugs e garantir a qualidade da plataforma.
 
 #### Analistas de Negócios:
 *	Responsáveis por entender as necessidades dos usuários e traduzir essas necessidades em requisitos técnicos.
 *	Trabalham em estreita colaboração com a equipe de desenvolvimento para garantir que os requisitos sejam atendidos.
 
 #### Equipe de Marketing:
-*	Responsável por planejar e executar estratégias de marketing para o lançamento do aplicativo.
+*	Responsável por planejar e executar estratégias de marketing para o lançamento da plataforma.
 *	Inclui especialistas em marketing digital, redes sociais e relações públicas.
 
 #### Equipe de Suporte ao Cliente:
-*	Responsável por fornecer suporte aos usuários do aplicativo, responder a dúvidas e resolver problemas técnicos.
+*	Responsável por fornecer suporte aos usuários da plataforma, responder a dúvidas e resolver problemas técnicos.
 *	Inclui agentes de suporte e especialistas em atendimento ao cliente.
   
 ### 4.2	Equipe de Projeto: Papéis e Responsabilidades dos integrantes
@@ -293,33 +288,16 @@ __Gerente de Projeto:__
 | Avaliador de Inspeção | Calil Lima |
 | Programador de Desenvolvimento | João Carlos |
 
-### 4.3	Fases, Atividades e Cronograma
-
-__Fase I: Especificação – Junho:__
-+ Definição do Escopo e Objetivos 
-+ Levantamento de Requisitos 
-+ Desenho do Modelo de Dados 
-
-__Fase II: Inspeção – Julho:__
-
-__Fase III: Projeto e Arquitetura – Julho:__
-
-__Fase IV: Prototipagem e Refinamento – Julho:__
-
-__Fase V: Prototipagem e Refinamento – Julho:__
-
-__Fase VI: Encerramento – Julho__
-
-### 4.4	Entregas de cada Fase
-| Fase|Mês |Entregável |
+### 4.3	Cronograma
+| Tasks |Mês |Descrição |
 |-------------|-------------|-------------|
-| I.	Especificação  |  Junho| Personas, User Stories, Critérios de Aceitação e Regras de Negócio  |
-| II.	Inspeção | Julho  | Planilha dos defeitos encontrados e relatório detalhado do processo de inspeção |
-| III.	Projeto e Arquitetura | Outubro | Foi produzido os diagramas de componentes e implantação | 
-| IV.	Prototipagem e Refinamento| Novembro | Foi realizado a prototiáção pelo figma e preparação para o BackEnd | 
-| V.	Encerramento | Dezembro | Conclusão do website JobFinder. | 
+| I. Tratamentos  |  Junho| Tratamentos de erros e respostas do sistema  |
+| II.	Refactory | Julho  | Alterção na organização das pastas do projeto|
+| III. Implementação  de requisitos | Outubro | Implementar requisitos faltantes, apresentados na [documentação](https://github.com/reyneralegria13/App-JobFinderv1/blob/doc_business_models/docs/plano_de_trabalho-JobFinder.md) do sistema.| 
+| IV.	Implementação  de requisitos | Novembro | Implementar requisitos faltantes, apresentados na [documentação](https://github.com/reyneralegria13/App-JobFinderv1/blob/doc_business_models/docs/plano_de_trabalho-JobFinder.md) do sistema. | 
+| V.	Front-end | Dezembro | Desenvolver o front-end do projeto | 
 
-### 4.5	Controle de Mudanças
+### 4.4	Controle de Mudanças
 O monitoramento e controle do escopo do projeto serão realizados a partir das seguintes diretrizes:
 *	Requisitos do projeto devem ser compreendidos por todos os membros da equipe.
 *	Todas as questões técnicas, de entregas e do cronograma que a equipe do projeto possui devem ser respondidas.
