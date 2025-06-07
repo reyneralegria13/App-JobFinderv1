@@ -249,8 +249,42 @@ Suporte Offline:
 #### Crescimento de 25% na Base de Usuários a Cada Trimestre:
 *	Espera-se um crescimento de 25% na base de usuários a cada trimestre, expandindo o alcance do JobFinder e atraindo mais candidatos e empregadores.
 
-### 3.	METODOLOGIA DE PROJETO
-### 3.1	Estrutura do Projeto
+## 3. Gerenciamento de Riscos
+
+Esta seção visa identificar, analisar e planejar respostas aos riscos potenciais que podem impactar negativamente o cronograma, o orçamento, o escopo ou a qualidade do projeto JobFinder. A gestão proativa de riscos é um pilar para garantir a viabilidade e o sucesso da plataforma em seu lançamento e operação.
+
+### 3.1 Definição de Níveis de Impacto e Probabilidade
+
+Para uma análise consistente, os riscos serão classificados utilizando as seguintes escalas:
+
+* **Probabilidade:** A chance de um determinado risco ocorrer.
+    * **Alta:** É muito provável que o risco se materialize durante o ciclo de vida do projeto.
+    * **Média:** Existe uma boa chance de o risco ocorrer.
+    * **Baixa:** É improvável, mas possível, que o risco ocorra.
+
+* **Impacto:** A magnitude do dano caso o risco se materialize.
+    * **Alto:** Causaria danos severos ao projeto, podendo comprometer seus objetivos principais, levar ao cancelamento ou causar grande perda financeira/reputacional.
+    * **Médio:** Causaria transtornos significativos, exigindo ajustes em cronogramas, custos ou escopo, mas o projeto continuaria viável.
+    * **Baixo:** Causaria pequenos transtornos, com consequências facilmente gerenciáveis e pouco ou nenhum efeito nos objetivos gerais.
+
+### 3.2 Matriz de Riscos
+
+A tabela a seguir detalha os principais riscos identificados para o projeto JobFinder, sua classificação e as ações propostas para mitigá-los ou preparar planos de contingência.
+
+| Risco (ID) | Descrição do Risco | Probabilidade | Impacto | Plano de Ação (Mitigação / Contingência) |
+| :--- | :--- | :--- | :--- | :--- |
+| **RIS-01** | **Baixa Adesão Inicial (Problema do "Ovo e a Galinha")** | Alta | Alto | **Mitigação:** Realizar uma campanha de pré-lançamento focada em cadastrar um grupo inicial de 15-20 empresas parceiras de Itacoatiara, oferecendo benefícios (ex: 3 meses de publicação gratuita). Lançar para os candidatos apenas quando já houver um volume mínimo de vagas reais na plataforma. |
+| **RIS-02** | **Qualidade Insuficiente dos Dados Cadastrados** | Média | Médio | **Mitigação:** Implementar validações rigorosas nos formulários (campos obrigatórios, máscaras para formatos). Criar um sistema de "Força do Perfil" para incentivar candidatos a completarem suas informações. **Contingência:** Desenvolver uma funcionalidade de "Denunciar Vaga/Perfil" e estabelecer um processo administrativo para revisar e remover conteúdos inadequados. |
+| **RIS-03** | **Falha de Segurança e Vazamento de Dados** | Baixa | Alto | **Mitigação:** Seguir as melhores práticas de segurança (OWASP Top 10). Utilizar HTTPS em toda a aplicação, armazenar senhas com algoritmos de hash com "salt" (ex: Argon2, bcrypt). Realizar auditorias de segurança antes do lançamento. **Contingência:** Ter um plano de resposta a incidentes definido para comunicação transparente com os usuários e ações corretivas imediatas. |
+| **RIS-04** | **Problemas de Desempenho e Lentidão com o Crescimento** | Média | Médio | **Mitigação:** Otimizar consultas ao banco de dados desde o início. Utilizar estratégias de cache para dados frequentemente acessados. Realizar testes de carga simulando o acesso de centenas de usuários de Itacoatiara para identificar gargalos antes do lançamento. **Contingência:** Contratar um plano de hospedagem que permita escalabilidade rápida (aumento de memória/CPU) caso o desempenho comece a degradar. |
+| **RIS-05** | **Concorrência com Métodos Informais Estabelecidos** | Média | Médio | **Mitigação:** Focar a comunicação nos diferenciais da plataforma: organização, filtros avançados, segurança e um canal direto, que são superiores a grupos de WhatsApp ou Facebook. Criar conteúdo educativo para o público local sobre como ter um perfil profissional e se destacar. |
+| **RIS-06** | **Indisponibilidade de Membro Chave da Equipe** | Baixa | Médio | **Mitigação:** Manter toda a documentação do projeto atualizada e centralizada (no GitHub, como já está sendo feito). Incentivar a prática de "code review" para que mais de um membro da equipe conheça as diferentes partes do código. |
+
+---
+
+
+### 4.	METODOLOGIA DE PROJETO
+### 4.1	Estrutura do Projeto
 __Organização e Estrutura do Projeto__
 __Gerente de Projeto:__
 *	Responsável por coordenar todas as atividades do projeto, garantir que os prazos sejam cumpridos e que os objetivos sejam alcançados.
@@ -291,18 +325,18 @@ __Gerente de Projeto:__
 *	Responsável por fornecer suporte aos usuários do aplicativo, responder a dúvidas e resolver problemas técnicos.
 *	Inclui agentes de suporte e especialistas em atendimento ao cliente.
   
-### 3.2	Equipe de Projeto: Papéis e Responsabilidades dos integrantes
+### 4.2	Equipe de Projeto: Papéis e Responsabilidades dos integrantes
 | Responsabilidade|Profissional |
 |-------------|-------------|
-| Scrum Master |  Mayro Sá|
+| Scrum Master | Felipe William |
 | Modelador| João Paulo|
 | Analista de Requisitos  | Nicolas Rocha |
 | Prototipação  |Reyner Alegria |
-| Avaliador de Inspeção | Felipe William |
-| Avaliador de Inspeção | João Carlos |
-| Programador de Desenvolvimento | Calil Lima|
+| Avaliador de Inspeção | Mayro Sá |
+| Avaliador de Inspeção | Calil Lima |
+| Programador de Desenvolvimento | João Carlos |
 
-### 3.3	Fases, Atividades e Cronograma
+### 4.3	Fases, Atividades e Cronograma
 
 __Fase I: Especificação – Junho:__
 + Definição do Escopo e Objetivos 
@@ -319,7 +353,7 @@ __Fase V: Prototipagem e Refinamento – Julho:__
 
 __Fase VI: Encerramento – Julho__
 
-### 3.4	Entregas de cada Fase
+### 4.4	Entregas de cada Fase
 | Fase|Mês |Entregável |
 |-------------|-------------|-------------|
 | I.	Especificação  |  Junho| Personas, User Stories, Critérios de Aceitação e Regras de Negócio  |
@@ -328,7 +362,7 @@ __Fase VI: Encerramento – Julho__
 | IV.	Prototipagem e Refinamento| Novembro | Foi realizado a prototiáção pelo figma e preparação para o BackEnd | 
 | V.	Encerramento | Dezembro | Conclusão do website JobFinder. | 
 
-### 3.5	Controle de Mudanças
+### 4.5	Controle de Mudanças
 O monitoramento e controle do escopo do projeto serão realizados a partir das seguintes diretrizes:
 *	Requisitos do projeto devem ser compreendidos por todos os membros da equipe.
 *	Todas as questões técnicas, de entregas e do cronograma que a equipe do projeto possui devem ser respondidas.
