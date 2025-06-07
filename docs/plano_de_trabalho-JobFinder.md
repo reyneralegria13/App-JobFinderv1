@@ -20,11 +20,8 @@
 um desafio tanto para candidatos quanto para empregadores. Com o objetivo de facilitar esse processo, o aplicativo JobFinder foi idealizado para conectar candidatos a oportunidades de emprego em suas regiões de forma eficiente e intuitiva.
 
   Este plano de trabalho detalha as etapas necessárias para o desenvolvimento do JobFinder, incluindo o escopo do projeto, metodologia, fases de desenvolvimento, controle de mudanças, equipe envolvida e entregas esperadas. Através de uma abordagem estruturada e colaborativa, buscamos criar uma ferramenta que não apenas atenda às necessidades dos usuários, mas também se destaque pela sua usabilidade e funcionalidade.
-### 1.1	Objeto
-O desenvolvimento de um aplicativo móvel chamado JobFinder, que visa facilitar a busca e 
-a oferta de empregos locais. O aplicativo será projetado para conectar candidatos a oportunidades de emprego em suas regiões de forma eficiente e intuitiva, oferecendo funcionalidades como busca de vagas, filtros de pesquisa, notificações de novas vagas, criação e gerenciamento de perfil do usuário, e aplicação direta para vagas. O desenvolvimento do JobFinder seguirá uma abordagem estruturada e colaborativa, garantindo que o produto final atenda às necessidades dos usuários e se destaque pela sua usabilidade e funcionalidade.
 
-### 1.2	Motivação, Justificativa e Oportunidade
+### 1.1	Motivação, Justificativa e Oportunidade
 #### Motivação:
 A busca por empregos locais pode ser um processo desafiador e demorado tanto para 
 candidatos quanto para empregadores. Muitos candidatos enfrentam dificuldades em encontrar 
@@ -37,6 +34,14 @@ dispositivos móveis, um aplicativo dedicado a essa finalidade pode oferecer uma
 #### Oportunidade:
 O mercado de trabalho está em constante evolução, e há uma oportunidade significativa 
 para um aplicativo como o JobFinder se destacar. Através da implementação de funcionalidades inovadoras, como filtros de pesquisa avançados, notificações personalizadas e avaliações de empregadores, o JobFinder pode atrair uma base de usuários ampla e diversificada. Além disso, parcerias com empresas locais e agências de recrutamento podem expandir ainda mais o alcance e a eficácia do aplicativo, tornando-o uma ferramenta indispensável no mercado de trabalho local 
+
+### 1.2 Objetivos do Projeto
+Para solidificar o JobFinder como a principal ferramenta de recrutamento em Itacoatiara e garantir que o investimento de tempo e recursos se traduza em valor real para a comunidade, foram estabelecidos objetivos claros e mensuráveis que guiarão o desenvolvimento e medirão o sucesso do projeto.
+
+O foco inicial, nos primeiros quatro meses após o lançamento oficial, será a construção de uma base de usuários robusta, visando alcançar a marca de 500 candidatos com perfis detalhados e qualificados. Simultaneamente, a meta para a adoção por parte do mercado empregador é consolidar a adesão de 30 empresas locais ativas na plataforma até o final do primeiro semestre de 2027, estabelecendo assim um ecossistema sólido e de confiança. Uma vez firmada essa base, o sucesso contínuo da plataforma será medido pelo seu engajamento, com o desafio de gerar um volume sustentável de, no mínimo, 200 candidaturas a vagas por mês a partir do terceiro mês de operação. Este engajamento será suportado pela publicação de uma média constante de 10 novas oportunidades de emprego semanalmente.
+
+Paralelamente a essas metas de crescimento, a qualidade da experiência do usuário é um pilar fundamental e inegociável. Portanto, o projeto se compromete a otimizar a usabilidade da plataforma para que o tempo médio de publicação de uma vaga por um novo empregador seja consistentemente inferior a cinco minutos. A satisfação geral dos usuários, tanto candidatos quanto empregadores, será monitorada de perto através de pesquisas trimestrais, com o objetivo de manter uma avaliação média superior a 4.0, em uma escala de 1 a 5, garantindo que o JobFinder não apenas funcione, mas encante seus usuários.
+
 
 #### 1.3	Caracterização do Projeto
 ### 1.3.1	Classe
