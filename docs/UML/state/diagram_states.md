@@ -1,12 +1,42 @@
 # DIAGRAMA DE ESTADOS
 
-Autores: Nicolas Rocha e Mayro Sá
+Este documento apresenta os diagramas de estado que representam os fluxos de funcionalidades do sistema.
 
-### Realizar Login
+**Autores:** Nicolas Rocha e Mayro Sá
 
-![](../images/realizarLogin.png)
+---
 
-### Buscar Vaga
+### Login
+*Representa o fluxo de autenticação do usuário no sistema.*
 
-![](../images/buscarVaga.png)
+![](../images/diagramaDeEstado/login.png)
 
+### Cadastro de Candidato
+*Descreve as etapas para um novo candidato se registrar na plataforma.*
+
+![](../images/diagramaDeEstado/cadastro.png)
+
+### Cadastro de Empresa
+*Descreve as etapas para uma nova empresa se registrar na plataforma.*
+
+![](../images/diagramaDeEstado/cadastroEmpresa.png)
+
+### Cadastro de Vaga
+*Fluxo seguido pela empresa para publicar uma nova oportunidade de vaga.*
+
+![](../images/diagramaDeEstado/cadastroVaga.png)
+
+### Edição de Perfil de Candidato
+*Mostra os estados possíveis durante a atualização das informações do perfil do candidato.*
+
+![](../images/diagramaDeEstado/edicaoPerfilCandidato.png)
+
+### Candidatura (Visão do Candidato e Empresa)
+*Diagrama que representa o processo de candidatura a uma vaga, abrangendo as perspectivas tanto do candidato quanto da empresa que a visualiza.*
+
+![](../images/diagramaDeEstado/candidaturaVistaCandidatoEmpresa.png)
+
+### Recuperação de Senha
+*Fluxo para que um usuário possa redefinir sua senha de acesso caso a tenha esquecido.*
+
+![](../images/diagramaDeEstado/recuperacaoSenha.png)
