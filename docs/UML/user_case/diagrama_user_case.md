@@ -1,37 +1,78 @@
 # DIAGRAMAS DE CASOS DE USO
 
-A apresnetação dos diagramas de caso de uso se dará pela apresentação dos dois subsitemas, subsistema do "Empregador" e do "Candidato". Para alguns diagramas de caso de uso há uma versão mais simples apresenta as funcionalidades, e uma mais complexas apresentando as funcionalidades que precisam ser usadas anteriormente para acessar a funcionalidade atual.
+A apresentação dos diagramas de caso de uso a seguir é dividida em dois subsistemas principais: **Empregador** e **Candidato**. Para algumas funcionalidades, há um diagrama de caso de uso simples, que foca na interação principal, e uma versão "Complexa", que detalha o fluxo completo, incluindo ações prévias necessárias, como o login.
 
 ## Subsistema Empregador
+Esta seção detalha os casos de uso relacionados às ações que um empregador pode realizar no sistema.
 
-### Cadastro de Empregador
-#### Diagrama de Caso de Uso Cadastra-se
-Inciando pelo diagrama de caso de uso de cadatro pelo empregador no sistema.
-[cadastroEmpregador-UseCase](https://github.com/user-attachments/assets/ef11f256-57ce-4f67-9550-6276f90a09e4)
+### 1. Cadastro de Empregador
+O diagrama abaixo ilustra o processo de cadastro de um novo empregador no sistema.
+![alt text](../images/use-case-image/cadastroEmpregador-UseCase.png)
 
-### Diagrama de Caso de Uso *Login*
-
-Este diagrama apresenta de forma simples a execução do login por parte do empregador.
-
+### 2. Login de Empregador
+Este diagrama apresenta a funcionalidade de autenticação do empregador.
 ![alt text](../images/use-case-image/loginEmpregador-UseCase.png)
 
-Equanto este detalha essa parte do processo de login
-
+#### Visão Complexa
+Este diagrama mais detalhado ilustra o fluxo completo, incluindo a etapa de cadastro como pré-condição para o login.
 ![alt text](../images/use-case-image/loginEmpregadorComplex-UseCase.png)
 
-## Diagrama de Caso de Uso alterar status
+### 3. Alteração de Status do Empregador
+Estes diagramas descrevem como um administrador ou o próprio sistema pode alterar o status de um empregador (e.g., de "pendente" para "aprovado").
 
-![UseCase Diagram1](https://github.com/user-attachments/assets/2a05158d-a0d5-4fe2-abae-79adf40b442d)
+#### Visão Simples
+Apresenta a funcionalidade principal de alteração de status.
 
-## Diagrama de Caso de Uso Candidata-se
-![UseCase Diagram2](https://github.com/user-attachments/assets/4ec12019-d332-4771-9dc9-9d936b86e6c3)
+#### Visão Complexa
+Mostra o processo completo, que exige que o administrador esteja logado para poder realizar a alteração de status de um empregador.
 
+### 4. Gestão de Vagas
+O empregador pode visualizar as vagas que cadastrou no sistema.
 
-## Diagrama de Caso de Uso Buscar candidatos
-![HU-10](https://github.com/user-attachments/assets/d7b0cce8-4d94-42a7-9f51-5ed2c5d70a16)
+### 5. Visualização de Candidatos
+Após publicar vagas, o empregador pode visualizar os candidatos que se aplicaram.
 
+#### Lista de Candidatos
+Este caso de uso mostra o empregador visualizando a listagem de todos os candidatos de uma determinada vaga.
 
-## Diagrama de Caso de Uso Buscar vagas
-![HU-4,5,7 e 8](https://github.com/user-attachments/assets/7bf1443f-6413-43cf-9e71-fd2fedd1eb07)
-## Diagrama de Caso de Uso Alterar Perfil
-![UseCase Diagram3](https://github.com/user-attachments/assets/540cd2e0-bc01-4760-bf9e-dc3169570ab5)
+#### Perfil do Candidato
+Aqui, o empregador seleciona um candidato da lista para visualizar seu perfil detalhado.
+
+### 6. Perfil do Empregador
+Este diagrama detalha o fluxo para o empregador visualizar e gerenciar seu próprio perfil, ação que requer autenticação prévia.
+
+## Subsistema Candidato
+Esta seção detalha os casos de uso relacionados às ações que um candidato pode realizar no sistema.
+
+### 1. Cadastro de Candidato
+Ilustra o processo de registro de um novo candidato na plataforma.
+
+### 2. Login de Candidato
+Descreve a autenticação do candidato no sistema.
+
+#### Visão Simples
+Mostra a interação direta do candidato para efetuar o login.
+
+#### Visão Complexa
+O diagrama expandido mostra que o cadastro é um passo necessário antes que o login possa ser realizado.
+
+### 3. Busca e Visualização de Vagas
+O candidato pode procurar e visualizar as vagas de emprego disponíveis.
+
+#### Visão Simples
+Foca na ação de buscar e listar as vagas.
+
+#### Visão Complexa
+Ilustra o fluxo desde o login do candidato até a visualização das vagas.
+
+### 4. Candidatura a uma Vaga
+Detalha o processo de um candidato se aplicar para uma vaga de interesse.
+
+#### Visão Simples
+Mostra a ação principal de se candidatar a uma vaga.
+
+#### Visão Complexa
+Apresenta o fluxo completo: o candidato precisa estar logado e visualizar uma vaga para então poder se candidatar.
+
+### 5. Perfil do Candidato
+Este diagrama mostra o fluxo para o candidato visualizar e gerenciar seu próprio perfil, que requer que ele esteja logado no sistema.
