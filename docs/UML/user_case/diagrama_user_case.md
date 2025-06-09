@@ -4,13 +4,20 @@ A apresnetação dos diagramas de caso de uso se dará pela apresentação dos d
 
 ## Subsistema Empregador
 
+### Cadastro de Empregador
 #### Diagrama de Caso de Uso Cadastra-se
 Inciando pelo diagrama de caso de uso de cadatro pelo empregador no sistema.
 [cadastroEmpregador-UseCase](https://github.com/user-attachments/assets/ef11f256-57ce-4f67-9550-6276f90a09e4)
 
 ### Diagrama de Caso de Uso *Login*
 
-![](https://raw.githubusercontent.com/reyneralegria13/App-JobFinderv1/main/docs/UML/images/Caso%20de%20Uso%20-%20Empregador.png)
+Este diagrama apresenta de forma simples a execução do login por parte do empregador.
+
+![alt text](../images/use-case-image/loginEmpregador-UseCase.png)
+
+Equanto este detalha essa parte do processo de login
+
+![alt text](../images/use-case-image/loginEmpregadorComplex-UseCase.png)
 
 ## Diagrama de Caso de Uso alterar status
 
