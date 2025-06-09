@@ -75,9 +75,11 @@ O candidato pode procurar e visualizar as vagas de emprego disponíveis.
 
 #### Visão Simples
 Foca na ação de buscar e listar as vagas.
+![alt text](../images/use-case-image/candidato/vagasCandidato-UseCase.png)
 
 #### Visão Complexa
 Ilustra o fluxo desde o login do candidato até a visualização das vagas.
+![alt text](../images/use-case-image/candidato/vagasCandidatoComplex-UseCase.png)
 
 ### 4. Candidatura a uma Vaga
 Detalha o processo de um candidato se aplicar para uma vaga de interesse.
