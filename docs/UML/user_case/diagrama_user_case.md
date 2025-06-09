@@ -57,12 +57,14 @@ Esta seção detalha os casos de uso relacionados às ações que um candidato p
 
 ### 1. Cadastro de Candidato
 Ilustra o processo de registro de um novo candidato na plataforma.
+![alt text](../images/use-case-image/candidato/cadastroCandidato-UseCase.png)
 
 ### 2. Login de Candidato
 Descreve a autenticação do candidato no sistema.
 
 #### Visão Simples
 Mostra a interação direta do candidato para efetuar o login.
+
 
 #### Visão Complexa
 O diagrama expandido mostra que o cadastro é um passo necessário antes que o login possa ser realizado.
