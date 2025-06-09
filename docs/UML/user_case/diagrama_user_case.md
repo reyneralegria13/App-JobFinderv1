@@ -86,9 +86,12 @@ Detalha o processo de um candidato se aplicar para uma vaga de interesse.
 
 #### Visão Simples
 Mostra a ação principal de se candidatar a uma vaga.
+![alt text](../images/use-case-image/candidato/candidataCandidato-UserCase.png)
 
 #### Visão Complexa
 Apresenta o fluxo completo: o candidato precisa estar logado e visualizar uma vaga para então poder se candidatar.
+![alt text](../images/use-case-image/candidato/candidataCandidatoComplex-UserCase.png)
+
 
 ### 5. Perfil do Candidato
 Este diagrama mostra o fluxo para o candidato visualizar e gerenciar seu próprio perfil, que requer que ele esteja logado no sistema.
