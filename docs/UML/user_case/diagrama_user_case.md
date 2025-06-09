@@ -1,9 +1,11 @@
 # DIAGRAMAS DE CASOS DE USO
 
-Autores: Felipe William e Reyner Alegria
+A apresnetação dos diagramas de caso de uso se dará pela apresentação dos dois subsitemas, subsistema do "Empregador" e do "Candidato". Para alguns diagramas de caso de uso há uma versão mais simples apresenta as funcionalidades, e uma mais complexas apresentando as funcionalidades que precisam ser usadas anteriormente para acessar a funcionalidade atual.
 
-## Diagrama de Caso de Uso Cadastra-se
-![HU-1](https://github.com/user-attachments/assets/937c8c92-0e0e-4817-b60b-72b21e066268)
+## Subsistema Empregador
+#### Diagrama de Caso de Uso Cadastra-se
+Inciando pelo diagrama de caso de uso de cadatro pelo empregador no sistema
+![uc01](https://raw.githubusercontent.com/reyneralegria13/App-JobFinderv1/blob/quality-improvement/grupo-a/docs/UML/images/use-case-image/cadastroEmpregador-UseCase.png)
 
 ## Diagrama de Caso de Uso Empregador
 
