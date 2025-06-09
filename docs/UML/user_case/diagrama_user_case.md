@@ -5,8 +5,10 @@ A apresnetação dos diagramas de caso de uso se dará pela apresentação dos d
 ## Subsistema Empregador
 #### Diagrama de Caso de Uso Cadastra-se
 Inciando pelo diagrama de caso de uso de cadatro pelo empregador no sistema
-![uc01](https://raw.githubusercontent.com/reyneralegria13/App-JobFinderv1/blob/quality-improvement/grupo-a/docs/UML/images/use-case-image/cadastroEmpregador-UseCase.png)
+[cadastroEmpregador-UseCase](https://github.com/user-attachments/assets/ef11f256-57ce-4f67-9550-6276f90a09e4)
 
+
+https://raw.githubusercontent.com
 ## Diagrama de Caso de Uso Empregador
 
 ![](https://raw.githubusercontent.com/reyneralegria13/App-JobFinderv1/main/docs/UML/images/Caso%20de%20Uso%20-%20Empregador.png)
