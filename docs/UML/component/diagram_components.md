@@ -1,5 +1,5 @@
 # DIAGRAMA DE COMPONENTES
 
-Autor: Felipe William
+Autor: Reyner Alegria
 
-![](../images/diagrama_componentes.png)
+![](..\docs\UML\images\Component\diagramaDeComponentes)
