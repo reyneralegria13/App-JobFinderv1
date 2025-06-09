@@ -36,23 +36,24 @@ O empregador pode visualizar as vagas que cadastrou no sistema.
 
 ### 5. Visualização de Candidatos
 Após publicar vagas, o empregador pode visualizar a lista dos candidatos que se aplicaram. Este caso de uso mostra o empregador visualizando a listagem de todos os candidatos de uma determinada vaga.
-![alt text](visualizaListaEmpregador-UseCase.png)
+![alt text](../images/use-case-image/empregador/visualizaListaEmpregador-UseCase.png)
 
 
 #### Perfil do Candidato
 Aqui, o empregador seleciona um candidato da lista para visualizar seu perfil detalhado.											
-![alt text](../images/use-case-image/visualizaCandidatoEmpregador-UseCase.png)
+![alt text](../images/use-case-image/empregador/visualizaCandidatoEmpregador-UseCase.png)
 
 
 ### 6. Perfil do Empregador
 Este diagrama detalha o fluxo para o empregador visualizar e gerenciar seu próprio perfil, ação que requer autenticação prévia.
-![alt text](../images/use-case-image/perfilEmpregadorComplex-UserCase.png)
+![alt text](../images/use-case-image/empregador/perfilEmpregadorComplex-UserCase.png)
 
 Uma visão mais simplificada do fluxo.
 ![alt text](../images/use-case-image/perfilEmpregador-UserCase.png)
 
 ## Subsistema Candidato
 Esta seção detalha os casos de uso relacionados às ações que um candidato pode realizar no sistema.
+
 
 ### 1. Cadastro de Candidato
 Ilustra o processo de registro de um novo candidato na plataforma.
