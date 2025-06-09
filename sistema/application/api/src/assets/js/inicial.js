@@ -27,3 +27,5 @@ fetch('/inicial', {
         alert('Erro de autenticação. Por favor, faça login novamente.');
         window.location.href = '/login';
     });
+
+    // Testando o commit.
