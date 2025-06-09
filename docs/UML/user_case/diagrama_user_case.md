@@ -22,9 +22,12 @@ Estes diagramas descrevem como um administrador ou o próprio sistema pode alter
 
 #### Visão Simples
 Apresenta a funcionalidade principal de alteração de status.
+![alt text](../images/use-case-image/alterarStatusEmpregador-Use-Case.png)
 
 #### Visão Complexa
 Mostra o processo completo, que exige que o administrador esteja logado para poder realizar a alteração de status de um empregador.
+![alt text](../images/use-case-image/mudarStatusEmpregadorComplex-UserCase.png)
+
 
 ### 4. Gestão de Vagas
 O empregador pode visualizar as vagas que cadastrou no sistema.
