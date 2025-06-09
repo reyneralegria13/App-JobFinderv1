@@ -64,10 +64,11 @@ Descreve a autenticação do candidato no sistema.
 
 #### Visão Simples
 Mostra a interação direta do candidato para efetuar o login.
-
+![alt text](../images/use-case-image/candidato/loginCandidato-UseCase.png)
 
 #### Visão Complexa
 O diagrama expandido mostra que o cadastro é um passo necessário antes que o login possa ser realizado.
+![alt text](../images/use-case-image/candidato/loginCandidatoComplex-UseCase.png)
 
 ### 3. Busca e Visualização de Vagas
 O candidato pode procurar e visualizar as vagas de emprego disponíveis.
