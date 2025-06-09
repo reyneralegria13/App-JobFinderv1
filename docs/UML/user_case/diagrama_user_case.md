@@ -46,6 +46,10 @@ Aqui, o empregador seleciona um candidato da lista para visualizar seu perfil de
 
 ### 6. Perfil do Empregador
 Este diagrama detalha o fluxo para o empregador visualizar e gerenciar seu próprio perfil, ação que requer autenticação prévia.
+![alt text](../images/use-case-image/perfilEmpregadorComplex-UserCase.png)
+
+Uma visão mais simplificada do fluxo.
+![alt text](../images/use-case-image/perfilEmpregador-UserCase.png)
 
 ## Subsistema Candidato
 Esta seção detalha os casos de uso relacionados às ações que um candidato pode realizar no sistema.
