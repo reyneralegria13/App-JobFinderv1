@@ -31,6 +31,9 @@ Mostra o processo completo, que exige que o administrador esteja logado para pod
 
 ### 4. Gestão de Vagas
 O empregador pode visualizar as vagas que cadastrou no sistema.
+![alt text](../images/use-case-image/visualizaVagasEmpregador-UserCase.png)
+
+
 
 ### 5. Visualização de Candidatos
 Após publicar vagas, o empregador pode visualizar os candidatos que se aplicaram.
