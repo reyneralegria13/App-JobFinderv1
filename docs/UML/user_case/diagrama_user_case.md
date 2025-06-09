@@ -34,15 +34,15 @@ O empregador pode visualizar as vagas que cadastrou no sistema.
 ![alt text](../images/use-case-image/visualizaVagasEmpregador-UserCase.png)
 
 
-
 ### 5. Visualização de Candidatos
-Após publicar vagas, o empregador pode visualizar os candidatos que se aplicaram.
+Após publicar vagas, o empregador pode visualizar a lista dos candidatos que se aplicaram. Este caso de uso mostra o empregador visualizando a listagem de todos os candidatos de uma determinada vaga.
+![alt text](visualizaListaEmpregador-UseCase.png)
 
-#### Lista de Candidatos
-Este caso de uso mostra o empregador visualizando a listagem de todos os candidatos de uma determinada vaga.
 
 #### Perfil do Candidato
-Aqui, o empregador seleciona um candidato da lista para visualizar seu perfil detalhado.
+Aqui, o empregador seleciona um candidato da lista para visualizar seu perfil detalhado.											
+![alt text](../images/use-case-image/visualizaCandidatoEmpregador-UseCase.png)
+
 
 ### 6. Perfil do Empregador
 Este diagrama detalha o fluxo para o empregador visualizar e gerenciar seu próprio perfil, ação que requer autenticação prévia.
