@@ -95,3 +95,11 @@ Apresenta o fluxo completo: o candidato precisa estar logado e visualizar uma va
 
 ### 5. Perfil do Candidato
 Este diagrama mostra o fluxo para o candidato visualizar e gerenciar seu próprio perfil, que requer que ele esteja logado no sistema.
+
+#### Visão Simples
+Mostra a interação direta do candidato para alterar  as informações perfil.
+![alt text](../images/use-case-image/candidato/perfilCandidato-UserCase.png)
+
+#### Visão Complexa
+O diagrama expandido mostra como o usuário alterando as informações de perfil, considerando ações anteriores.
+![alt text](../images/use-case-image/candidato/perfilCandidatoComplex-UserCase.png)
