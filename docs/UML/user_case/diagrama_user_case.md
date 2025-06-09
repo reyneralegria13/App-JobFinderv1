@@ -7,31 +7,31 @@ Esta seção detalha os casos de uso relacionados às ações que um empregador 
 
 ### 1. Cadastro de Empregador
 O diagrama abaixo ilustra o processo de cadastro de um novo empregador no sistema.
-![alt text](../images/use-case-image/cadastroEmpregador-UseCase.png)
+![alt text](../images/use-case-image/empregador/cadastroEmpregador-UseCase.png)
 
 ### 2. Login de Empregador
 Este diagrama apresenta a funcionalidade de autenticação do empregador.
-![alt text](../images/use-case-image/loginEmpregador-UseCase.png)
+![alt text](../images/use-case-image/empregador/loginEmpregador-UseCase.png)
 
 #### Visão Complexa
 Este diagrama mais detalhado ilustra o fluxo completo, incluindo a etapa de cadastro como pré-condição para o login.
-![alt text](../images/use-case-image/loginEmpregadorComplex-UseCase.png)
+![alt text](../images/use-case-image/empregador/loginEmpregadorComplex-UseCase.png)
 
 ### 3. Alteração de Status do Empregador
 Estes diagramas descrevem como um administrador ou o próprio sistema pode alterar o status de um empregador (e.g., de "pendente" para "aprovado").
 
 #### Visão Simples
 Apresenta a funcionalidade principal de alteração de status.
-![alt text](../images/use-case-image/alterarStatusEmpregador-Use-Case.png)
+![alt text](../images/use-case-image/empregador/alterarStatusEmpregador-Use-Case.png)
 
 #### Visão Complexa
 Mostra o processo completo, que exige que o administrador esteja logado para poder realizar a alteração de status de um empregador.
-![alt text](../images/use-case-image/mudarStatusEmpregadorComplex-UserCase.png)
+![alt text](../images/use-case-image/empregador/mudarStatusEmpregadorComplex-UserCase.png)
 
 
 ### 4. Gestão de Vagas
 O empregador pode visualizar as vagas que cadastrou no sistema.
-![alt text](../images/use-case-image/visualizaVagasEmpregador-UserCase.png)
+![alt text](../images/use-case-image/empregador/visualizaVagasEmpregador-UserCase.png)
 
 
 ### 5. Visualização de Candidatos
@@ -49,7 +49,7 @@ Este diagrama detalha o fluxo para o empregador visualizar e gerenciar seu próp
 ![alt text](../images/use-case-image/empregador/perfilEmpregadorComplex-UserCase.png)
 
 Uma visão mais simplificada do fluxo.
-![alt text](../images/use-case-image/perfilEmpregador-UserCase.png)
+![alt text](../images/use-case-image/empregador/perfilEmpregador-UserCase.png)
 
 ## Subsistema Candidato
 Esta seção detalha os casos de uso relacionados às ações que um candidato pode realizar no sistema.
