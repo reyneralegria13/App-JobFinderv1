@@ -1,5 +1,9 @@
 # DIAGRAMA DE COMPONENTES
 
-Autor: Felipe William
+Autor: Reyner Alegria
 
-![](../images/diagrama_componentes.png)
+Geral:
+![](..\docs\UML\images\Component\diagramaDeComponentes)
+
+Por Camada de Serviços:
+![](..\docs\UML\images\Component\diagramaDeComponent)
