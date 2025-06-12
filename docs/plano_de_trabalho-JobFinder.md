@@ -79,6 +79,11 @@ desenvolvimento do projeto
 * Auxílio aos empregadores na divulgação de vagas e na atração de candidatos qualificados.
 * Promoção do desenvolvimento econômico e social nas comunidades locais através da conexão entre candidatos e oportunidades de emprego. 
 
+### Metas e prazos: 
+
+* O sistema busca a definição e entrrga de serviços e atualizações nos prazos definidos pela equipde de desenvolvimento.
+
+* O sistema preza pela entrega de atualizações constantes de acordo com as possíveis atualizações de versões.
 
 ### 2.2.1	Escopo Específico
 #### Funcionalidades Principais
