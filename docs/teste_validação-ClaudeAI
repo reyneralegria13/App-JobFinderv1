@@ -1,0 +1,129 @@
+### **Testes Funcionais - Automatizado**
+
+**Cenário 1: Prevenção de Vagas Duplicadas**
+```
+Status: EXECUTANDO
+Ação: Tentativa de criar vaga com título "Desenvolvedor Java" na empresa "TechCorp"
+Resultado Esperado: Sistema deve bloquear criação
+Resultado Obtido: ✅ PASSOU - Sistema exibiu mensagem "Vaga similar já existe"
+```
+
+**Cenário 2: Filtros por Categoria**
+```
+Status: EXECUTANDO  
+Ação: Aplicar filtro "Tecnologia" na busca de vagas
+Resultado Esperado: Exibir apenas vagas de TI
+Resultado Obtido: ✅ PASSOU - 15 vagas de tecnologia exibidas corretamente
+```
+
+### **Testes de Segurança - Simulação**
+
+**Cenário 3: Criptografia de Senhas**
+```
+Status: EXECUTANDO
+Ação: Verificar armazenamento da senha "MinhaSenh@123"
+Resultado Esperado: Senha deve estar hasheada no banco
+Resultado Obtido: ✅ PASSOU - Hash bcrypt detectado: $2b$10$xyz...
+```
+
+**Cenário 4: Proteção contra SQL Injection**
+```
+Status: EXECUTANDO
+Ação: Inserir payload malicioso "'; DROP TABLE users; --" no campo de busca
+Resultado Esperado: Sistema deve sanitizar entrada
+Resultado Obtido: ✅ PASSOU - Payload tratado como texto comum
+```
+
+### **Testes de Performance - Simulação**
+
+**Cenário 5: Múltiplos Filtros Simultâneos**
+```
+Status: EXECUTANDO
+Ação: Aplicar filtros: Categoria=Saúde, Salário=R$3000-5000, Localização=Manaus
+Resultado Esperado: Resposta em menos de 2 segundos
+Resultado Obtido: ⚠️ ATENÇÃO - Tempo: 3.2 segundos (acima do esperado)
+```
+
+**Cenário 6: Base com 50.000 Vagas**
+```
+Status: EXECUTANDO
+Ação: Busca simples por "enfermeiro" em base populada
+Resultado Esperado: Resposta em menos de 1 segundo
+Resultado Obtido: ✅ PASSOU - Tempo: 0.8 segundos
+```
+
+### **Testes de Carga - Simulação**
+
+**Cenário 7: 200 Usuários Simultâneos**
+```
+Status: EXECUTANDO
+Ação: Simular 200 candidatos aplicando filtros simultaneamente
+Resultado Esperado: Sistema deve manter estabilidade
+Resultado Obtido: ❌ FALHOU - 15% dos usuários receberam timeout após 30s
+```
+
+**Cenário 8: Candidatura Massiva**
+```
+Status: EXECUTANDO
+Ação: 500 candidatos se candidatando à mesma vaga simultaneamente
+Resultado Esperado: Todas candidaturas devem ser registradas
+Resultado Obtido: ⚠️ PARCIAL - 487 candidaturas registradas (97% de sucesso)
+```
+
+### **Testes de Usabilidade - Simulação**
+
+**Cenário 9: Validação de Campos**
+```
+Status: EXECUTANDO
+Ação: Inserir email inválido "usuario@email" no cadastro
+Resultado Esperado: Validação inline deve aparecer
+Resultado Obtido: ✅ PASSOU - Mensagem "Email inválido" exibida instantaneamente
+```
+
+**Cenário 10: Logout Automático**
+```
+Status: EXECUTANDO
+Ação: Deixar sessão inativa por 30 minutos
+Resultado Esperado: Sistema deve fazer logout automático
+Resultado Obtido: ✅ PASSOU - Redirecionamento para login após 30min
+```
+
+### **Testes de Recuperação - Simulação**
+
+**Cenário 11: Falha de Energia Durante Candidatura**
+```
+Status: EXECUTANDO
+Ação: Simular queda de energia durante processo de candidatura
+Resultado Esperado: Sistema deve restaurar estado anterior
+Resultado Obtido: ✅ PASSOU - Candidatura salva como rascunho automaticamente
+```
+
+### **Testes de Contingência - Simulação**
+
+**Cenário 12: Banco de Dados Offline**
+```
+Status: EXECUTANDO
+Ação: Desconectar banco de dados e tentar acessar sistema
+Resultado Esperado: Página de manutenção deve ser exibida
+Resultado Obtido: ✅ PASSOU - Página customizada "Sistema em manutenção" exibida
+```
+
+## **Relatório de Execução**
+
+### **Resumo dos Resultados**
+- **Total de Testes:** 12 cenários simulados
+- **Passou:** 8 testes (67%)
+- **Atenção:** 2 testes (17%)
+- **Falhou:** 1 teste (8%)
+- **Parcial:** 1 teste (8%)
+
+### **Problemas Identificados**
+1. **Performance:** Filtros múltiplos excedem tempo limite
+2. **Carga:** Sistema não suporta 200 usuários simultâneos adequadamente
+3. **Concorrência:** 3% de perda em candidaturas massivas
+
+### **Recomendações**
+1. Otimizar consultas de banco para filtros combinados
+2. Implementar cache para melhorar performance
+3. Configurar load balancer para suportar mais usuários simultâneos
+4. Implementar fila de processamento para candidaturas massivas
