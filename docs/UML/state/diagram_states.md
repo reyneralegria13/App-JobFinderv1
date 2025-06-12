@@ -2,7 +2,7 @@
 
 Este documento apresenta os diagramas de estado que representam os fluxos de funcionalidades do sistema.
 
-**Autores:** Nicolas Rocha e Mayro Sá
+**Autor:** Reyner Carlos Silva Alegria
 
 ---
 
