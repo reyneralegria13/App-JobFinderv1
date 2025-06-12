@@ -55,13 +55,8 @@ para um aplicativo como o JobFinder se destacar. Através da implementação de 
 | Desenvolvimento de Software |Criação de um aplicativo com backend em nuvem, interface de usuário responsiva, integrações com APIs de geolocalização e notificações push, e funcionalidades de busca e aplicação para vagas de emprego.|
 
 ### 2.	INFORMAÇÕES GERAIS
-### 2.1	Objetivo
 
-### Vai já ser mudado  --
-
-O objetivo principal do projeto JobFinder é desenvolver um aplicativo móvel que facilite a busca e a oferta de empregos locais. O JobFinder visa conectar candidatos a oportunidades de emprego em suas regiões de forma eficiente e intuitiva, proporcionando uma plataforma que permita a busca de vagas, aplicação direta, notificações personalizadas e avaliações de empregadores. O aplicativo busca simplificar o processo de recrutamento e seleção, beneficiando tanto candidatos quanto empregadores, e promovendo o desenvolvimento econômico e social nas comunidades locais
-
-### 2.2	Escopo Geral
+### 2.1	Escopo Geral
 O projeto JobFinder abrangerá o desenvolvimento de um aplicativo móvel destinado a facilitar a busca e a oferta de empregos locais. A visão ampla do escopo do projeto inclui:
 
 #### Funcionalidades Principais:
