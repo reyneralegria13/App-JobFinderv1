@@ -1,0 +1,14 @@
+{% extends 'core/base.html' %}
+
+{% block title %}Escolha seu Cadastro{% endblock %}
+
+{% block content %}
+  <h2>Bem-vindo ao JobFinder!</h2>
+  <p>Para começar, escolha como você quer se cadastrar:</p>
+  <div>
+    <a href="{% url 'candidate_signup' %}" role="button">Sou um Candidato</a>
+    <a href="{% url 'employer_signup' %}" role="button">Sou um Empregador</a>
+  </div>
+  <hr>
+  <p>Já tem uma conta? <a href="{% url 'login' %}">Faça Login</a></p>
+{% endblock %}
