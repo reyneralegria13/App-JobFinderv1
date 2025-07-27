@@ -1,0 +1,25 @@
+{% extends 'core/base.html' %}
+
+{% block title %}
+  Cadastro de 
+  {% if user_type == 'candidate' %}
+    Candidato
+  {% else %}
+    Empregador
+  {% endif %}
+{% endblock %}
+
+{% block content %}
+  <h2>
+    Cadastro de 
+    {% if user_type == 'candidate' %}
+      Candidato
+    {% else %}
+      Empregador
+    {% endif %}
+  </h2>
+
+  <form method="post">
+    {% csrf_token %} {{ form.as_p }} <button type="submit">Finalizar Cadastro</button>
+  </form>
+{% endblock %}
