@@ -28,7 +28,6 @@ class User(AbstractUser):
 class CandidateProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True)
     bio = models.TextField('Biografia', blank=True, null=True)
-    birth_date = models.DateField('Data de Nascimento', blank=True, null=True)
     # adicionar o restante depois (ex: telefone, endereço, etc)
 
     def __str__(self):
