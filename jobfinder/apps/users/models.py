@@ -28,6 +28,13 @@ class User(AbstractUser):
 class CandidateProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True)
     bio = models.TextField('Biografia', blank=True, null=True)
+
+    birth_date = models.DateField('Data de Nascimento', null=True, blank=True)
+    phone_number = models.CharField('Número de Telefone', max_length=15, blank=True)
+    cpf = models.CharField('CPF', max_length=14, blank=True, unique=True, null=True)
+    cep = models.CharField('CEP', max_length=10, blank=True)
+    resume = models.FileField('Currículo', upload_to='resumes/', null=True, blank=True)
+
     # adicionar o restante depois (ex: telefone, endereço, etc)
 
     def __str__(self):

@@ -35,12 +35,11 @@ class CandidateSignUpView(CreateView):
         # cria o perfil de candidato associado
         CandidateProfile.objects.create(
             user=user,
-            cpf=form.cleaned_data['cpf'],
-            cep=form.cleaned_data['cep'],
-            phone_number=form.cleaned_data['phone_number'],
-            resume=form.cleaned_data['resume'],
-            bio=form.cleaned_data['bio'],
-            birth_date=form.cleaned_data['birth_date'],
+            birth_date=form.cleaned_data.get('birth_date'),
+            phone_number=form.cleaned_data.get('phone_number'),
+            cpf=form.cleaned_data.get('cpf'),
+            cep=form.cleaned_data.get('cep'),
+            resume=form.cleaned_data.get('resume')
         )
         
         return redirect(self.success_url)
