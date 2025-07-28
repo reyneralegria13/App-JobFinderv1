@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.views.generic import TemplateView, CreateView
 from django.urls import reverse_lazy
 
-from .models import User
+from .models import CandidateProfile, EmployerProfile, User
 from .forms import CandidateSignUpForm, EmployerSignUpForm
 
 # essa é a view que apresenta a tela de boas-vindas
