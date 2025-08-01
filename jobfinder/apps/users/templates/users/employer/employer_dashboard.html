@@ -1,0 +1,13 @@
+{% extends 'core/base.html' %}
+
+{% block title %}Painel do Empregador{% endblock %}
+
+{% block content %}
+  <h2>Painel do Empregador</h2>
+  <h3>Bem-vindo, {{ user.first_name }}! (Empresa: {{ profile.company_name }})</h3>
+  <p>Este é o seu painel. Em breve, aqui você poderá gerenciar suas vagas publicadas.</p>
+
+  <a href="#" role="button">Publicar Nova Vaga</a>
+  <hr>
+  <p><a href="{% url 'logout' %}">Sair</a></p>
+{% endblock %}

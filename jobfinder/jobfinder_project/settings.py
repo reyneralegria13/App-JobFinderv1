@@ -102,13 +102,10 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-# --- Configurações de Autenticação ---
-LOGIN_REDIRECT_URL = '/dashboard/'
+LOGIN_REDIRECT_URL = 'dashboard_hub'
 
-# A URL da página de login.
 LOGIN_URL = 'login'
 
-# A URL da página de logout.
 LOGOUT_URL = 'logout'
 
 

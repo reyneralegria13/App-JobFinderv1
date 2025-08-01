@@ -1,0 +1,11 @@
+{% extends 'core/base.html' %}
+
+{% block title %}Painel do Candidato{% endblock %}
+
+{% block content %}
+  <h2>Painel do Candidato</h2>
+  <h3>Bem-vindo, {{ user.first_name }}!</h3>
+  <p>Este é o seu painel. Em breve, aqui você verá suas candidaturas e vagas recomendadas.</p>
+
+  <p><a href="{% url 'logout' %}">Sair</a></p>
+{% endblock %}

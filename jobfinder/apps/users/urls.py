@@ -1,12 +1,12 @@
 from django.urls import path
 from django.contrib.auth.views import LoginView, LogoutView
-from django.views.generic import TemplateView
 from .views import (
+    CandidateDashboardView,
+    EmployerDashboardView,
     SignUpChoiceView,
     CandidateSignUpView,
     EmployerSignUpView,
-    # CandidateProfileUpdateView,
-    # EmployerProfileUpdateView
+    DashboardRedirectView
 )
 
 urlpatterns = [
@@ -21,6 +21,9 @@ urlpatterns = [
 
     path('logout/', LogoutView.as_view(next_page='login'), name='logout'),
     
-    # URL temporária para o dashboard ainda não implementada
-    path('dashboard/', TemplateView.as_view(template_name="users/dashboard.html"), name='dashboard'),
+    path('dashboard/', DashboardRedirectView.as_view(), name='dashboard_hub'),
+
+    path('dashboard/candidate/', CandidateDashboardView.as_view(), name='candidate_dashboard'),
+    path('dashboard/employer/', EmployerDashboardView.as_view(), name='employer_dashboard'),
+
 ]

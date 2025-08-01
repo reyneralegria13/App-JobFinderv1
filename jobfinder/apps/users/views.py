@@ -1,5 +1,7 @@
 from django.shortcuts import render, redirect
 from django.views.generic import TemplateView, CreateView
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.views import View
 from django.urls import reverse_lazy
 
 from .models import CandidateProfile, EmployerProfile, User
@@ -72,3 +74,31 @@ class EmployerSignUpView(CreateView):
         )
 
         return redirect(self.success_url)
+
+class DashboardRedirectView(LoginRequiredMixin, View):
+
+    def get(self, request, *args, **kwargs):
+        if request.user.user_type == User.UserType.CANDIDATE:
+            return redirect('candidate_dashboard')
+        elif request.user.user_type == User.UserType.EMPLOYER:
+            return redirect('employer_dashboard')
+        else:
+            return redirect('login')
+
+
+class CandidateDashboardView(LoginRequiredMixin, TemplateView):
+    template_name = 'users/candidate_dashboard.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['profile'] = self.request.user.candidateprofile
+        return context
+
+
+class EmployerDashboardView(LoginRequiredMixin, TemplateView):
+    template_name = 'users/employer_dashboard.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['profile'] = self.request.user.employerprofile
+        return context
