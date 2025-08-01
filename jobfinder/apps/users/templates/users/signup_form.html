@@ -1,56 +1,99 @@
 {% extends 'core/base.html' %}
 
 {% block title %}
-  Cadastro de 
-  {% if user_type == 'candidate' %}
-    Candidato
-  {% else %}
-    Empregador
-  {% endif %}
+  Cadastro de {% if user_type == 'candidate' %}Candidato{% else %}Empregador{% endif %}
 {% endblock %}
 
 {% block content %}
   <h2>
-    Cadastro de 
-    {% if user_type == 'candidate' %}
-      Candidato
-    {% else %}
-      Empregador
-    {% endif %}
+    Cadastro de {% if user_type == 'candidate' %}Candidato{% else %}Empregador{% endif %}
   </h2>
 
-  <form method="post">
-    {% csrf_token %} {{ form.as_p }} <button type="submit">Finalizar Cadastro</button>
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    <p>
+      {{ form.first_name.label_tag }}
+      {{ form.first_name }}
+      {{ form.first_name.errors }}
+    </p>
+    <p>
+      {{ form.last_name.label_tag }}
+      {{ form.last_name }}
+      {{ form.last_name.errors }}
+    </p>
+    <p>
+      {{ form.birth_date.label_tag }}
+      {{ form.birth_date }}
+      {{ form.birth_date.errors }}
+    </p>
+    <p>
+      {{ form.phone_number.label_tag }}
+      {{ form.phone_number }}
+      {{ form.phone_number.errors }}
+    </p>
+    <p>
+      {{ form.cep.label_tag }}
+      {{ form.cep }}
+      {{ form.cep.errors }}
+    </p>
+    <p>
+      {{ form.cpf.label_tag }}
+      {{ form.cpf }}
+      {{ form.cpf.errors }}
+    </p>
+    <p>
+      {{ form.resume.label_tag }}
+      {{ form.resume }}
+      {{ form.resume.errors }}
+    </p>
+
+    <hr>
+    <p><strong>Crie suas credenciais de acesso:</strong></p>
+    
+    <p>
+      {{ form.email.label_tag }}
+      {{ form.email }}
+      {{ form.email.errors }}
+    </p>
+    <p>
+      {{ form.password.label_tag }}
+      {{ form.password }}
+      {{ form.password.errors }}
+    </p>
+    
+    {{ form.non_field_errors }}
+
+    <br>
+    <button type="submit">Finalizar Cadastro</button>
   </form>
 {% endblock %}
 
 {% block scripts %}
-<script src="https://unpkg.com/imask"></script>
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const dateElement = document.getElementById('id_birth_date');
-    if (dateElement) {
-      IMask(dateElement, { mask: '00/00/0000' });
-      
-    }
-
-    const cpfElement = document.getElementById('id_cpf');
-    if (cpfElement) {
-      IMask(cpfElement, { mask: '000.000.000-00' });
-    }
-    const cepElement = document.getElementById('id_cep');
-    if (cepElement) {
-      IMask(cepElement, { mask: '00000-000' });
-    }
-    const phoneElement = document.getElementById('id_phone_number');
-    if (phoneElement) {
-        IMask(phoneElement, {
-            mask: [
-                { mask: '(00) 0000-0000' },
-                { mask: '(00) 00000-0000' }
-            ]
-        });
-    }
-  });
-</script>
+  <script src="https://unpkg.com/imask"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const dateElement = document.getElementById('id_birth_date');
+      if (dateElement) {
+        IMask(dateElement, { mask: '00/00/0000' });
+      }
+      const cpfElement = document.getElementById('id_cpf');
+      if (cpfElement) {
+        IMask(cpfElement, { mask: '000.000.000-00' });
+      }
+      const cepElement = document.getElementById('id_cep');
+      if (cepElement) {
+        IMask(cepElement, { mask: '00000-000' });
+      }
+      const phoneElement = document.getElementById('id_phone_number');
+      if (phoneElement) {
+          IMask(phoneElement, {
+              mask: [
+                  { mask: '(00) 0000-0000' },
+                  { mask: '(00) 00000-0000' }
+              ]
+          });
+      }
+    });
+  </script>
 {% endblock %}
