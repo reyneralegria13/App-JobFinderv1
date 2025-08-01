@@ -42,9 +42,13 @@ venv.bak/
 *.pot
 *.pyc
 *__pycache__
-db.sqlite3
-db.sqlite
+*db.sqlite3
+*db.sqlite
 media
+
+
+jobfinder\db.sqlite
+jobfinder\db.sqlite3
 
 # SSL Certificates #
 certs/*

@@ -45,9 +45,23 @@ class CandidateSignUpForm(forms.ModelForm):
 
 
 class EmployerSignUpForm(forms.ModelForm):
-    password = forms.CharField(widget=forms.PasswordInput(), label="Senha")
     company_name = forms.CharField(max_length=255, label="Nome da Empresa")
+    cnpj = forms.CharField(max_length=18, label="CNPJ", required=False)
+    website = forms.URLField(label="Website", required=False)
+    phone_company = forms.CharField(max_length=15, label="Telefone da Empresa", required=False)
+    
+    def clean_cnpj(self):
+        cnpj = self.cleaned_data.get('cnpj')
+        if cnpj:
+            return re.sub(r'\D', '', cnpj)
+        return cnpj
 
+    def clean_phone_company(self):
+        phone_company = self.cleaned_data.get('pphone_company')
+        if phone_company:
+            return re.sub(r'\D', '', phone_company)
+        return phone_company
+    
     class Meta:
         model = User
-        fields = ['first_name', 'last_name', 'email', 'password']
+        fields = ['email', 'password']

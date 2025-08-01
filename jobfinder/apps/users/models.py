@@ -44,6 +44,8 @@ class CandidateProfile(models.Model):
 class EmployerProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True)
     company_name = models.CharField('Nome da Empresa', max_length=255)
+    cnpj = models.CharField('CNPJ', max_length=18, blank=True, unique=True, null=True)
+    phone_company = models.CharField('Telefone da Empresa', max_length=15, blank=True)
     website = models.URLField('Website', blank=True)
     # adicionar o restante depois (ex: cnpj, etc)
 

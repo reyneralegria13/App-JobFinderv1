@@ -28,14 +28,12 @@
 <script src="https://unpkg.com/imask"></script>
 <script>
   document.addEventListener('DOMContentLoaded', () => {
-    // Máscara de Data
     const dateElement = document.getElementById('id_birth_date');
     if (dateElement) {
       IMask(dateElement, { mask: '00/00/0000' });
       
     }
 
-    // Máscaras de CPF, CEP e Telefone (como antes)
     const cpfElement = document.getElementById('id_cpf');
     if (cpfElement) {
       IMask(cpfElement, { mask: '000.000.000-00' });
