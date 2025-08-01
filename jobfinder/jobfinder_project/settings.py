@@ -102,13 +102,22 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+# --- Configurações de Autenticação ---
+LOGIN_REDIRECT_URL = '/dashboard/'
+
+# A URL da página de login.
+LOGIN_URL = 'login'
+
+# A URL da página de logout.
+LOGOUT_URL = 'logout'
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/5.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'pt-br'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'America/Manaus'
 
 USE_I18N = True
 
