@@ -1,0 +1,35 @@
+{% extends 'core/base.html' %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+  <h2>Acesse sua Conta</h2>
+
+  <form method="post">
+    {% csrf_token %}
+
+    {% if form.errors %}
+      <p style="color: red;">Seu e-mail ou senha estão incorretos. Por favor, tente novamente.</p>
+    {% endif %}
+
+    <p>
+      <label for="id_username">E-mail:</label>
+      <input type="email" name="username" autofocus autocapitalize="none" autocomplete="email" maxlength="254" required id="id_username">
+    </p>
+    <p>
+      <label for="id_password">Senha:</label>
+      <input type="password" name="password" autocomplete="current-password" required id="id_password">
+    </p>
+
+    <button type="submit">Entrar</button>
+  </form>
+
+  <hr>
+  <p>
+    <a href="#">Esqueceu sua senha?</a>
+  </p>
+  <p>
+    Ainda não tem uma conta? <a href="{% url 'signup_choice' %}">Cadastre-se</a>
+  </p>
+
+{% endblock %}

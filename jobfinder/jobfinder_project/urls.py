@@ -21,6 +21,6 @@ from apps.users.views import SignUpChoiceView
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', SignUpChoiceView.as_view(), name='signup_choice'),
-    path('accounts/', include('django.contrib.auth.urls')),
+    #path('accounts/', include('django.contrib.auth.urls')),
     path('accounts/', include('apps.users.urls')),
 ]
